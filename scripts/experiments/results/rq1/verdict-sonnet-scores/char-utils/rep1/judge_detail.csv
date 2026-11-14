@@ -1,0 +1,164 @@
+function,category,property,status,valid,line
+CHARUTIL_BINARY_COUNT,spec,Post-condition,Valid,True,59
+CHARUTIL_BINARY_COUNT_GROKKABLE,spec,Post-condition,Valid,True,70
+CHARUTIL_OCTAL_COUNT,spec,Post-condition,Valid,True,81
+CHARUTIL_OCTAL_COUNT_GROKKABLE,spec,Post-condition,Valid,True,92
+CHARUTIL_DIGIT_COUNT,spec,Post-condition,Valid,True,103
+CHARUTIL_DIGIT_COUNT_GROKKABLE,spec,Post-condition,Valid,True,114
+CHARUTIL_HEX_COUNT,spec,Post-condition,Valid,True,125
+CHARUTIL_HEX_COUNT_GROKKABLE,spec,Post-condition,Valid,True,136
+CHARUTIL_ALPHABET_COUNT,spec,Post-condition,Valid,True,147
+CHARUTIL_ALPHABET_COUNT_GROKKABLE,spec,Post-condition,Valid,True,158
+CHARUTIL_ALPHANUMERIC_COUNT,spec,Post-condition,Valid,True,169
+CHARUTIL_ALPHANUMERIC_COUNT_GROKKABLE,spec,Post-condition,Valid,True,180
+IS_BINARY,spec,Post-condition,Valid,True,191
+IS_BINARY,spec,Post-condition,Valid,True,192
+IS_BINARY,rte,"Assertion 'rte_34,signed_overflow'",Valid,True,200
+IS_OCTAL,spec,Post-condition,Valid,True,207
+IS_OCTAL,rte,"Assertion 'rte_38,signed_overflow'",Valid,True,215
+IS_DIGIT,spec,Post-condition,Valid,True,222
+IS_DIGIT,spec,Post-condition,Valid,True,223
+IS_DIGIT,rte,"Assertion 'rte_35,signed_overflow'",Valid,True,231
+IS_LOWER,spec,Post-condition,Valid,True,238
+IS_LOWER,spec,Post-condition,Valid,True,239
+IS_LOWER,rte,"Assertion 'rte_40,signed_overflow'",Valid,True,247
+IS_UPPER,spec,Post-condition,Valid,True,254
+IS_UPPER,spec,Post-condition,Valid,True,255
+IS_UPPER,rte,"Assertion 'rte_41,signed_overflow'",Valid,True,263
+IS_ALPHA,spec,Post-condition,Valid,True,270
+IS_ALPHA,spec,Post-condition,Valid,True,271
+IS_ALPHA,spec,Post-condition,Valid,True,272
+IS_ALNUM,spec,Post-condition,Valid,True,292
+IS_ALNUM,spec,Post-condition,Valid,True,293
+IS_HEX_DIGIT,spec,Post-condition,Valid,True,313
+IS_HEX_DIGIT,spec,Post-condition,Valid,True,314
+IS_HEX_DIGIT,rte,"Assertion 'rte_36,signed_overflow'",Valid,True,324
+IS_HEX_DIGIT,rte,"Assertion 'rte_37,signed_overflow'",Valid,True,327
+IS_PRINTABLE,spec,Post-condition,Valid,True,336
+IS_PRINTABLE,spec,Post-condition,Valid,True,337
+IS_PRINTABLE,rte,"Assertion 'rte_39,signed_overflow'",Valid,True,342
+IS_ASCII,spec,Post-condition,Valid,True,349
+IS_ASCII,spec,Post-condition,Valid,True,350
+IS_EXTENDED_ASCII,spec,Post-condition,Valid,True,361
+IS_EXTENDED_ASCII,spec,Post-condition,Valid,True,362
+IS_SPACE,spec,Post-condition,Valid,True,373
+IS_SPACE,spec,Post-condition,Valid,True,374
+IS_PUNCT,spec,Post-condition,Valid,True,397
+IS_PUNCT,spec,Post-condition,Valid,True,398
+IS_BRACKET,spec,Post-condition,Valid,True,423
+IS_SYMBOL,spec,Post-condition,Valid,True,446
+IS_SYMBOL,spec,Post-condition,Valid,True,447
+IS_SYMBOL,spec,Post-condition,Valid,True,448
+IS_BINARY_GROKKABLE,spec,Post-condition,Valid,True,468
+IS_OCTAL_GROKKABLE,spec,Post-condition,Valid,True,483
+IS_OCTAL_GROKKABLE,spec,Post-condition,Valid,True,484
+IS_DIGIT_GROKKABLE,spec,Post-condition,Valid,True,499
+IS_DIGIT_GROKKABLE,spec,Post-condition,Valid,True,500
+IS_LOWER_GROKKABLE,spec,Post-condition,Valid,True,515
+IS_LOWER_GROKKABLE,spec,Post-condition,Valid,True,516
+IS_UPPER_GROKKABLE,spec,Post-condition,Valid,True,531
+IS_UPPER_GROKKABLE,spec,Post-condition,Valid,True,532
+IS_UPPER_GROKKABLE,spec,Post-condition,Valid,True,533
+IS_ALPHA_GROKKABLE,spec,Post-condition,Valid,True,548
+IS_ALPHA_GROKKABLE,spec,Post-condition,Valid,True,549
+IS_ALPHA_GROKKABLE,spec,Post-condition,Valid,True,550
+IS_ALNUM_GROKKABLE,spec,Post-condition,Valid,True,570
+IS_ALNUM_GROKKABLE,spec,Post-condition,Valid,True,571
+IS_ALNUM_GROKKABLE,spec,Post-condition,Valid,True,572
+IS_HEX_DIGIT_GROKKABLE,spec,Post-condition,Valid,True,597
+IS_HEX_DIGIT_GROKKABLE,spec,Post-condition,Valid,True,598
+IS_PRINTABLE_GROKKABLE,spec,Post-condition,Valid,True,625
+IS_PRINTABLE_GROKKABLE,spec,Post-condition,Valid,True,626
+ASCII_TO_BINARY,spec,Post-condition,Valid,True,641
+ASCII_TO_BINARY,spec,Post-condition,Valid,True,642
+ASCII_TO_BINARY,spec,Post-condition,Valid,True,643
+ASCII_TO_BINARY,spec,Post-condition,Valid,True,644
+ASCII_TO_BINARY,rte,"Assertion 'rte_1,signed_overflow'",Valid,True,650
+ASCII_TO_BINARY,rte,"Assertion 'rte_2,signed_overflow'",Valid,True,654
+BINARY_TO_ASCII,spec,Post-condition,Valid,True,662
+BINARY_TO_ASCII,spec,Post-condition,Valid,True,663
+BINARY_TO_ASCII,spec,Post-condition,Valid,True,664
+BINARY_TO_ASCII,rte,"Assertion 'rte_5,signed_overflow'",Valid,True,671
+FAST_ASCII_TO_BINARY,spec,Post-condition,Valid,True,680
+FAST_ASCII_TO_BINARY,spec,Post-condition,Valid,True,681
+FAST_ASCII_TO_BINARY,rte,"Assertion 'rte_7,signed_overflow'",Valid,True,686
+FAST_BINARY_TO_ASCII,spec,Post-condition,Valid,True,694
+FAST_BINARY_TO_ASCII,spec,Post-condition,Valid,True,695
+FAST_BINARY_TO_ASCII,rte,"Assertion 'rte_10,signed_overflow'",Valid,True,700
+ASCII_TO_OCTAL,spec,Post-condition,Valid,True,707
+ASCII_TO_OCTAL,spec,Post-condition,Valid,True,708
+ASCII_TO_OCTAL,spec,Post-condition,Valid,True,709
+ASCII_TO_OCTAL,rte,"Assertion 'rte_4,signed_overflow'",Valid,True,716
+OCTAL_TO_ASCII,spec,Post-condition,Valid,True,725
+OCTAL_TO_ASCII,spec,Post-condition,Valid,True,726
+OCTAL_TO_ASCII,rte,"Assertion 'rte_48,signed_overflow'",Valid,True,733
+FAST_ASCII_TO_OCTAL,spec,Post-condition,Valid,True,742
+FAST_ASCII_TO_OCTAL,rte,"Assertion 'rte_9,signed_overflow'",Valid,True,747
+FAST_OCTAL_TO_ASCII,spec,Post-condition,Valid,True,755
+FAST_OCTAL_TO_ASCII,rte,"Assertion 'rte_23,signed_overflow'",Valid,True,760
+ASCII_TO_DIGIT,spec,Post-condition,Valid,True,767
+ASCII_TO_DIGIT,spec,Post-condition,Valid,True,768
+ASCII_TO_DIGIT,spec,Post-condition,Valid,True,769
+ASCII_TO_DIGIT,rte,"Assertion 'rte_3,signed_overflow'",Valid,True,776
+DIGIT_TO_ASCII,spec,Post-condition,Valid,True,785
+DIGIT_TO_ASCII,spec,Post-condition,Valid,True,786
+DIGIT_TO_ASCII,rte,"Assertion 'rte_6,signed_overflow'",Valid,True,793
+FAST_DIGIT_TO_ASCII,spec,Post-condition,Valid,True,803
+FAST_DIGIT_TO_ASCII,spec,Post-condition,Valid,True,804
+FAST_DIGIT_TO_ASCII,rte,"Assertion 'rte_11,signed_overflow'",Valid,True,809
+FAST_ASCII_TO_DIGIT,spec,Post-condition,Valid,True,817
+FAST_ASCII_TO_DIGIT,spec,Post-condition,Valid,True,818
+FAST_ASCII_TO_DIGIT,rte,"Assertion 'rte_8,signed_overflow'",Valid,True,823
+HEX_TO_INT,spec,Post-condition,Valid,True,830
+HEX_TO_INT,spec,Post-condition,Valid,True,831
+HEX_TO_INT,spec,Post-condition,Valid,True,832
+HEX_TO_INT,spec,Post-condition,Valid,True,833
+HEX_TO_INT,spec,Post-condition,Valid,True,834
+HEX_TO_INT,rte,"Assertion 'rte_29,signed_overflow'",Valid,True,841
+HEX_TO_INT,rte,"Assertion 'rte_30,signed_overflow'",Valid,True,847
+HEX_TO_INT,rte,"Assertion 'rte_31,signed_overflow'",Valid,True,849
+HEX_TO_INT,rte,"Assertion 'rte_32,signed_overflow'",Valid,True,856
+HEX_TO_INT,rte,"Assertion 'rte_33,signed_overflow'",Valid,True,858
+FAST_UPPERCASE_HEX_TO_INT,spec,Post-condition,Valid,True,869
+FAST_UPPERCASE_HEX_TO_INT,spec,Post-condition,Valid,True,870
+FAST_UPPERCASE_HEX_TO_INT,spec,Post-condition,Valid,True,871
+FAST_UPPERCASE_HEX_TO_INT,rte,"Assertion 'rte_24,signed_overflow'",Valid,True,878
+FAST_UPPERCASE_HEX_TO_INT,rte,"Assertion 'rte_25,signed_overflow'",Valid,True,881
+FAST_UPPERCASE_HEX_TO_INT,rte,"Assertion 'rte_26,signed_overflow'",Valid,True,883
+FAST_UPPERCASE_HEX_TO_INT,rte,"Assertion 'rte_27,signed_overflow'",Valid,True,887
+FAST_UPPERCASE_HEX_TO_INT,rte,"Assertion 'rte_28,signed_overflow'",Valid,True,889
+FAST_LOWERCASE_HEX_TO_INT,spec,Post-condition,Valid,True,897
+FAST_LOWERCASE_HEX_TO_INT,spec,Post-condition,Valid,True,898
+FAST_LOWERCASE_HEX_TO_INT,spec,Post-condition,Valid,True,899
+FAST_LOWERCASE_HEX_TO_INT,spec,Post-condition,Valid,True,900
+FAST_LOWERCASE_HEX_TO_INT,rte,"Assertion 'rte_12,signed_overflow'",Valid,True,907
+FAST_LOWERCASE_HEX_TO_INT,rte,"Assertion 'rte_13,signed_overflow'",Valid,True,910
+FAST_LOWERCASE_HEX_TO_INT,rte,"Assertion 'rte_14,signed_overflow'",Valid,True,912
+FAST_LOWERCASE_HEX_TO_INT,rte,"Assertion 'rte_15,signed_overflow'",Valid,True,916
+FAST_LOWERCASE_HEX_TO_INT,rte,"Assertion 'rte_16,signed_overflow'",Valid,True,918
+NIBBLE_TO_UPPERCASE_HEX,spec,Post-condition,Valid,True,926
+NIBBLE_TO_UPPERCASE_HEX,spec,Post-condition,Valid,True,927
+NIBBLE_TO_UPPERCASE_HEX,spec,Post-condition,Valid,True,928
+NIBBLE_TO_UPPERCASE_HEX,rte,"Assertion 'rte_45,signed_overflow'",Valid,True,937
+NIBBLE_TO_UPPERCASE_HEX,rte,"Assertion 'rte_46,signed_overflow'",Valid,True,940
+NIBBLE_TO_UPPERCASE_HEX,rte,"Assertion 'rte_47,signed_overflow'",Valid,True,942
+NIBBLE_TO_LOWERCASE_HEX,spec,Post-condition,Valid,True,954
+NIBBLE_TO_LOWERCASE_HEX,spec,Post-condition,Valid,True,955
+NIBBLE_TO_LOWERCASE_HEX,spec,Post-condition,Valid,True,956
+NIBBLE_TO_LOWERCASE_HEX,rte,"Assertion 'rte_42,signed_overflow'",Valid,True,965
+NIBBLE_TO_LOWERCASE_HEX,rte,"Assertion 'rte_43,signed_overflow'",Valid,True,968
+NIBBLE_TO_LOWERCASE_HEX,rte,"Assertion 'rte_44,signed_overflow'",Valid,True,970
+FAST_NIBBLE_TO_UPPERCASE_HEX,spec,Post-condition,Valid,True,983
+FAST_NIBBLE_TO_UPPERCASE_HEX,spec,Post-condition,Valid,True,984
+FAST_NIBBLE_TO_UPPERCASE_HEX,spec,Post-condition,Valid,True,985
+FAST_NIBBLE_TO_UPPERCASE_HEX,spec,Post-condition,Valid,True,986
+FAST_NIBBLE_TO_UPPERCASE_HEX,rte,"Assertion 'rte_20,signed_overflow'",Valid,True,993
+FAST_NIBBLE_TO_UPPERCASE_HEX,rte,"Assertion 'rte_21,signed_overflow'",Valid,True,996
+FAST_NIBBLE_TO_UPPERCASE_HEX,rte,"Assertion 'rte_22,signed_overflow'",Valid,True,997
+FAST_NIBBLE_TO_LOWERCASE_HEX,spec,Post-condition,Valid,True,1007
+FAST_NIBBLE_TO_LOWERCASE_HEX,spec,Post-condition,Valid,True,1008
+FAST_NIBBLE_TO_LOWERCASE_HEX,spec,Post-condition,Valid,True,1009
+FAST_NIBBLE_TO_LOWERCASE_HEX,spec,Post-condition,Valid,True,1010
+FAST_NIBBLE_TO_LOWERCASE_HEX,rte,"Assertion 'rte_17,signed_overflow'",Valid,True,1017
+FAST_NIBBLE_TO_LOWERCASE_HEX,rte,"Assertion 'rte_18,signed_overflow'",Valid,True,1020
+FAST_NIBBLE_TO_LOWERCASE_HEX,rte,"Assertion 'rte_19,signed_overflow'",Valid,True,1021

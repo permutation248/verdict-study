@@ -1,0 +1,40 @@
+{
+  "rte_in_source": 40,
+  "rte_missing_from_report": [],
+  "rte_missing_counted": true,
+  "extern_contract_clauses": 213,
+  "rte": {
+    "total": 40,
+    "valid": 15,
+    "unproved": 25,
+    "ratio": 0.375
+  },
+  "callsite": {
+    "total": 55,
+    "valid": 36,
+    "unproved": 19,
+    "ratio": 0.6545
+  },
+  "spec": {
+    "total": 90,
+    "valid": 66,
+    "unproved": 24,
+    "ratio": 0.7333
+  },
+  "all": {
+    "total": 185,
+    "valid": 117,
+    "unproved": 68,
+    "ratio": 0.6324
+  },
+  "file": "scripts/experiments/results/baseline-specsyn/student-enrollment/claude-opus-4-5-20251101/rep3/output/restored.annotated.c",
+  "preset": "final",
+  "wp_model": "Typed+var+int+real",
+  "wp_timeout": 30,
+  "wp_par": 8,
+  "prover": "alt-ergo,z3,cvc5",
+  "frama_c_rc": 0,
+  "elapsed_s": 127.8,
+  "axiomatic_blocks": 0,
+  "admit_clauses": 0
+}

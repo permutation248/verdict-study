@@ -1,0 +1,40 @@
+{
+  "file": "/home/anon/VERDICT/scripts/experiments/results/baseline-specsyn/sokol-shape/claude-sonnet-4-6/rep2/output/restored.annotated.c",
+  "preset": "final",
+  "wp_model": "Typed+var+int+real",
+  "wp_timeout": 30,
+  "wp_par": 8,
+  "prover": "alt-ergo,z3,cvc5",
+  "frama_c_rc": 0,
+  "elapsed_s": 138.1,
+  "axiomatic_blocks": 0,
+  "admit_clauses": 0,
+  "extern_contract_clauses": 0,
+  "rte_in_source": 166,
+  "rte_missing_from_report": [],
+  "rte_missing_counted": true,
+  "rte": {
+    "total": 166,
+    "valid": 152,
+    "unproved": 14,
+    "ratio": 0.9157
+  },
+  "callsite": {
+    "total": 567,
+    "valid": 562,
+    "unproved": 5,
+    "ratio": 0.9912
+  },
+  "spec": {
+    "total": 343,
+    "valid": 338,
+    "unproved": 5,
+    "ratio": 0.9854
+  },
+  "all": {
+    "total": 1076,
+    "valid": 1052,
+    "unproved": 24,
+    "ratio": 0.9777
+  }
+}

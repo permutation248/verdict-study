@@ -1,0 +1,22 @@
+
+# pycache
+__pycache__/
+
+# logs — run dirs are local-only; curated runs + analysis docs are force-added
+logs/
+# failed/aborted runs: keep local, never commit
+logs/archive/
+
+# secrets
+.env
+
+# generated per-machine (by build.sh)
+src/verdict/preprocessing/bindings/build_config.sh
+
+# dune build artifacts
+_build/
+
+CLAUDE.md
+reference_implementation/
+.claude/
+docs/

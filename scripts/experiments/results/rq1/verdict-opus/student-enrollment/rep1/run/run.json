@@ -1,0 +1,1226 @@
+{
+  "id": "student_enrollment_20260617_093724",
+  "source_file": "benchmarks/util-libs/student-enrollment/student_enrollment.c",
+  "started_at": "2026-06-17T09:37:25.193+00:00",
+  "finished_at": "2026-06-17T09:41:54.462+00:00",
+  "status": "completed",
+  "config": {
+    "scope": "global",
+    "timeout": 43200.0,
+    "model": "claude-opus-4-5-20251101",
+    "max_turns": 30,
+    "max_parallel": 8,
+    "schedule": "leaf-first",
+    "max_cycles_per_agent": 24,
+    "requested_functions": [],
+    "enable_ablation_deps": false,
+    "ablation": [],
+    "wp_model": "Typed+var+int+real"
+  },
+  "agents": {
+    "lateEnrollment": {
+      "agent_id": "agent_lateEnrollment",
+      "function_name": "lateEnrollment",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "lateEnrollment",
+        "preconditions": [
+          "requires tuitionBalance <= 0;",
+          "requires enrollmentCredits >= 0;",
+          "requires enrollmentCredits <= 10000000;",
+          "requires costPerCredit == 200;"
+        ],
+        "postconditions": [
+          "ensures tuitionBalance == \\old(tuitionBalance) + \\old(enrollmentCredits) * 212;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns tuitionBalance;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 10,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_10": "verified",
+          "rte_11": "verified",
+          "rte_12": "verified",
+          "rte_13": "verified",
+          "rte_14": "verified",
+          "rte_15": "verified",
+          "rte_16": "verified",
+          "rte_17": "verified",
+          "rte_18": "verified",
+          "rte_19": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "3b362ccf-7ae4-4ace-b419-14869e200f3f",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "regularEnrollment": {
+      "agent_id": "agent_regularEnrollment",
+      "function_name": "regularEnrollment",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "regularEnrollment",
+        "preconditions": [
+          "requires tuitionBalance <= 0;",
+          "requires enrollmentCredits * costPerCredit >= -2147483648;",
+          "requires enrollmentCredits * costPerCredit <= 2147483647;",
+          "requires tuitionBalance + enrollmentCredits * costPerCredit >= -2147483648;",
+          "requires tuitionBalance + enrollmentCredits * costPerCredit <= 2147483647;"
+        ],
+        "postconditions": [
+          "ensures tuitionBalance == \\old(tuitionBalance) + \\old(enrollmentCredits) * costPerCredit;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns tuitionBalance;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 4,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_20": "verified",
+          "rte_21": "verified",
+          "rte_22": "verified",
+          "rte_23": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "e5cd2590-a002-42f3-9b73-43dee8b5769a",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "enroll": {
+      "agent_id": "agent_enroll",
+      "function_name": "enroll",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "enroll",
+        "preconditions": [
+          "requires tuitionBalance <= 0;",
+          "requires enrollmentCredits >= 0;",
+          "requires enrollmentCredits <= 10000000;",
+          "requires costPerCredit == 200;",
+          "requires enrollmentCredits * costPerCredit >= -2147483648;",
+          "requires enrollmentCredits * costPerCredit <= 2147483647;",
+          "requires tuitionBalance + enrollmentCredits * costPerCredit >= -2147483648;",
+          "requires tuitionBalance + enrollmentCredits * costPerCredit <= 2147483647;"
+        ],
+        "postconditions": [],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns tuitionBalance;"
+        ],
+        "version": 2,
+        "status": "published",
+        "based_on_versions": {
+          "lateEnrollment": 1,
+          "regularEnrollment": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "lateEnrollment": {
+            "depends": false,
+            "clauses": null
+          },
+          "regularEnrollment": {
+            "depends": false,
+            "clauses": null
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "lateEnrollment": [
+            "requires costPerCredit == 200;",
+            "requires enrollmentCredits <= 10000000;",
+            "requires enrollmentCredits >= 0;",
+            "requires tuitionBalance <= 0;"
+          ],
+          "regularEnrollment": [
+            "requires enrollmentCredits * costPerCredit <= 2147483647;",
+            "requires enrollmentCredits * costPerCredit >= -2147483648;",
+            "requires tuitionBalance + enrollmentCredits * costPerCredit <= 2147483647;",
+            "requires tuitionBalance + enrollmentCredits * costPerCredit >= -2147483648;",
+            "requires tuitionBalance <= 0;"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 2,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 1,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 9,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_24": "verified",
+          "call_site_1_0": "verified",
+          "call_site_1_1": "verified",
+          "call_site_1_2": "verified",
+          "call_site_1_3": "verified",
+          "call_site_2_0": "verified",
+          "call_site_2_1": "verified",
+          "call_site_2_2": "verified",
+          "call_site_2_3": "verified",
+          "call_site_2_4": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "lateEnrollment",
+        "regularEnrollment"
+      ],
+      "session_id": "d578bfe5-05af-4fdf-bcbe-ca75b59514eb",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "setTuitionBalance": {
+      "agent_id": "agent_setTuitionBalance",
+      "function_name": "setTuitionBalance",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "setTuitionBalance",
+        "preconditions": [
+          "requires maxSemesterCredits == 20;",
+          "requires costPerCredit == 200;"
+        ],
+        "postconditions": [
+          "ensures balance <= maxSemesterCredits * costPerCredit + maxSemesterCredits * ((costPerCredit / 100) * 6) ==> tuitionBalance == balance;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns tuitionBalance;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 8,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_2": "verified",
+          "rte_3": "verified",
+          "rte_4": "verified",
+          "rte_5": "verified",
+          "rte_6": "verified",
+          "rte_7": "verified",
+          "rte_8": "verified",
+          "rte_9": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "22580363-ef64-4695-bafb-b5f37dca4fea",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "setPassedCredits": {
+      "agent_id": "agent_setPassedCredits",
+      "function_name": "setPassedCredits",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "setPassedCredits",
+        "preconditions": [
+          "requires credits >= 0;",
+          "requires credits <= totalCredits;"
+        ],
+        "postconditions": [
+          "ensures passedCredits == credits;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns passedCredits;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {}
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "44c696f7-db87-4f7d-b39f-e9c639bb0872",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "setEnrollmentCredits": {
+      "agent_id": "agent_setEnrollmentCredits",
+      "function_name": "setEnrollmentCredits",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "setEnrollmentCredits",
+        "preconditions": [
+          "requires credits >= 0;",
+          "requires credits <= maxSemesterCredits;"
+        ],
+        "postconditions": [
+          "ensures enrollmentCredits == credits;",
+          "ensures credits >= 0 && credits <= maxSemesterCredits;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns enrollmentCredits;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {}
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "2895fdb1-1849-40c7-931a-92b0908cae94",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "setLateRegistration": {
+      "agent_id": "agent_setLateRegistration",
+      "function_name": "setLateRegistration",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "setLateRegistration",
+        "preconditions": [],
+        "postconditions": [
+          "ensures lateRegistration == isLate;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns lateRegistration;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {}
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "26f060cc-8282-4be5-965e-f8c5d0785a8e",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "validPayment": {
+      "agent_id": "agent_validPayment",
+      "function_name": "validPayment",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "validPayment",
+        "preconditions": [],
+        "postconditions": [
+          "ensures \\result == (payment > 0);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {}
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "9985a0be-316a-4f1d-bb41-913105f76802",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "payTuitionWithDebitCard": {
+      "agent_id": "agent_payTuitionWithDebitCard",
+      "function_name": "payTuitionWithDebitCard",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "payTuitionWithDebitCard",
+        "preconditions": [
+          "requires payment > 0;",
+          "requires tuitionBalance >= payment;",
+          "requires tuitionBalance - payment >= -2147483648;",
+          "requires tuitionBalance - payment <= 2147483647;"
+        ],
+        "postconditions": [
+          "ensures tuitionBalance == \\old(tuitionBalance) - payment;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns tuitionBalance;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {
+          "validPayment": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "validPayment": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result == (payment > 0);"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 2,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 2,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 1,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_25": "verified",
+          "rte_26": "verified",
+          "call_site_3": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "validPayment"
+      ],
+      "session_id": "ec3efe4a-537f-4630-8767-26ddc3fbaa8f",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "payTuitionWithCreditCard": {
+      "agent_id": "agent_payTuitionWithCreditCard",
+      "function_name": "payTuitionWithCreditCard",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "payTuitionWithCreditCard",
+        "preconditions": [
+          "requires payment >= 0;",
+          "requires tuitionBalance >= -2147483648 + payment;"
+        ],
+        "postconditions": [
+          "ensures tuitionBalance <= \\old(tuitionBalance);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns tuitionBalance;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {
+          "validPayment": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "validPayment": {
+            "depends": false,
+            "clauses": null
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 2,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 6,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 1,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_27": "verified",
+          "rte_28": "verified",
+          "rte_29": "verified",
+          "rte_30": "verified",
+          "rte_31": "verified",
+          "rte_32": "verified",
+          "call_site_4": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "validPayment"
+      ],
+      "session_id": "eb39523a-0a65-4d94-a303-5cb0c6a6a39f",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "pay": {
+      "agent_id": "agent_pay",
+      "function_name": "pay",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "pay",
+        "preconditions": [
+          "requires debit ==> payment > 0;",
+          "requires debit ==> tuitionBalance >= payment;",
+          "requires debit ==> tuitionBalance - payment >= -2147483648;",
+          "requires debit ==> tuitionBalance - payment <= 2147483647;",
+          "requires !debit ==> payment >= 0;",
+          "requires !debit ==> tuitionBalance >= -2147483648 + payment;"
+        ],
+        "postconditions": [
+          "ensures debit ==> tuitionBalance == \\old(tuitionBalance) - payment;",
+          "ensures !debit ==> tuitionBalance <= \\old(tuitionBalance);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns tuitionBalance;"
+        ],
+        "version": 2,
+        "status": "published",
+        "based_on_versions": {
+          "payTuitionWithDebitCard": 1,
+          "payTuitionWithCreditCard": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "payTuitionWithDebitCard": {
+            "depends": true,
+            "clauses": [
+              "ensures tuitionBalance == \\old(tuitionBalance) - payment;"
+            ]
+          },
+          "payTuitionWithCreditCard": {
+            "depends": true,
+            "clauses": [
+              "ensures tuitionBalance <= \\old(tuitionBalance);"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "payTuitionWithDebitCard": [
+            "requires payment > 0;",
+            "requires tuitionBalance - payment <= 2147483647;",
+            "requires tuitionBalance - payment >= -2147483648;",
+            "requires tuitionBalance >= payment;"
+          ],
+          "payTuitionWithCreditCard": [
+            "requires payment >= 0;",
+            "requires tuitionBalance >= -2147483648 + payment;"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 2,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 6,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "call_site_5_0": "verified",
+          "call_site_5_1": "verified",
+          "call_site_5_2": "verified",
+          "call_site_5_3": "verified",
+          "call_site_6_0": "verified",
+          "call_site_6_1": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "payTuitionWithDebitCard",
+        "payTuitionWithCreditCard"
+      ],
+      "session_id": "1b1a1bf9-324a-4bfc-87f7-84eb591b0f0f",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "enrollmentProcess": {
+      "agent_id": "agent_enrollmentProcess",
+      "function_name": "enrollmentProcess",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "enrollmentProcess",
+        "preconditions": [
+          "requires maxSemesterCredits == 20;",
+          "requires costPerCredit == 200;",
+          "requires totalCredits == 120;",
+          "requires debit ==> payment > 0;",
+          "requires debit ==> initBalance >= payment;",
+          "requires debit ==> initBalance - payment >= -2147483648;",
+          "requires debit ==> initBalance - payment <= 2147483647;",
+          "requires !debit ==> payment >= 0;",
+          "requires !debit ==> initBalance >= -2147483648 + payment;",
+          "requires option ==> initBalance <= 0;",
+          "requires option ==> sCredits * costPerCredit >= -2147483648;",
+          "requires option ==> sCredits * costPerCredit <= 2147483647;",
+          "requires option ==> initBalance + sCredits * costPerCredit >= -2147483648;",
+          "requires option ==> initBalance + sCredits * costPerCredit <= 2147483647;"
+        ],
+        "postconditions": [],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns tuitionBalance, passedCredits, enrollmentCredits, lateRegistration;"
+        ],
+        "version": 3,
+        "status": "published",
+        "based_on_versions": {
+          "setTuitionBalance": 1,
+          "setPassedCredits": 1,
+          "setEnrollmentCredits": 1,
+          "setLateRegistration": 1,
+          "enroll": 2,
+          "pay": 2
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "enroll": {
+            "depends": false,
+            "clauses": null
+          },
+          "pay": {
+            "depends": false,
+            "clauses": null
+          },
+          "setEnrollmentCredits": {
+            "depends": true,
+            "clauses": [
+              "ensures enrollmentCredits == credits;"
+            ]
+          },
+          "setLateRegistration": {
+            "depends": false,
+            "clauses": null
+          },
+          "setPassedCredits": {
+            "depends": false,
+            "clauses": null
+          },
+          "setTuitionBalance": {
+            "depends": true,
+            "clauses": [
+              "ensures balance <= maxSemesterCredits * costPerCredit + maxSemesterCredits * ((costPerCredit / 100) * 6) ==> tuitionBalance == balance;"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "setTuitionBalance": [
+            "requires costPerCredit == 200;",
+            "requires maxSemesterCredits == 20;"
+          ],
+          "setPassedCredits": [
+            "requires credits <= totalCredits;",
+            "requires credits >= 0;"
+          ],
+          "setEnrollmentCredits": [
+            "requires credits <= maxSemesterCredits;",
+            "requires credits >= 0;"
+          ],
+          "enroll": [
+            "requires costPerCredit == 200;",
+            "requires enrollmentCredits * costPerCredit <= 2147483647;",
+            "requires enrollmentCredits * costPerCredit >= -2147483648;",
+            "requires enrollmentCredits <= 10000000;",
+            "requires enrollmentCredits >= 0;",
+            "requires tuitionBalance + enrollmentCredits * costPerCredit <= 2147483647;",
+            "requires tuitionBalance + enrollmentCredits * costPerCredit >= -2147483648;",
+            "requires tuitionBalance <= 0;"
+          ],
+          "pay": [
+            "requires !debit ==> payment >= 0;",
+            "requires !debit ==> tuitionBalance >= -2147483648 + payment;",
+            "requires debit ==> payment > 0;",
+            "requires debit ==> tuitionBalance - payment <= 2147483647;",
+            "requires debit ==> tuitionBalance - payment >= -2147483648;",
+            "requires debit ==> tuitionBalance >= payment;"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 3,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 8,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 21,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_33": "verified",
+          "rte_34": "verified",
+          "rte_35": "verified",
+          "rte_36": "verified",
+          "rte_37": "verified",
+          "rte_38": "verified",
+          "rte_39": "verified",
+          "rte_40": "verified",
+          "call_site_10": "verified",
+          "call_site_7_0": "verified",
+          "call_site_7_1": "verified",
+          "call_site_8_0": "verified",
+          "call_site_8_1": "verified",
+          "call_site_9_0": "verified",
+          "call_site_9_1": "verified",
+          "call_site_11_0": "verified",
+          "call_site_11_1": "verified",
+          "call_site_11_2": "verified",
+          "call_site_11_3": "verified",
+          "call_site_11_4": "verified",
+          "call_site_11_5": "verified",
+          "call_site_11_6": "verified",
+          "call_site_11_7": "verified",
+          "call_site_12_0": "verified",
+          "call_site_12_1": "verified",
+          "call_site_12_2": "verified",
+          "call_site_12_3": "verified",
+          "call_site_12_4": "verified",
+          "call_site_12_5": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "setTuitionBalance",
+        "setPassedCredits",
+        "setEnrollmentCredits",
+        "setLateRegistration",
+        "enroll",
+        "pay"
+      ],
+      "session_id": "61e9f2bd-a667-4ece-93fb-3659faf9d587",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "getEnrollmentCredits": {
+      "agent_id": "agent_getEnrollmentCredits",
+      "function_name": "getEnrollmentCredits",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "getEnrollmentCredits",
+        "preconditions": [],
+        "postconditions": [
+          "ensures \\result == enrollmentCredits;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {}
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "18860120-6ee6-45f6-a140-83d778dc26ae",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "getId": {
+      "agent_id": "agent_getId",
+      "function_name": "getId",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "getId",
+        "preconditions": [],
+        "postconditions": [
+          "ensures \\result == id;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {}
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "ca786f45-1467-490e-bd0d-e28f70364276",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "getLateRegistrations": {
+      "agent_id": "agent_getLateRegistrations",
+      "function_name": "getLateRegistrations",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "getLateRegistrations",
+        "preconditions": [],
+        "postconditions": [
+          "ensures \\result == lateRegistration;",
+          "ensures \\result == 0 || \\result == 1;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 1,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_1": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "f704ca48-18a6-4ef0-88c2-abb7681789ad",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "getPassedCredits": {
+      "agent_id": "agent_getPassedCredits",
+      "function_name": "getPassedCredits",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "getPassedCredits",
+        "preconditions": [],
+        "postconditions": [
+          "ensures \\result == passedCredits;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {}
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "5ed19990-2853-40cb-89e4-eb9d6678b88d",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "getTuition": {
+      "agent_id": "agent_getTuition",
+      "function_name": "getTuition",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "getTuition",
+        "preconditions": [],
+        "postconditions": [
+          "ensures \\result == tuitionBalance;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {}
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "1567dc82-a92f-433a-85d0-a50631f95ef7",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "init_StudentEnrollment": {
+      "agent_id": "agent_init_StudentEnrollment",
+      "function_name": "init_StudentEnrollment",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "init_StudentEnrollment",
+        "preconditions": [],
+        "postconditions": [
+          "ensures id == newId;",
+          "ensures passedCredits == 0;",
+          "ensures enrollmentCredits == 0;",
+          "ensures tuitionBalance == 0;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns id, passedCredits, enrollmentCredits, tuitionBalance;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {}
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "0b3a6c3b-fd39-4d22-b57b-56a37b93cf30",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "registrationPermission": {
+      "agent_id": "agent_registrationPermission",
+      "function_name": "registrationPermission",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "registrationPermission",
+        "preconditions": [],
+        "postconditions": [
+          "ensures \\result == (tuitionBalance <= 0);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {}
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "b7b45a89-1fb1-47bd-9c90-8d078ccb2277",
+      "settled_assumes": [],
+      "extern_axioms": []
+    }
+  },
+  "summary": {
+    "total": 19,
+    "global_ok": 19,
+    "local_ok": 0,
+    "dirty": 0,
+    "failed": 0,
+    "cycle_limited": 0,
+    "conditional_ok": 0,
+    "bugs": 0
+  }
+}

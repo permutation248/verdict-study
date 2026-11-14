@@ -1,0 +1,4308 @@
+{
+  "id": "x509-submodule-2_20260615_090741",
+  "source_file": "benchmarks/x509/submodule-2/x509-submodule-2.c",
+  "started_at": "2026-06-15T09:07:42.885+00:00",
+  "finished_at": "2026-06-15T10:34:05.597+00:00",
+  "status": "completed",
+  "config": {
+    "scope": "global",
+    "timeout": 43200.0,
+    "model": "claude-sonnet-4-6",
+    "max_turns": 30,
+    "max_parallel": 8,
+    "schedule": "leaf-first",
+    "max_cycles_per_agent": 24,
+    "requested_functions": [],
+    "enable_ablation_deps": false,
+    "ablation": [],
+    "wp_model": null
+  },
+  "agents": {
+    "_extract_complex_tag": {
+      "agent_id": "agent__extract_complex_tag",
+      "function_name": "_extract_complex_tag",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "_extract_complex_tag",
+        "preconditions": [
+          "requires \\valid(tag_num);",
+          "requires eaten != \\null ==> \\valid(eaten);",
+          "requires (buf != \\null && len > (u32)0) ==> \\valid_read(buf + (0 .. (len <= (u32)4 ? len - 1 : 3)));",
+          "requires \\separated(tag_num, eaten);"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result == -300468 || \\result == -300506 || \\result == -300512;",
+          "ensures \\result == 0 ==> *tag_num >= (u32)0x1f;",
+          "ensures \\result == 0 ==> *eaten >= (u32)1 && *eaten <= (u32)4;",
+          "ensures \\result == 0 ==> *eaten <= \\old(len);"
+        ],
+        "loop_contracts": {
+          "_extract_complex_tag_loop_0": [
+            "loop invariant 0 <= rbytes && rbytes <= len;",
+            "loop invariant (u32)1 <= len && len <= (u32)4;",
+            "loop invariant buf != \\null;",
+            "loop invariant \\valid_read(buf + (0 .. len - 1));",
+            "loop assigns rbytes, t;",
+            "loop variant len - rbytes;"
+          ]
+        },
+        "assigns": [
+          "assigns *tag_num, *eaten;"
+        ],
+        "version": 2,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 2,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 4,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_1": "verified",
+          "rte_2": "verified",
+          "rte_3": "verified",
+          "rte_4": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "a95365b2-7cd9-4397-b622-265969f65c04",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "_is_alpha": {
+      "agent_id": "agent__is_alpha",
+      "function_name": "_is_alpha",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "_is_alpha",
+        "preconditions": [],
+        "postconditions": [
+          "ensures \\result == 0 || \\result == 1;",
+          "ensures (\\result == 1) <==> (((int)c >= 'a' && (int)c <= 'z') || ((int)c >= 'A' && (int)c <= 'Z'));"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {}
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "886cc1d3-ae89-42ff-9fba-fb2e9bc2d3e5",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "_is_digit": {
+      "agent_id": "agent__is_digit",
+      "function_name": "_is_digit",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "_is_digit",
+        "preconditions": [],
+        "postconditions": [
+          "ensures \\result == 0 || \\result == 1;",
+          "ensures (\\result == 1) <==> ((int)c >= '0' && (int)c <= '9');"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {}
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "180794d7-7c02-4bca-802c-7bf0841adc03",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "_parse_arc": {
+      "agent_id": "agent__parse_arc",
+      "function_name": "_parse_arc",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "_parse_arc",
+        "preconditions": [
+          "requires (len > 0 && buf != (u8 const *)0) ==> \\valid_read(buf + (0 .. len-1));",
+          "requires \\valid(arc_val);",
+          "requires \\valid(eaten);",
+          "requires \\separated(arc_val, eaten);"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result == -(3 * 100000 + 1048) || \\result == -(3 * 100000 + 1095);",
+          "ensures (\\result == 0) ==> (*eaten >= 1 && *eaten <= 4);",
+          "ensures (\\result == 0) ==> (*eaten <= \\old(len));",
+          "ensures (\\result == 0) ==> (\\valid(arc_val) && \\valid(eaten));",
+          "ensures (\\result != 0) ==> (*arc_val == \\old(*arc_val) && *eaten == \\old(*eaten));"
+        ],
+        "loop_contracts": {
+          "_parse_arc_loop_0": [
+            "loop invariant 0 <= rbytes <= len;",
+            "loop invariant len <= 4;",
+            "loop invariant \\valid_read(buf + (0 .. len-1));",
+            "loop assigns rbytes, av;",
+            "loop variant len - rbytes;"
+          ]
+        },
+        "assigns": [
+          "assigns *arc_val, *eaten;"
+        ],
+        "version": 2,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 2,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 4,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_30": "verified",
+          "rte_31": "verified",
+          "rte_32": "verified",
+          "rte_33": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "0962110b-10a6-41df-9d93-01838c0c4d88",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "bufs_differ": {
+      "agent_id": "agent_bufs_differ",
+      "function_name": "bufs_differ",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "bufs_differ",
+        "preconditions": [
+          "requires \\valid_read(b1 + (0 .. n-1));",
+          "requires \\valid_read(b2 + (0 .. n-1));"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result == 1;",
+          "ensures (\\result == 0) ==> (\\forall u32 k; 0 <= k < n ==> b1[k] == b2[k]);",
+          "ensures (\\result == 1) ==> (\\exists u32 k; 0 <= k < n && b1[k] != b2[k]);"
+        ],
+        "loop_contracts": {
+          "bufs_differ_loop_0": [
+            "loop invariant 0 <= i <= n;",
+            "loop invariant ret == 0 || ret == 1;",
+            "loop invariant ret == 0 ==> (\\forall u32 k; 0 <= k < i ==> b1[k] == b2[k]);",
+            "loop invariant ret == 1 ==> (\\exists u32 k; 0 <= k < i && b1[k] != b2[k]);",
+            "loop invariant \\valid_read(b1 + (0 .. n-1));",
+            "loop invariant \\valid_read(b2 + (0 .. n-1));",
+            "loop assigns i, ret;",
+            "loop variant n - i;"
+          ]
+        },
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 2,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_35": "verified",
+          "rte_36": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "793cbdac-5c4a-4237-81ec-2210594629fd",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "check_bmp_string": {
+      "agent_id": "agent_check_bmp_string",
+      "function_name": "check_bmp_string",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "check_bmp_string",
+        "preconditions": [],
+        "postconditions": [
+          "ensures \\result == -302232;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {}
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "0e1a51b0-ce88-4838-84c7-60cc0641af12",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "check_ia5_string": {
+      "agent_id": "agent_check_ia5_string",
+      "function_name": "check_ia5_string",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "check_ia5_string",
+        "preconditions": [
+          "requires (buf != \\null && len > 0) ==> \\valid_read(buf + (0..len-1));"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result == -(3 * 100000 + 2250) || \\result == -(3 * 100000 + 2263);",
+          "ensures (buf == \\null || len == 0) ==> \\result == -(3 * 100000 + 2250);",
+          "ensures \\result == 0 ==> (buf != \\null && len > 0);"
+        ],
+        "loop_contracts": {
+          "check_ia5_string_loop_0": [
+            "loop invariant 0 <= i <= len;",
+            "loop invariant \\valid_read(buf + (0..len-1));",
+            "loop assigns i, ret;",
+            "loop variant len - i;"
+          ]
+        },
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 1,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_29": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "07a7b8aa-8d7e-47f9-899a-6e8ed60a43fe",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "check_numeric_string": {
+      "agent_id": "agent_check_numeric_string",
+      "function_name": "check_numeric_string",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "check_numeric_string",
+        "preconditions": [
+          "requires (buf != \\null && len > 0) ==> \\valid_read(buf + (0..len-1));"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result == -(302069) || \\result == -(302083);",
+          "ensures (buf == \\null || len == 0) ==> \\result == -(302069);",
+          "ensures \\result == 0 ==> (buf != \\null && len > 0);"
+        ],
+        "loop_contracts": {
+          "check_numeric_string_loop_0": [
+            "loop invariant 0 <= rbytes <= len;",
+            "loop invariant buf != \\null;",
+            "loop invariant len > 0;",
+            "loop invariant \\valid_read(buf + (0..len-1));",
+            "loop assigns rbytes, c;",
+            "loop variant len - rbytes;"
+          ]
+        },
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 1,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_58": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "facd707f-d9dc-47ba-9f21-a4504bed04b9",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "check_printable_string": {
+      "agent_id": "agent_check_printable_string",
+      "function_name": "check_printable_string",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "check_printable_string",
+        "preconditions": [
+          "requires buf != \\null ==> \\valid_read(buf + (0 .. len - 1));"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result == -(3 * 100000 + 2001) || \\result == -(3 * 100000 + 2038);",
+          "ensures (buf == \\null || len == 0) ==> \\result == -(3 * 100000 + 2001);",
+          "ensures \\result == 0 ==> (buf != \\null && len > 0);"
+        ],
+        "loop_contracts": {
+          "check_printable_string_loop_0": [
+            "loop invariant 0 <= rbytes <= len;",
+            "loop invariant buf != \\null;",
+            "loop invariant \\valid_read(buf + (0 .. len - 1));",
+            "loop assigns rbytes, c, ret;",
+            "loop variant len - rbytes;"
+          ]
+        },
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 1,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_41": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "886f194a-2ac4-49a4-9269-221d3b813a6a",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "check_visible_string": {
+      "agent_id": "agent_check_visible_string",
+      "function_name": "check_visible_string",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "check_visible_string",
+        "preconditions": [
+          "requires (buf != \\null && len > 0) ==> \\valid_read(buf + (0 .. len - 1));"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result == -(3 * 100000 + 2114) || \\result == -(3 * 100000 + 2172);",
+          "ensures (buf == \\null || len == 0) ==> \\result == -(3 * 100000 + 2114);"
+        ],
+        "loop_contracts": {
+          "check_visible_string_loop_0": [
+            "loop invariant 0 <= rbytes <= len;",
+            "loop invariant buf != \\null;",
+            "loop invariant \\valid_read(buf + (0 .. len - 1));",
+            "loop assigns rbytes, c, ret;",
+            "loop variant len - rbytes;"
+          ]
+        },
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 1,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_57": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "11dd3143-6a9d-4f34-ac7a-41ee814cf09e",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "check_teletex_string": {
+      "agent_id": "agent_check_teletex_string",
+      "function_name": "check_teletex_string",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "check_teletex_string",
+        "preconditions": [
+          "requires (buf != \\null && len > 0) ==> \\valid_read(buf + (0 .. len - 1));"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result == -(3 * 100000 + 2114) || \\result == -(3 * 100000 + 2172);",
+          "ensures (buf == \\null || len == 0) ==> \\result == -(3 * 100000 + 2114);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 2,
+        "status": "published",
+        "based_on_versions": {
+          "check_visible_string": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "check_visible_string": {
+            "depends": true,
+            "clauses": [
+              "ensures (buf == \\null || len == 0) ==> \\result == -(3 * 100000 + 2114);",
+              "ensures \\result == 0 || \\result == -(3 * 100000 + 2114) || \\result == -(3 * 100000 + 2172);"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "check_visible_string": [
+            "requires (buf != \\null && len > 0) ==> \\valid_read(buf + (0 .. len - 1));"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 2,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 1,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "call_site_7_0": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "check_visible_string"
+      ],
+      "session_id": "8163b19b-e5b8-4b64-a6f9-c43cfcc7fdb0",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "check_universal_string": {
+      "agent_id": "agent_check_universal_string",
+      "function_name": "check_universal_string",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "check_universal_string",
+        "preconditions": [],
+        "postconditions": [
+          "ensures \\result == -302215;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {}
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "e204e14d-2047-4861-b846-def22767c3a9",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "check_utf8_string": {
+      "agent_id": "agent_check_utf8_string",
+      "function_name": "check_utf8_string",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "check_utf8_string",
+        "preconditions": [
+          "requires (buf != \\null && len > 0) ==> \\valid_read(buf + (0..len-1));"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result < 0;",
+          "ensures (buf == \\null || len == 0) ==> \\result < 0;"
+        ],
+        "loop_contracts": {
+          "check_utf8_string_loop_0": [
+            "loop invariant len > 0 ==> \\valid_read(buf + (0..len-1));",
+            "loop assigns len, buf, b0, ret;",
+            "loop variant len;"
+          ]
+        },
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 15,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_42": "verified",
+          "rte_43": "verified",
+          "rte_44": "verified",
+          "rte_45": "verified",
+          "rte_46": "verified",
+          "rte_47": "verified",
+          "rte_48": "verified",
+          "rte_49": "verified",
+          "rte_50": "verified",
+          "rte_51": "verified",
+          "rte_52": "verified",
+          "rte_53": "verified",
+          "rte_54": "verified",
+          "rte_55": "verified",
+          "rte_56": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "45c59c05-af94-46dc-b857-729e38a02f06",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "find_dn_by_oid": {
+      "agent_id": "agent_find_dn_by_oid",
+      "function_name": "find_dn_by_oid",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "find_dn_by_oid",
+        "preconditions": [
+          "requires \\valid_read(known_dn_oids + (0 .. 21));",
+          "requires (buf != \\null && len > 0) ==> \\valid_read(buf + (0 .. len - 1));"
+        ],
+        "postconditions": [
+          "ensures \\result == \\null || (\\exists integer i; 0 <= i < 22 && \\result == &known_dn_oids[i]);",
+          "ensures \\result != \\null ==> \\valid_read(\\result);",
+          "ensures (buf == \\null || len == 0) ==> \\result == \\null;"
+        ],
+        "loop_contracts": {
+          "find_dn_by_oid_loop_0": [
+            "loop invariant 0 <= (integer)k <= 22;",
+            "loop invariant found == \\null || (\\exists integer j; 0 <= j < (integer)k && found == &known_dn_oids[j]);",
+            "loop invariant \\valid_read(known_dn_oids + (0 .. 21));",
+            "loop invariant (buf != \\null && len > 0) ==> \\valid_read(buf + (0 .. len - 1));",
+            "loop assigns k, cur, found;",
+            "loop variant 22 - (integer)k;"
+          ]
+        },
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 2,
+        "status": "published",
+        "based_on_versions": {
+          "bufs_differ": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "bufs_differ": {
+            "depends": true,
+            "clauses": null
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 2,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 4,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 1,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 1,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {
+          "call_site_6_0": "WP cannot derive `\\valid_read(cur->oid + (0..cur->oid_len-1))` from the const global initializer of `known_dn_oids`. Each `.oid` field stores a pointer to a static const byte array (e.g. `_dn_oid_cn`) and `.oid_len` is `sizeof` that array, but WP's memory model cannot automatically follow pointer values stored inside global struct initializers to establish their validity. The code is correct by construction; this is a WP tool limitation for pointer-valued const global initializers."
+        },
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_37": "verified",
+          "rte_38": "verified",
+          "rte_39": "verified",
+          "rte_40": "verified",
+          "call_site_6_0": "bug",
+          "call_site_6_1": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "bufs_differ"
+      ],
+      "session_id": "73f21e21-cf7e-4cfe-b662-e936497ba4f5",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "get_identifier": {
+      "agent_id": "agent_get_identifier",
+      "function_name": "get_identifier",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "get_identifier",
+        "preconditions": [
+          "requires (buf != \\null && len > 0) ==> \\valid_read(buf + (0 .. len - 1));",
+          "requires \\valid(cls);",
+          "requires \\valid(prim);",
+          "requires \\valid(tag_num);",
+          "requires \\valid(eaten);",
+          "requires \\separated(cls, prim);",
+          "requires \\separated(cls, tag_num);",
+          "requires \\separated(cls, eaten);",
+          "requires \\separated(prim, tag_num);",
+          "requires \\separated(prim, eaten);",
+          "requires \\separated(tag_num, eaten);"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result < 0;",
+          "ensures \\result == 0 ==> *eaten >= 1;",
+          "ensures \\result == 0 ==> *eaten <= len;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns *cls, *prim, *tag_num, *eaten;"
+        ],
+        "version": 3,
+        "status": "published",
+        "based_on_versions": {
+          "_extract_complex_tag": 2
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "_extract_complex_tag": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result == 0 ==> *eaten <= \\old(len);",
+              "ensures \\result == 0 ==> *eaten >= (u32)1 && *eaten <= (u32)4;",
+              "ensures \\result == 0 ==> *tag_num >= (u32)0x1f;",
+              "ensures \\result == 0 || \\result == -300468 || \\result == -300506 || \\result == -300512;"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "_extract_complex_tag": [
+            "requires (buf != \\null && len > (u32)0) ==> \\valid_read(buf + (0 .. (len <= (u32)4 ? len - 1 : 3)));",
+            "requires \\separated(tag_num, eaten);",
+            "requires \\valid(tag_num);",
+            "requires eaten != \\null ==> \\valid(eaten);"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 3,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 7,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 4,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_5": "verified",
+          "rte_6": "verified",
+          "rte_7": "verified",
+          "rte_8": "verified",
+          "rte_9": "verified",
+          "rte_10": "verified",
+          "rte_11": "verified",
+          "call_site_1_0": "verified",
+          "call_site_1_1": "verified",
+          "call_site_1_2": "verified",
+          "call_site_1_3": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "_extract_complex_tag"
+      ],
+      "session_id": "44e2aa12-3352-488b-a789-38fb518c4d98",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "get_length": {
+      "agent_id": "agent_get_length",
+      "function_name": "get_length",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "get_length",
+        "preconditions": [
+          "requires \\valid(adv_len);",
+          "requires \\valid(eaten);",
+          "requires \\separated(adv_len, eaten);",
+          "requires (buf != \\null && len > 0) ==> \\valid_read(buf + (0 .. len - 1));",
+          "requires (buf != \\null && len > 0) ==> \\separated(buf + (0 .. len - 1), adv_len);",
+          "requires (buf != \\null && len > 0) ==> \\separated(buf + (0 .. len - 1), eaten);"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 ==> (*eaten >= 1 && *eaten <= 5);",
+          "ensures \\result == 0 ==> *eaten <= len;",
+          "ensures (\\result == 0 && *eaten == 1) ==> *adv_len <= 127;",
+          "ensures (\\result == 0 && *eaten >= 2) ==> *adv_len + *eaten <= len;",
+          "ensures \\result != 0 ==> \\result < 0;",
+          "ensures \\result != 0 ==> (*adv_len == \\old(*adv_len) && *eaten == \\old(*eaten));"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns *adv_len, *eaten;"
+        ],
+        "version": 2,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 2,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 15,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_12": "verified",
+          "rte_13": "verified",
+          "rte_14": "verified",
+          "rte_15": "verified",
+          "rte_16": "verified",
+          "rte_17": "verified",
+          "rte_18": "verified",
+          "rte_19": "verified",
+          "rte_20": "verified",
+          "rte_21": "verified",
+          "rte_22": "verified",
+          "rte_23": "verified",
+          "rte_24": "verified",
+          "rte_25": "verified",
+          "rte_26": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "283011d8-2175-41f2-937f-bcf0937c987c",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "parse_id_len": {
+      "agent_id": "agent_parse_id_len",
+      "function_name": "parse_id_len",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "parse_id_len",
+        "preconditions": [
+          "requires \\valid_read(buf + (0 .. len - 1));",
+          "requires \\valid(parsed);",
+          "requires \\valid(content_len);",
+          "requires \\separated(parsed, content_len);"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 ==> (*parsed >= 1);",
+          "ensures \\result == 0 ==> (*content_len <= len - *parsed);",
+          "ensures \\result != 0 ==> (*parsed == \\old(*parsed) && *content_len == \\old(*content_len));",
+          "ensures \\result == 0 || \\result < 0;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns *parsed, *content_len;"
+        ],
+        "version": 2,
+        "status": "published",
+        "based_on_versions": {
+          "get_identifier": 3,
+          "get_length": 2
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "get_identifier": {
+            "depends": true,
+            "clauses": null
+          },
+          "get_length": {
+            "depends": true,
+            "clauses": null
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "get_identifier": [
+            "requires (buf != \\null && len > 0) ==> \\valid_read(buf + (0 .. len - 1));",
+            "requires \\separated(cls, eaten);",
+            "requires \\separated(cls, prim);",
+            "requires \\separated(cls, tag_num);",
+            "requires \\separated(prim, eaten);",
+            "requires \\separated(prim, tag_num);",
+            "requires \\separated(tag_num, eaten);",
+            "requires \\valid(cls);",
+            "requires \\valid(eaten);",
+            "requires \\valid(prim);",
+            "requires \\valid(tag_num);"
+          ],
+          "get_length": [
+            "requires (buf != \\null && len > 0) ==> \\separated(buf + (0 .. len - 1), adv_len);",
+            "requires (buf != \\null && len > 0) ==> \\separated(buf + (0 .. len - 1), eaten);",
+            "requires (buf != \\null && len > 0) ==> \\valid_read(buf + (0 .. len - 1));",
+            "requires \\separated(adv_len, eaten);",
+            "requires \\valid(adv_len);",
+            "requires \\valid(eaten);"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 4,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 2,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 17,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_27": "verified",
+          "rte_28": "verified",
+          "call_site_2_0": "verified",
+          "call_site_2_1": "verified",
+          "call_site_2_2": "verified",
+          "call_site_2_3": "verified",
+          "call_site_2_4": "verified",
+          "call_site_2_5": "verified",
+          "call_site_2_6": "verified",
+          "call_site_2_7": "verified",
+          "call_site_2_8": "verified",
+          "call_site_2_9": "verified",
+          "call_site_2_10": "verified",
+          "call_site_3_0": "verified",
+          "call_site_3_1": "verified",
+          "call_site_3_2": "verified",
+          "call_site_3_3": "verified",
+          "call_site_3_4": "verified",
+          "call_site_3_5": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "get_identifier",
+        "get_length"
+      ],
+      "session_id": "1626a1a7-d970-4a2d-8eea-962464c195e0",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "parse_OID": {
+      "agent_id": "agent_parse_OID",
+      "function_name": "parse_OID",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "parse_OID",
+        "preconditions": [
+          "requires (buf != (u8 const *)0 && len > 0) ==> \\valid_read(buf + (0 .. len-1));",
+          "requires \\valid(parsed);",
+          "requires \\separated(buf + (0 .. len-1), parsed);"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result < 0;",
+          "ensures (\\result == 0) ==> (*parsed >= 1);",
+          "ensures (\\result == 0) ==> (*parsed <= \\at(len, Pre));",
+          "ensures (\\result == 0) ==> (\\valid(parsed));"
+        ],
+        "loop_contracts": {
+          "parse_OID_loop_0": [
+            "loop invariant \\valid_read(buf + (0 .. remain-1)) || remain == 0;",
+            "loop invariant remain <= data_len;",
+            "loop invariant num <= 21;",
+            "loop assigns num, buf, remain, ret;"
+          ]
+        },
+        "assigns": [
+          "assigns *parsed;"
+        ],
+        "version": 3,
+        "status": "published",
+        "based_on_versions": {
+          "parse_id_len": 2,
+          "_parse_arc": 2
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "parse_id_len": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result != 0 ==> (*parsed == \\old(*parsed) && *content_len == \\old(*content_len));",
+              "ensures \\result == 0 ==> (*content_len <= len - *parsed);",
+              "ensures \\result == 0 ==> (*parsed >= 1);"
+            ]
+          },
+          "_parse_arc": {
+            "depends": true,
+            "clauses": [
+              "ensures (\\result != 0) ==> (*arc_val == \\old(*arc_val) && *eaten == \\old(*eaten));",
+              "ensures (\\result == 0) ==> (*eaten <= \\old(len));",
+              "ensures (\\result == 0) ==> (*eaten >= 1 && *eaten <= 4);"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "parse_id_len": [
+            "requires \\separated(parsed, content_len);",
+            "requires \\valid(content_len);",
+            "requires \\valid(parsed);",
+            "requires \\valid_read(buf + (0 .. len - 1));"
+          ],
+          "_parse_arc": [
+            "requires (len > 0 && buf != (u8 const *)0) ==> \\valid_read(buf + (0 .. len-1));",
+            "requires \\separated(arc_val, eaten);",
+            "requires \\valid(arc_val);",
+            "requires \\valid(eaten);"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 3,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 1,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 8,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_34": "verified",
+          "call_site_4_0": "verified",
+          "call_site_4_1": "verified",
+          "call_site_4_2": "verified",
+          "call_site_4_3": "verified",
+          "call_site_5_0": "verified",
+          "call_site_5_1": "verified",
+          "call_site_5_2": "verified",
+          "call_site_5_3": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "parse_id_len",
+        "_parse_arc"
+      ],
+      "session_id": "5e1c1680-3faf-4fc5-99d5-b85bee08ecd1",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "parse_directory_string": {
+      "agent_id": "agent_parse_directory_string",
+      "function_name": "parse_directory_string",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "parse_directory_string",
+        "preconditions": [
+          "requires (buf != \\null && len >= 2) ==> \\valid_read(buf + (0..len-1));"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result < 0;",
+          "ensures (buf == \\null || len == 0) ==> \\result < 0;",
+          "ensures \\result == 0 ==> (buf != \\null && len >= 2);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {
+          "check_printable_string": 1,
+          "check_utf8_string": 1,
+          "check_teletex_string": 2,
+          "check_universal_string": 1,
+          "check_bmp_string": 1,
+          "check_ia5_string": 1,
+          "check_numeric_string": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "check_printable_string": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result == 0 || \\result == -(3 * 100000 + 2001) || \\result == -(3 * 100000 + 2038);"
+            ]
+          },
+          "check_utf8_string": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result == 0 || \\result < 0;"
+            ]
+          },
+          "check_universal_string": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result == -302215;"
+            ]
+          },
+          "check_bmp_string": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result == -302232;"
+            ]
+          },
+          "check_numeric_string": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result == 0 || \\result == -(302069) || \\result == -(302083);"
+            ]
+          },
+          "check_teletex_string": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result == 0 || \\result == -(3 * 100000 + 2114) || \\result == -(3 * 100000 + 2172);"
+            ]
+          },
+          "check_ia5_string": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result == 0 || \\result == -(3 * 100000 + 2250) || \\result == -(3 * 100000 + 2263);"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "check_printable_string": [
+            "requires buf != \\null ==> \\valid_read(buf + (0 .. len - 1));"
+          ],
+          "check_utf8_string": [
+            "requires (buf != \\null && len > 0) ==> \\valid_read(buf + (0..len-1));"
+          ],
+          "check_teletex_string": [
+            "requires (buf != \\null && len > 0) ==> \\valid_read(buf + (0 .. len - 1));"
+          ],
+          "check_ia5_string": [
+            "requires (buf != \\null && len > 0) ==> \\valid_read(buf + (0..len-1));"
+          ],
+          "check_numeric_string": [
+            "requires (buf != \\null && len > 0) ==> \\valid_read(buf + (0..len-1));"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 2,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 2,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 7,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_59": "verified",
+          "rte_60": "verified",
+          "call_site_11": "verified",
+          "call_site_12": "verified",
+          "call_site_8_0": "verified",
+          "call_site_9_0": "verified",
+          "call_site_13_0": "verified",
+          "call_site_14_0": "verified",
+          "call_site_10_0": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "check_printable_string",
+        "check_utf8_string",
+        "check_teletex_string",
+        "check_universal_string",
+        "check_bmp_string",
+        "check_ia5_string",
+        "check_numeric_string"
+      ],
+      "session_id": "583bc9e2-f990-4e5d-90cd-c4a3c4af6e57",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "parse_rdn_val_cn": {
+      "agent_id": "agent_parse_rdn_val_cn",
+      "function_name": "parse_rdn_val_cn",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "parse_rdn_val_cn",
+        "preconditions": [
+          "requires (buf != \\null && len >= 2) ==> \\valid_read(buf + (0..len-1));"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result < 0;",
+          "ensures (buf == \\null || len == 0) ==> \\result < 0;",
+          "ensures \\result == 0 ==> (buf != \\null && len >= 2);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 2,
+        "status": "published",
+        "based_on_versions": {
+          "parse_directory_string": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "parse_directory_string": {
+            "depends": true,
+            "clauses": [
+              "ensures (buf == \\null || len == 0) ==> \\result < 0;",
+              "ensures \\result == 0 ==> (buf != \\null && len >= 2);",
+              "ensures \\result == 0 || \\result < 0;"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "parse_directory_string": [
+            "requires (buf != \\null && len >= 2) ==> \\valid_read(buf + (0..len-1));"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 3,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 1,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "call_site_15_0": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "parse_directory_string"
+      ],
+      "session_id": "abcd1fad-14a1-43f8-bd1a-3ff28d1bf647",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "parse_rdn_val_x520name": {
+      "agent_id": "agent_parse_rdn_val_x520name",
+      "function_name": "parse_rdn_val_x520name",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "parse_rdn_val_x520name",
+        "preconditions": [
+          "requires (buf != \\null && len >= 2) ==> \\valid_read(buf + (0..len-1));"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result < 0;",
+          "ensures (buf == \\null || len == 0) ==> \\result < 0;",
+          "ensures \\result == 0 ==> (buf != \\null && len >= 2);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 2,
+        "status": "published",
+        "based_on_versions": {
+          "parse_directory_string": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "parse_directory_string": {
+            "depends": true,
+            "clauses": [
+              "ensures (buf == \\null || len == 0) ==> \\result < 0;",
+              "ensures \\result == 0 ==> (buf != \\null && len >= 2);",
+              "ensures \\result == 0 || \\result < 0;"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "parse_directory_string": [
+            "requires (buf != \\null && len >= 2) ==> \\valid_read(buf + (0..len-1));"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 3,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 1,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "call_site_16_0": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "parse_directory_string"
+      ],
+      "session_id": "3f8e7a0c-d21a-4ccc-948e-f273fbbef744",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "parse_printable_string": {
+      "agent_id": "agent_parse_printable_string",
+      "function_name": "parse_printable_string",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "parse_printable_string",
+        "preconditions": [
+          "requires buf != \\null ==> \\valid_read(buf + (0 .. len - 1));"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result == -(3 * 100000 + 3849) || \\result == -(3 * 100000 + 3853) || \\result == -(3 * 100000 + 3859) || \\result == -(3 * 100000 + 3866) || \\result == -(3 * 100000 + 3873) || \\result == -(3 * 100000 + 3880) || \\result == -(3 * 100000 + 2001) || \\result == -(3 * 100000 + 2038);",
+          "ensures (buf == \\null || len == 0) ==> \\result == -(3 * 100000 + 3853);",
+          "ensures \\result == 0 ==> (buf != \\null && len >= 2);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 2,
+        "status": "published",
+        "based_on_versions": {
+          "check_printable_string": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "check_printable_string": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result == 0 || \\result == -(3 * 100000 + 2001) || \\result == -(3 * 100000 + 2038);"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "check_printable_string": [
+            "requires buf != \\null ==> \\valid_read(buf + (0 .. len - 1));"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 2,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 2,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 1,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_61": "verified",
+          "rte_62": "verified",
+          "call_site_17_0": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "check_printable_string"
+      ],
+      "session_id": "e3bbffd2-06a5-4a2f-be02-0bf383181804",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "parse_ia5_string": {
+      "agent_id": "agent_parse_ia5_string",
+      "function_name": "parse_ia5_string",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "parse_ia5_string",
+        "preconditions": [
+          "requires (buf != \\null && len >= 2) ==> \\valid_read(buf + (0..len-1));"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result == -(3*100000+3977) || \\result == -(3*100000+3981) || \\result == -(3*100000+3987) || \\result == -(3*100000+3994) || \\result == -(3*100000+4001) || \\result == -(3*100000+4008) || \\result == -(3*100000+2250) || \\result == -(3*100000+2263);",
+          "ensures (buf == \\null || len == 0) ==> \\result == -(3*100000+3981);",
+          "ensures (buf != \\null && len < 2 && len > 0) ==> \\result == -(3*100000+3987);",
+          "ensures \\result == 0 ==> (buf != \\null && len >= 2 && \\valid_read(buf + (0..len-1)));",
+          "ensures \\result == 0 ==> (len >= lb + 2 && len <= ub + 2);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 3,
+        "status": "published",
+        "based_on_versions": {
+          "check_ia5_string": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "check_ia5_string": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result == 0 || \\result == -(3 * 100000 + 2250) || \\result == -(3 * 100000 + 2263);"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "check_ia5_string": [
+            "requires (buf != \\null && len > 0) ==> \\valid_read(buf + (0..len-1));"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 3,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 2,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 1,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_63": "verified",
+          "rte_64": "verified",
+          "call_site_18_0": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "check_ia5_string"
+      ],
+      "session_id": "87c226dd-6bb7-46e8-afc5-8add397e5272",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "parse_rdn_val_serial": {
+      "agent_id": "agent_parse_rdn_val_serial",
+      "function_name": "parse_rdn_val_serial",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "parse_rdn_val_serial",
+        "preconditions": [
+          "requires buf != \\null ==> \\valid_read(buf + (0 .. len - 1));"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result == -(3*100000+3977) || \\result == -(3*100000+3981) || \\result == -(3*100000+3987) || \\result == -(3*100000+3994) || \\result == -(3*100000+4001) || \\result == -(3*100000+4008) || \\result == -(3*100000+2250) || \\result == -(3*100000+2263);",
+          "ensures \\result == 0 ==> (buf != \\null && len >= 2);",
+          "ensures (buf == \\null || len == 0) ==> \\result != 0;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {
+          "parse_printable_string": 2,
+          "parse_ia5_string": 3
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "parse_printable_string": {
+            "depends": true,
+            "clauses": null
+          },
+          "parse_ia5_string": {
+            "depends": true,
+            "clauses": null
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "parse_printable_string": [
+            "requires buf != \\null ==> \\valid_read(buf + (0 .. len - 1));"
+          ],
+          "parse_ia5_string": [
+            "requires (buf != \\null && len >= 2) ==> \\valid_read(buf + (0..len-1));"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 4,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 2,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "call_site_19_0": "verified",
+          "call_site_20_0": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "parse_printable_string",
+        "parse_ia5_string"
+      ],
+      "session_id": "3fd48195-2d64-41eb-a424-aec9877e19e2",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "parse_rdn_val_country": {
+      "agent_id": "agent_parse_rdn_val_country",
+      "function_name": "parse_rdn_val_country",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "parse_rdn_val_country",
+        "preconditions": [
+          "requires (buf != \\null && len >= 2) ==> \\valid_read(buf + (0..len-1));"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result < 0;",
+          "ensures (buf == \\null || len == 0) ==> \\result < 0;",
+          "ensures \\result == 0 ==> (buf != \\null && len >= 2);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 2,
+        "status": "published",
+        "based_on_versions": {
+          "parse_directory_string": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "parse_directory_string": {
+            "depends": true,
+            "clauses": [
+              "ensures (buf == \\null || len == 0) ==> \\result < 0;",
+              "ensures \\result == 0 ==> (buf != \\null && len >= 2);",
+              "ensures \\result == 0 || \\result < 0;"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "parse_directory_string": [
+            "requires (buf != \\null && len >= 2) ==> \\valid_read(buf + (0..len-1));"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 3,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 1,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "call_site_21_0": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "parse_directory_string"
+      ],
+      "session_id": "de6c00c4-a6ee-45f3-8b19-e900420b86c5",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "parse_rdn_val_locality": {
+      "agent_id": "agent_parse_rdn_val_locality",
+      "function_name": "parse_rdn_val_locality",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "parse_rdn_val_locality",
+        "preconditions": [
+          "requires (buf != \\null && len >= 2) ==> \\valid_read(buf + (0..len-1));"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result < 0;",
+          "ensures (buf == \\null || len == 0) ==> \\result < 0;",
+          "ensures \\result == 0 ==> (buf != \\null && len >= 2);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 2,
+        "status": "published",
+        "based_on_versions": {
+          "parse_directory_string": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "parse_directory_string": {
+            "depends": true,
+            "clauses": [
+              "ensures (buf == \\null || len == 0) ==> \\result < 0;",
+              "ensures \\result == 0 ==> (buf != \\null && len >= 2);",
+              "ensures \\result == 0 || \\result < 0;"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "parse_directory_string": [
+            "requires (buf != \\null && len >= 2) ==> \\valid_read(buf + (0..len-1));"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 3,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 1,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "call_site_22_0": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "parse_directory_string"
+      ],
+      "session_id": "30ac264a-9878-45ba-bebb-14f8feb4e293",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "parse_rdn_val_state": {
+      "agent_id": "agent_parse_rdn_val_state",
+      "function_name": "parse_rdn_val_state",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "parse_rdn_val_state",
+        "preconditions": [
+          "requires (buf != \\null && len >= 2) ==> \\valid_read(buf + (0 .. len-1));"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result < 0;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {
+          "parse_directory_string": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "parse_directory_string": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result == 0 || \\result < 0;"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "parse_directory_string": [
+            "requires (buf != \\null && len >= 2) ==> \\valid_read(buf + (0..len-1));"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 3,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 1,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "call_site_23_0": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "parse_directory_string"
+      ],
+      "session_id": "e6560fea-1f16-44bc-b164-bbf0026dd477",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "parse_rdn_val_org": {
+      "agent_id": "agent_parse_rdn_val_org",
+      "function_name": "parse_rdn_val_org",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "parse_rdn_val_org",
+        "preconditions": [
+          "requires (buf != \\null && len >= 2) ==> \\valid_read(buf + (0..len-1));"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result < 0;",
+          "ensures (buf == \\null || len == 0) ==> \\result < 0;",
+          "ensures \\result == 0 ==> (buf != \\null && len >= 2);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 2,
+        "status": "published",
+        "based_on_versions": {
+          "parse_directory_string": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "parse_directory_string": {
+            "depends": true,
+            "clauses": [
+              "ensures (buf == \\null || len == 0) ==> \\result < 0;",
+              "ensures \\result == 0 ==> (buf != \\null && len >= 2);",
+              "ensures \\result == 0 || \\result < 0;"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "parse_directory_string": [
+            "requires (buf != \\null && len >= 2) ==> \\valid_read(buf + (0..len-1));"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 3,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 1,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "call_site_24_0": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "parse_directory_string"
+      ],
+      "session_id": "77d5f9e2-37c3-4f0d-83e7-3bf56b218217",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "parse_rdn_val_org_unit": {
+      "agent_id": "agent_parse_rdn_val_org_unit",
+      "function_name": "parse_rdn_val_org_unit",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "parse_rdn_val_org_unit",
+        "preconditions": [
+          "requires (buf != \\null && len >= 2) ==> \\valid_read(buf + (0..len-1));"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result < 0;",
+          "ensures (buf == \\null || len == 0) ==> \\result < 0;",
+          "ensures \\result == 0 ==> (buf != \\null && len >= 2);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {
+          "parse_directory_string": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "parse_directory_string": {
+            "depends": true,
+            "clauses": [
+              "ensures (buf == \\null || len == 0) ==> \\result < 0;",
+              "ensures \\result == 0 ==> (buf != \\null && len >= 2);",
+              "ensures \\result == 0 || \\result < 0;"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "parse_directory_string": [
+            "requires (buf != \\null && len >= 2) ==> \\valid_read(buf + (0..len-1));"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 3,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 1,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "call_site_25_0": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "parse_directory_string"
+      ],
+      "session_id": "bcb319c0-7a36-4fce-8c7b-0904e21fe8ee",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "parse_rdn_val_title": {
+      "agent_id": "agent_parse_rdn_val_title",
+      "function_name": "parse_rdn_val_title",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "parse_rdn_val_title",
+        "preconditions": [
+          "requires (buf != \\null && len >= 2) ==> \\valid_read(buf + (0..len-1));"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result < 0;",
+          "ensures (buf == \\null || len == 0) ==> \\result < 0;",
+          "ensures \\result == 0 ==> (buf != \\null && len >= 2);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {
+          "parse_directory_string": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "parse_directory_string": {
+            "depends": true,
+            "clauses": [
+              "ensures (buf == \\null || len == 0) ==> \\result < 0;",
+              "ensures \\result == 0 ==> (buf != \\null && len >= 2);",
+              "ensures \\result == 0 || \\result < 0;"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "parse_directory_string": [
+            "requires (buf != \\null && len >= 2) ==> \\valid_read(buf + (0..len-1));"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 3,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 1,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "call_site_26_0": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "parse_directory_string"
+      ],
+      "session_id": "66ff93d0-2401-491f-a810-c768e241a596",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "parse_utf8_string": {
+      "agent_id": "agent_parse_utf8_string",
+      "function_name": "parse_utf8_string",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "parse_utf8_string",
+        "preconditions": [
+          "requires (buf != \\null && len >= 2) ==> \\valid_read(buf + (0..len-1));"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result < 0;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {
+          "check_utf8_string": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "check_utf8_string": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result == 0 || \\result < 0;"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "check_utf8_string": [
+            "requires (buf != \\null && len > 0) ==> \\valid_read(buf + (0..len-1));"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 2,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 2,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 1,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_65": "verified",
+          "rte_66": "verified",
+          "call_site_27_0": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "check_utf8_string"
+      ],
+      "session_id": "4ab470da-5196-4f18-aa59-9fa508b31acd",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "parse_rdn_val_emailaddress": {
+      "agent_id": "agent_parse_rdn_val_emailaddress",
+      "function_name": "parse_rdn_val_emailaddress",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "parse_rdn_val_emailaddress",
+        "preconditions": [
+          "requires (buf != \\null && len >= 2) ==> \\valid_read(buf + (0..len-1));"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result < 0;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 2,
+        "status": "published",
+        "based_on_versions": {
+          "parse_ia5_string": 3,
+          "parse_utf8_string": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "parse_ia5_string": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result == 0 || \\result == -(3*100000+3977) || \\result == -(3*100000+3981) || \\result == -(3*100000+3987) || \\result == -(3*100000+3994) || \\result == -(3*100000+4001) || \\result == -(3*100000+4008) || \\result == -(3*100000+2250) || \\result == -(3*100000+2263);"
+            ]
+          },
+          "parse_utf8_string": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result == 0 || \\result < 0;"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "parse_ia5_string": [
+            "requires (buf != \\null && len >= 2) ==> \\valid_read(buf + (0..len-1));"
+          ],
+          "parse_utf8_string": [
+            "requires (buf != \\null && len >= 2) ==> \\valid_read(buf + (0..len-1));"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 3,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 2,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "call_site_28_0": "verified",
+          "call_site_29_0": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "parse_ia5_string",
+        "parse_utf8_string"
+      ],
+      "session_id": "64d488d0-66c6-4ae5-979c-ec751ad4ebd6",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "parse_rdn_val_dn_qual": {
+      "agent_id": "agent_parse_rdn_val_dn_qual",
+      "function_name": "parse_rdn_val_dn_qual",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "parse_rdn_val_dn_qual",
+        "preconditions": [
+          "requires buf != \\null ==> \\valid_read(buf + (0 .. len - 1));"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result == -(3 * 100000 + 3849) || \\result == -(3 * 100000 + 3853) || \\result == -(3 * 100000 + 3859) || \\result == -(3 * 100000 + 3866) || \\result == -(3 * 100000 + 3873) || \\result == -(3 * 100000 + 3880) || \\result == -(3 * 100000 + 2001) || \\result == -(3 * 100000 + 2038);",
+          "ensures (buf == \\null || len == 0) ==> \\result == -(3 * 100000 + 3853);",
+          "ensures \\result == 0 ==> (buf != \\null && len >= 2);",
+          "ensures \\result == 0 || \\result < 0;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 3,
+        "status": "published",
+        "based_on_versions": {
+          "parse_printable_string": 2
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "parse_printable_string": {
+            "depends": true,
+            "clauses": [
+              "ensures (buf == \\null || len == 0) ==> \\result == -(3 * 100000 + 3853);",
+              "ensures \\result == 0 ==> (buf != \\null && len >= 2);",
+              "ensures \\result == 0 || \\result == -(3 * 100000 + 3849) || \\result == -(3 * 100000 + 3853) || \\result == -(3 * 100000 + 3859) || \\result == -(3 * 100000 + 3866) || \\result == -(3 * 100000 + 3873) || \\result == -(3 * 100000 + 3880) || \\result == -(3 * 100000 + 2001) || \\result == -(3 * 100000 + 2038);"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "parse_printable_string": [
+            "requires buf != \\null ==> \\valid_read(buf + (0 .. len - 1));"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 3,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 1,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "call_site_30_0": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "parse_printable_string"
+      ],
+      "session_id": "ec0865e2-506a-466b-88ea-e4cc359a64df",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "parse_rdn_val_pseudo": {
+      "agent_id": "agent_parse_rdn_val_pseudo",
+      "function_name": "parse_rdn_val_pseudo",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "parse_rdn_val_pseudo",
+        "preconditions": [
+          "requires (buf != \\null && len >= 2) ==> \\valid_read(buf + (0..len-1));"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result < 0;",
+          "ensures (buf == \\null || len == 0) ==> \\result < 0;",
+          "ensures \\result == 0 ==> (buf != \\null && len >= 2);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {
+          "parse_directory_string": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "parse_directory_string": {
+            "depends": true,
+            "clauses": [
+              "ensures (buf == \\null || len == 0) ==> \\result < 0;",
+              "ensures \\result == 0 ==> (buf != \\null && len >= 2);",
+              "ensures \\result == 0 || \\result < 0;"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "parse_directory_string": [
+            "requires (buf != \\null && len >= 2) ==> \\valid_read(buf + (0..len-1));"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 3,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 1,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "call_site_31_0": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "parse_directory_string"
+      ],
+      "session_id": "b8582d16-6ee5-4ccc-b40a-5b5cb8a83623",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "parse_rdn_val_dc": {
+      "agent_id": "agent_parse_rdn_val_dc",
+      "function_name": "parse_rdn_val_dc",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "parse_rdn_val_dc",
+        "preconditions": [
+          "requires (buf != \\null && len >= 2) ==> \\valid_read(buf + (0..len-1));"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result == -(3*100000+4376) || \\result == -(3*100000+4395) || \\result == -(3*100000+4412) || \\result == -(3*100000+4430) || \\result == -(3*100000+3977) || \\result == -(3*100000+3981) || \\result == -(3*100000+3987) || \\result == -(3*100000+3994) || \\result == -(3*100000+4001) || \\result == -(3*100000+4008) || \\result == -(3*100000+2250) || \\result == -(3*100000+2263);",
+          "ensures (buf == \\null || len == 0) ==> \\result == -(3*100000+4376);",
+          "ensures \\result == 0 ==> (buf != \\null && len >= 2);"
+        ],
+        "loop_contracts": {
+          "parse_rdn_val_dc_loop_0": [
+            "loop invariant 0 <= i <= len;",
+            "loop invariant \\valid_read(buf + (0..len-1));",
+            "loop assigns i, c, ret;"
+          ]
+        },
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {
+          "parse_ia5_string": 3,
+          "_is_alpha": 1,
+          "_is_digit": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "parse_ia5_string": {
+            "depends": true,
+            "clauses": null
+          },
+          "_is_alpha": {
+            "depends": true,
+            "clauses": null
+          },
+          "_is_digit": {
+            "depends": true,
+            "clauses": null
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "parse_ia5_string": [
+            "requires (buf != \\null && len >= 2) ==> \\valid_read(buf + (0..len-1));"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 4,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 3,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 7,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_67": "verified",
+          "rte_68": "verified",
+          "rte_69": "verified",
+          "call_site_33": "verified",
+          "call_site_34": "verified",
+          "call_site_35": "verified",
+          "call_site_36": "verified",
+          "call_site_37": "verified",
+          "call_site_38": "verified",
+          "call_site_32_0": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "parse_ia5_string",
+        "_is_alpha",
+        "_is_digit"
+      ],
+      "session_id": "5e69f179-5c49-4747-9453-ce7f1e033ce0",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "parse_numeric_string": {
+      "agent_id": "agent_parse_numeric_string",
+      "function_name": "parse_numeric_string",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "parse_numeric_string",
+        "preconditions": [
+          "requires (buf != \\null && len >= (u32)2) ==> \\valid_read(buf + (0 .. len-1));"
+        ],
+        "postconditions": [
+          "ensures \\result <= 0;",
+          "ensures \\result == 0 || \\result == -(302069) || \\result == -(302083) || \\result == -(303917) || \\result == -(303923) || \\result == -(303930) || \\result == -(303937) || \\result == -(303944);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {
+          "check_numeric_string": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "check_numeric_string": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result == 0 || \\result == -(302069) || \\result == -(302083);"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "check_numeric_string": [
+            "requires (buf != \\null && len > 0) ==> \\valid_read(buf + (0..len-1));"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 2,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 2,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 1,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_70": "verified",
+          "rte_71": "verified",
+          "call_site_39_0": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "check_numeric_string"
+      ],
+      "session_id": "2ff04a6a-33a1-4ef6-8512-95d5654a4219",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "parse_rdn_val_ogrn": {
+      "agent_id": "agent_parse_rdn_val_ogrn",
+      "function_name": "parse_rdn_val_ogrn",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "parse_rdn_val_ogrn",
+        "preconditions": [
+          "requires (buf != \\null && len >= (u32)2) ==> \\valid_read(buf + (0 .. len-1));"
+        ],
+        "postconditions": [
+          "ensures \\result <= 0;",
+          "ensures \\result == 0 || \\result == -(302069) || \\result == -(302083) || \\result == -(303917) || \\result == -(303923) || \\result == -(303930) || \\result == -(303937) || \\result == -(303944);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 2,
+        "status": "published",
+        "based_on_versions": {
+          "parse_numeric_string": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "parse_numeric_string": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result <= 0;",
+              "ensures \\result == 0 || \\result == -(302069) || \\result == -(302083) || \\result == -(303917) || \\result == -(303923) || \\result == -(303930) || \\result == -(303937) || \\result == -(303944);"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "parse_numeric_string": [
+            "requires (buf != \\null && len >= (u32)2) ==> \\valid_read(buf + (0 .. len-1));"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 3,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 1,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "call_site_40_0": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "parse_numeric_string"
+      ],
+      "session_id": "3d005598-137e-4583-846b-a72a759e2f96",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "parse_rdn_val_snils": {
+      "agent_id": "agent_parse_rdn_val_snils",
+      "function_name": "parse_rdn_val_snils",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "parse_rdn_val_snils",
+        "preconditions": [
+          "requires (buf != \\null && len >= (u32)2) ==> \\valid_read(buf + (0 .. len-1));"
+        ],
+        "postconditions": [
+          "ensures \\result <= 0;",
+          "ensures \\result == 0 || \\result == -(302069) || \\result == -(302083) || \\result == -(303917) || \\result == -(303923) || \\result == -(303930) || \\result == -(303937) || \\result == -(303944);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 2,
+        "status": "published",
+        "based_on_versions": {
+          "parse_numeric_string": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "parse_numeric_string": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result <= 0;",
+              "ensures \\result == 0 || \\result == -(302069) || \\result == -(302083) || \\result == -(303917) || \\result == -(303923) || \\result == -(303930) || \\result == -(303937) || \\result == -(303944);"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "parse_numeric_string": [
+            "requires (buf != \\null && len >= (u32)2) ==> \\valid_read(buf + (0 .. len-1));"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 3,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 1,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "call_site_41_0": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "parse_numeric_string"
+      ],
+      "session_id": "92f41d82-b98c-4301-869b-5de212f76f51",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "parse_rdn_val_ogrnip": {
+      "agent_id": "agent_parse_rdn_val_ogrnip",
+      "function_name": "parse_rdn_val_ogrnip",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "parse_rdn_val_ogrnip",
+        "preconditions": [
+          "requires buf != \\null ==> \\valid_read(buf + (0 .. len-1));"
+        ],
+        "postconditions": [
+          "ensures \\result <= 0;",
+          "ensures \\result == 0 || \\result == -(302069) || \\result == -(302083) || \\result == -(303917) || \\result == -(303923) || \\result == -(303930) || \\result == -(303937) || \\result == -(303944);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {
+          "parse_numeric_string": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "parse_numeric_string": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result <= 0;",
+              "ensures \\result == 0 || \\result == -(302069) || \\result == -(302083) || \\result == -(303917) || \\result == -(303923) || \\result == -(303930) || \\result == -(303937) || \\result == -(303944);"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "parse_numeric_string": [
+            "requires (buf != \\null && len >= (u32)2) ==> \\valid_read(buf + (0 .. len-1));"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 3,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 1,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "call_site_42_0": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "parse_numeric_string"
+      ],
+      "session_id": "f5e5080f-abad-49c6-a9a5-e8c9ec963ff1",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "parse_rdn_val_inn": {
+      "agent_id": "agent_parse_rdn_val_inn",
+      "function_name": "parse_rdn_val_inn",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "parse_rdn_val_inn",
+        "preconditions": [
+          "requires (buf != \\null && len >= (u32)2) ==> \\valid_read(buf + (0 .. len-1));"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result < 0;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 2,
+        "status": "published",
+        "based_on_versions": {
+          "parse_numeric_string": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "parse_numeric_string": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result <= 0;",
+              "ensures \\result == 0 || \\result == -(302069) || \\result == -(302083) || \\result == -(303917) || \\result == -(303923) || \\result == -(303930) || \\result == -(303937) || \\result == -(303944);"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "parse_numeric_string": [
+            "requires (buf != \\null && len >= (u32)2) ==> \\valid_read(buf + (0 .. len-1));"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 3,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 1,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "call_site_43_0": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "parse_numeric_string"
+      ],
+      "session_id": "8845d741-7a93-4255-b9b1-65b059a1112c",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "parse_rdn_val_street_address": {
+      "agent_id": "agent_parse_rdn_val_street_address",
+      "function_name": "parse_rdn_val_street_address",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "parse_rdn_val_street_address",
+        "preconditions": [
+          "requires (buf != \\null && len >= 2) ==> \\valid_read(buf + (0..len-1));"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result < 0;",
+          "ensures (buf == \\null || len == 0) ==> \\result < 0;",
+          "ensures \\result == 0 ==> (buf != \\null && len >= 2);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {
+          "parse_directory_string": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "parse_directory_string": {
+            "depends": true,
+            "clauses": [
+              "ensures (buf == \\null || len == 0) ==> \\result < 0;",
+              "ensures \\result == 0 ==> (buf != \\null && len >= 2);",
+              "ensures \\result == 0 || \\result < 0;"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "parse_directory_string": [
+            "requires (buf != \\null && len >= 2) ==> \\valid_read(buf + (0..len-1));"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 3,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 1,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "call_site_44_0": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "parse_directory_string"
+      ],
+      "session_id": "72ccddc2-452e-4c3a-a105-8630ca489c72",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "parse_rdn_val_bad_oid": {
+      "agent_id": "agent_parse_rdn_val_bad_oid",
+      "function_name": "parse_rdn_val_bad_oid",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "parse_rdn_val_bad_oid",
+        "preconditions": [],
+        "postconditions": [
+          "ensures \\result == 0;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {}
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "4ce0624b-a407-4210-b781-3ac6abb3184c",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "parse_AttributeTypeAndValue": {
+      "agent_id": "agent_parse_AttributeTypeAndValue",
+      "function_name": "parse_AttributeTypeAndValue",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "parse_AttributeTypeAndValue",
+        "preconditions": [
+          "requires \\valid(eaten);",
+          "requires buf != \\null ==> \\valid_read(buf + (0 .. len - 1));"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 ==> (*eaten >= 1 && *eaten <= \\at(len, Pre));",
+          "ensures \\result == 0 || \\result < 0;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns *eaten;"
+        ],
+        "version": 2,
+        "status": "published",
+        "based_on_versions": {
+          "parse_id_len": 2,
+          "parse_OID": 3,
+          "find_dn_by_oid": 2,
+          "parse_rdn_val_cn": 2,
+          "parse_rdn_val_x520name": 2,
+          "parse_rdn_val_serial": 1,
+          "parse_rdn_val_country": 2,
+          "parse_rdn_val_locality": 2,
+          "parse_rdn_val_state": 1,
+          "parse_rdn_val_org": 2,
+          "parse_rdn_val_org_unit": 1,
+          "parse_rdn_val_title": 1,
+          "parse_rdn_val_emailaddress": 2,
+          "parse_rdn_val_dn_qual": 3,
+          "parse_rdn_val_pseudo": 1,
+          "parse_rdn_val_dc": 1,
+          "parse_rdn_val_ogrn": 2,
+          "parse_rdn_val_snils": 2,
+          "parse_rdn_val_ogrnip": 1,
+          "parse_rdn_val_inn": 2,
+          "parse_rdn_val_street_address": 1,
+          "parse_rdn_val_bad_oid": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "find_dn_by_oid": {
+            "depends": false,
+            "clauses": null
+          },
+          "parse_OID": {
+            "depends": true,
+            "clauses": [
+              "ensures (\\result == 0) ==> (*parsed <= \\at(len, Pre));",
+              "ensures (\\result == 0) ==> (*parsed >= 1);",
+              "ensures \\result == 0 || \\result < 0;"
+            ]
+          },
+          "parse_id_len": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result == 0 ==> (*content_len <= len - *parsed);",
+              "ensures \\result == 0 ==> (*parsed >= 1);",
+              "ensures \\result == 0 || \\result < 0;"
+            ]
+          },
+          "parse_rdn_val_bad_oid": {
+            "depends": false,
+            "clauses": null
+          },
+          "parse_rdn_val_cn": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result == 0 || \\result < 0;"
+            ]
+          },
+          "parse_rdn_val_country": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result == 0 || \\result < 0;"
+            ]
+          },
+          "parse_rdn_val_dn_qual": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result == 0 || \\result < 0;"
+            ]
+          },
+          "parse_rdn_val_emailaddress": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result == 0 || \\result < 0;"
+            ]
+          },
+          "parse_rdn_val_inn": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result == 0 || \\result < 0;"
+            ]
+          },
+          "parse_rdn_val_locality": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result == 0 || \\result < 0;"
+            ]
+          },
+          "parse_rdn_val_ogrn": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result <= 0;"
+            ]
+          },
+          "parse_rdn_val_ogrnip": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result <= 0;"
+            ]
+          },
+          "parse_rdn_val_org": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result == 0 || \\result < 0;"
+            ]
+          },
+          "parse_rdn_val_org_unit": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result == 0 || \\result < 0;"
+            ]
+          },
+          "parse_rdn_val_pseudo": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result == 0 || \\result < 0;"
+            ]
+          },
+          "parse_rdn_val_snils": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result <= 0;"
+            ]
+          },
+          "parse_rdn_val_state": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result == 0 || \\result < 0;"
+            ]
+          },
+          "parse_rdn_val_street_address": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result == 0 || \\result < 0;"
+            ]
+          },
+          "parse_rdn_val_title": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result == 0 || \\result < 0;"
+            ]
+          },
+          "parse_rdn_val_x520name": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result == 0 || \\result < 0;"
+            ]
+          },
+          "parse_rdn_val_dc": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result == 0 || \\result == -(3*100000+4376) || \\result == -(3*100000+4395) || \\result == -(3*100000+4412) || \\result == -(3*100000+4430) || \\result == -(3*100000+3977) || \\result == -(3*100000+3981) || \\result == -(3*100000+3987) || \\result == -(3*100000+3994) || \\result == -(3*100000+4001) || \\result == -(3*100000+4008) || \\result == -(3*100000+2250) || \\result == -(3*100000+2263);"
+            ]
+          },
+          "parse_rdn_val_serial": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result == 0 || \\result == -(3*100000+3977) || \\result == -(3*100000+3981) || \\result == -(3*100000+3987) || \\result == -(3*100000+3994) || \\result == -(3*100000+4001) || \\result == -(3*100000+4008) || \\result == -(3*100000+2250) || \\result == -(3*100000+2263);"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "parse_id_len": [
+            "requires \\separated(parsed, content_len);",
+            "requires \\valid(content_len);",
+            "requires \\valid(parsed);",
+            "requires \\valid_read(buf + (0 .. len - 1));"
+          ],
+          "parse_OID": [
+            "requires (buf != (u8 const *)0 && len > 0) ==> \\valid_read(buf + (0 .. len-1));",
+            "requires \\separated(buf + (0 .. len-1), parsed);",
+            "requires \\valid(parsed);"
+          ],
+          "find_dn_by_oid": [
+            "requires (buf != \\null && len > 0) ==> \\valid_read(buf + (0 .. len - 1));",
+            "requires \\valid_read(known_dn_oids + (0 .. 21));"
+          ],
+          "parse_rdn_val_cn": [
+            "requires (buf != \\null && len >= 2) ==> \\valid_read(buf + (0..len-1));"
+          ],
+          "parse_rdn_val_x520name": [
+            "requires (buf != \\null && len >= 2) ==> \\valid_read(buf + (0..len-1));"
+          ],
+          "parse_rdn_val_serial": [
+            "requires buf != \\null ==> \\valid_read(buf + (0 .. len - 1));"
+          ],
+          "parse_rdn_val_country": [
+            "requires (buf != \\null && len >= 2) ==> \\valid_read(buf + (0..len-1));"
+          ],
+          "parse_rdn_val_locality": [
+            "requires (buf != \\null && len >= 2) ==> \\valid_read(buf + (0..len-1));"
+          ],
+          "parse_rdn_val_state": [
+            "requires (buf != \\null && len >= 2) ==> \\valid_read(buf + (0 .. len-1));"
+          ],
+          "parse_rdn_val_org": [
+            "requires (buf != \\null && len >= 2) ==> \\valid_read(buf + (0..len-1));"
+          ],
+          "parse_rdn_val_org_unit": [
+            "requires (buf != \\null && len >= 2) ==> \\valid_read(buf + (0..len-1));"
+          ],
+          "parse_rdn_val_title": [
+            "requires (buf != \\null && len >= 2) ==> \\valid_read(buf + (0..len-1));"
+          ],
+          "parse_rdn_val_emailaddress": [
+            "requires (buf != \\null && len >= 2) ==> \\valid_read(buf + (0..len-1));"
+          ],
+          "parse_rdn_val_dn_qual": [
+            "requires buf != \\null ==> \\valid_read(buf + (0 .. len - 1));"
+          ],
+          "parse_rdn_val_pseudo": [
+            "requires (buf != \\null && len >= 2) ==> \\valid_read(buf + (0..len-1));"
+          ],
+          "parse_rdn_val_dc": [
+            "requires (buf != \\null && len >= 2) ==> \\valid_read(buf + (0..len-1));"
+          ],
+          "parse_rdn_val_ogrn": [
+            "requires (buf != \\null && len >= (u32)2) ==> \\valid_read(buf + (0 .. len-1));"
+          ],
+          "parse_rdn_val_snils": [
+            "requires (buf != \\null && len >= (u32)2) ==> \\valid_read(buf + (0 .. len-1));"
+          ],
+          "parse_rdn_val_ogrnip": [
+            "requires buf != \\null ==> \\valid_read(buf + (0 .. len-1));"
+          ],
+          "parse_rdn_val_inn": [
+            "requires (buf != \\null && len >= (u32)2) ==> \\valid_read(buf + (0 .. len-1));"
+          ],
+          "parse_rdn_val_street_address": [
+            "requires (buf != \\null && len >= 2) ==> \\valid_read(buf + (0..len-1));"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 5,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 1,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 32,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_72": "verified",
+          "call_site_70": "verified",
+          "call_site_45_0": "verified",
+          "call_site_45_1": "verified",
+          "call_site_45_2": "verified",
+          "call_site_45_3": "verified",
+          "call_site_46_0": "verified",
+          "call_site_46_1": "verified",
+          "call_site_46_2": "verified",
+          "call_site_47_0": "verified",
+          "call_site_47_1": "verified",
+          "call_site_48_0": "verified",
+          "call_site_49_0": "verified",
+          "call_site_57_0": "verified",
+          "call_site_59_0": "verified",
+          "call_site_60_0": "verified",
+          "call_site_61_0": "verified",
+          "call_site_50_0": "verified",
+          "call_site_51_0": "verified",
+          "call_site_52_0": "verified",
+          "call_site_53_0": "verified",
+          "call_site_54_0": "verified",
+          "call_site_55_0": "verified",
+          "call_site_56_0": "verified",
+          "call_site_58_0": "verified",
+          "call_site_62_0": "verified",
+          "call_site_63_0": "verified",
+          "call_site_64_0": "verified",
+          "call_site_65_0": "verified",
+          "call_site_66_0": "verified",
+          "call_site_67_0": "verified",
+          "call_site_68_0": "verified",
+          "call_site_69_0": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "parse_id_len",
+        "parse_OID",
+        "find_dn_by_oid",
+        "parse_rdn_val_cn",
+        "parse_rdn_val_x520name",
+        "parse_rdn_val_serial",
+        "parse_rdn_val_country",
+        "parse_rdn_val_locality",
+        "parse_rdn_val_state",
+        "parse_rdn_val_org",
+        "parse_rdn_val_org_unit",
+        "parse_rdn_val_title",
+        "parse_rdn_val_emailaddress",
+        "parse_rdn_val_dn_qual",
+        "parse_rdn_val_pseudo",
+        "parse_rdn_val_dc",
+        "parse_rdn_val_ogrn",
+        "parse_rdn_val_snils",
+        "parse_rdn_val_ogrnip",
+        "parse_rdn_val_inn",
+        "parse_rdn_val_street_address",
+        "parse_rdn_val_bad_oid"
+      ],
+      "session_id": "36677cf2-7609-4811-87e2-f9c1fe495a82",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "parse_RelativeDistinguishedName": {
+      "agent_id": "agent_parse_RelativeDistinguishedName",
+      "function_name": "parse_RelativeDistinguishedName",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "parse_RelativeDistinguishedName",
+        "preconditions": [
+          "requires \\valid(eaten);",
+          "requires (buf != \\null && len > 0) ==> \\valid_read(buf + (0..len-1));"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 ==> (*eaten >= 1);",
+          "ensures \\result == 0 ==> (*eaten <= len);",
+          "ensures \\result != 0 ==> (*eaten == \\old(*eaten));",
+          "ensures \\result == 0 || \\result < 0;"
+        ],
+        "loop_contracts": {
+          "parse_RelativeDistinguishedName_loop_0": [
+            "loop invariant \\valid_read(buf + (0..rdn_remain-1));",
+            "loop assigns ret, rdn_remain, buf;",
+            "loop variant rdn_remain;"
+          ]
+        },
+        "assigns": [
+          "assigns *eaten;"
+        ],
+        "version": 2,
+        "status": "published",
+        "based_on_versions": {
+          "parse_id_len": 2,
+          "parse_AttributeTypeAndValue": 2
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "parse_id_len": {
+            "depends": true,
+            "clauses": null
+          },
+          "parse_AttributeTypeAndValue": {
+            "depends": true,
+            "clauses": null
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "parse_id_len": [
+            "requires \\separated(parsed, content_len);",
+            "requires \\valid(content_len);",
+            "requires \\valid(parsed);",
+            "requires \\valid_read(buf + (0 .. len - 1));"
+          ],
+          "parse_AttributeTypeAndValue": [
+            "requires \\valid(eaten);",
+            "requires buf != \\null ==> \\valid_read(buf + (0 .. len - 1));"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 6,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 1,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 6,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_73": "verified",
+          "call_site_71_0": "verified",
+          "call_site_71_1": "verified",
+          "call_site_71_2": "verified",
+          "call_site_71_3": "verified",
+          "call_site_72_0": "verified",
+          "call_site_72_1": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "parse_id_len",
+        "parse_AttributeTypeAndValue"
+      ],
+      "session_id": "1a1d2b2c-9a81-4c9a-bc7e-f606cb8bfb03",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "parse_x509_Name": {
+      "agent_id": "agent_parse_x509_Name",
+      "function_name": "parse_x509_Name",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "parse_x509_Name",
+        "preconditions": [
+          "requires \\valid(eaten);",
+          "requires \\valid(empty);",
+          "requires \\separated(eaten, empty);",
+          "requires (buf != \\null && len > 0) ==> \\valid_read(buf + (0 .. len - 1));"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 ==> (*eaten >= 1 && *eaten <= len);",
+          "ensures \\result == 0 ==> (*empty == 0 || *empty == 1);",
+          "ensures \\result != 0 ==> (*eaten == \\old(*eaten) && *empty == \\old(*empty));",
+          "ensures \\result == 0 || \\result < 0;"
+        ],
+        "loop_contracts": {
+          "parse_x509_Name_loop_0": [
+            "loop invariant remain <= name_data_len;",
+            "loop invariant remain > 0 ==> \\valid_read(buf + (0 .. remain - 1));",
+            "loop assigns buf, remain, ret;",
+            "loop variant remain;"
+          ]
+        },
+        "assigns": [
+          "assigns *eaten, *empty;"
+        ],
+        "version": 2,
+        "status": "published",
+        "based_on_versions": {
+          "parse_id_len": 2,
+          "parse_RelativeDistinguishedName": 2
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "parse_RelativeDistinguishedName": {
+            "depends": true,
+            "clauses": null
+          },
+          "parse_id_len": {
+            "depends": true,
+            "clauses": null
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "parse_id_len": [
+            "requires \\separated(parsed, content_len);",
+            "requires \\valid(content_len);",
+            "requires \\valid(parsed);",
+            "requires \\valid_read(buf + (0 .. len - 1));"
+          ],
+          "parse_RelativeDistinguishedName": [
+            "requires (buf != \\null && len > 0) ==> \\valid_read(buf + (0..len-1));",
+            "requires \\valid(eaten);"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 4,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 2,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 6,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_74": "verified",
+          "rte_75": "verified",
+          "call_site_73_0": "verified",
+          "call_site_73_1": "verified",
+          "call_site_73_2": "verified",
+          "call_site_73_3": "verified",
+          "call_site_74_0": "verified",
+          "call_site_74_1": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "parse_id_len",
+        "parse_RelativeDistinguishedName"
+      ],
+      "session_id": "4f45bfc4-f311-45ea-997b-e49ab37e6036",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "parse_GeneralName": {
+      "agent_id": "agent_parse_GeneralName",
+      "function_name": "parse_GeneralName",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "parse_GeneralName",
+        "preconditions": [
+          "requires (buf != \\null) ==> \\valid_read(buf + (0 .. len - 1));",
+          "requires \\valid(eaten);",
+          "requires \\valid(empty);",
+          "requires \\separated(eaten, empty);",
+          "requires (buf != \\null && len > 0) ==> \\separated(buf + (0 .. len - 1), eaten);",
+          "requires (buf != \\null && len > 0) ==> \\separated(buf + (0 .. len - 1), empty);"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result < 0;",
+          "ensures \\result == 0 ==> (*eaten >= 1);",
+          "ensures \\result == 0 ==> (*eaten <= len);",
+          "ensures (buf == \\null || len == 0) ==> \\result != 0;",
+          "ensures len < 2 ==> \\result != 0;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns *eaten, *empty;"
+        ],
+        "version": 3,
+        "status": "published",
+        "based_on_versions": {
+          "get_length": 2,
+          "check_ia5_string": 1,
+          "parse_id_len": 2,
+          "parse_x509_Name": 2
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "get_length": {
+            "depends": true,
+            "clauses": [
+              "ensures (\\result == 0 && *eaten == 1) ==> *adv_len <= 127;",
+              "ensures (\\result == 0 && *eaten >= 2) ==> *adv_len + *eaten <= len;",
+              "ensures \\result != 0 ==> (*adv_len == \\old(*adv_len) && *eaten == \\old(*eaten));",
+              "ensures \\result == 0 ==> (*eaten >= 1 && *eaten <= 5);",
+              "ensures \\result == 0 ==> *eaten <= len;"
+            ]
+          },
+          "check_ia5_string": {
+            "depends": false,
+            "clauses": null
+          },
+          "parse_id_len": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result != 0 ==> (*parsed == \\old(*parsed) && *content_len == \\old(*content_len));",
+              "ensures \\result == 0 ==> (*content_len <= len - *parsed);",
+              "ensures \\result == 0 ==> (*parsed >= 1);",
+              "ensures \\result == 0 || \\result < 0;"
+            ]
+          },
+          "parse_x509_Name": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result != 0 ==> (*eaten == \\old(*eaten) && *empty == \\old(*empty));",
+              "ensures \\result == 0 ==> (*eaten >= 1 && *eaten <= len);"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "get_length": [
+            "requires (buf != \\null && len > 0) ==> \\separated(buf + (0 .. len - 1), adv_len);",
+            "requires (buf != \\null && len > 0) ==> \\separated(buf + (0 .. len - 1), eaten);",
+            "requires (buf != \\null && len > 0) ==> \\valid_read(buf + (0 .. len - 1));",
+            "requires \\separated(adv_len, eaten);",
+            "requires \\valid(adv_len);",
+            "requires \\valid(eaten);"
+          ],
+          "check_ia5_string": [
+            "requires (buf != \\null && len > 0) ==> \\valid_read(buf + (0..len-1));"
+          ],
+          "parse_id_len": [
+            "requires \\separated(parsed, content_len);",
+            "requires \\valid(content_len);",
+            "requires \\valid(parsed);",
+            "requires \\valid_read(buf + (0 .. len - 1));"
+          ],
+          "parse_x509_Name": [
+            "requires (buf != \\null && len > 0) ==> \\valid_read(buf + (0 .. len - 1));",
+            "requires \\separated(eaten, empty);",
+            "requires \\valid(eaten);",
+            "requires \\valid(empty);"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 4,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 6,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 21,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_76": "verified",
+          "rte_77": "verified",
+          "rte_78": "verified",
+          "rte_79": "verified",
+          "rte_80": "verified",
+          "rte_81": "verified",
+          "call_site_75_0": "verified",
+          "call_site_75_1": "verified",
+          "call_site_75_2": "verified",
+          "call_site_75_3": "verified",
+          "call_site_75_4": "verified",
+          "call_site_75_5": "verified",
+          "call_site_77_0": "verified",
+          "call_site_77_1": "verified",
+          "call_site_77_2": "verified",
+          "call_site_77_3": "verified",
+          "call_site_77_4": "verified",
+          "call_site_77_5": "verified",
+          "call_site_76_0": "verified",
+          "call_site_78_0": "verified",
+          "call_site_78_1": "verified",
+          "call_site_78_2": "verified",
+          "call_site_78_3": "verified",
+          "call_site_79_0": "verified",
+          "call_site_79_1": "verified",
+          "call_site_79_2": "verified",
+          "call_site_79_3": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "get_length",
+        "check_ia5_string",
+        "parse_id_len",
+        "parse_x509_Name"
+      ],
+      "session_id": "64790183-8534-4ee3-af0c-e9f9d94a1a03",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "parse_GeneralNames": {
+      "agent_id": "agent_parse_GeneralNames",
+      "function_name": "parse_GeneralNames",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "parse_GeneralNames",
+        "preconditions": [
+          "requires buf == \\null || \\valid_read(buf + (0 .. len - 1));",
+          "requires \\valid(eaten);"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 ==> (*eaten >= 1);",
+          "ensures \\result == 0 ==> (*eaten <= len);",
+          "ensures \\result != 0 ==> (*eaten == \\old(*eaten));",
+          "ensures \\result == 0 || \\result < 0;"
+        ],
+        "loop_contracts": {
+          "parse_GeneralNames_loop_0": [
+            "loop invariant remain <= data_len;",
+            "loop invariant remain > 0 ==> \\valid_read(buf + (0 .. remain - 1));",
+            "loop assigns remain, buf, ret, parsed, unused;",
+            "loop variant remain;"
+          ]
+        },
+        "assigns": [
+          "assigns *eaten;"
+        ],
+        "version": 2,
+        "status": "published",
+        "based_on_versions": {
+          "parse_id_len": 2,
+          "parse_GeneralName": 3
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "parse_GeneralName": {
+            "depends": true,
+            "clauses": null
+          },
+          "parse_id_len": {
+            "depends": true,
+            "clauses": null
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "parse_id_len": [
+            "requires \\separated(parsed, content_len);",
+            "requires \\valid(content_len);",
+            "requires \\valid(parsed);",
+            "requires \\valid_read(buf + (0 .. len - 1));"
+          ],
+          "parse_GeneralName": [
+            "requires (buf != \\null && len > 0) ==> \\separated(buf + (0 .. len - 1), eaten);",
+            "requires (buf != \\null && len > 0) ==> \\separated(buf + (0 .. len - 1), empty);",
+            "requires (buf != \\null) ==> \\valid_read(buf + (0 .. len - 1));",
+            "requires \\separated(eaten, empty);",
+            "requires \\valid(eaten);",
+            "requires \\valid(empty);"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 4,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 1,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 10,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_82": "verified",
+          "call_site_80_0": "verified",
+          "call_site_80_1": "verified",
+          "call_site_80_2": "verified",
+          "call_site_80_3": "verified",
+          "call_site_81_0": "verified",
+          "call_site_81_1": "verified",
+          "call_site_81_2": "verified",
+          "call_site_81_3": "verified",
+          "call_site_81_4": "verified",
+          "call_site_81_5": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "parse_id_len",
+        "parse_GeneralName"
+      ],
+      "session_id": "7c0a220d-8578-4eaa-beec-00de5884dfd1",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "parse_nine_bit_named_bit_list": {
+      "agent_id": "agent_parse_nine_bit_named_bit_list",
+      "function_name": "parse_nine_bit_named_bit_list",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "parse_nine_bit_named_bit_list",
+        "preconditions": [
+          "requires (buf != \\null && len >= 1) ==> \\valid_read(buf + (0 .. len - 1));",
+          "requires val != \\null ==> \\valid(val);",
+          "requires (buf != \\null && len >= 1) ==> \\separated(buf + (0 .. len - 1), val);"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result < 0;",
+          "ensures \\result == 0 ==> \\valid(val);"
+        ],
+        "loop_contracts": {
+          "parse_nine_bit_named_bit_list_loop_0": [
+            "loop invariant 0 <= (int)k <= 8;",
+            "loop invariant \\valid_read(buf + 1);",
+            "loop assigns k, non_signif;",
+            "loop variant 8 - (int)k;"
+          ],
+          "parse_nine_bit_named_bit_list_loop_1": [
+            "loop invariant 0 <= (int)k <= 8;",
+            "loop invariant \\valid_read(buf + 1);",
+            "loop assigns k, tmp;",
+            "loop variant 8 - (int)k;"
+          ],
+          "parse_nine_bit_named_bit_list_loop_2": [
+            "loop invariant 0 <= (int)k <= 8;",
+            "loop invariant \\valid_read(buf + 1);",
+            "loop assigns k, tmp;",
+            "loop variant 8 - (int)k;"
+          ]
+        },
+        "assigns": [
+          "assigns *val;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 24,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_83": "verified",
+          "rte_84": "verified",
+          "rte_85": "verified",
+          "rte_86": "verified",
+          "rte_87": "verified",
+          "rte_88": "verified",
+          "rte_89": "verified",
+          "rte_90": "verified",
+          "rte_91": "verified",
+          "rte_92": "verified",
+          "rte_93": "verified",
+          "rte_94": "verified",
+          "rte_95": "verified",
+          "rte_96": "verified",
+          "rte_97": "verified",
+          "rte_98": "verified",
+          "rte_99": "verified",
+          "rte_100": "verified",
+          "rte_101": "verified",
+          "rte_102": "verified",
+          "rte_103": "verified",
+          "rte_104": "verified",
+          "rte_105": "verified",
+          "rte_106": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "b2661082-1461-4fdb-8138-dc6b1f9c8543",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "parse_crldp_reasons": {
+      "agent_id": "agent_parse_crldp_reasons",
+      "function_name": "parse_crldp_reasons",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "parse_crldp_reasons",
+        "preconditions": [
+          "requires \\valid_read(buf + (0 .. len - 1));",
+          "requires \\valid(eaten);",
+          "requires \\separated(buf + (0 .. len - 1), eaten);"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 ==> (*eaten >= 1);",
+          "ensures \\result == 0 ==> (*eaten <= len);",
+          "ensures \\result != 0 ==> (*eaten == \\old(*eaten));"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns *eaten;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {
+          "parse_id_len": 2,
+          "parse_nine_bit_named_bit_list": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "parse_id_len": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result != 0 ==> (*parsed == \\old(*parsed) && *content_len == \\old(*content_len));",
+              "ensures \\result == 0 ==> (*content_len <= len - *parsed);",
+              "ensures \\result == 0 ==> (*parsed >= 1);"
+            ]
+          },
+          "parse_nine_bit_named_bit_list": {
+            "depends": false,
+            "clauses": null
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "parse_id_len": [
+            "requires \\separated(parsed, content_len);",
+            "requires \\valid(content_len);",
+            "requires \\valid(parsed);",
+            "requires \\valid_read(buf + (0 .. len - 1));"
+          ],
+          "parse_nine_bit_named_bit_list": [
+            "requires (buf != \\null && len >= 1) ==> \\separated(buf + (0 .. len - 1), val);",
+            "requires (buf != \\null && len >= 1) ==> \\valid_read(buf + (0 .. len - 1));",
+            "requires val != \\null ==> \\valid(val);"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 2,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 1,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 7,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_107": "verified",
+          "call_site_82_0": "verified",
+          "call_site_82_1": "verified",
+          "call_site_82_2": "verified",
+          "call_site_82_3": "verified",
+          "call_site_83_0": "verified",
+          "call_site_83_1": "verified",
+          "call_site_83_2": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "parse_id_len",
+        "parse_nine_bit_named_bit_list"
+      ],
+      "session_id": "dd8a09ef-9e01-4f34-84c1-4aceae191e50",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "parse_DistributionPoint": {
+      "agent_id": "agent_parse_DistributionPoint",
+      "function_name": "parse_DistributionPoint",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "parse_DistributionPoint",
+        "preconditions": [
+          "requires (buf != \\null && len > 0) ==> \\valid_read(buf + (0 .. len - 1));",
+          "requires \\valid(eaten);",
+          "requires \\valid(crldp_has_all_reasons);",
+          "requires \\separated(eaten, crldp_has_all_reasons);",
+          "requires \\separated(buf + (0 .. len - 1), eaten);",
+          "requires \\separated(buf + (0 .. len - 1), crldp_has_all_reasons);"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 ==> (*eaten >= 1 && *eaten <= len);",
+          "ensures \\result == 0 ==> (*crldp_has_all_reasons == 0 || *crldp_has_all_reasons == 1);",
+          "ensures \\result != 0 ==> (*eaten == \\old(*eaten));",
+          "ensures \\result != 0 ==> (*crldp_has_all_reasons == \\old(*crldp_has_all_reasons));",
+          "ensures \\result == 0 || \\result < 0;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns *eaten, *crldp_has_all_reasons;"
+        ],
+        "version": 2,
+        "status": "published",
+        "based_on_versions": {
+          "parse_id_len": 2,
+          "parse_GeneralNames": 2,
+          "parse_crldp_reasons": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "parse_GeneralNames": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result != 0 ==> (*eaten == \\old(*eaten));",
+              "ensures \\result == 0 ==> (*eaten <= len);",
+              "ensures \\result == 0 ==> (*eaten >= 1);",
+              "ensures \\result == 0 || \\result < 0;"
+            ]
+          },
+          "parse_crldp_reasons": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result != 0 ==> (*eaten == \\old(*eaten));",
+              "ensures \\result == 0 ==> (*eaten <= len);",
+              "ensures \\result == 0 ==> (*eaten >= 1);"
+            ]
+          },
+          "parse_id_len": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result != 0 ==> (*parsed == \\old(*parsed) && *content_len == \\old(*content_len));",
+              "ensures \\result == 0 ==> (*content_len <= len - *parsed);",
+              "ensures \\result == 0 ==> (*parsed >= 1);"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "parse_id_len": [
+            "requires \\separated(parsed, content_len);",
+            "requires \\valid(content_len);",
+            "requires \\valid(parsed);",
+            "requires \\valid_read(buf + (0 .. len - 1));"
+          ],
+          "parse_GeneralNames": [
+            "requires \\valid(eaten);",
+            "requires buf == \\null || \\valid_read(buf + (0 .. len - 1));"
+          ],
+          "parse_crldp_reasons": [
+            "requires \\separated(buf + (0 .. len - 1), eaten);",
+            "requires \\valid(eaten);",
+            "requires \\valid_read(buf + (0 .. len - 1));"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 4,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 3,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 15,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_108": "verified",
+          "rte_109": "verified",
+          "rte_110": "verified",
+          "call_site_84_0": "verified",
+          "call_site_84_1": "verified",
+          "call_site_84_2": "verified",
+          "call_site_84_3": "verified",
+          "call_site_85_0": "verified",
+          "call_site_85_1": "verified",
+          "call_site_85_2": "verified",
+          "call_site_85_3": "verified",
+          "call_site_86_0": "verified",
+          "call_site_86_1": "verified",
+          "call_site_88_0": "verified",
+          "call_site_88_1": "verified",
+          "call_site_87_0": "verified",
+          "call_site_87_1": "verified",
+          "call_site_87_2": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "parse_id_len",
+        "parse_GeneralNames",
+        "parse_crldp_reasons"
+      ],
+      "session_id": "b38c5db2-af84-424e-a199-b733a99d8b68",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "parse_ext_CRLDP": {
+      "agent_id": "agent_parse_ext_CRLDP",
+      "function_name": "parse_ext_CRLDP",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "parse_ext_CRLDP",
+        "preconditions": [
+          "requires cert != \\null ==> \\valid_read((cert + off) + (0 .. len - 1));",
+          "requires \\valid(ctx);"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result < 0;",
+          "ensures \\result == 0 ==> ctx->has_crldp == 1;",
+          "ensures \\result == 0 ==> (ctx->one_crldp_has_all_reasons == 0 || ctx->one_crldp_has_all_reasons == 1);"
+        ],
+        "loop_contracts": {
+          "parse_ext_CRLDP_loop_0": [
+            "loop invariant 0 <= remain;",
+            "loop invariant remain <= \\at(remain, LoopEntry);",
+            "loop invariant buf == \\at(buf, LoopEntry) + (\\at(remain, LoopEntry) - remain);",
+            "loop invariant remain > 0 ==> \\valid_read(buf + (0 .. remain - 1));",
+            "loop invariant ctx->one_crldp_has_all_reasons == 0 || ctx->one_crldp_has_all_reasons == 1;",
+            "loop assigns remain, buf, ret, ctx->one_crldp_has_all_reasons;",
+            "loop variant remain;"
+          ]
+        },
+        "assigns": [
+          "assigns ctx->has_crldp, ctx->one_crldp_has_all_reasons;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {
+          "parse_id_len": 2,
+          "parse_DistributionPoint": 2
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "parse_id_len": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result != 0 ==> (*parsed == \\old(*parsed) && *content_len == \\old(*content_len));",
+              "ensures \\result == 0 ==> (*content_len <= len - *parsed);",
+              "ensures \\result == 0 ==> (*parsed >= 1);",
+              "ensures \\result == 0 || \\result < 0;"
+            ]
+          },
+          "parse_DistributionPoint": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result != 0 ==> (*crldp_has_all_reasons == \\old(*crldp_has_all_reasons));",
+              "ensures \\result != 0 ==> (*eaten == \\old(*eaten));",
+              "ensures \\result == 0 ==> (*crldp_has_all_reasons == 0 || *crldp_has_all_reasons == 1);",
+              "ensures \\result == 0 ==> (*eaten >= 1 && *eaten <= len);",
+              "ensures \\result == 0 || \\result < 0;"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "parse_id_len": [
+            "requires \\separated(parsed, content_len);",
+            "requires \\valid(content_len);",
+            "requires \\valid(parsed);",
+            "requires \\valid_read(buf + (0 .. len - 1));"
+          ],
+          "parse_DistributionPoint": [
+            "requires (buf != \\null && len > 0) ==> \\valid_read(buf + (0 .. len - 1));",
+            "requires \\separated(buf + (0 .. len - 1), crldp_has_all_reasons);",
+            "requires \\separated(buf + (0 .. len - 1), eaten);",
+            "requires \\separated(eaten, crldp_has_all_reasons);",
+            "requires \\valid(crldp_has_all_reasons);",
+            "requires \\valid(eaten);"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 3,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 3,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 10,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_111": "verified",
+          "rte_112": "verified",
+          "rte_113": "verified",
+          "call_site_89_0": "verified",
+          "call_site_89_1": "verified",
+          "call_site_89_2": "verified",
+          "call_site_89_3": "verified",
+          "call_site_90_0": "verified",
+          "call_site_90_1": "verified",
+          "call_site_90_2": "verified",
+          "call_site_90_3": "verified",
+          "call_site_90_4": "verified",
+          "call_site_90_5": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "parse_id_len",
+        "parse_DistributionPoint"
+      ],
+      "session_id": "6ee0315f-f43d-481a-bde5-7be1aa864763",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "parse_null": {
+      "agent_id": "agent_parse_null",
+      "function_name": "parse_null",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "parse_null",
+        "preconditions": [
+          "requires (buf != \\null && len > 0) ==> \\valid_read(buf + (0 .. len-1));",
+          "requires parsed != \\null ==> \\valid(parsed);",
+          "requires \\valid_read(null_encoded_val + (0 .. 1));"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result == -301133 || \\result == -301139 || \\result == -301146;",
+          "ensures (\\result == 0) ==> (*parsed == 2);",
+          "ensures (\\result != 0) ==> \\result < 0;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns *parsed;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {
+          "bufs_differ": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "bufs_differ": {
+            "depends": true,
+            "clauses": [
+              "ensures (\\result == 0) ==> (\\forall u32 k; 0 <= k < n ==> b1[k] == b2[k]);",
+              "ensures (\\result == 1) ==> (\\exists u32 k; 0 <= k < n && b1[k] != b2[k]);",
+              "ensures \\result == 0 || \\result == 1;"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "bufs_differ": [
+            "requires \\valid_read(b1 + (0 .. n-1));",
+            "requires \\valid_read(b2 + (0 .. n-1));"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 2,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 1,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 2,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_114": "verified",
+          "call_site_92_0": "verified",
+          "call_site_92_1": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "bufs_differ"
+      ],
+      "session_id": "95a378bb-aee3-4a8b-9e8c-0e1d27c09679",
+      "settled_assumes": [],
+      "extern_axioms": []
+    }
+  },
+  "summary": {
+    "total": 52,
+    "global_ok": 52,
+    "local_ok": 0,
+    "dirty": 0,
+    "failed": 0,
+    "cycle_limited": 0,
+    "conditional_ok": 0,
+    "bugs": 1
+  }
+}

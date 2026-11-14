@@ -1,0 +1,3702 @@
+{
+  "id": "hypatia_20260616_155854",
+  "source_file": "benchmarks/util-libs/hypatia/hypatia.c",
+  "started_at": "2026-06-16T15:58:55.877+00:00",
+  "finished_at": "2026-06-16T16:10:13.921+00:00",
+  "status": "completed",
+  "config": {
+    "scope": "global",
+    "timeout": 43200.0,
+    "model": "claude-sonnet-4-6",
+    "max_turns": 30,
+    "max_parallel": 8,
+    "schedule": "leaf-first",
+    "max_cycles_per_agent": 4,
+    "requested_functions": [],
+    "enable_ablation_deps": false,
+    "ablation": [],
+    "wp_model": "Typed+var+int+real"
+  },
+  "agents": {
+    "HYP_ABS": {
+      "agent_id": "agent_HYP_ABS",
+      "function_name": "HYP_ABS",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "HYP_ABS",
+        "preconditions": [
+          "requires \\is_finite(value);"
+        ],
+        "postconditions": [
+          "ensures \\is_finite(\\result);",
+          "ensures \\result >= 0.0f;",
+          "ensures (value >= 0.0f) ==> (\\result == value);",
+          "ensures (value < 0.0f) ==> (\\result == -value);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 1,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_6": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "7eda4029-f05e-4985-85e6-6a7d27ba46cb",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "HYP_CLAMP": {
+      "agent_id": "agent_HYP_CLAMP",
+      "function_name": "HYP_CLAMP",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "HYP_CLAMP",
+        "preconditions": [
+          "requires start <= limit;"
+        ],
+        "postconditions": [
+          "ensures \\result >= start;",
+          "ensures \\result <= limit;",
+          "ensures (value < start) ==> (\\result == start);",
+          "ensures (value > limit) ==> (\\result == limit);",
+          "ensures (value >= start && value <= limit) ==> (\\result == value);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {}
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "ffaf535f-0f5d-40f9-b109-2ffc710c92e9",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "HYP_MAX": {
+      "agent_id": "agent_HYP_MAX",
+      "function_name": "HYP_MAX",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "HYP_MAX",
+        "preconditions": [],
+        "postconditions": [
+          "ensures \\result == a || \\result == b;",
+          "ensures \\result >= a && \\result >= b;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {}
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "d92eaae6-f595-495f-874c-9d387fcfe083",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "HYP_MIN": {
+      "agent_id": "agent_HYP_MIN",
+      "function_name": "HYP_MIN",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "HYP_MIN",
+        "preconditions": [],
+        "postconditions": [
+          "ensures \\result <= a && \\result <= b;",
+          "ensures \\result == a || \\result == b;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {}
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "3eaaff82-0df4-4f47-a7ea-c59478baf69b",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "HYP_SQUARE": {
+      "agent_id": "agent_HYP_SQUARE",
+      "function_name": "HYP_SQUARE",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "HYP_SQUARE",
+        "preconditions": [
+          "requires \\is_finite(\\mul_float(number, number));"
+        ],
+        "postconditions": [
+          "ensures \\is_finite(\\result);",
+          "ensures \\result == \\mul_float(number, number);",
+          "ensures \\result >= 0.0f;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 1,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_5": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "8410779c-d4ff-4d33-9a26-5fd882b1ee7c",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "HYP_SWAP": {
+      "agent_id": "agent_HYP_SWAP",
+      "function_name": "HYP_SWAP",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "HYP_SWAP",
+        "preconditions": [
+          "requires \\valid(a);",
+          "requires \\valid(b);",
+          "requires \\separated(a, b);"
+        ],
+        "postconditions": [
+          "ensures *a == \\old(*b);",
+          "ensures *b == \\old(*a);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns *a, *b;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 4,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_1": "verified",
+          "rte_2": "verified",
+          "rte_3": "verified",
+          "rte_4": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "d921f67f-78d4-4a50-9f7a-dc05c8cb5805",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "scalar_equals_epsilonf": {
+      "agent_id": "agent_scalar_equals_epsilonf",
+      "function_name": "scalar_equals_epsilonf",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "scalar_equals_epsilonf",
+        "preconditions": [
+          "requires \\is_finite(f1);",
+          "requires \\is_finite(f2);",
+          "requires \\is_finite(\\sub_float(f1, f2));"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result == 1;",
+          "ensures (\\result == 1) ==> (\\sub_float(f1, f2) < epsilon || -\\sub_float(f1, f2) < epsilon);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 2,
+        "status": "published",
+        "based_on_versions": {
+          "HYP_ABS": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "HYP_ABS": {
+            "depends": true,
+            "clauses": [
+              "ensures (value < 0.0f) ==> (\\result == -value);",
+              "ensures (value >= 0.0f) ==> (\\result == value);",
+              "ensures \\is_finite(\\result);",
+              "ensures \\result >= 0.0f;"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "HYP_ABS": [
+            "requires \\is_finite(value);"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 2,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 1,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 1,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_7": "verified",
+          "call_site_1_0": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "HYP_ABS"
+      ],
+      "session_id": "9a3e2e6a-43fd-46fe-9e24-6eb1e9c1a384",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "scalar_equalsf": {
+      "agent_id": "agent_scalar_equalsf",
+      "function_name": "scalar_equalsf",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "scalar_equalsf",
+        "preconditions": [
+          "requires \\is_finite(f1);",
+          "requires \\is_finite(f2);",
+          "requires \\is_finite(\\sub_float(f1, f2));"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result == 1;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 2,
+        "status": "published",
+        "based_on_versions": {
+          "scalar_equals_epsilonf": 2
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "scalar_equals_epsilonf": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result == 0 || \\result == 1;"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "scalar_equals_epsilonf": [
+            "requires \\is_finite(\\sub_float(f1, f2));",
+            "requires \\is_finite(f1);",
+            "requires \\is_finite(f2);"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 2,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 3,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "call_site_2_0": "verified",
+          "call_site_2_1": "verified",
+          "call_site_2_2": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "scalar_equals_epsilonf"
+      ],
+      "session_id": "2de753eb-2739-4ce9-8911-eabcc2794b5e",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "vector2_add": {
+      "agent_id": "agent_vector2_add",
+      "function_name": "vector2_add",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "vector2_add",
+        "preconditions": [
+          "requires \\valid(self);",
+          "requires \\valid_read(vT);",
+          "requires \\separated(self, vT);",
+          "requires \\is_finite((float)self->__anonCompField2.v[0]);",
+          "requires \\is_finite((float)vT->__anonCompField2.v[0]);",
+          "requires \\is_finite(\\add_float(self->__anonCompField2.v[0], vT->__anonCompField2.v[0]));",
+          "requires \\is_finite((float)self->__anonCompField2.v[1]);",
+          "requires \\is_finite((float)vT->__anonCompField2.v[1]);",
+          "requires \\is_finite(\\add_float(self->__anonCompField2.v[1], vT->__anonCompField2.v[1]));"
+        ],
+        "postconditions": [
+          "ensures \\result == self;",
+          "ensures \\valid(\\result);",
+          "ensures \\is_finite((float)\\result->__anonCompField2.v[0]);",
+          "ensures \\is_finite((float)\\result->__anonCompField2.v[1]);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns self->__anonCompField2.v[0], self->__anonCompField2.v[1];"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 8,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_24": "verified",
+          "rte_25": "verified",
+          "rte_26": "verified",
+          "rte_27": "verified",
+          "rte_28": "verified",
+          "rte_29": "verified",
+          "rte_30": "verified",
+          "rte_31": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "a74a2412-a983-41a9-a40c-854ac2ecedb4",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "vector2_addf": {
+      "agent_id": "agent_vector2_addf",
+      "function_name": "vector2_addf",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "vector2_addf",
+        "preconditions": [
+          "requires \\valid(self);",
+          "requires \\is_finite(fT);",
+          "requires \\is_finite(self->__anonCompField2.v[0]);",
+          "requires \\is_finite(self->__anonCompField2.v[1]);",
+          "requires \\is_finite(\\add_float(self->__anonCompField2.v[0], fT));",
+          "requires \\is_finite(\\add_float(self->__anonCompField2.v[1], fT));"
+        ],
+        "postconditions": [
+          "ensures \\result == self;",
+          "ensures \\valid(\\result);",
+          "ensures \\is_finite(\\result->__anonCompField2.v[0]);",
+          "ensures \\is_finite(\\result->__anonCompField2.v[1]);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns self->__anonCompField2.v[0], self->__anonCompField2.v[1];"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 6,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_32": "verified",
+          "rte_33": "verified",
+          "rte_34": "verified",
+          "rte_35": "verified",
+          "rte_36": "verified",
+          "rte_37": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "24c01359-d8e1-48fe-9804-22271e5b1ed0",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "vector2_cross_product": {
+      "agent_id": "agent_vector2_cross_product",
+      "function_name": "vector2_cross_product",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "vector2_cross_product",
+        "preconditions": [
+          "requires \\valid(vR);",
+          "requires \\valid_read(vT1);",
+          "requires \\valid_read(vT2);",
+          "requires \\separated(vR, vT1);",
+          "requires \\separated(vR, vT2);",
+          "requires \\is_finite(vT1->__anonCompField2.__anonCompField1.x);",
+          "requires \\is_finite(vT1->__anonCompField2.__anonCompField1.y);",
+          "requires \\is_finite(vT2->__anonCompField2.__anonCompField1.x);",
+          "requires \\is_finite(vT2->__anonCompField2.__anonCompField1.y);",
+          "requires \\is_finite(\\mul_float(vT1->__anonCompField2.__anonCompField1.x, vT2->__anonCompField2.__anonCompField1.y));",
+          "requires \\is_finite(\\mul_float(vT1->__anonCompField2.__anonCompField1.y, vT2->__anonCompField2.__anonCompField1.x));",
+          "requires \\is_finite(\\sub_float(\\mul_float(vT1->__anonCompField2.__anonCompField1.x, vT2->__anonCompField2.__anonCompField1.y), \\mul_float(vT1->__anonCompField2.__anonCompField1.y, vT2->__anonCompField2.__anonCompField1.x)));",
+          "requires \\is_finite(\\sub_float(\\mul_float(vT1->__anonCompField2.__anonCompField1.y, vT2->__anonCompField2.__anonCompField1.x), \\mul_float(vT1->__anonCompField2.__anonCompField1.x, vT2->__anonCompField2.__anonCompField1.y)));"
+        ],
+        "postconditions": [
+          "ensures \\result == vR;",
+          "ensures \\valid(\\result);",
+          "ensures \\result->__anonCompField2.__anonCompField1.x == vT1->__anonCompField2.__anonCompField1.x * vT2->__anonCompField2.__anonCompField1.y - vT1->__anonCompField2.__anonCompField1.y * vT2->__anonCompField2.__anonCompField1.x;",
+          "ensures \\result->__anonCompField2.__anonCompField1.y == vT1->__anonCompField2.__anonCompField1.y * vT2->__anonCompField2.__anonCompField1.x - vT1->__anonCompField2.__anonCompField1.x * vT2->__anonCompField2.__anonCompField1.y;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns *vR;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 16,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_87": "verified",
+          "rte_88": "verified",
+          "rte_89": "verified",
+          "rte_90": "verified",
+          "rte_91": "verified",
+          "rte_92": "verified",
+          "rte_93": "verified",
+          "rte_94": "verified",
+          "rte_95": "verified",
+          "rte_96": "verified",
+          "rte_97": "verified",
+          "rte_98": "verified",
+          "rte_99": "verified",
+          "rte_100": "verified",
+          "rte_101": "verified",
+          "rte_102": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "b0bab0cb-ee2a-4264-b4ca-2b3ab790217b",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "vector2_divide": {
+      "agent_id": "agent_vector2_divide",
+      "function_name": "vector2_divide",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "vector2_divide",
+        "preconditions": [
+          "requires \\valid(self);",
+          "requires \\valid_read(vT);",
+          "requires \\separated(self, vT);",
+          "requires \\is_finite(self->__anonCompField2.v[0]);",
+          "requires \\is_finite(self->__anonCompField2.v[1]);",
+          "requires \\is_finite(vT->__anonCompField2.v[0]);",
+          "requires \\is_finite(vT->__anonCompField2.v[1]);",
+          "requires vT->__anonCompField2.v[0] != 0.0f;",
+          "requires vT->__anonCompField2.v[1] != 0.0f;"
+        ],
+        "postconditions": [
+          "ensures \\result == self;",
+          "ensures \\valid(\\result);",
+          "ensures \\is_finite(\\result->__anonCompField2.v[0]);",
+          "ensures \\is_finite(\\result->__anonCompField2.v[1]);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns self->__anonCompField2.v[0], self->__anonCompField2.v[1];"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 8,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_66": "verified",
+          "rte_67": "verified",
+          "rte_68": "verified",
+          "rte_69": "verified",
+          "rte_70": "verified",
+          "rte_71": "verified",
+          "rte_72": "verified",
+          "rte_73": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "5347bcaf-439d-48cb-afe1-48b562af297b",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "vector2_dividef": {
+      "agent_id": "agent_vector2_dividef",
+      "function_name": "vector2_dividef",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "vector2_dividef",
+        "preconditions": [
+          "requires \\valid(self);",
+          "requires \\is_finite((float)self->__anonCompField2.v[0]);",
+          "requires \\is_finite((float)self->__anonCompField2.v[1]);",
+          "requires \\is_finite(fT);",
+          "requires fT != 0.0f;",
+          "requires \\is_finite(\\div_float(self->__anonCompField2.v[0], fT));",
+          "requires \\is_finite(\\div_float(self->__anonCompField2.v[1], fT));"
+        ],
+        "postconditions": [
+          "ensures \\result == self;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns self->__anonCompField2.v[0], self->__anonCompField2.v[1];"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 6,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_74": "verified",
+          "rte_75": "verified",
+          "rte_76": "verified",
+          "rte_77": "verified",
+          "rte_78": "verified",
+          "rte_79": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "f4a241f2-5361-4604-92ab-8d3d4e3c6f9f",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "vector2_dot_product": {
+      "agent_id": "agent_vector2_dot_product",
+      "function_name": "vector2_dot_product",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "vector2_dot_product",
+        "preconditions": [
+          "requires \\valid_read(self);",
+          "requires \\valid_read(vT);",
+          "requires \\is_finite((double)self->__anonCompField2.__anonCompField1.x);",
+          "requires \\is_finite((double)self->__anonCompField2.__anonCompField1.y);",
+          "requires \\is_finite((double)vT->__anonCompField2.__anonCompField1.x);",
+          "requires \\is_finite((double)vT->__anonCompField2.__anonCompField1.y);",
+          "requires \\is_finite((double)(self->__anonCompField2.__anonCompField1.x * vT->__anonCompField2.__anonCompField1.x));",
+          "requires \\is_finite((double)(self->__anonCompField2.__anonCompField1.y * vT->__anonCompField2.__anonCompField1.y));",
+          "requires \\is_finite((double)(self->__anonCompField2.__anonCompField1.x * vT->__anonCompField2.__anonCompField1.x + self->__anonCompField2.__anonCompField1.y * vT->__anonCompField2.__anonCompField1.y));"
+        ],
+        "postconditions": [
+          "ensures \\is_finite((double)\\result);",
+          "ensures \\result == self->__anonCompField2.__anonCompField1.x * vT->__anonCompField2.__anonCompField1.x + self->__anonCompField2.__anonCompField1.y * vT->__anonCompField2.__anonCompField1.y;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 7,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_80": "verified",
+          "rte_81": "verified",
+          "rte_82": "verified",
+          "rte_83": "verified",
+          "rte_84": "verified",
+          "rte_85": "verified",
+          "rte_86": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "e9aa27f0-1eb4-4286-8fd1-f95df386d9cd",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "vector2_equals": {
+      "agent_id": "agent_vector2_equals",
+      "function_name": "vector2_equals",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "vector2_equals",
+        "preconditions": [
+          "requires \\valid_read(self);",
+          "requires \\valid_read(vT);",
+          "requires \\is_finite(self->__anonCompField2.__anonCompField1.x);",
+          "requires \\is_finite(vT->__anonCompField2.__anonCompField1.x);",
+          "requires \\is_finite(\\sub_float(self->__anonCompField2.__anonCompField1.x, vT->__anonCompField2.__anonCompField1.x));",
+          "requires \\is_finite(self->__anonCompField2.__anonCompField1.y);",
+          "requires \\is_finite(vT->__anonCompField2.__anonCompField1.y);",
+          "requires \\is_finite(\\sub_float(self->__anonCompField2.__anonCompField1.y, vT->__anonCompField2.__anonCompField1.y));"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result == 1;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 2,
+        "status": "published",
+        "based_on_versions": {
+          "scalar_equalsf": 2
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "scalar_equalsf": {
+            "depends": false,
+            "clauses": null
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "scalar_equalsf": [
+            "requires \\is_finite(\\sub_float(f1, f2));",
+            "requires \\is_finite(f1);",
+            "requires \\is_finite(f2);"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 3,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 4,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 6,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_14": "verified",
+          "rte_15": "verified",
+          "rte_16": "verified",
+          "rte_17": "verified",
+          "call_site_3_0": "verified",
+          "call_site_3_1": "verified",
+          "call_site_3_2": "verified",
+          "call_site_4_0": "verified",
+          "call_site_4_1": "verified",
+          "call_site_4_2": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "scalar_equalsf"
+      ],
+      "session_id": "b14d0cdc-51a6-4437-96b3-9d05df350f28",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "vector2_get_reference_vector2": {
+      "agent_id": "agent_vector2_get_reference_vector2",
+      "function_name": "vector2_get_reference_vector2",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "vector2_get_reference_vector2",
+        "preconditions": [],
+        "postconditions": [
+          "ensures \\result != \\null;",
+          "ensures \\valid_read(\\result);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {}
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "e3528bba-20ec-4c91-9058-9fe4a8ca1676",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "vector2_multiply": {
+      "agent_id": "agent_vector2_multiply",
+      "function_name": "vector2_multiply",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "vector2_multiply",
+        "preconditions": [
+          "requires \\valid(self);",
+          "requires \\valid_read(vT);",
+          "requires \\separated(self, vT);",
+          "requires \\is_finite(\\mul_float(self->__anonCompField2.v[0], vT->__anonCompField2.v[0]));",
+          "requires \\is_finite(\\mul_float(self->__anonCompField2.v[1], vT->__anonCompField2.v[1]));"
+        ],
+        "postconditions": [
+          "ensures \\result == self;",
+          "ensures \\valid(\\result);",
+          "ensures \\is_finite(\\result->__anonCompField2.v[0]);",
+          "ensures \\is_finite(\\result->__anonCompField2.v[1]);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns self->__anonCompField2.v[0], self->__anonCompField2.v[1];"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 8,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_52": "verified",
+          "rte_53": "verified",
+          "rte_54": "verified",
+          "rte_55": "verified",
+          "rte_56": "verified",
+          "rte_57": "verified",
+          "rte_58": "verified",
+          "rte_59": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "7f340522-2d77-4ece-b8a3-a122f417071b",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "vector2_multiplyf": {
+      "agent_id": "agent_vector2_multiplyf",
+      "function_name": "vector2_multiplyf",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "vector2_multiplyf",
+        "preconditions": [
+          "requires \\valid(self);",
+          "requires \\is_finite((float)self->__anonCompField2.v[0]);",
+          "requires \\is_finite((float)self->__anonCompField2.v[1]);",
+          "requires \\is_finite(fT);",
+          "requires \\is_finite(\\mul_float(self->__anonCompField2.v[0], fT));",
+          "requires \\is_finite(\\mul_float(self->__anonCompField2.v[1], fT));"
+        ],
+        "postconditions": [
+          "ensures \\result == self;",
+          "ensures \\valid(\\result);",
+          "ensures \\result->__anonCompField2.v[0] == \\mul_float(\\old(self->__anonCompField2.v[0]), fT);",
+          "ensures \\result->__anonCompField2.v[1] == \\mul_float(\\old(self->__anonCompField2.v[1]), fT);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns self->__anonCompField2.v[0], self->__anonCompField2.v[1];"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 6,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_60": "verified",
+          "rte_61": "verified",
+          "rte_62": "verified",
+          "rte_63": "verified",
+          "rte_64": "verified",
+          "rte_65": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "24923dbf-277e-4ee6-939e-04ae5dc0a83e",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "vector2_negate": {
+      "agent_id": "agent_vector2_negate",
+      "function_name": "vector2_negate",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "vector2_negate",
+        "preconditions": [
+          "requires \\valid(self);",
+          "requires \\is_finite(self->__anonCompField2.v[0]);",
+          "requires \\is_finite(self->__anonCompField2.v[1]);"
+        ],
+        "postconditions": [
+          "ensures \\result == self;",
+          "ensures \\valid(\\result);",
+          "ensures \\result->__anonCompField2.v[0] == -\\old(self->__anonCompField2.v[0]);",
+          "ensures \\result->__anonCompField2.v[1] == -\\old(self->__anonCompField2.v[1]);",
+          "ensures \\is_finite(\\result->__anonCompField2.v[0]);",
+          "ensures \\is_finite(\\result->__anonCompField2.v[1]);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns self->__anonCompField2.v[0], self->__anonCompField2.v[1];"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 6,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_18": "verified",
+          "rte_19": "verified",
+          "rte_20": "verified",
+          "rte_21": "verified",
+          "rte_22": "verified",
+          "rte_23": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "78d58026-efd4-4ae2-af54-80d4fd8c0eb0",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "vector2_set": {
+      "agent_id": "agent_vector2_set",
+      "function_name": "vector2_set",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "vector2_set",
+        "preconditions": [
+          "requires \\valid(self);",
+          "requires \\valid_read(vT);",
+          "requires \\separated(self, vT);"
+        ],
+        "postconditions": [
+          "ensures \\result == self;",
+          "ensures self->__anonCompField2.__anonCompField1.x == vT->__anonCompField2.__anonCompField1.x;",
+          "ensures self->__anonCompField2.__anonCompField1.y == vT->__anonCompField2.__anonCompField1.y;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns self->__anonCompField2.__anonCompField1.x, self->__anonCompField2.__anonCompField1.y;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 4,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_10": "verified",
+          "rte_11": "verified",
+          "rte_12": "verified",
+          "rte_13": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "81f596f0-0d7d-4bbb-9f49-b94f9996c8a3",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "vector2_setf2": {
+      "agent_id": "agent_vector2_setf2",
+      "function_name": "vector2_setf2",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "vector2_setf2",
+        "preconditions": [
+          "requires \\valid(self);"
+        ],
+        "postconditions": [
+          "ensures \\result == self;",
+          "ensures self->__anonCompField2.__anonCompField1.x == xT;",
+          "ensures self->__anonCompField2.__anonCompField1.y == yT;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns self->__anonCompField2.__anonCompField1.x, self->__anonCompField2.__anonCompField1.y;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 2,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_8": "verified",
+          "rte_9": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "be87a3f1-40ba-49e1-908e-8ba62125f1b5",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "vector2_subtract": {
+      "agent_id": "agent_vector2_subtract",
+      "function_name": "vector2_subtract",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "vector2_subtract",
+        "preconditions": [
+          "requires \\valid(self);",
+          "requires \\valid_read(vT);",
+          "requires \\separated(self, vT);",
+          "requires \\is_finite(\\sub_float(self->__anonCompField2.v[0], vT->__anonCompField2.v[0]));",
+          "requires \\is_finite(\\sub_float(self->__anonCompField2.v[1], vT->__anonCompField2.v[1]));"
+        ],
+        "postconditions": [
+          "ensures \\result == self;",
+          "ensures \\is_finite(\\result->__anonCompField2.v[0]);",
+          "ensures \\is_finite(\\result->__anonCompField2.v[1]);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns self->__anonCompField2.v[0], self->__anonCompField2.v[1];"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 8,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_38": "verified",
+          "rte_39": "verified",
+          "rte_40": "verified",
+          "rte_41": "verified",
+          "rte_42": "verified",
+          "rte_43": "verified",
+          "rte_44": "verified",
+          "rte_45": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "6a5af2fe-4165-49a9-8907-bd8cd8176f46",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "vector2_subtractf": {
+      "agent_id": "agent_vector2_subtractf",
+      "function_name": "vector2_subtractf",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "vector2_subtractf",
+        "preconditions": [
+          "requires \\valid(self);",
+          "requires \\is_finite(self->__anonCompField2.v[0]);",
+          "requires \\is_finite(self->__anonCompField2.v[1]);",
+          "requires \\is_finite(fT);",
+          "requires \\is_finite(\\sub_float(self->__anonCompField2.v[0], fT));",
+          "requires \\is_finite(\\sub_float(self->__anonCompField2.v[1], fT));"
+        ],
+        "postconditions": [
+          "ensures \\result == self;",
+          "ensures \\valid(\\result);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns self->__anonCompField2.v[0..1];"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 6,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_46": "verified",
+          "rte_47": "verified",
+          "rte_48": "verified",
+          "rte_49": "verified",
+          "rte_50": "verified",
+          "rte_51": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "e2bc42dc-de2f-44f7-90ea-af3d4d41b7fc",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "vector2_zero": {
+      "agent_id": "agent_vector2_zero",
+      "function_name": "vector2_zero",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "vector2_zero",
+        "preconditions": [
+          "requires \\valid(self);"
+        ],
+        "postconditions": [
+          "ensures \\result == self;",
+          "ensures self->__anonCompField2.__anonCompField1.x == 0.0f;",
+          "ensures self->__anonCompField2.__anonCompField1.y == 0.0f;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns self->__anonCompField2.__anonCompField1.x, self->__anonCompField2.__anonCompField1.y;"
+        ],
+        "version": 2,
+        "status": "published",
+        "based_on_versions": {
+          "vector2_setf2": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "vector2_setf2": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result == self;",
+              "ensures self->__anonCompField2.__anonCompField1.x == xT;",
+              "ensures self->__anonCompField2.__anonCompField1.y == yT;"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "vector2_setf2": [
+            "requires \\valid(self);"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 2,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 1,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "call_site_5_0": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "vector2_setf2"
+      ],
+      "session_id": "624c7f9a-dd66-4f00-815f-42608ab42265",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "vector3_add": {
+      "agent_id": "agent_vector3_add",
+      "function_name": "vector3_add",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "vector3_add",
+        "preconditions": [
+          "requires \\valid(self);",
+          "requires \\valid_read(vT);",
+          "requires \\is_finite(self->__anonCompField5.v[0]);",
+          "requires \\is_finite(self->__anonCompField5.v[1]);",
+          "requires \\is_finite(self->__anonCompField5.v[2]);",
+          "requires \\is_finite(vT->__anonCompField5.v[0]);",
+          "requires \\is_finite(vT->__anonCompField5.v[1]);",
+          "requires \\is_finite(vT->__anonCompField5.v[2]);",
+          "requires \\is_finite(\\add_float(self->__anonCompField5.v[0], vT->__anonCompField5.v[0]));",
+          "requires \\is_finite(\\add_float(self->__anonCompField5.v[1], vT->__anonCompField5.v[1]));",
+          "requires \\is_finite(\\add_float(self->__anonCompField5.v[2], vT->__anonCompField5.v[2]));"
+        ],
+        "postconditions": [
+          "ensures \\result == self;",
+          "ensures \\valid(\\result);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns self->__anonCompField5.v[0], self->__anonCompField5.v[1], self->__anonCompField5.v[2];"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 12,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_130": "verified",
+          "rte_131": "verified",
+          "rte_132": "verified",
+          "rte_133": "verified",
+          "rte_134": "verified",
+          "rte_135": "verified",
+          "rte_136": "verified",
+          "rte_137": "verified",
+          "rte_138": "verified",
+          "rte_139": "verified",
+          "rte_140": "verified",
+          "rte_141": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "b6dd0671-c1f3-496c-b338-105588168132",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "vector3_addf": {
+      "agent_id": "agent_vector3_addf",
+      "function_name": "vector3_addf",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "vector3_addf",
+        "preconditions": [
+          "requires \\valid(self);",
+          "requires \\is_finite(f);",
+          "requires \\is_finite(self->__anonCompField5.v[0]);",
+          "requires \\is_finite(self->__anonCompField5.v[1]);",
+          "requires \\is_finite(self->__anonCompField5.v[2]);",
+          "requires \\is_finite(\\add_float(self->__anonCompField5.v[0], f));",
+          "requires \\is_finite(\\add_float(self->__anonCompField5.v[1], f));",
+          "requires \\is_finite(\\add_float(self->__anonCompField5.v[2], f));"
+        ],
+        "postconditions": [
+          "ensures \\result == self;",
+          "ensures \\valid(\\result);",
+          "ensures \\result->__anonCompField5.v[0] == \\old(self->__anonCompField5.v[0]) + f;",
+          "ensures \\result->__anonCompField5.v[1] == \\old(self->__anonCompField5.v[1]) + f;",
+          "ensures \\result->__anonCompField5.v[2] == \\old(self->__anonCompField5.v[2]) + f;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns self->__anonCompField5.v[0..2];"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 9,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_142": "verified",
+          "rte_143": "verified",
+          "rte_144": "verified",
+          "rte_145": "verified",
+          "rte_146": "verified",
+          "rte_147": "verified",
+          "rte_148": "verified",
+          "rte_149": "verified",
+          "rte_150": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "918717c0-c17b-49cc-aaee-7a19ae089d6b",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "vector3_cross_product": {
+      "agent_id": "agent_vector3_cross_product",
+      "function_name": "vector3_cross_product",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "vector3_cross_product",
+        "preconditions": [
+          "requires \\valid(vR);",
+          "requires \\valid_read(vT1);",
+          "requires \\valid_read(vT2);",
+          "requires \\separated(vR, vT1);",
+          "requires \\separated(vR, vT2);",
+          "requires \\is_finite(vT1->__anonCompField5.__anonCompField3.x);",
+          "requires \\is_finite(vT1->__anonCompField5.__anonCompField3.y);",
+          "requires \\is_finite(vT1->__anonCompField5.__anonCompField3.z);",
+          "requires \\is_finite(vT2->__anonCompField5.__anonCompField3.x);",
+          "requires \\is_finite(vT2->__anonCompField5.__anonCompField3.y);",
+          "requires \\is_finite(vT2->__anonCompField5.__anonCompField3.z);",
+          "requires \\is_finite(\\mul_float(vT1->__anonCompField5.__anonCompField3.y, vT2->__anonCompField5.__anonCompField3.z));",
+          "requires \\is_finite(\\mul_float(vT1->__anonCompField5.__anonCompField3.z, vT2->__anonCompField5.__anonCompField3.y));",
+          "requires \\is_finite(\\sub_float(\\mul_float(vT1->__anonCompField5.__anonCompField3.y, vT2->__anonCompField5.__anonCompField3.z), \\mul_float(vT1->__anonCompField5.__anonCompField3.z, vT2->__anonCompField5.__anonCompField3.y)));",
+          "requires \\is_finite(\\mul_float(vT1->__anonCompField5.__anonCompField3.z, vT2->__anonCompField5.__anonCompField3.x));",
+          "requires \\is_finite(\\mul_float(vT1->__anonCompField5.__anonCompField3.x, vT2->__anonCompField5.__anonCompField3.z));",
+          "requires \\is_finite(\\sub_float(\\mul_float(vT1->__anonCompField5.__anonCompField3.z, vT2->__anonCompField5.__anonCompField3.x), \\mul_float(vT1->__anonCompField5.__anonCompField3.x, vT2->__anonCompField5.__anonCompField3.z)));",
+          "requires \\is_finite(\\mul_float(vT1->__anonCompField5.__anonCompField3.x, vT2->__anonCompField5.__anonCompField3.y));",
+          "requires \\is_finite(\\mul_float(vT1->__anonCompField5.__anonCompField3.y, vT2->__anonCompField5.__anonCompField3.x));",
+          "requires \\is_finite(\\sub_float(\\mul_float(vT1->__anonCompField5.__anonCompField3.x, vT2->__anonCompField5.__anonCompField3.y), \\mul_float(vT1->__anonCompField5.__anonCompField3.y, vT2->__anonCompField5.__anonCompField3.x)));"
+        ],
+        "postconditions": [
+          "ensures \\result == vR;",
+          "ensures \\valid(\\result);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns vR->__anonCompField5.__anonCompField3.x, vR->__anonCompField5.__anonCompField3.y, vR->__anonCompField5.__anonCompField3.z;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 24,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_216": "verified",
+          "rte_217": "verified",
+          "rte_218": "verified",
+          "rte_219": "verified",
+          "rte_220": "verified",
+          "rte_221": "verified",
+          "rte_222": "verified",
+          "rte_223": "verified",
+          "rte_224": "verified",
+          "rte_225": "verified",
+          "rte_226": "verified",
+          "rte_227": "verified",
+          "rte_228": "verified",
+          "rte_229": "verified",
+          "rte_230": "verified",
+          "rte_231": "verified",
+          "rte_232": "verified",
+          "rte_233": "verified",
+          "rte_234": "verified",
+          "rte_235": "verified",
+          "rte_236": "verified",
+          "rte_237": "verified",
+          "rte_238": "verified",
+          "rte_239": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "7bf9db0c-6762-4f0d-a269-6677f48ba83b",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "vector3_divide": {
+      "agent_id": "agent_vector3_divide",
+      "function_name": "vector3_divide",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "vector3_divide",
+        "preconditions": [
+          "requires \\valid(self);",
+          "requires \\valid_read(vT);",
+          "requires \\separated(self, vT);",
+          "requires \\is_finite(\\div_float(self->__anonCompField5.v[0], vT->__anonCompField5.v[0]));",
+          "requires \\is_finite(\\div_float(self->__anonCompField5.v[1], vT->__anonCompField5.v[1]));",
+          "requires \\is_finite(\\div_float(self->__anonCompField5.v[2], vT->__anonCompField5.v[2]));"
+        ],
+        "postconditions": [
+          "ensures \\result == self;",
+          "ensures \\valid(\\result);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns self->__anonCompField5.v[0 .. 2];"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 12,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_193": "verified",
+          "rte_194": "verified",
+          "rte_195": "verified",
+          "rte_196": "verified",
+          "rte_197": "verified",
+          "rte_198": "verified",
+          "rte_199": "verified",
+          "rte_200": "verified",
+          "rte_201": "verified",
+          "rte_202": "verified",
+          "rte_203": "verified",
+          "rte_204": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "bcd99c83-f277-4e99-a855-cdd50106b25a",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "vector3_dot_product": {
+      "agent_id": "agent_vector3_dot_product",
+      "function_name": "vector3_dot_product",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "vector3_dot_product",
+        "preconditions": [
+          "requires \\valid_read(self);",
+          "requires \\valid_read(vT);",
+          "requires \\is_finite(self->__anonCompField5.__anonCompField3.x);",
+          "requires \\is_finite(self->__anonCompField5.__anonCompField3.y);",
+          "requires \\is_finite(self->__anonCompField5.__anonCompField3.z);",
+          "requires \\is_finite(vT->__anonCompField5.__anonCompField3.x);",
+          "requires \\is_finite(vT->__anonCompField5.__anonCompField3.y);",
+          "requires \\is_finite(vT->__anonCompField5.__anonCompField3.z);",
+          "requires \\is_finite(\\mul_float(self->__anonCompField5.__anonCompField3.x, vT->__anonCompField5.__anonCompField3.x));",
+          "requires \\is_finite(\\mul_float(self->__anonCompField5.__anonCompField3.y, vT->__anonCompField5.__anonCompField3.y));",
+          "requires \\is_finite(\\add_float(\\mul_float(self->__anonCompField5.__anonCompField3.x, vT->__anonCompField5.__anonCompField3.x), \\mul_float(self->__anonCompField5.__anonCompField3.y, vT->__anonCompField5.__anonCompField3.y)));",
+          "requires \\is_finite(\\mul_float(self->__anonCompField5.__anonCompField3.z, vT->__anonCompField5.__anonCompField3.z));",
+          "requires \\is_finite(\\add_float(\\add_float(\\mul_float(self->__anonCompField5.__anonCompField3.x, vT->__anonCompField5.__anonCompField3.x), \\mul_float(self->__anonCompField5.__anonCompField3.y, vT->__anonCompField5.__anonCompField3.y)), \\mul_float(self->__anonCompField5.__anonCompField3.z, vT->__anonCompField5.__anonCompField3.z)));"
+        ],
+        "postconditions": [
+          "ensures \\is_finite(\\result);",
+          "ensures \\result == (self->__anonCompField5.__anonCompField3.x * vT->__anonCompField5.__anonCompField3.x + self->__anonCompField5.__anonCompField3.y * vT->__anonCompField5.__anonCompField3.y) + self->__anonCompField5.__anonCompField3.z * vT->__anonCompField5.__anonCompField3.z;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 11,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_205": "verified",
+          "rte_206": "verified",
+          "rte_207": "verified",
+          "rte_208": "verified",
+          "rte_209": "verified",
+          "rte_210": "verified",
+          "rte_211": "verified",
+          "rte_212": "verified",
+          "rte_213": "verified",
+          "rte_214": "verified",
+          "rte_215": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "605ada6c-ddd1-4240-b728-fa87cdc2def1",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "vector3_equals": {
+      "agent_id": "agent_vector3_equals",
+      "function_name": "vector3_equals",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "vector3_equals",
+        "preconditions": [
+          "requires \\valid_read(self);",
+          "requires \\valid_read(vT);",
+          "requires \\is_finite(self->__anonCompField5.__anonCompField3.x);",
+          "requires \\is_finite(self->__anonCompField5.__anonCompField3.y);",
+          "requires \\is_finite(self->__anonCompField5.__anonCompField3.z);",
+          "requires \\is_finite(vT->__anonCompField5.__anonCompField3.x);",
+          "requires \\is_finite(vT->__anonCompField5.__anonCompField3.y);",
+          "requires \\is_finite(vT->__anonCompField5.__anonCompField3.z);"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result == 1;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {
+          "HYP_ABS": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "HYP_ABS": {
+            "depends": true,
+            "clauses": [
+              "ensures \\is_finite(\\result);",
+              "ensures \\result >= 0.0f;"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "HYP_ABS": [
+            "requires \\is_finite(value);"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 2,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 9,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 3,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_112": "verified",
+          "rte_113": "verified",
+          "rte_114": "verified",
+          "rte_115": "verified",
+          "rte_116": "verified",
+          "rte_117": "verified",
+          "rte_118": "verified",
+          "rte_119": "verified",
+          "rte_120": "verified",
+          "call_site_6_0": "verified",
+          "call_site_7_0": "verified",
+          "call_site_8_0": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "HYP_ABS"
+      ],
+      "session_id": "36bdd9e8-bb83-4a63-bc28-0a7476b92f45",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "vector3_get_reference_vector3": {
+      "agent_id": "agent_vector3_get_reference_vector3",
+      "function_name": "vector3_get_reference_vector3",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "vector3_get_reference_vector3",
+        "preconditions": [],
+        "postconditions": [
+          "ensures \\valid_read(\\result);",
+          "ensures \\result != \\null;",
+          "ensures (id == 0) ==> (\\result == (struct vector3 const *)(&_vector3_zero));",
+          "ensures (id == 7) ==> (\\result == (struct vector3 const *)(&_vector3_one));",
+          "ensures (id == 1) ==> (\\result == (struct vector3 const *)(&_vector3_unit_x));",
+          "ensures (id == 2) ==> (\\result == (struct vector3 const *)(&_vector3_unit_y));",
+          "ensures (id == 3) ==> (\\result == (struct vector3 const *)(&_vector3_unit_z));",
+          "ensures (id == 4) ==> (\\result == (struct vector3 const *)(&_vector3_unit_x_negative));",
+          "ensures (id == 5) ==> (\\result == (struct vector3 const *)(&_vector3_unit_y_negative));",
+          "ensures (id == 6) ==> (\\result == (struct vector3 const *)(&_vector3_unit_z_negative));",
+          "ensures (id != 0 && id != 1 && id != 2 && id != 3 && id != 4 && id != 5 && id != 6 && id != 7) ==> (\\result == (struct vector3 const *)(&_vector3_zero));"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {}
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "525426ae-b75a-4e6c-9014-8506d94db5be",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "vector3_multiply": {
+      "agent_id": "agent_vector3_multiply",
+      "function_name": "vector3_multiply",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "vector3_multiply",
+        "preconditions": [
+          "requires \\valid(self);",
+          "requires \\valid_read(vT);",
+          "requires \\separated(self, vT);",
+          "requires \\is_finite(self->__anonCompField5.v[0]);",
+          "requires \\is_finite(self->__anonCompField5.v[1]);",
+          "requires \\is_finite(self->__anonCompField5.v[2]);",
+          "requires \\is_finite(vT->__anonCompField5.v[0]);",
+          "requires \\is_finite(vT->__anonCompField5.v[1]);",
+          "requires \\is_finite(vT->__anonCompField5.v[2]);",
+          "requires \\is_finite(\\mul_float(self->__anonCompField5.v[0], vT->__anonCompField5.v[0]));",
+          "requires \\is_finite(\\mul_float(self->__anonCompField5.v[1], vT->__anonCompField5.v[1]));",
+          "requires \\is_finite(\\mul_float(self->__anonCompField5.v[2], vT->__anonCompField5.v[2]));"
+        ],
+        "postconditions": [
+          "ensures \\result == self;",
+          "ensures \\result->__anonCompField5.v[0] == \\mul_float(\\old(self->__anonCompField5.v[0]), \\old(vT->__anonCompField5.v[0]));",
+          "ensures \\result->__anonCompField5.v[1] == \\mul_float(\\old(self->__anonCompField5.v[1]), \\old(vT->__anonCompField5.v[1]));",
+          "ensures \\result->__anonCompField5.v[2] == \\mul_float(\\old(self->__anonCompField5.v[2]), \\old(vT->__anonCompField5.v[2]));"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns self->__anonCompField5.v[0..2];"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 12,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_172": "verified",
+          "rte_173": "verified",
+          "rte_174": "verified",
+          "rte_175": "verified",
+          "rte_176": "verified",
+          "rte_177": "verified",
+          "rte_178": "verified",
+          "rte_179": "verified",
+          "rte_180": "verified",
+          "rte_181": "verified",
+          "rte_182": "verified",
+          "rte_183": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "cb159251-2214-4e47-8008-f7a1006347ac",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "vector3_multiplyf": {
+      "agent_id": "agent_vector3_multiplyf",
+      "function_name": "vector3_multiplyf",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "vector3_multiplyf",
+        "preconditions": [
+          "requires \\valid(self);",
+          "requires \\is_finite(f);",
+          "requires \\is_finite(self->__anonCompField5.v[0]);",
+          "requires \\is_finite(self->__anonCompField5.v[1]);",
+          "requires \\is_finite(self->__anonCompField5.v[2]);"
+        ],
+        "postconditions": [
+          "ensures \\result == self;",
+          "ensures \\valid(\\result);",
+          "ensures \\is_finite(\\result->__anonCompField5.v[0]);",
+          "ensures \\is_finite(\\result->__anonCompField5.v[1]);",
+          "ensures \\is_finite(\\result->__anonCompField5.v[2]);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns self->__anonCompField5.v[0], self->__anonCompField5.v[1], self->__anonCompField5.v[2];"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 9,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_184": "verified",
+          "rte_185": "verified",
+          "rte_186": "verified",
+          "rte_187": "verified",
+          "rte_188": "verified",
+          "rte_189": "verified",
+          "rte_190": "verified",
+          "rte_191": "verified",
+          "rte_192": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "375d386b-9725-42da-a937-1c36164ca308",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "vector3_negate": {
+      "agent_id": "agent_vector3_negate",
+      "function_name": "vector3_negate",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "vector3_negate",
+        "preconditions": [
+          "requires \\valid(self);",
+          "requires \\is_finite(self->__anonCompField5.v[0]);",
+          "requires \\is_finite(self->__anonCompField5.v[1]);",
+          "requires \\is_finite(self->__anonCompField5.v[2]);"
+        ],
+        "postconditions": [
+          "ensures \\result == self;",
+          "ensures \\result->__anonCompField5.v[0] == -(\\old(self->__anonCompField5.v[0]));",
+          "ensures \\result->__anonCompField5.v[1] == -(\\old(self->__anonCompField5.v[1]));",
+          "ensures \\result->__anonCompField5.v[2] == -(\\old(self->__anonCompField5.v[2]));"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns self->__anonCompField5.v[0], self->__anonCompField5.v[1], self->__anonCompField5.v[2];"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 9,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_121": "verified",
+          "rte_122": "verified",
+          "rte_123": "verified",
+          "rte_124": "verified",
+          "rte_125": "verified",
+          "rte_126": "verified",
+          "rte_127": "verified",
+          "rte_128": "verified",
+          "rte_129": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "1bd16b3c-b8b9-4968-8fad-441f4414a4ed",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "vector3_set": {
+      "agent_id": "agent_vector3_set",
+      "function_name": "vector3_set",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "vector3_set",
+        "preconditions": [
+          "requires \\valid(self);",
+          "requires \\valid_read(vT);",
+          "requires \\separated(self, vT);"
+        ],
+        "postconditions": [
+          "ensures \\result == self;",
+          "ensures self->__anonCompField5.__anonCompField3.x == \\old(vT->__anonCompField5.__anonCompField3.x);",
+          "ensures self->__anonCompField5.__anonCompField3.y == \\old(vT->__anonCompField5.__anonCompField3.y);",
+          "ensures self->__anonCompField5.__anonCompField3.z == \\old(vT->__anonCompField5.__anonCompField3.z);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns self->__anonCompField5.__anonCompField3.x, self->__anonCompField5.__anonCompField3.y, self->__anonCompField5.__anonCompField3.z;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 6,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_106": "verified",
+          "rte_107": "verified",
+          "rte_108": "verified",
+          "rte_109": "verified",
+          "rte_110": "verified",
+          "rte_111": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "61b416ad-ef9d-4c7d-b130-952e9b9c3308",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "vector3_setf3": {
+      "agent_id": "agent_vector3_setf3",
+      "function_name": "vector3_setf3",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "vector3_setf3",
+        "preconditions": [
+          "requires \\valid(self);"
+        ],
+        "postconditions": [
+          "ensures \\result == self;",
+          "ensures \\valid(\\result);",
+          "ensures \\result->__anonCompField5.__anonCompField3.x == xT;",
+          "ensures \\result->__anonCompField5.__anonCompField3.y == yT;",
+          "ensures \\result->__anonCompField5.__anonCompField3.z == zT;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns self->__anonCompField5.__anonCompField3.x, self->__anonCompField5.__anonCompField3.y, self->__anonCompField5.__anonCompField3.z;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 3,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_103": "verified",
+          "rte_104": "verified",
+          "rte_105": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "4143cf1a-d779-47ed-8a91-1422bba67a7e",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "vector3_subtract": {
+      "agent_id": "agent_vector3_subtract",
+      "function_name": "vector3_subtract",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "vector3_subtract",
+        "preconditions": [
+          "requires \\valid(self);",
+          "requires \\valid_read(vT);",
+          "requires \\separated(self, vT);",
+          "requires \\is_finite(self->__anonCompField5.v[0]);",
+          "requires \\is_finite(self->__anonCompField5.v[1]);",
+          "requires \\is_finite(self->__anonCompField5.v[2]);",
+          "requires \\is_finite(vT->__anonCompField5.v[0]);",
+          "requires \\is_finite(vT->__anonCompField5.v[1]);",
+          "requires \\is_finite(vT->__anonCompField5.v[2]);"
+        ],
+        "postconditions": [
+          "ensures \\result == self;",
+          "ensures \\valid(\\result);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns self->__anonCompField5.v[0..2];"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 12,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_151": "verified",
+          "rte_152": "verified",
+          "rte_153": "verified",
+          "rte_154": "verified",
+          "rte_155": "verified",
+          "rte_156": "verified",
+          "rte_157": "verified",
+          "rte_158": "verified",
+          "rte_159": "verified",
+          "rte_160": "verified",
+          "rte_161": "verified",
+          "rte_162": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "e8b33880-11c2-4a6e-a894-f9a51fb3e4d5",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "vector3_subtractf": {
+      "agent_id": "agent_vector3_subtractf",
+      "function_name": "vector3_subtractf",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "vector3_subtractf",
+        "preconditions": [
+          "requires \\valid(self);",
+          "requires \\is_finite(\\sub_float(self->__anonCompField5.v[0], f));",
+          "requires \\is_finite(\\sub_float(self->__anonCompField5.v[1], f));",
+          "requires \\is_finite(\\sub_float(self->__anonCompField5.v[2], f));"
+        ],
+        "postconditions": [
+          "ensures \\result == self;",
+          "ensures \\valid(self);",
+          "ensures \\is_finite(self->__anonCompField5.v[0]);",
+          "ensures \\is_finite(self->__anonCompField5.v[1]);",
+          "ensures \\is_finite(self->__anonCompField5.v[2]);",
+          "ensures self->__anonCompField5.v[0] == \\sub_float(\\old(self->__anonCompField5.v[0]), f);",
+          "ensures self->__anonCompField5.v[1] == \\sub_float(\\old(self->__anonCompField5.v[1]), f);",
+          "ensures self->__anonCompField5.v[2] == \\sub_float(\\old(self->__anonCompField5.v[2]), f);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns self->__anonCompField5.v[0], self->__anonCompField5.v[1], self->__anonCompField5.v[2];"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 9,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_163": "verified",
+          "rte_164": "verified",
+          "rte_165": "verified",
+          "rte_166": "verified",
+          "rte_167": "verified",
+          "rte_168": "verified",
+          "rte_169": "verified",
+          "rte_170": "verified",
+          "rte_171": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "8deba0cc-eae2-4d65-89d5-6c4286bbeba7",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "vector3_zero": {
+      "agent_id": "agent_vector3_zero",
+      "function_name": "vector3_zero",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "vector3_zero",
+        "preconditions": [
+          "requires \\valid(self);"
+        ],
+        "postconditions": [
+          "ensures \\result == self;",
+          "ensures \\valid(\\result);",
+          "ensures \\result->__anonCompField5.__anonCompField3.x == 0.0f;",
+          "ensures \\result->__anonCompField5.__anonCompField3.y == 0.0f;",
+          "ensures \\result->__anonCompField5.__anonCompField3.z == 0.0f;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns self->__anonCompField5.__anonCompField3.x, self->__anonCompField5.__anonCompField3.y, self->__anonCompField5.__anonCompField3.z;"
+        ],
+        "version": 2,
+        "status": "published",
+        "based_on_versions": {
+          "vector3_setf3": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "vector3_setf3": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result == self;",
+              "ensures \\result->__anonCompField5.__anonCompField3.x == xT;",
+              "ensures \\result->__anonCompField5.__anonCompField3.y == yT;",
+              "ensures \\result->__anonCompField5.__anonCompField3.z == zT;",
+              "ensures \\valid(\\result);"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "vector3_setf3": [
+            "requires \\valid(self);"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 2,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 1,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "call_site_9_0": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "vector3_setf3"
+      ],
+      "session_id": "13d70798-0426-40e5-8e8a-deb0f45c588c",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "vector4_add": {
+      "agent_id": "agent_vector4_add",
+      "function_name": "vector4_add",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "vector4_add",
+        "preconditions": [
+          "requires \\valid(self);",
+          "requires \\valid_read(vT);",
+          "requires \\separated(self, vT);",
+          "requires \\is_finite(\\add_float(self->__anonCompField7.v[0], vT->__anonCompField7.v[0]));",
+          "requires \\is_finite(\\add_float(self->__anonCompField7.v[1], vT->__anonCompField7.v[1]));",
+          "requires \\is_finite(\\add_float(self->__anonCompField7.v[2], vT->__anonCompField7.v[2]));",
+          "requires \\is_finite(\\add_float(self->__anonCompField7.v[3], vT->__anonCompField7.v[3]));"
+        ],
+        "postconditions": [
+          "ensures \\result == self;",
+          "ensures \\valid(\\result);",
+          "ensures \\is_finite(\\result->__anonCompField7.v[0]);",
+          "ensures \\is_finite(\\result->__anonCompField7.v[1]);",
+          "ensures \\is_finite(\\result->__anonCompField7.v[2]);",
+          "ensures \\is_finite(\\result->__anonCompField7.v[3]);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns self->__anonCompField7.v[0..3];"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 16,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_276": "verified",
+          "rte_277": "verified",
+          "rte_278": "verified",
+          "rte_279": "verified",
+          "rte_280": "verified",
+          "rte_281": "verified",
+          "rte_282": "verified",
+          "rte_283": "verified",
+          "rte_284": "verified",
+          "rte_285": "verified",
+          "rte_286": "verified",
+          "rte_287": "verified",
+          "rte_288": "verified",
+          "rte_289": "verified",
+          "rte_290": "verified",
+          "rte_291": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "42642cdc-03c2-4d27-93fd-78e4be92419f",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "vector4_addf": {
+      "agent_id": "agent_vector4_addf",
+      "function_name": "vector4_addf",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "vector4_addf",
+        "preconditions": [
+          "requires \\valid(self);",
+          "requires \\is_finite(\\add_float(self->__anonCompField7.v[0], f));",
+          "requires \\is_finite(\\add_float(self->__anonCompField7.v[1], f));",
+          "requires \\is_finite(\\add_float(self->__anonCompField7.v[2], f));",
+          "requires \\is_finite(\\add_float(self->__anonCompField7.v[3], f));"
+        ],
+        "postconditions": [
+          "ensures \\result == self;",
+          "ensures \\valid(\\result);",
+          "ensures \\is_finite(\\result->__anonCompField7.v[0]);",
+          "ensures \\is_finite(\\result->__anonCompField7.v[1]);",
+          "ensures \\is_finite(\\result->__anonCompField7.v[2]);",
+          "ensures \\is_finite(\\result->__anonCompField7.v[3]);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns self->__anonCompField7.v[0..3];"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 12,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_292": "verified",
+          "rte_293": "verified",
+          "rte_294": "verified",
+          "rte_295": "verified",
+          "rte_296": "verified",
+          "rte_297": "verified",
+          "rte_298": "verified",
+          "rte_299": "verified",
+          "rte_300": "verified",
+          "rte_301": "verified",
+          "rte_302": "verified",
+          "rte_303": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "c5445720-9b80-4441-9180-c544faa8fd77",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "vector4_cross_product": {
+      "agent_id": "agent_vector4_cross_product",
+      "function_name": "vector4_cross_product",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "vector4_cross_product",
+        "preconditions": [
+          "requires \\valid(vR);",
+          "requires \\valid_read(vT1);",
+          "requires \\valid_read(vT2);",
+          "requires \\separated(vR, vT1);",
+          "requires \\separated(vR, vT2);",
+          "requires \\is_finite((double)vT1->__anonCompField7.__anonCompField6.x);",
+          "requires \\is_finite((double)vT1->__anonCompField7.__anonCompField6.y);",
+          "requires \\is_finite((double)vT1->__anonCompField7.__anonCompField6.z);",
+          "requires \\is_finite((double)vT1->__anonCompField7.__anonCompField6.w);",
+          "requires \\is_finite((double)vT2->__anonCompField7.__anonCompField6.x);",
+          "requires \\is_finite((double)vT2->__anonCompField7.__anonCompField6.y);",
+          "requires \\is_finite((double)vT2->__anonCompField7.__anonCompField6.z);",
+          "requires \\is_finite((double)vT2->__anonCompField7.__anonCompField6.w);",
+          "requires \\is_finite(\\mul_float(vT1->__anonCompField7.__anonCompField6.y, vT2->__anonCompField7.__anonCompField6.z));",
+          "requires \\is_finite(\\mul_float(vT1->__anonCompField7.__anonCompField6.z, vT2->__anonCompField7.__anonCompField6.y));",
+          "requires \\is_finite(\\sub_float(\\mul_float(vT1->__anonCompField7.__anonCompField6.y, vT2->__anonCompField7.__anonCompField6.z), \\mul_float(vT1->__anonCompField7.__anonCompField6.z, vT2->__anonCompField7.__anonCompField6.y)));",
+          "requires \\is_finite(\\mul_float(vT1->__anonCompField7.__anonCompField6.z, vT2->__anonCompField7.__anonCompField6.x));",
+          "requires \\is_finite(\\mul_float(vT1->__anonCompField7.__anonCompField6.x, vT2->__anonCompField7.__anonCompField6.z));",
+          "requires \\is_finite(\\sub_float(\\mul_float(vT1->__anonCompField7.__anonCompField6.z, vT2->__anonCompField7.__anonCompField6.x), \\mul_float(vT1->__anonCompField7.__anonCompField6.x, vT2->__anonCompField7.__anonCompField6.z)));",
+          "requires \\is_finite(\\mul_float(vT1->__anonCompField7.__anonCompField6.x, vT2->__anonCompField7.__anonCompField6.y));",
+          "requires \\is_finite(\\mul_float(vT1->__anonCompField7.__anonCompField6.y, vT2->__anonCompField7.__anonCompField6.x));",
+          "requires \\is_finite(\\sub_float(\\mul_float(vT1->__anonCompField7.__anonCompField6.x, vT2->__anonCompField7.__anonCompField6.y), \\mul_float(vT1->__anonCompField7.__anonCompField6.y, vT2->__anonCompField7.__anonCompField6.x)));",
+          "requires \\is_finite(\\mul_float(vT1->__anonCompField7.__anonCompField6.w, vT2->__anonCompField7.__anonCompField6.w));"
+        ],
+        "postconditions": [
+          "ensures \\result == vR;",
+          "ensures \\valid(\\result);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns vR->__anonCompField7.__anonCompField6.x, vR->__anonCompField7.__anonCompField6.y, vR->__anonCompField7.__anonCompField6.z, vR->__anonCompField7.__anonCompField6.w;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 32,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_391": "verified",
+          "rte_392": "verified",
+          "rte_393": "verified",
+          "rte_394": "verified",
+          "rte_395": "verified",
+          "rte_396": "verified",
+          "rte_397": "verified",
+          "rte_398": "verified",
+          "rte_399": "verified",
+          "rte_400": "verified",
+          "rte_401": "verified",
+          "rte_402": "verified",
+          "rte_403": "verified",
+          "rte_404": "verified",
+          "rte_405": "verified",
+          "rte_406": "verified",
+          "rte_407": "verified",
+          "rte_408": "verified",
+          "rte_409": "verified",
+          "rte_410": "verified",
+          "rte_411": "verified",
+          "rte_412": "verified",
+          "rte_413": "verified",
+          "rte_414": "verified",
+          "rte_415": "verified",
+          "rte_416": "verified",
+          "rte_417": "verified",
+          "rte_418": "verified",
+          "rte_419": "verified",
+          "rte_420": "verified",
+          "rte_421": "verified",
+          "rte_422": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "b3c73dda-bbd8-4d33-8ad1-db0c4383c18e",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "vector4_divide": {
+      "agent_id": "agent_vector4_divide",
+      "function_name": "vector4_divide",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "vector4_divide",
+        "preconditions": [
+          "requires \\valid(self);",
+          "requires \\valid_read(vT);",
+          "requires \\separated(self, vT);",
+          "requires \\is_finite(\\div_float(self->__anonCompField7.v[0], vT->__anonCompField7.v[0]));",
+          "requires \\is_finite(\\div_float(self->__anonCompField7.v[1], vT->__anonCompField7.v[1]));",
+          "requires \\is_finite(\\div_float(self->__anonCompField7.v[2], vT->__anonCompField7.v[2]));",
+          "requires \\is_finite(\\div_float(self->__anonCompField7.v[3], vT->__anonCompField7.v[3]));"
+        ],
+        "postconditions": [
+          "ensures \\result == \\old(self);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns self->__anonCompField7.v[0..3];"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 16,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_360": "verified",
+          "rte_361": "verified",
+          "rte_362": "verified",
+          "rte_363": "verified",
+          "rte_364": "verified",
+          "rte_365": "verified",
+          "rte_366": "verified",
+          "rte_367": "verified",
+          "rte_368": "verified",
+          "rte_369": "verified",
+          "rte_370": "verified",
+          "rte_371": "verified",
+          "rte_372": "verified",
+          "rte_373": "verified",
+          "rte_374": "verified",
+          "rte_375": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "0eee8317-4b96-424a-b873-e6fe3945c442",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "vector4_dot_product": {
+      "agent_id": "agent_vector4_dot_product",
+      "function_name": "vector4_dot_product",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "vector4_dot_product",
+        "preconditions": [
+          "requires \\valid_read(self);",
+          "requires \\valid_read(vT);",
+          "requires \\is_finite(self->__anonCompField7.__anonCompField6.x);",
+          "requires \\is_finite(self->__anonCompField7.__anonCompField6.y);",
+          "requires \\is_finite(self->__anonCompField7.__anonCompField6.z);",
+          "requires \\is_finite(self->__anonCompField7.__anonCompField6.w);",
+          "requires \\is_finite(vT->__anonCompField7.__anonCompField6.x);",
+          "requires \\is_finite(vT->__anonCompField7.__anonCompField6.y);",
+          "requires \\is_finite(vT->__anonCompField7.__anonCompField6.z);",
+          "requires \\is_finite(vT->__anonCompField7.__anonCompField6.w);",
+          "requires \\is_finite(\\mul_float(self->__anonCompField7.__anonCompField6.x, vT->__anonCompField7.__anonCompField6.x));",
+          "requires \\is_finite(\\mul_float(self->__anonCompField7.__anonCompField6.y, vT->__anonCompField7.__anonCompField6.y));",
+          "requires \\is_finite(\\add_float(\\mul_float(self->__anonCompField7.__anonCompField6.x, vT->__anonCompField7.__anonCompField6.x), \\mul_float(self->__anonCompField7.__anonCompField6.y, vT->__anonCompField7.__anonCompField6.y)));",
+          "requires \\is_finite(\\mul_float(self->__anonCompField7.__anonCompField6.z, vT->__anonCompField7.__anonCompField6.z));",
+          "requires \\is_finite(\\add_float(\\add_float(\\mul_float(self->__anonCompField7.__anonCompField6.x, vT->__anonCompField7.__anonCompField6.x), \\mul_float(self->__anonCompField7.__anonCompField6.y, vT->__anonCompField7.__anonCompField6.y)), \\mul_float(self->__anonCompField7.__anonCompField6.z, vT->__anonCompField7.__anonCompField6.z)));",
+          "requires \\is_finite(\\mul_float(self->__anonCompField7.__anonCompField6.w, vT->__anonCompField7.__anonCompField6.w));",
+          "requires \\is_finite(\\add_float(\\add_float(\\add_float(\\mul_float(self->__anonCompField7.__anonCompField6.x, vT->__anonCompField7.__anonCompField6.x), \\mul_float(self->__anonCompField7.__anonCompField6.y, vT->__anonCompField7.__anonCompField6.y)), \\mul_float(self->__anonCompField7.__anonCompField6.z, vT->__anonCompField7.__anonCompField6.z)), \\mul_float(self->__anonCompField7.__anonCompField6.w, vT->__anonCompField7.__anonCompField6.w)));"
+        ],
+        "postconditions": [
+          "ensures \\is_finite(\\result);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 15,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_376": "verified",
+          "rte_377": "verified",
+          "rte_378": "verified",
+          "rte_379": "verified",
+          "rte_380": "verified",
+          "rte_381": "verified",
+          "rte_382": "verified",
+          "rte_383": "verified",
+          "rte_384": "verified",
+          "rte_385": "verified",
+          "rte_386": "verified",
+          "rte_387": "verified",
+          "rte_388": "verified",
+          "rte_389": "verified",
+          "rte_390": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "eda05245-e87d-45a3-be39-45d598890933",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "vector4_equals": {
+      "agent_id": "agent_vector4_equals",
+      "function_name": "vector4_equals",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "vector4_equals",
+        "preconditions": [
+          "requires \\valid_read(self);",
+          "requires \\valid_read(vT);",
+          "requires \\is_finite(self->__anonCompField7.__anonCompField6.x);",
+          "requires \\is_finite(self->__anonCompField7.__anonCompField6.y);",
+          "requires \\is_finite(self->__anonCompField7.__anonCompField6.z);",
+          "requires \\is_finite(self->__anonCompField7.__anonCompField6.w);",
+          "requires \\is_finite(vT->__anonCompField7.__anonCompField6.x);",
+          "requires \\is_finite(vT->__anonCompField7.__anonCompField6.y);",
+          "requires \\is_finite(vT->__anonCompField7.__anonCompField6.z);",
+          "requires \\is_finite(vT->__anonCompField7.__anonCompField6.w);"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result == 1;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {
+          "HYP_ABS": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "HYP_ABS": {
+            "depends": true,
+            "clauses": [
+              "ensures \\is_finite(\\result);",
+              "ensures \\result >= 0.0f;"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "HYP_ABS": [
+            "requires \\is_finite(value);"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 2,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 12,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 4,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_252": "verified",
+          "rte_253": "verified",
+          "rte_254": "verified",
+          "rte_255": "verified",
+          "rte_256": "verified",
+          "rte_257": "verified",
+          "rte_258": "verified",
+          "rte_259": "verified",
+          "rte_260": "verified",
+          "rte_261": "verified",
+          "rte_262": "verified",
+          "rte_263": "verified",
+          "call_site_10_0": "verified",
+          "call_site_11_0": "verified",
+          "call_site_12_0": "verified",
+          "call_site_13_0": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "HYP_ABS"
+      ],
+      "session_id": "89a08332-4d86-429d-be74-df267df93419",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "vector4_get_reference_vector4": {
+      "agent_id": "agent_vector4_get_reference_vector4",
+      "function_name": "vector4_get_reference_vector4",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "vector4_get_reference_vector4",
+        "preconditions": [],
+        "postconditions": [
+          "ensures \\valid_read(\\result);",
+          "ensures \\result == &_vector4_zero || \\result == &_vector4_one || \\result == &_vector4_unit_x || \\result == &_vector4_unit_y || \\result == &_vector4_unit_z || \\result == &_vector4_unit_x_negative || \\result == &_vector4_unit_y_negative || \\result == &_vector4_unit_z_negative;",
+          "ensures (id == 0) ==> (\\result == &_vector4_zero);",
+          "ensures (id == 7) ==> (\\result == &_vector4_one);",
+          "ensures (id == 1) ==> (\\result == &_vector4_unit_x);",
+          "ensures (id == 2) ==> (\\result == &_vector4_unit_y);",
+          "ensures (id == 3) ==> (\\result == &_vector4_unit_z);",
+          "ensures (id == 4) ==> (\\result == &_vector4_unit_x_negative);",
+          "ensures (id == 5) ==> (\\result == &_vector4_unit_y_negative);",
+          "ensures (id == 6) ==> (\\result == &_vector4_unit_z_negative);",
+          "ensures (id != 0 && id != 1 && id != 2 && id != 3 && id != 4 && id != 5 && id != 6 && id != 7) ==> (\\result == &_vector4_zero);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {}
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "a4c39d95-80a4-41f3-aa22-896641c31014",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "vector4_multiply": {
+      "agent_id": "agent_vector4_multiply",
+      "function_name": "vector4_multiply",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "vector4_multiply",
+        "preconditions": [
+          "requires \\valid(self);",
+          "requires \\valid_read(vT);",
+          "requires \\separated(self, vT);",
+          "requires \\is_finite(\\mul_float(self->__anonCompField7.v[0], vT->__anonCompField7.v[0]));",
+          "requires \\is_finite(\\mul_float(self->__anonCompField7.v[1], vT->__anonCompField7.v[1]));",
+          "requires \\is_finite(\\mul_float(self->__anonCompField7.v[2], vT->__anonCompField7.v[2]));",
+          "requires \\is_finite(\\mul_float(self->__anonCompField7.v[3], vT->__anonCompField7.v[3]));"
+        ],
+        "postconditions": [
+          "ensures \\result == self;",
+          "ensures \\valid(\\result);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns self->__anonCompField7.v[0], self->__anonCompField7.v[1], self->__anonCompField7.v[2], self->__anonCompField7.v[3];"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 16,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_332": "verified",
+          "rte_333": "verified",
+          "rte_334": "verified",
+          "rte_335": "verified",
+          "rte_336": "verified",
+          "rte_337": "verified",
+          "rte_338": "verified",
+          "rte_339": "verified",
+          "rte_340": "verified",
+          "rte_341": "verified",
+          "rte_342": "verified",
+          "rte_343": "verified",
+          "rte_344": "verified",
+          "rte_345": "verified",
+          "rte_346": "verified",
+          "rte_347": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "72f0d594-992b-44ac-a1f1-d987f9403fab",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "vector4_multiplyf": {
+      "agent_id": "agent_vector4_multiplyf",
+      "function_name": "vector4_multiplyf",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "vector4_multiplyf",
+        "preconditions": [
+          "requires \\valid(self);",
+          "requires \\is_finite(\\mul_float(self->__anonCompField7.v[0], f));",
+          "requires \\is_finite(\\mul_float(self->__anonCompField7.v[1], f));",
+          "requires \\is_finite(\\mul_float(self->__anonCompField7.v[2], f));",
+          "requires \\is_finite(\\mul_float(self->__anonCompField7.v[3], f));"
+        ],
+        "postconditions": [
+          "ensures \\result == self;",
+          "ensures \\valid(\\result);",
+          "ensures \\result->__anonCompField7.v[0] == \\mul_float(\\old(self->__anonCompField7.v[0]), f);",
+          "ensures \\result->__anonCompField7.v[1] == \\mul_float(\\old(self->__anonCompField7.v[1]), f);",
+          "ensures \\result->__anonCompField7.v[2] == \\mul_float(\\old(self->__anonCompField7.v[2]), f);",
+          "ensures \\result->__anonCompField7.v[3] == \\mul_float(\\old(self->__anonCompField7.v[3]), f);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns self->__anonCompField7.v[0..3];"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 12,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_348": "verified",
+          "rte_349": "verified",
+          "rte_350": "verified",
+          "rte_351": "verified",
+          "rte_352": "verified",
+          "rte_353": "verified",
+          "rte_354": "verified",
+          "rte_355": "verified",
+          "rte_356": "verified",
+          "rte_357": "verified",
+          "rte_358": "verified",
+          "rte_359": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "d47f9248-0d13-45d2-9814-d09df4ba3305",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "vector4_negate": {
+      "agent_id": "agent_vector4_negate",
+      "function_name": "vector4_negate",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "vector4_negate",
+        "preconditions": [
+          "requires \\valid(self);",
+          "requires \\is_finite(self->__anonCompField7.v[0]);",
+          "requires \\is_finite(self->__anonCompField7.v[1]);",
+          "requires \\is_finite(self->__anonCompField7.v[2]);",
+          "requires \\is_finite(self->__anonCompField7.v[3]);"
+        ],
+        "postconditions": [
+          "ensures \\result == self;",
+          "ensures \\valid(\\result);",
+          "ensures \\is_finite(\\result->__anonCompField7.v[0]);",
+          "ensures \\is_finite(\\result->__anonCompField7.v[1]);",
+          "ensures \\is_finite(\\result->__anonCompField7.v[2]);",
+          "ensures \\is_finite(\\result->__anonCompField7.v[3]);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns self->__anonCompField7.v[0..3];"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 12,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_264": "verified",
+          "rte_265": "verified",
+          "rte_266": "verified",
+          "rte_267": "verified",
+          "rte_268": "verified",
+          "rte_269": "verified",
+          "rte_270": "verified",
+          "rte_271": "verified",
+          "rte_272": "verified",
+          "rte_273": "verified",
+          "rte_274": "verified",
+          "rte_275": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "4150715e-eaa8-4274-b9c9-026a8272a3e2",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "vector4_set": {
+      "agent_id": "agent_vector4_set",
+      "function_name": "vector4_set",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "vector4_set",
+        "preconditions": [
+          "requires \\valid(self);",
+          "requires \\valid_read(vT);",
+          "requires \\separated(self, vT);"
+        ],
+        "postconditions": [
+          "ensures \\result == self;",
+          "ensures self->__anonCompField7.__anonCompField6.x == vT->__anonCompField7.__anonCompField6.x;",
+          "ensures self->__anonCompField7.__anonCompField6.y == vT->__anonCompField7.__anonCompField6.y;",
+          "ensures self->__anonCompField7.__anonCompField6.z == vT->__anonCompField7.__anonCompField6.z;",
+          "ensures self->__anonCompField7.__anonCompField6.w == vT->__anonCompField7.__anonCompField6.w;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns *self;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 8,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_244": "verified",
+          "rte_245": "verified",
+          "rte_246": "verified",
+          "rte_247": "verified",
+          "rte_248": "verified",
+          "rte_249": "verified",
+          "rte_250": "verified",
+          "rte_251": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "6b779be0-a61f-4f8a-8be2-c2b29983e3a0",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "vector4_setf4": {
+      "agent_id": "agent_vector4_setf4",
+      "function_name": "vector4_setf4",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "vector4_setf4",
+        "preconditions": [
+          "requires \\valid(self);"
+        ],
+        "postconditions": [
+          "ensures \\result == self;",
+          "ensures self->__anonCompField7.__anonCompField6.x == xT;",
+          "ensures self->__anonCompField7.__anonCompField6.y == yT;",
+          "ensures self->__anonCompField7.__anonCompField6.z == zT;",
+          "ensures self->__anonCompField7.__anonCompField6.w == wT;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns *self;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 4,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_240": "verified",
+          "rte_241": "verified",
+          "rte_242": "verified",
+          "rte_243": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "9fd230fb-95d4-4f46-b85a-2fb596df246c",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "vector4_subtract": {
+      "agent_id": "agent_vector4_subtract",
+      "function_name": "vector4_subtract",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "vector4_subtract",
+        "preconditions": [
+          "requires \\valid(self);",
+          "requires \\valid_read(vT);",
+          "requires \\separated(self, vT);",
+          "requires \\is_finite(\\sub_float(self->__anonCompField7.v[0], vT->__anonCompField7.v[0]));",
+          "requires \\is_finite(\\sub_float(self->__anonCompField7.v[1], vT->__anonCompField7.v[1]));",
+          "requires \\is_finite(\\sub_float(self->__anonCompField7.v[2], vT->__anonCompField7.v[2]));",
+          "requires \\is_finite(\\sub_float(self->__anonCompField7.v[3], vT->__anonCompField7.v[3]));"
+        ],
+        "postconditions": [
+          "ensures \\result == self;",
+          "ensures \\valid(\\result);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns self->__anonCompField7.v[0 .. 3];"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 16,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_304": "verified",
+          "rte_305": "verified",
+          "rte_306": "verified",
+          "rte_307": "verified",
+          "rte_308": "verified",
+          "rte_309": "verified",
+          "rte_310": "verified",
+          "rte_311": "verified",
+          "rte_312": "verified",
+          "rte_313": "verified",
+          "rte_314": "verified",
+          "rte_315": "verified",
+          "rte_316": "verified",
+          "rte_317": "verified",
+          "rte_318": "verified",
+          "rte_319": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "0471aa38-4db8-4043-993e-52ed727f8a61",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "vector4_subtractf": {
+      "agent_id": "agent_vector4_subtractf",
+      "function_name": "vector4_subtractf",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "vector4_subtractf",
+        "preconditions": [
+          "requires \\valid(self);",
+          "requires \\is_finite(\\sub_float(self->__anonCompField7.__anonCompField6.x, f));",
+          "requires \\is_finite(\\sub_float(self->__anonCompField7.__anonCompField6.y, f));",
+          "requires \\is_finite(\\sub_float(self->__anonCompField7.__anonCompField6.z, f));",
+          "requires \\is_finite(\\sub_float(self->__anonCompField7.__anonCompField6.w, f));"
+        ],
+        "postconditions": [
+          "ensures \\result == self;",
+          "ensures \\valid(\\result);",
+          "ensures \\result->__anonCompField7.__anonCompField6.x == \\sub_float(\\old(self->__anonCompField7.__anonCompField6.x), f);",
+          "ensures \\result->__anonCompField7.__anonCompField6.y == \\sub_float(\\old(self->__anonCompField7.__anonCompField6.y), f);",
+          "ensures \\result->__anonCompField7.__anonCompField6.z == \\sub_float(\\old(self->__anonCompField7.__anonCompField6.z), f);",
+          "ensures \\result->__anonCompField7.__anonCompField6.w == \\sub_float(\\old(self->__anonCompField7.__anonCompField6.w), f);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns self->__anonCompField7.__anonCompField6.x, self->__anonCompField7.__anonCompField6.y, self->__anonCompField7.__anonCompField6.z, self->__anonCompField7.__anonCompField6.w;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 12,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_320": "verified",
+          "rte_321": "verified",
+          "rte_322": "verified",
+          "rte_323": "verified",
+          "rte_324": "verified",
+          "rte_325": "verified",
+          "rte_326": "verified",
+          "rte_327": "verified",
+          "rte_328": "verified",
+          "rte_329": "verified",
+          "rte_330": "verified",
+          "rte_331": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "b744050c-543e-4fa3-87df-2077b698fc5d",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "vector4_zero": {
+      "agent_id": "agent_vector4_zero",
+      "function_name": "vector4_zero",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "vector4_zero",
+        "preconditions": [
+          "requires \\valid(self);"
+        ],
+        "postconditions": [
+          "ensures \\result == self;",
+          "ensures \\valid(\\result);",
+          "ensures self->__anonCompField7.__anonCompField6.x == 0.0f;",
+          "ensures self->__anonCompField7.__anonCompField6.y == 0.0f;",
+          "ensures self->__anonCompField7.__anonCompField6.z == 0.0f;",
+          "ensures self->__anonCompField7.__anonCompField6.w == 0.0f;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns *self;"
+        ],
+        "version": 2,
+        "status": "published",
+        "based_on_versions": {
+          "vector4_setf4": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "vector4_setf4": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result == self;",
+              "ensures self->__anonCompField7.__anonCompField6.w == wT;",
+              "ensures self->__anonCompField7.__anonCompField6.x == xT;",
+              "ensures self->__anonCompField7.__anonCompField6.y == yT;",
+              "ensures self->__anonCompField7.__anonCompField6.z == zT;"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "vector4_setf4": [
+            "requires \\valid(self);"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 2,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 1,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "call_site_14_0": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "vector4_setf4"
+      ],
+      "session_id": "b09bfaf6-96e5-4937-a08f-d410df5cee06",
+      "settled_assumes": [],
+      "extern_axioms": []
+    }
+  },
+  "summary": {
+    "total": 54,
+    "global_ok": 54,
+    "local_ok": 0,
+    "dirty": 0,
+    "failed": 0,
+    "cycle_limited": 0,
+    "conditional_ok": 0,
+    "bugs": 0
+  }
+}

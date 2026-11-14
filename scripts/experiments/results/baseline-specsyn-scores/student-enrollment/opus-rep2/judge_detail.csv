@@ -1,0 +1,189 @@
+function,category,property,status,valid,line
+init_StudentEnrollment,spec,Pre-condition,Valid,True,22
+init_StudentEnrollment,spec,Post-condition,Valid,True,24
+init_StudentEnrollment,spec,Post-condition,Valid,True,25
+init_StudentEnrollment,spec,Post-condition,Valid,True,26
+init_StudentEnrollment,spec,Post-condition,Valid,True,27
+init_StudentEnrollment,spec,Assigns,Valid,True,23
+setTuitionBalance,spec,Pre-condition,Partial,False,39
+setTuitionBalance,spec,Assigns,Partial,False,40
+setTuitionBalance,rte,"Assertion 'rte_2,signed_overflow'",Valid,True,44
+setTuitionBalance,rte,"Assertion 'rte_3,signed_overflow'",-,False,45
+setTuitionBalance,rte,"Assertion 'rte_4,signed_overflow'",Partial,False,46
+setTuitionBalance,rte,"Assertion 'rte_5,signed_overflow'",Partial,False,47
+setTuitionBalance,rte,"Assertion 'rte_6,signed_overflow'",Partial,False,48
+setTuitionBalance,rte,"Assertion 'rte_7,signed_overflow'",Partial,False,49
+setTuitionBalance,rte,"Assertion 'rte_8,signed_overflow'",Partial,False,50
+setTuitionBalance,rte,"Assertion 'rte_9,signed_overflow'",-,False,51
+setPassedCredits,spec,Pre-condition,Partial,False,60
+setPassedCredits,spec,Post-condition,Valid,True,62
+setPassedCredits,spec,Assigns,Valid,True,61
+setEnrollmentCredits,spec,Pre-condition,Partial,False,74
+setEnrollmentCredits,spec,Pre-condition,Partial,False,75
+setEnrollmentCredits,spec,Post-condition,Valid,True,77
+setEnrollmentCredits,spec,Assigns,Valid,True,76
+setLateRegistration,spec,Pre-condition,Partial,False,89
+setLateRegistration,spec,Post-condition,Valid,True,91
+setLateRegistration,spec,Assigns,Valid,True,90
+getTuition,spec,Post-condition,Valid,True,102
+getEnrollmentCredits,spec,Post-condition,Valid,True,113
+getPassedCredits,spec,Post-condition,Valid,True,123
+getLateRegistrations,spec,Post-condition,Valid,True,133
+getLateRegistrations,spec,Post-condition,Valid,True,134
+getLateRegistrations,rte,"Assertion 'rte_1,bool_value'",Valid,True,138
+getId,spec,Post-condition,Valid,True,145
+registrationPermission,spec,Post-condition,Valid,True,156
+validPayment,spec,Pre-condition,Valid,True,166
+validPayment,spec,Post-condition,Valid,True,168
+validPayment,spec,Post-condition,Valid,True,169
+regularEnrollment,spec,Pre-condition,Valid,True,179
+regularEnrollment,spec,Pre-condition,Valid,True,180
+regularEnrollment,spec,Pre-condition,Valid,True,181
+regularEnrollment,spec,Pre-condition,Valid,True,182
+regularEnrollment,spec,Post-condition,Valid,True,184
+regularEnrollment,spec,Assigns,Valid,True,183
+regularEnrollment,rte,"Assertion 'rte_20,signed_overflow'",Valid,True,189
+regularEnrollment,rte,"Assertion 'rte_21,signed_overflow'",Valid,True,190
+regularEnrollment,rte,"Assertion 'rte_22,signed_overflow'",Valid,True,191
+regularEnrollment,rte,"Assertion 'rte_23,signed_overflow'",Valid,True,192
+lateEnrollment,spec,Pre-condition,Valid,True,198
+lateEnrollment,spec,Pre-condition,Valid,True,199
+lateEnrollment,spec,Assigns,Partial,False,200
+lateEnrollment,rte,"Assertion 'rte_10,signed_overflow'",Valid,True,206
+lateEnrollment,rte,"Assertion 'rte_11,signed_overflow'",Valid,True,207
+lateEnrollment,rte,"Assertion 'rte_12,signed_overflow'",-,False,209
+lateEnrollment,rte,"Assertion 'rte_13,signed_overflow'",-,False,210
+lateEnrollment,rte,"Assertion 'rte_14,signed_overflow'",Partial,False,211
+lateEnrollment,rte,"Assertion 'rte_15,signed_overflow'",Partial,False,212
+lateEnrollment,rte,"Assertion 'rte_16,signed_overflow'",-,False,213
+lateEnrollment,rte,"Assertion 'rte_17,signed_overflow'",-,False,214
+lateEnrollment,rte,"Assertion 'rte_18,signed_overflow'",-,False,215
+lateEnrollment,rte,"Assertion 'rte_19,signed_overflow'",Partial,False,216
+enroll,spec,Pre-condition,Partial,False,222
+enroll,spec,Pre-condition,-,False,223
+enroll,spec,Pre-condition,Partial,False,224
+enroll,spec,Pre-condition,-,False,225
+enroll,spec,Pre-condition,-,False,226
+enroll,spec,Post-condition,Valid,True,229
+enroll,spec,Assigns,Valid,True,227
+enroll,rte,"Assertion 'rte_24,bool_value'",Valid,True,233
+enroll,callsite,Instance of 'Pre-condition,Valid,True,198
+enroll,callsite,Instance of 'Pre-condition,Valid,True,199
+enroll,callsite,Instance of 'Pre-condition,Valid,True,179
+enroll,callsite,Instance of 'Pre-condition,Valid,True,180
+enroll,callsite,Instance of 'Pre-condition,Valid,True,181
+enroll,callsite,Instance of 'Pre-condition,Valid,True,182
+payTuitionWithDebitCard,spec,Pre-condition,Valid,True,239
+payTuitionWithDebitCard,spec,Pre-condition,Valid,True,240
+payTuitionWithDebitCard,spec,Pre-condition,Valid,True,241
+payTuitionWithDebitCard,spec,Post-condition,Valid,True,243
+payTuitionWithDebitCard,spec,Assigns,Valid,True,242
+payTuitionWithDebitCard,rte,"Assertion 'rte_25,signed_overflow'",Valid,True,250
+payTuitionWithDebitCard,rte,"Assertion 'rte_26,signed_overflow'",Valid,True,251
+payTuitionWithDebitCard,callsite,Instance of 'Pre-condition,Valid,True,166
+payTuitionWithCreditCard,spec,Pre-condition,Valid,True,257
+payTuitionWithCreditCard,spec,Pre-condition,Valid,True,258
+payTuitionWithCreditCard,spec,Pre-condition,Valid,True,259
+payTuitionWithCreditCard,spec,Pre-condition,Valid,True,260
+payTuitionWithCreditCard,spec,Pre-condition,Valid,True,261
+payTuitionWithCreditCard,spec,Pre-condition,Valid,True,262
+payTuitionWithCreditCard,spec,Pre-condition,Valid,True,263
+payTuitionWithCreditCard,spec,Pre-condition,Valid,True,264
+payTuitionWithCreditCard,spec,Post-condition,Valid,True,266
+payTuitionWithCreditCard,spec,Assigns,Valid,True,265
+payTuitionWithCreditCard,rte,"Assertion 'rte_27,signed_overflow'",Valid,True,271
+payTuitionWithCreditCard,rte,"Assertion 'rte_28,signed_overflow'",Valid,True,272
+payTuitionWithCreditCard,rte,"Assertion 'rte_29,signed_overflow'",Valid,True,274
+payTuitionWithCreditCard,rte,"Assertion 'rte_30,signed_overflow'",Valid,True,275
+payTuitionWithCreditCard,rte,"Assertion 'rte_31,signed_overflow'",Valid,True,279
+payTuitionWithCreditCard,rte,"Assertion 'rte_32,signed_overflow'",Valid,True,280
+payTuitionWithCreditCard,callsite,Instance of 'Pre-condition,Valid,True,166
+pay,spec,Pre-condition,Partial,False,286
+pay,spec,Pre-condition,-,False,287
+pay,spec,Pre-condition,Partial,False,288
+pay,spec,Pre-condition,Partial,False,289
+pay,spec,Pre-condition,Partial,False,290
+pay,spec,Pre-condition,Partial,False,291
+pay,spec,Pre-condition,Partial,False,292
+pay,spec,Pre-condition,Partial,False,293
+pay,spec,Pre-condition,-,False,294
+pay,spec,Pre-condition,Partial,False,295
+pay,spec,Post-condition,Valid,True,297
+pay,spec,Post-condition,Valid,True,298
+pay,spec,Assigns,Valid,True,296
+pay,callsite,Instance of 'Pre-condition,Valid,True,239
+pay,callsite,Instance of 'Pre-condition,Valid,True,240
+pay,callsite,Instance of 'Pre-condition,Valid,True,241
+pay,callsite,Instance of 'Pre-condition,Valid,True,257
+pay,callsite,Instance of 'Pre-condition,Valid,True,258
+pay,callsite,Instance of 'Pre-condition,Valid,True,259
+pay,callsite,Instance of 'Pre-condition,Valid,True,260
+pay,callsite,Instance of 'Pre-condition,Valid,True,261
+pay,callsite,Instance of 'Pre-condition,Valid,True,262
+pay,callsite,Instance of 'Pre-condition,Valid,True,263
+pay,callsite,Instance of 'Pre-condition,Valid,True,264
+enrollmentProcess,spec,Pre-condition,Valid,True,308
+enrollmentProcess,spec,Pre-condition,Valid,True,309
+enrollmentProcess,spec,Pre-condition,Valid,True,310
+enrollmentProcess,spec,Pre-condition,Valid,True,311
+enrollmentProcess,spec,Pre-condition,Valid,True,312
+enrollmentProcess,spec,Pre-condition,Valid,True,313
+enrollmentProcess,spec,Pre-condition,Valid,True,314
+enrollmentProcess,spec,Pre-condition,Valid,True,315
+enrollmentProcess,spec,Pre-condition,Valid,True,316
+enrollmentProcess,spec,Pre-condition,Valid,True,317
+enrollmentProcess,spec,Pre-condition,Valid,True,318
+enrollmentProcess,spec,Pre-condition,Valid,True,319
+enrollmentProcess,spec,Pre-condition,Valid,True,320
+enrollmentProcess,spec,Pre-condition,Valid,True,321
+enrollmentProcess,spec,Pre-condition,Valid,True,322
+enrollmentProcess,spec,Pre-condition,Valid,True,323
+enrollmentProcess,spec,Pre-condition,Valid,True,324
+enrollmentProcess,spec,Assigns,Partial,False,325
+enrollmentProcess,rte,"Assertion 'rte_33,signed_overflow'",Valid,True,332
+enrollmentProcess,rte,"Assertion 'rte_34,signed_overflow'",-,False,333
+enrollmentProcess,rte,"Assertion 'rte_35,signed_overflow'",Partial,False,334
+enrollmentProcess,rte,"Assertion 'rte_36,signed_overflow'",Partial,False,335
+enrollmentProcess,rte,"Assertion 'rte_37,signed_overflow'",Partial,False,336
+enrollmentProcess,rte,"Assertion 'rte_38,signed_overflow'",Partial,False,337
+enrollmentProcess,rte,"Assertion 'rte_39,signed_overflow'",Partial,False,338
+enrollmentProcess,rte,"Assertion 'rte_40,signed_overflow'",-,False,339
+enrollmentProcess,callsite,Instance of 'Pre-condition,Partial,False,39
+enrollmentProcess,callsite,Instance of 'Pre-condition,Partial,False,60
+enrollmentProcess,callsite,Instance of 'Pre-condition,Partial,False,74
+enrollmentProcess,callsite,Instance of 'Pre-condition,Partial,False,75
+enrollmentProcess,callsite,Instance of 'Pre-condition,Partial,False,89
+enrollmentProcess,callsite,Instance of 'Pre-condition,Partial,False,222
+enrollmentProcess,callsite,Instance of 'Pre-condition,-,False,223
+enrollmentProcess,callsite,Instance of 'Pre-condition,Partial,False,224
+enrollmentProcess,callsite,Instance of 'Pre-condition,-,False,225
+enrollmentProcess,callsite,Instance of 'Pre-condition,-,False,226
+enrollmentProcess,callsite,Instance of 'Pre-condition,Partial,False,286
+enrollmentProcess,callsite,Instance of 'Pre-condition,-,False,287
+enrollmentProcess,callsite,Instance of 'Pre-condition,Partial,False,288
+enrollmentProcess,callsite,Instance of 'Pre-condition,Partial,False,289
+enrollmentProcess,callsite,Instance of 'Pre-condition,Partial,False,290
+enrollmentProcess,callsite,Instance of 'Pre-condition,Partial,False,291
+enrollmentProcess,callsite,Instance of 'Pre-condition,Partial,False,292
+enrollmentProcess,callsite,Instance of 'Pre-condition,Partial,False,293
+enrollmentProcess,callsite,Instance of 'Pre-condition,-,False,294
+enrollmentProcess,callsite,Instance of 'Pre-condition,Partial,False,295
+main,spec,Assertion,-,False,365
+main,callsite,Instance of 'Pre-condition,Valid,True,22
+main,callsite,Instance of 'Pre-condition,Valid,True,308
+main,callsite,Instance of 'Pre-condition,Valid,True,309
+main,callsite,Instance of 'Pre-condition,Valid,True,310
+main,callsite,Instance of 'Pre-condition,Valid,True,311
+main,callsite,Instance of 'Pre-condition,Valid,True,312
+main,callsite,Instance of 'Pre-condition,Valid,True,313
+main,callsite,Instance of 'Pre-condition,Valid,True,314
+main,callsite,Instance of 'Pre-condition,Valid,True,315
+main,callsite,Instance of 'Pre-condition,Valid,True,316
+main,callsite,Instance of 'Pre-condition,Valid,True,317
+main,callsite,Instance of 'Pre-condition,Valid,True,318
+main,callsite,Instance of 'Pre-condition,Valid,True,319
+main,callsite,Instance of 'Pre-condition,Valid,True,320
+main,callsite,Instance of 'Pre-condition,Valid,True,321
+main,callsite,Instance of 'Pre-condition,Valid,True,322
+main,callsite,Instance of 'Pre-condition,Valid,True,323
+main,callsite,Instance of 'Pre-condition,Valid,True,324

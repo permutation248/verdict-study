@@ -1,0 +1,116 @@
+function,category,property,status,valid,line
+time_greater_,spec,Post-condition,Valid,True,50
+time_after,spec,Post-condition,Valid,True,70
+time_greater,spec,Post-condition,Valid,True,81
+time_less_,spec,Post-condition,Valid,True,92
+time_before,spec,Post-condition,Valid,True,112
+time_less,spec,Post-condition,Valid,True,123
+timeabs_eq,spec,Post-condition,Valid,True,134
+timeabs_eq,spec,Post-condition,Valid,True,135
+timemono_eq,spec,Post-condition,Valid,True,150
+timerel_eq,spec,Post-condition,Valid,True,165
+time_sub_,spec,Pre-condition,Valid,True,179
+time_sub_,spec,Pre-condition,Valid,True,180
+time_sub_,spec,Pre-condition,Valid,True,181
+time_sub_,spec,Pre-condition,Valid,True,182
+time_sub_,spec,Post-condition,Valid,True,184
+time_sub_,spec,Post-condition,Valid,True,185
+time_sub_,rte,"Assertion 'rte_1,signed_overflow'",Valid,True,212
+time_sub_,rte,"Assertion 'rte_2,signed_overflow'",Valid,True,215
+time_sub_,rte,"Assertion 'rte_3,signed_overflow'",Valid,True,220
+time_sub_,rte,"Assertion 'rte_4,signed_overflow'",Valid,True,224
+time_sub_,rte,"Assertion 'rte_5,signed_overflow'",Valid,True,228
+time_sub_,rte,"Assertion 'rte_6,signed_overflow'",Valid,True,232
+time_sub_,rte,"Assertion 'rte_7,signed_overflow'",Valid,True,238
+time_sub_,rte,"Assertion 'rte_8,signed_overflow'",Valid,True,241
+time_sub,spec,Post-condition,Valid,True,253
+time_sub,spec,Post-condition,Valid,True,254
+time_sub,callsite,Instance of 'Pre-condition,Valid,True,179
+time_sub,callsite,Instance of 'Pre-condition,Valid,True,180
+time_sub,callsite,Instance of 'Pre-condition,Valid,True,181
+time_sub,callsite,Instance of 'Pre-condition,Valid,True,182
+time_between,spec,Post-condition,Valid,True,288
+time_between,spec,Post-condition,Valid,True,289
+time_between,callsite,Instance of 'Pre-condition,Valid,True,179
+time_between,callsite,Instance of 'Pre-condition,Valid,True,180
+time_between,callsite,Instance of 'Pre-condition,Valid,True,181
+time_between,callsite,Instance of 'Pre-condition,Valid,True,182
+timemono_between,spec,Post-condition,Valid,True,304
+timemono_between,spec,Post-condition,Valid,True,305
+timemono_between,callsite,Instance of 'Pre-condition,Valid,True,179
+timemono_between,callsite,Instance of 'Pre-condition,Valid,True,180
+timemono_between,callsite,Instance of 'Pre-condition,Valid,True,181
+timemono_between,callsite,Instance of 'Pre-condition,Valid,True,182
+timeabs_sub,spec,Post-condition,Valid,True,320
+timeabs_sub,spec,Post-condition,Valid,True,321
+timeabs_sub,callsite,Instance of 'Pre-condition,Valid,True,179
+timeabs_sub,callsite,Instance of 'Pre-condition,Valid,True,180
+timeabs_sub,callsite,Instance of 'Pre-condition,Valid,True,181
+timeabs_sub,callsite,Instance of 'Pre-condition,Valid,True,182
+time_add_,spec,Pre-condition,Valid,True,331
+time_add_,spec,Pre-condition,Valid,True,332
+time_add_,spec,Pre-condition,Valid,True,333
+time_add_,spec,Pre-condition,Valid,True,334
+time_add_,spec,Post-condition,Valid,True,336
+time_add_,spec,Post-condition,Valid,True,337
+time_add_,spec,Post-condition,Valid,True,338
+time_add_,rte,"Assertion 'rte_23,signed_overflow'",Valid,True,344
+time_add_,rte,"Assertion 'rte_24,signed_overflow'",Valid,True,347
+time_add_,rte,"Assertion 'rte_25,signed_overflow'",Valid,True,351
+time_add_,rte,"Assertion 'rte_26,signed_overflow'",Valid,True,354
+time_add_,rte,"Assertion 'rte_27,signed_overflow'",Valid,True,358
+time_add_,rte,"Assertion 'rte_28,signed_overflow'",Valid,True,363
+timeabs_add,spec,Post-condition,Valid,True,376
+timeabs_add,spec,Post-condition,Valid,True,377
+timeabs_add,spec,Post-condition,Valid,True,378
+timeabs_add,callsite,Instance of 'Pre-condition,Valid,True,331
+timeabs_add,callsite,Instance of 'Pre-condition,Valid,True,332
+timeabs_add,callsite,Instance of 'Pre-condition,Valid,True,333
+timeabs_add,callsite,Instance of 'Pre-condition,Valid,True,334
+timemono_add,spec,Post-condition,Valid,True,393
+timemono_add,spec,Post-condition,Valid,True,394
+timemono_add,spec,Post-condition,Valid,True,395
+timemono_add,callsite,Instance of 'Pre-condition,Valid,True,331
+timemono_add,callsite,Instance of 'Pre-condition,Valid,True,332
+timemono_add,callsite,Instance of 'Pre-condition,Valid,True,333
+timemono_add,callsite,Instance of 'Pre-condition,Valid,True,334
+timerel_add,spec,Post-condition,Valid,True,410
+timerel_add,spec,Post-condition,Valid,True,411
+timerel_add,spec,Post-condition,Valid,True,412
+timerel_add,callsite,Instance of 'Pre-condition,Valid,True,331
+timerel_add,callsite,Instance of 'Pre-condition,Valid,True,332
+timerel_add,callsite,Instance of 'Pre-condition,Valid,True,333
+timerel_add,callsite,Instance of 'Pre-condition,Valid,True,334
+time_divide,rte,"Assertion 'rte_9,division_by_zero'",Valid,True,430
+time_divide,rte,"Assertion 'rte_10,division_by_zero'",Valid,True,432
+time_divide,rte,"Assertion 'rte_11,is_nan_or_infinite'",Valid,True,437
+time_divide,rte,"Assertion 'rte_12,is_nan_or_infinite'",Valid,True,441
+time_divide,rte,"Assertion 'rte_13,is_nan_or_infinite'",Valid,True,447
+time_divide,rte,"Assertion 'rte_14,float_to_int'",Valid,True,449
+time_divide,rte,"Assertion 'rte_15,float_to_int'",Valid,True,452
+time_divide,rte,"Assertion 'rte_16,division_by_zero'",Valid,True,458
+time_multiply,rte,"Assertion 'rte_17,is_nan_or_infinite'",Valid,True,475
+time_multiply,rte,"Assertion 'rte_18,is_nan_or_infinite'",Valid,True,480
+time_multiply,rte,"Assertion 'rte_19,is_nan_or_infinite'",Valid,True,485
+time_multiply,rte,"Assertion 'rte_20,is_nan_or_infinite'",Valid,True,489
+time_multiply,rte,"Assertion 'rte_21,float_to_int'",-,False,495
+time_multiply,rte,"Assertion 'rte_22,float_to_int'",Partial,False,500
+time_to_sec,spec,Post-condition,Valid,True,516
+time_to_msec,spec,Post-condition,Valid,True,530
+time_to_msec,spec,Post-condition,Valid,True,531
+time_to_usec,spec,Post-condition,Valid,True,548
+time_to_nsec,spec,Post-condition,Valid,True,565
+time_from_sec,spec,Post-condition,Valid,True,578
+time_from_sec,spec,Post-condition,Valid,True,579
+time_from_msec,spec,Post-condition,Valid,True,591
+time_from_msec,spec,Post-condition,Valid,True,592
+time_from_msec,spec,Post-condition,Valid,True,593
+time_from_msec,spec,Post-condition,Valid,True,594
+time_from_usec,spec,Post-condition,Valid,True,606
+time_from_usec,spec,Post-condition,Valid,True,607
+time_from_usec,spec,Post-condition,Valid,True,608
+time_from_usec,spec,Post-condition,Valid,True,609
+time_from_nsec,spec,Post-condition,Valid,True,621
+time_from_nsec,spec,Post-condition,Valid,True,622
+time_from_nsec,spec,Post-condition,Valid,True,623
+time_from_nsec,spec,Post-condition,Valid,True,624

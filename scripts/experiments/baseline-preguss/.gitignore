@@ -1,0 +1,10 @@
+# The Preguss artifact is large (~360 MB zip, Docker-based) and must NOT be
+# committed. Re-download via the URL recorded in README.md (Zenodo 18768810).
+artifact/
+
+# Any local scratch output from dry runs / unpacking experiments.
+*.zip
+*.tar
+*.tar.gz
+*.log
+__pycache__/

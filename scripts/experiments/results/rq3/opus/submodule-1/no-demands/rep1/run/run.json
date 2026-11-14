@@ -1,0 +1,1761 @@
+{
+  "id": "x509-submodule-1_20260617_105850",
+  "source_file": "benchmarks/x509/submodule-1/x509-submodule-1.c",
+  "started_at": "2026-06-17T10:58:51.285+00:00",
+  "finished_at": "2026-06-17T11:21:44.364+00:00",
+  "status": "completed",
+  "config": {
+    "scope": "global",
+    "timeout": 43200.0,
+    "model": "claude-opus-4-5-20251101",
+    "max_turns": 30,
+    "max_parallel": 8,
+    "schedule": "leaf-first",
+    "max_cycles_per_agent": 24,
+    "requested_functions": [],
+    "enable_ablation_deps": false,
+    "ablation": [
+      "demands"
+    ],
+    "wp_model": null
+  },
+  "agents": {
+    "_extract_complex_tag": {
+      "agent_id": "agent__extract_complex_tag",
+      "function_name": "_extract_complex_tag",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "_extract_complex_tag",
+        "preconditions": [
+          "requires (len > 0 && buf != \\null) ==> \\valid_read(buf + (0 .. (len < 4 ? len : 4) - 1));",
+          "requires \\valid(tag_num);",
+          "requires \\valid(eaten);",
+          "requires \\separated(tag_num, eaten);"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result == -62 || \\result == -93 || \\result == -99;",
+          "ensures (len == 0 || buf == \\null) ==> \\result == -62;",
+          "ensures \\result == 0 ==> *eaten >= 1 && *eaten <= 4;",
+          "ensures \\result == 0 ==> *tag_num >= 0x1f;"
+        ],
+        "loop_contracts": {
+          "_extract_complex_tag_loop_0": [
+            "loop invariant 0 <= rbytes <= (len <= 4 ? len : 4);",
+            "loop assigns rbytes, t;",
+            "loop variant (len <= 4 ? len : 4) - rbytes;"
+          ]
+        },
+        "assigns": [
+          "assigns *tag_num, *eaten;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 6,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_1": "verified",
+          "rte_2": "verified",
+          "rte_3": "verified",
+          "rte_4": "verified",
+          "rte_5": "verified",
+          "rte_6": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "f86dd9a4-b658-44d1-834a-3408abe947f3",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "_parse_arc": {
+      "agent_id": "agent__parse_arc",
+      "function_name": "_parse_arc",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "_parse_arc",
+        "preconditions": [
+          "requires (len > 0 && buf != \\null) ==> \\valid_read(buf + (0 .. (len < 4 ? len - 1 : 3)));",
+          "requires \\valid(arc_val);",
+          "requires \\valid(eaten);",
+          "requires \\separated(arc_val, eaten);",
+          "requires \\separated(arc_val, buf + (0 .. (len < 4 ? len - 1 : 3)));",
+          "requires \\separated(eaten, buf + (0 .. (len < 4 ? len - 1 : 3)));"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result == -382 || \\result == -422;",
+          "ensures (len == 0 || buf == \\null) ==> \\result == -382;",
+          "ensures \\result == 0 ==> *eaten >= 1 && *eaten <= 4;",
+          "ensures \\result == 0 ==> *eaten <= len;"
+        ],
+        "loop_contracts": {
+          "_parse_arc_loop_0": [
+            "loop invariant 0 <= rbytes <= len;",
+            "loop invariant len >= 1 && len <= 4;",
+            "loop invariant \\valid_read(buf + (0 .. len - 1));",
+            "loop assigns rbytes, av;"
+          ]
+        },
+        "assigns": [
+          "assigns *arc_val, *eaten;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 6,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_45": "verified",
+          "rte_46": "verified",
+          "rte_47": "verified",
+          "rte_48": "verified",
+          "rte_49": "verified",
+          "rte_50": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "08b8d5b0-b999-4fed-8c1f-a1ec49e8fc0b",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "bufs_differ": {
+      "agent_id": "agent_bufs_differ",
+      "function_name": "bufs_differ",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "bufs_differ",
+        "preconditions": [
+          "requires n > 0 ==> \\valid_read(b1 + (0 .. n - 1));",
+          "requires n > 0 ==> \\valid_read(b2 + (0 .. n - 1));",
+          "requires n > 0 ==> \\separated(b1 + (0 .. n - 1), b2 + (0 .. n - 1));"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result == 1;"
+        ],
+        "loop_contracts": {
+          "bufs_differ_loop_0": [
+            "loop invariant 0 <= i <= n;",
+            "loop invariant ret == 0 || ret == 1;",
+            "loop invariant n > 0 ==> \\valid_read(b1 + (0 .. n - 1));",
+            "loop invariant n > 0 ==> \\valid_read(b2 + (0 .. n - 1));",
+            "loop assigns i, ret;",
+            "loop variant n - i;"
+          ]
+        },
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 3,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_59": "verified",
+          "rte_60": "verified",
+          "rte_61": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "3aec469a-85d9-4142-8866-6e66d1c23827",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "check_bmp_string": {
+      "agent_id": "agent_check_bmp_string",
+      "function_name": "check_bmp_string",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "check_bmp_string",
+        "preconditions": [],
+        "postconditions": [
+          "ensures \\result == -937;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {}
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "e606e8be-1416-4d5c-853a-4f028ef0e45e",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "check_ia5_string": {
+      "agent_id": "agent_check_ia5_string",
+      "function_name": "check_ia5_string",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "check_ia5_string",
+        "preconditions": [
+          "requires (len > 0 && buf != \\null) ==> \\valid_read(buf + (0 .. len - 1));"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result == -947 || \\result == -955;",
+          "ensures (buf == \\null || len == 0) ==> \\result == -947;",
+          "ensures (\\result == 0) ==> (buf != \\null && len > 0);"
+        ],
+        "loop_contracts": {
+          "check_ia5_string_loop_0": [
+            "loop invariant 0 <= i <= len;",
+            "loop invariant \\valid_read(buf + (0 .. len - 1));",
+            "loop assigns i;"
+          ]
+        },
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 2,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_62": "verified",
+          "rte_63": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "47356536-d699-428d-b34f-8fe4b7bd974d",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "check_utf8_string": {
+      "agent_id": "agent_check_utf8_string",
+      "function_name": "check_utf8_string",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "check_utf8_string",
+        "preconditions": [
+          "requires (buf != \\null && len > 0) ==> \\valid_read(buf + (0 .. len - 1));"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result == -717 || \\result == -744 || \\result == -751 || \\result == -768 || \\result == -776 || \\result == -787 || \\result == -792 || \\result == -809 || \\result == -821 || \\result == -826 || \\result == -834 || \\result == -844;",
+          "ensures (buf == \\null || len == 0) ==> \\result == -717;"
+        ],
+        "loop_contracts": {
+          "check_utf8_string_loop_0": [
+            "loop invariant 0 <= len <= \\at(len, Pre);",
+            "loop invariant (len > 0 && \\at(buf, Pre) != \\null) ==> \\valid_read(buf + (0 .. len - 1));",
+            "loop assigns len, buf, b0;",
+            "loop variant len;"
+          ]
+        },
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 19,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_68": "verified",
+          "rte_69": "verified",
+          "rte_70": "verified",
+          "rte_71": "verified",
+          "rte_72": "verified",
+          "rte_73": "verified",
+          "rte_74": "verified",
+          "rte_75": "verified",
+          "rte_76": "verified",
+          "rte_77": "verified",
+          "rte_78": "verified",
+          "rte_79": "verified",
+          "rte_80": "verified",
+          "rte_81": "verified",
+          "rte_82": "verified",
+          "rte_83": "verified",
+          "rte_84": "verified",
+          "rte_85": "verified",
+          "rte_86": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "04114a2a-b522-4a17-9a37-7b4b8f063849",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "check_visible_string": {
+      "agent_id": "agent_check_visible_string",
+      "function_name": "check_visible_string",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "check_visible_string",
+        "preconditions": [
+          "requires (buf != \\null && len > 0) ==> \\valid_read(buf + (0 .. len - 1));"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result == -866 || \\result == -921;",
+          "ensures (buf == \\null || len == 0) ==> \\result == -866;",
+          "ensures (\\result == 0) ==> (buf != \\null && len > 0);"
+        ],
+        "loop_contracts": {
+          "check_visible_string_loop_0": [
+            "loop invariant 0 <= rbytes <= len;",
+            "loop invariant buf != \\null;",
+            "loop invariant len > 0;",
+            "loop invariant \\valid_read(buf + (0 .. len - 1));",
+            "loop assigns rbytes, c;",
+            "loop variant len - rbytes;"
+          ]
+        },
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 3,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_87": "verified",
+          "rte_88": "verified",
+          "rte_89": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "f710dfa3-c8fe-437d-b904-18f8ae81c26b",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "get_identifier": {
+      "agent_id": "agent_get_identifier",
+      "function_name": "get_identifier",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "get_identifier",
+        "preconditions": [
+          "requires (buf != \\null && len > 0) ==> \\valid_read(buf + (0 .. len - 1));",
+          "requires \\valid(cls);",
+          "requires \\valid(prim);",
+          "requires \\valid(tag_num);",
+          "requires \\valid(eaten);",
+          "requires \\separated(cls, prim, tag_num, eaten);",
+          "requires \\separated(buf + (0 .. len - 1), cls, prim, tag_num, eaten);"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result == -144 || \\result == -155 || \\result == -178 || \\result == -62 || \\result == -93 || \\result == -99;",
+          "ensures (buf == \\null) ==> \\result == -144;",
+          "ensures (buf != \\null && len == 0) ==> \\result == -155;",
+          "ensures (\\result == 0) ==> (*eaten >= 1 && *eaten <= 5);",
+          "ensures (\\result == 0) ==> (*cls >= 0 && *cls <= 3);",
+          "ensures (\\result == 0) ==> (*prim == 0 || *prim == 1);",
+          "ensures (\\result == 0) ==> (*tag_num >= 0x1f || *eaten == 1);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns *cls, *prim, *tag_num, *eaten;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {
+          "_extract_complex_tag": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "_extract_complex_tag": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result == 0 ==> *eaten >= 1 && *eaten <= 4;",
+              "ensures \\result == 0 ==> *tag_num >= 0x1f;",
+              "ensures \\result == 0 || \\result == -62 || \\result == -93 || \\result == -99;"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "_extract_complex_tag": [
+            "requires (len > 0 && buf != \\null) ==> \\valid_read(buf + (0 .. (len < 4 ? len : 4) - 1));",
+            "requires \\separated(tag_num, eaten);",
+            "requires \\valid(eaten);",
+            "requires \\valid(tag_num);"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 2,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 11,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 4,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_7": "verified",
+          "rte_8": "verified",
+          "rte_9": "verified",
+          "rte_10": "verified",
+          "rte_11": "verified",
+          "rte_12": "verified",
+          "rte_13": "verified",
+          "rte_14": "verified",
+          "rte_15": "verified",
+          "rte_16": "verified",
+          "rte_17": "verified",
+          "call_site_1_0": "verified",
+          "call_site_1_1": "verified",
+          "call_site_1_2": "verified",
+          "call_site_1_3": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "_extract_complex_tag"
+      ],
+      "session_id": "6c7827ed-47be-47cc-92c4-7c260e757825",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "get_length": {
+      "agent_id": "agent_get_length",
+      "function_name": "get_length",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "get_length",
+        "preconditions": [
+          "requires (buf != \\null && len > 0) ==> \\valid_read(buf + (0 .. len - 1));",
+          "requires \\valid(adv_len);",
+          "requires \\valid(eaten);",
+          "requires \\separated(adv_len, eaten);",
+          "requires \\separated(buf + (0 .. len - 1), adv_len);",
+          "requires \\separated(buf + (0 .. len - 1), eaten);"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result == -233 || \\result == -239 || \\result == -259 || \\result == -278 || \\result == -299 || \\result == -308 || \\result == -321 || \\result == -334 || \\result == -349 || \\result == -358;",
+          "ensures (buf == \\null) ==> \\result == -233;",
+          "ensures (buf != \\null && len == 0) ==> \\result == -239;",
+          "ensures (\\result == 0) ==> (*eaten >= 1 && *eaten <= 3);",
+          "ensures (\\result == 0) ==> (*adv_len <= len - *eaten);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns *adv_len, *eaten;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 19,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_18": "verified",
+          "rte_19": "verified",
+          "rte_20": "verified",
+          "rte_21": "verified",
+          "rte_22": "verified",
+          "rte_23": "verified",
+          "rte_24": "verified",
+          "rte_25": "verified",
+          "rte_26": "verified",
+          "rte_27": "verified",
+          "rte_28": "verified",
+          "rte_29": "verified",
+          "rte_30": "verified",
+          "rte_31": "verified",
+          "rte_32": "verified",
+          "rte_33": "verified",
+          "rte_34": "verified",
+          "rte_35": "verified",
+          "rte_36": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "ab11397d-3d0c-43d7-a364-f0d7f58f6176",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "parse_ia5_string": {
+      "agent_id": "agent_parse_ia5_string",
+      "function_name": "parse_ia5_string",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "parse_ia5_string",
+        "preconditions": [
+          "requires (len > 0 && buf != \\null) ==> \\valid_read(buf + (0 .. len - 1));"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result == -985 || \\result == -991 || \\result == -998 || \\result == -1005 || \\result == -1012 || \\result == -947 || \\result == -955;",
+          "ensures (buf == \\null || len == 0) ==> \\result == -985;",
+          "ensures (\\result == 0) ==> (buf != \\null && len >= 2);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {
+          "check_ia5_string": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "check_ia5_string": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result == 0 || \\result == -947 || \\result == -955;"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "check_ia5_string": [
+            "requires (len > 0 && buf != \\null) ==> \\valid_read(buf + (0 .. len - 1));"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 2,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 3,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 1,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_64": "verified",
+          "rte_65": "verified",
+          "rte_66": "verified",
+          "call_site_6_0": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "check_ia5_string"
+      ],
+      "session_id": "a8d7284b-d23f-4af4-9d9e-9cbeb8849f8e",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "parse_CPSuri": {
+      "agent_id": "agent_parse_CPSuri",
+      "function_name": "parse_CPSuri",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "parse_CPSuri",
+        "preconditions": [
+          "requires \\valid(eaten);",
+          "requires len > 0 ==> \\valid_read(buf + (0 .. len - 1));",
+          "requires \\separated(eaten, buf + (0 .. len - 1));"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result < 0;",
+          "ensures (buf == \\null || len == 0) ==> \\result == -1036;",
+          "ensures \\result == 0 ==> *eaten == len;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns *eaten;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {
+          "parse_ia5_string": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "parse_ia5_string": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result == 0 || \\result == -985 || \\result == -991 || \\result == -998 || \\result == -1005 || \\result == -1012 || \\result == -947 || \\result == -955;"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "parse_ia5_string": [
+            "requires (len > 0 && buf != \\null) ==> \\valid_read(buf + (0 .. len - 1));"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 2,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 1,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 1,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_67": "verified",
+          "call_site_7_0": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "parse_ia5_string"
+      ],
+      "session_id": "9bbf5d88-3899-417a-b050-11879d8a8a50",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "parse_id_len": {
+      "agent_id": "agent_parse_id_len",
+      "function_name": "parse_id_len",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "parse_id_len",
+        "preconditions": [
+          "requires (len > 0 && buf != \\null) ==> \\valid_read(buf + (0 .. len - 1));",
+          "requires \\valid(parsed);",
+          "requires \\valid(content_len);",
+          "requires \\separated(parsed, content_len);",
+          "requires \\separated(buf + (0 .. len - 1), parsed, content_len);"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result == -464 || \\result == -471 || \\result == -489 || \\result == -496 || \\result == -521 || \\result < 0;",
+          "ensures (\\result == 0) ==> (*parsed >= 2 && *parsed <= 8);",
+          "ensures (\\result == 0) ==> (*content_len <= 65534);",
+          "ensures (buf == \\null) ==> (\\result == -464);",
+          "ensures (buf != \\null && \\old(len) > 65534) ==> (\\result == -471);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns *parsed, *content_len;"
+        ],
+        "version": 2,
+        "status": "published",
+        "based_on_versions": {
+          "get_identifier": 1,
+          "get_length": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "get_identifier": {
+            "depends": true,
+            "clauses": null
+          },
+          "get_length": {
+            "depends": true,
+            "clauses": null
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "get_identifier": [
+            "requires (buf != \\null && len > 0) ==> \\valid_read(buf + (0 .. len - 1));",
+            "requires \\separated(buf + (0 .. len - 1), cls, prim, tag_num, eaten);",
+            "requires \\separated(cls, prim, tag_num, eaten);",
+            "requires \\valid(cls);",
+            "requires \\valid(eaten);",
+            "requires \\valid(prim);",
+            "requires \\valid(tag_num);"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 2,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 8,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 12,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 1,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {
+          "call_site_3_0": "Cannot prove buffer validity for get_length call site because get_identifier's published spec lacks a frame postcondition about the unconsumed buffer tail remaining valid. The published get_identifier spec says *eaten <= 5 but does not state *eaten <= len, nor does it preserve validity of buf+(0..len-1) in its postconditions. Since proof-demand protocol is disabled, cannot request this from get_identifier. The property is semantically true (get_identifier cannot read beyond the buffer) but not formally provable from published specs."
+        },
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_37": "verified",
+          "rte_38": "verified",
+          "rte_39": "verified",
+          "rte_40": "verified",
+          "rte_41": "verified",
+          "rte_42": "verified",
+          "rte_43": "verified",
+          "rte_44": "verified",
+          "call_site_2_0": "verified",
+          "call_site_2_1": "verified",
+          "call_site_2_2": "verified",
+          "call_site_2_3": "verified",
+          "call_site_2_4": "verified",
+          "call_site_2_5": "verified",
+          "call_site_2_6": "verified",
+          "call_site_3_0": "bug",
+          "call_site_3_1": "verified",
+          "call_site_3_2": "verified",
+          "call_site_3_3": "verified",
+          "call_site_3_4": "verified",
+          "call_site_3_5": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "get_identifier",
+        "get_length"
+      ],
+      "session_id": "89e62760-c3c0-43f2-84e8-ea58fd3c048a",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "parse_DisplayText": {
+      "agent_id": "agent_parse_DisplayText",
+      "function_name": "parse_DisplayText",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "parse_DisplayText",
+        "preconditions": [
+          "requires (buf != \\null && len > 0) ==> \\valid_read(buf + (0 .. len - 1));",
+          "requires \\valid(eaten);"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result < 0;",
+          "ensures (buf == \\null || len == 0) ==> \\result == -1071;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns *eaten;"
+        ],
+        "version": 3,
+        "status": "published",
+        "based_on_versions": {
+          "parse_id_len": 2,
+          "check_utf8_string": 1,
+          "check_ia5_string": 1,
+          "check_visible_string": 1,
+          "check_bmp_string": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "parse_id_len": {
+            "depends": true,
+            "clauses": null
+          },
+          "check_utf8_string": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result == 0 || \\result == -717 || \\result == -744 || \\result == -751 || \\result == -768 || \\result == -776 || \\result == -787 || \\result == -792 || \\result == -809 || \\result == -821 || \\result == -826 || \\result == -834 || \\result == -844;"
+            ]
+          },
+          "check_ia5_string": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result == 0 || \\result == -947 || \\result == -955;"
+            ]
+          },
+          "check_visible_string": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result == 0 || \\result == -866 || \\result == -921;"
+            ]
+          },
+          "check_bmp_string": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result == -937;"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "parse_id_len": [
+            "requires (len > 0 && buf != \\null) ==> \\valid_read(buf + (0 .. len - 1));",
+            "requires \\separated(buf + (0 .. len - 1), parsed, content_len);",
+            "requires \\separated(parsed, content_len);",
+            "requires \\valid(content_len);",
+            "requires \\valid(parsed);"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 4,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 4,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 6,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 3,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {
+          "call_site_9_0": "parse_id_len v2 does not publish a frame postcondition guaranteeing validity of the advanced buffer region (buf + *parsed) + (0 .. *content_len - 1). This postcondition is needed to prove that check_utf8_string's precondition is satisfied after advancing buf by hdr_len. Proof-demand protocol is disabled, cannot request this from the callee.",
+          "call_site_10_0": "parse_id_len v2 does not publish a frame postcondition guaranteeing validity of the advanced buffer region (buf + *parsed) + (0 .. *content_len - 1). This postcondition is needed to prove that check_ia5_string's precondition is satisfied after advancing buf by hdr_len. Proof-demand protocol is disabled, cannot request this from the callee.",
+          "call_site_11_0": "parse_id_len v2 does not publish a frame postcondition guaranteeing validity of the advanced buffer region (buf + *parsed) + (0 .. *content_len - 1). This postcondition is needed to prove that check_visible_string's precondition is satisfied after advancing buf by hdr_len. Proof-demand protocol is disabled, cannot request this from the callee."
+        },
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_90": "verified",
+          "rte_91": "verified",
+          "rte_92": "verified",
+          "rte_93": "verified",
+          "call_site_12": "verified",
+          "call_site_8_0": "verified",
+          "call_site_8_1": "verified",
+          "call_site_8_2": "verified",
+          "call_site_8_3": "verified",
+          "call_site_8_4": "verified",
+          "call_site_9_0": "bug",
+          "call_site_10_0": "bug",
+          "call_site_11_0": "bug"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "parse_id_len",
+        "check_utf8_string",
+        "check_ia5_string",
+        "check_visible_string",
+        "check_bmp_string"
+      ],
+      "session_id": "e1dcca6b-4f3a-4d74-9ce2-6b35b250447b",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "parse_integer": {
+      "agent_id": "agent_parse_integer",
+      "function_name": "parse_integer",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "parse_integer",
+        "preconditions": [
+          "requires \\valid(eaten);",
+          "requires (len > 0 && buf != \\null) ==> \\valid_read(buf + (0 .. len - 1));",
+          "requires \\separated(eaten, buf + (0 .. len - 1));"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result == -653 || \\result == -671 || \\result == -686 || \\result == -692 || \\result < 0;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns *eaten;"
+        ],
+        "version": 2,
+        "status": "published",
+        "based_on_versions": {
+          "parse_id_len": 2
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "parse_id_len": {
+            "depends": true,
+            "clauses": null
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "parse_id_len": [
+            "requires (len > 0 && buf != \\null) ==> \\valid_read(buf + (0 .. len - 1));",
+            "requires \\separated(buf + (0 .. len - 1), parsed, content_len);",
+            "requires \\separated(parsed, content_len);",
+            "requires \\valid(content_len);",
+            "requires \\valid(parsed);"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 3,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 4,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 3,
+        "callsite_verified": 5,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {
+          "rte_94": "parse_id_len v2 does not publish a postcondition guaranteeing hdr_len + data_len <= len on success. The callee internally checks this (adv_len > len returns -521), but without this guarantee published, WP cannot prove buf[hdr_len] is valid after the call. Cannot request callee changes in this run.",
+          "rte_95": "parse_id_len v2 does not publish a postcondition guaranteeing hdr_len + data_len <= len on success. Without this, WP cannot prove buf[hdr_len + 1] is valid. Same root cause as rte_94.",
+          "rte_97": "parse_id_len v2 does not publish a postcondition guaranteeing hdr_len + data_len <= len on success. Without this, WP cannot prove buf[hdr_len + 1] is valid when checking 0xff prefix. Same root cause as rte_94."
+        },
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_94": "bug",
+          "rte_95": "bug",
+          "rte_96": "verified",
+          "rte_97": "bug",
+          "rte_98": "verified",
+          "rte_99": "verified",
+          "rte_100": "verified",
+          "call_site_13_0": "verified",
+          "call_site_13_1": "verified",
+          "call_site_13_2": "verified",
+          "call_site_13_3": "verified",
+          "call_site_13_4": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "parse_id_len"
+      ],
+      "session_id": "e06a0acc-c486-4cd0-b70a-baa383fd5464",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "parse_NoticeReference": {
+      "agent_id": "agent_parse_NoticeReference",
+      "function_name": "parse_NoticeReference",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "parse_NoticeReference",
+        "preconditions": [
+          "requires (len > 0 && buf != \\null) ==> \\valid_read(buf + (0 .. len - 1));",
+          "requires \\valid(eaten);",
+          "requires \\separated(eaten, buf + (0 .. len - 1));"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result < 0;",
+          "ensures (buf == \\null || len == 0) ==> \\result == -1162;"
+        ],
+        "loop_contracts": {
+          "parse_NoticeReference_loop_0": [
+            "loop invariant 0 <= remain;",
+            "loop assigns remain, buf, parsed, ret;"
+          ]
+        },
+        "assigns": [
+          "assigns *eaten;"
+        ],
+        "version": 3,
+        "status": "published",
+        "based_on_versions": {
+          "parse_id_len": 2,
+          "parse_DisplayText": 3,
+          "parse_integer": 2
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "parse_id_len": {
+            "depends": true,
+            "clauses": null
+          },
+          "parse_DisplayText": {
+            "depends": true,
+            "clauses": null
+          },
+          "parse_integer": {
+            "depends": true,
+            "clauses": null
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 4,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 9,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 11,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 4,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {
+          "call_site_14_0": "Buffer validity at second parse_id_len call (line 154) cannot be proven. After parse_DisplayText consumes bytes, no callee publishes a frame postcondition guaranteeing that the unconsumed buffer tail remains valid.",
+          "call_site_16_0": "Buffer validity at second parse_id_len call (line 154) cannot be proven. After parse_DisplayText consumes bytes, no callee publishes a frame postcondition guaranteeing that the unconsumed buffer tail remains valid.",
+          "call_site_15_0": "Buffer validity at parse_DisplayText call (line 143) cannot be proven. After the first parse_id_len advances buf by hdr_len, no callee publishes a frame postcondition guaranteeing the remaining buffer is valid.",
+          "call_site_17_1": "Buffer validity in parse_integer loop call cannot be proven. parse_integer does not publish a frame postcondition that the unconsumed buffer tail remains valid after consuming *eaten bytes."
+        },
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_101": "verified",
+          "rte_102": "verified",
+          "rte_103": "verified",
+          "rte_104": "verified",
+          "rte_105": "verified",
+          "rte_106": "verified",
+          "rte_107": "verified",
+          "rte_108": "verified",
+          "rte_109": "verified",
+          "call_site_14_0": "bug",
+          "call_site_14_1": "verified",
+          "call_site_14_2": "verified",
+          "call_site_14_3": "verified",
+          "call_site_14_4": "verified",
+          "call_site_16_0": "bug",
+          "call_site_16_1": "verified",
+          "call_site_16_2": "verified",
+          "call_site_16_3": "verified",
+          "call_site_16_4": "verified",
+          "call_site_15_0": "bug",
+          "call_site_15_1": "verified",
+          "call_site_17_0": "verified",
+          "call_site_17_1": "bug",
+          "call_site_17_2": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "parse_id_len",
+        "parse_DisplayText",
+        "parse_integer"
+      ],
+      "session_id": "caacd011-be6e-4d2c-81e2-27289a9ab8e3",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "parse_OID": {
+      "agent_id": "agent_parse_OID",
+      "function_name": "parse_OID",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "parse_OID",
+        "preconditions": [
+          "requires (len > 0 && buf != \\null) ==> \\valid_read(buf + (0 .. len - 1));",
+          "requires \\valid(parsed);",
+          "requires \\separated(parsed, buf + (0 .. len - 1));"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result < 0;",
+          "ensures (buf == \\null || len == 0) ==> \\result == -566;"
+        ],
+        "loop_contracts": {
+          "parse_OID_loop_0": [
+            "loop invariant 0 <= remain <= data_len;",
+            "loop invariant 0 <= num <= 21;",
+            "loop invariant hdr_len >= 2 && hdr_len <= 8;",
+            "loop invariant data_len >= 1;",
+            "loop assigns num, remain, buf, ret;"
+          ]
+        },
+        "assigns": [
+          "assigns *parsed;"
+        ],
+        "version": 2,
+        "status": "published",
+        "based_on_versions": {
+          "parse_id_len": 2,
+          "_parse_arc": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "_parse_arc": {
+            "depends": true,
+            "clauses": null
+          },
+          "parse_id_len": {
+            "depends": true,
+            "clauses": null
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "parse_id_len": [
+            "requires (len > 0 && buf != \\null) ==> \\valid_read(buf + (0 .. len - 1));",
+            "requires \\separated(buf + (0 .. len - 1), parsed, content_len);",
+            "requires \\separated(parsed, content_len);",
+            "requires \\valid(content_len);",
+            "requires \\valid(parsed);"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 3,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 8,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 10,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 1,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {
+          "call_site_5_0": "Cannot prove buffer validity for _parse_arc call site. The callee parse_id_len v2 does not publish a frame postcondition guaranteeing that the buffer after the header (buf + *parsed) remains valid for *content_len bytes. Without this postcondition, the loop invariant for buffer validity cannot be established, and consequently the _parse_arc precondition requiring valid_read on the buffer cannot be discharged. The proof-demand protocol is disabled, so I cannot request this postcondition from parse_id_len."
+        },
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_51": "verified",
+          "rte_52": "verified",
+          "rte_53": "verified",
+          "rte_54": "verified",
+          "rte_55": "verified",
+          "rte_56": "verified",
+          "rte_57": "verified",
+          "rte_58": "verified",
+          "call_site_5_0": "bug",
+          "call_site_5_1": "verified",
+          "call_site_5_2": "verified",
+          "call_site_5_3": "verified",
+          "call_site_5_4": "verified",
+          "call_site_5_5": "verified",
+          "call_site_4_0": "verified",
+          "call_site_4_1": "verified",
+          "call_site_4_2": "verified",
+          "call_site_4_3": "verified",
+          "call_site_4_4": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "parse_id_len",
+        "_parse_arc"
+      ],
+      "session_id": "426aacc2-750a-4d0b-8ac2-d041946472a8",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "parse_UserNotice": {
+      "agent_id": "agent_parse_UserNotice",
+      "function_name": "parse_UserNotice",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "parse_UserNotice",
+        "preconditions": [
+          "requires (buf != \\null && len > 0) ==> \\valid_read(buf + (0 .. len - 1));",
+          "requires (buf != \\null && len > 0) ==> \\valid(eaten);",
+          "requires \\separated(eaten, buf + (0 .. 65534));"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result < 0;",
+          "ensures (buf == \\null || len == 0) ==> \\result == -1262;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns *eaten;"
+        ],
+        "version": 3,
+        "status": "published",
+        "based_on_versions": {
+          "parse_id_len": 2,
+          "parse_NoticeReference": 3,
+          "parse_DisplayText": 3
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "parse_id_len": {
+            "depends": true,
+            "clauses": null
+          },
+          "parse_NoticeReference": {
+            "depends": true,
+            "clauses": null
+          },
+          "parse_DisplayText": {
+            "depends": true,
+            "clauses": null
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "parse_id_len": [
+            "requires (len > 0 && buf != \\null) ==> \\valid_read(buf + (0 .. len - 1));",
+            "requires \\separated(buf + (0 .. len - 1), parsed, content_len);",
+            "requires \\separated(parsed, content_len);",
+            "requires \\valid(content_len);",
+            "requires \\valid(parsed);"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 5,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 9,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 8,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 2,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {
+          "call_site_19_0": "parse_id_len does not publish a frame postcondition establishing buffer validity after the call. Without ensures \\result == 0 ==> \\valid_read(\\old(buf) + *parsed + (0 .. *content_len - 1)) or equivalent, the remaining buffer validity cannot be proven. Proof-demand protocol is disabled so this postcondition cannot be requested.",
+          "call_site_20_0": "Buffer validity for parse_DisplayText call site depends on frame postconditions from parse_id_len and parse_NoticeReference that are not published. parse_id_len lacks ensures \\result == 0 ==> \\valid_read(\\old(buf) + *parsed + (0 .. *content_len - 1)). Proof-demand protocol is disabled so these postconditions cannot be requested."
+        },
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_110": "verified",
+          "rte_111": "verified",
+          "rte_112": "verified",
+          "rte_113": "verified",
+          "rte_114": "verified",
+          "rte_115": "verified",
+          "rte_116": "verified",
+          "rte_117": "verified",
+          "rte_118": "verified",
+          "call_site_18_0": "verified",
+          "call_site_18_1": "verified",
+          "call_site_18_2": "verified",
+          "call_site_18_3": "verified",
+          "call_site_18_4": "verified",
+          "call_site_19_0": "bug",
+          "call_site_19_1": "verified",
+          "call_site_19_2": "verified",
+          "call_site_20_0": "bug",
+          "call_site_20_1": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "parse_id_len",
+        "parse_NoticeReference",
+        "parse_DisplayText"
+      ],
+      "session_id": "ed251a64-efd7-4a92-9356-19067d4e59b8",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "parse_policyQualifierInfo": {
+      "agent_id": "agent_parse_policyQualifierInfo",
+      "function_name": "parse_policyQualifierInfo",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "parse_policyQualifierInfo",
+        "preconditions": [
+          "requires \\valid(eaten);",
+          "requires (buf != \\null && len > 0) ==> \\valid_read(buf + (0 .. len - 1));",
+          "requires \\separated(eaten, buf + (0 .. 65534));"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result < 0;",
+          "ensures (buf == \\null || len == 0) ==> \\result == -1340;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns *eaten;"
+        ],
+        "version": 2,
+        "status": "published",
+        "based_on_versions": {
+          "parse_id_len": 2,
+          "parse_OID": 2,
+          "bufs_differ": 1,
+          "parse_CPSuri": 1,
+          "parse_UserNotice": 3
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "parse_id_len": {
+            "depends": true,
+            "clauses": null
+          },
+          "parse_OID": {
+            "depends": true,
+            "clauses": null
+          },
+          "bufs_differ": {
+            "depends": true,
+            "clauses": null
+          },
+          "parse_CPSuri": {
+            "depends": true,
+            "clauses": null
+          },
+          "parse_UserNotice": {
+            "depends": true,
+            "clauses": null
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "parse_id_len": [
+            "requires (len > 0 && buf != \\null) ==> \\valid_read(buf + (0 .. len - 1));",
+            "requires \\separated(buf + (0 .. len - 1), parsed, content_len);",
+            "requires \\separated(parsed, content_len);",
+            "requires \\valid(content_len);",
+            "requires \\valid(parsed);"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 5,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 11,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 15,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 5,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {
+          "call_site_22_0": "parse_id_len v2 lacks frame postcondition. Cannot prove buf+hdr_len valid for data_len bytes without callee frame rule. Proof-demand protocol disabled.",
+          "call_site_23_0": "parse_id_len v2 lacks frame postcondition. Cannot prove buf+hdr_len valid for oid_len bytes without callee frame rule. Proof-demand protocol disabled.",
+          "call_site_25_0": "parse_id_len v2 lacks frame postcondition. Cannot prove buf+hdr_len valid for oid_len bytes without callee frame rule. Proof-demand protocol disabled.",
+          "call_site_24_1": "parse_id_len v2 lacks frame postcondition. Cannot prove buf+hdr_len+oid_len valid for remain bytes without callee frame rules. Proof-demand protocol disabled.",
+          "call_site_26_0": "parse_id_len v2 lacks frame postcondition. Cannot prove buf+hdr_len+oid_len valid for remain bytes without callee frame rules. Proof-demand protocol disabled."
+        },
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_119": "verified",
+          "rte_120": "verified",
+          "rte_121": "verified",
+          "rte_122": "verified",
+          "rte_123": "verified",
+          "rte_124": "verified",
+          "rte_125": "verified",
+          "rte_126": "verified",
+          "rte_127": "verified",
+          "rte_128": "verified",
+          "rte_129": "verified",
+          "call_site_21_0": "verified",
+          "call_site_21_1": "verified",
+          "call_site_21_2": "verified",
+          "call_site_21_3": "verified",
+          "call_site_21_4": "verified",
+          "call_site_22_0": "bug",
+          "call_site_22_1": "verified",
+          "call_site_22_2": "verified",
+          "call_site_23_0": "bug",
+          "call_site_23_1": "verified",
+          "call_site_23_2": "verified",
+          "call_site_25_0": "bug",
+          "call_site_25_1": "verified",
+          "call_site_25_2": "verified",
+          "call_site_24_0": "verified",
+          "call_site_24_1": "bug",
+          "call_site_24_2": "verified",
+          "call_site_26_0": "bug",
+          "call_site_26_1": "verified",
+          "call_site_26_2": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "parse_id_len",
+        "parse_OID",
+        "bufs_differ",
+        "parse_CPSuri",
+        "parse_UserNotice"
+      ],
+      "session_id": "d43bc0fa-6fdf-49b9-9177-d08879501c22",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "parse_PolicyInformation": {
+      "agent_id": "agent_parse_PolicyInformation",
+      "function_name": "parse_PolicyInformation",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "parse_PolicyInformation",
+        "preconditions": [
+          "requires (len > 0 && buf != \\null) ==> \\valid_read(buf + (0 .. len - 1));",
+          "requires \\valid(eaten);",
+          "requires \\separated(eaten, buf + (0 .. len - 1));"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result < 0;",
+          "ensures (buf == \\null || len == 0) ==> \\result == -1426;"
+        ],
+        "loop_contracts": {
+          "parse_PolicyInformation_loop_0": [
+            "loop assigns remain, buf, ret;"
+          ]
+        },
+        "assigns": [
+          "assigns *eaten;"
+        ],
+        "version": 3,
+        "status": "published",
+        "based_on_versions": {
+          "parse_id_len": 2,
+          "parse_OID": 2,
+          "parse_policyQualifierInfo": 2
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "parse_id_len": {
+            "depends": true,
+            "clauses": null
+          },
+          "parse_OID": {
+            "depends": true,
+            "clauses": null
+          },
+          "parse_policyQualifierInfo": {
+            "depends": true,
+            "clauses": null
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 4,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 9,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 12,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 4,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {
+          "call_site_27_0": "parse_id_len v2 does not publish a frame postcondition preserving buffer validity. The second parse_id_len call at line 179 uses an advanced buffer (buf += hdr_len) with remain as length, but WP cannot prove validity without a callee frame postcondition.",
+          "call_site_29_0": "parse_id_len v2 does not publish a frame postcondition. After first parse_id_len, buf is advanced by hdr_len, but WP cannot prove the advanced buffer region remains valid without a callee postcondition.",
+          "call_site_28_0": "parse_id_len v2 does not publish a frame postcondition. After parse_id_len returns 0, buf is advanced by hdr_len and parse_OID is called with remain. WP cannot prove buffer validity without a callee frame postcondition.",
+          "call_site_30_1": "Buffer validity for parse_policyQualifierInfo call cannot be proven. The buffer has been advanced multiple times but no callee specs provide frame postconditions preserving validity of the remaining buffer region."
+        },
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_130": "verified",
+          "rte_131": "verified",
+          "rte_132": "verified",
+          "rte_133": "verified",
+          "rte_134": "verified",
+          "rte_135": "verified",
+          "rte_136": "verified",
+          "rte_137": "verified",
+          "rte_138": "verified",
+          "call_site_27_0": "bug",
+          "call_site_27_1": "verified",
+          "call_site_27_2": "verified",
+          "call_site_27_3": "verified",
+          "call_site_27_4": "verified",
+          "call_site_29_0": "bug",
+          "call_site_29_1": "verified",
+          "call_site_29_2": "verified",
+          "call_site_29_3": "verified",
+          "call_site_29_4": "verified",
+          "call_site_28_0": "bug",
+          "call_site_28_1": "verified",
+          "call_site_28_2": "verified",
+          "call_site_30_0": "verified",
+          "call_site_30_1": "bug",
+          "call_site_30_2": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "parse_id_len",
+        "parse_OID",
+        "parse_policyQualifierInfo"
+      ],
+      "session_id": "744b3195-3d2d-4ad4-8ff2-8923c2eb1a5c",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "parse_ext_certPolicies": {
+      "agent_id": "agent_parse_ext_certPolicies",
+      "function_name": "parse_ext_certPolicies",
+      "proof_state": "dirty",
+      "spec": {
+        "function_name": "parse_ext_certPolicies",
+        "preconditions": [
+          "requires (len > 0 && buf != \\null) ==> \\valid_read(buf + (0 .. len - 1));",
+          "requires \\valid(ctx);"
+        ],
+        "postconditions": [
+          "ensures \\result == 0 || \\result == -1582 || \\result == -1614 || \\result < 0;",
+          "ensures (buf == \\null || len == 0) ==> (\\result == -1582);"
+        ],
+        "loop_contracts": {
+          "parse_ext_certPolicies_loop_0": [
+            "loop invariant 0 <= remain;",
+            "loop assigns remain, eaten, buf, ret;"
+          ]
+        },
+        "assigns": [
+          "assigns *ctx;"
+        ],
+        "version": 2,
+        "status": "published",
+        "based_on_versions": {
+          "parse_id_len": 2,
+          "parse_PolicyInformation": 2
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "parse_id_len": {
+            "depends": true,
+            "clauses": null
+          },
+          "parse_PolicyInformation": {
+            "depends": true,
+            "clauses": null
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "parse_id_len": [
+            "requires (len > 0 && buf != \\null) ==> \\valid_read(buf + (0 .. len - 1));",
+            "requires \\separated(buf + (0 .. len - 1), parsed, content_len);",
+            "requires \\separated(parsed, content_len);",
+            "requires \\valid(content_len);",
+            "requires \\valid(parsed);"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 24,
+      "cycle_limit_reached": true,
+      "vo_summary": {
+        "rte_verified": 4,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 7,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 1,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {
+          "call_site_32_0": "Cannot prove buffer validity at parse_PolicyInformation call site inside loop. The callee's published spec (v2) lacks postcondition bounding *eaten relative to input len, so loop invariant cannot track that buf advances by at most remain bytes. Without callee guarantee that eaten <= len on success, buffer validity after first iteration cannot be established."
+        },
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_139": "verified",
+          "rte_140": "verified",
+          "rte_141": "verified",
+          "rte_142": "verified",
+          "call_site_31_0": "verified",
+          "call_site_31_1": "verified",
+          "call_site_31_2": "verified",
+          "call_site_31_3": "verified",
+          "call_site_31_4": "verified",
+          "call_site_32_0": "bug",
+          "call_site_32_1": "verified",
+          "call_site_32_2": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "parse_id_len",
+        "parse_PolicyInformation"
+      ],
+      "session_id": "ac2c8850-e912-4240-b317-e454b32240b5",
+      "settled_assumes": [],
+      "extern_axioms": []
+    }
+  },
+  "summary": {
+    "total": 20,
+    "global_ok": 19,
+    "local_ok": 0,
+    "dirty": 1,
+    "failed": 0,
+    "cycle_limited": 1,
+    "conditional_ok": 0,
+    "bugs": 24
+  }
+}

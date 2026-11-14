@@ -1,0 +1,4954 @@
+{
+  "id": "zpl_math_20260612_205220",
+  "source_file": "benchmarks/util-libs/zpl-math/zpl_math.c",
+  "started_at": "2026-06-12T20:52:21.928+00:00",
+  "finished_at": "2026-06-12T21:06:18.763+00:00",
+  "status": "completed",
+  "config": {
+    "scope": "global",
+    "timeout": 43200.0,
+    "model": "claude-sonnet-4-6",
+    "max_turns": 30,
+    "max_parallel": 8,
+    "schedule": "leaf-first",
+    "max_cycles_per_agent": 24,
+    "requested_functions": [],
+    "enable_ablation_deps": false,
+    "ablation": [],
+    "wp_model": "Typed+var+int+real"
+  },
+  "agents": {
+    "zpl_aabb2_contains": {
+      "agent_id": "agent_zpl_aabb2_contains",
+      "function_name": "zpl_aabb2_contains",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_aabb2_contains",
+        "preconditions": [],
+        "postconditions": [
+          "ensures \\result == 0 || \\result == 1;",
+          "ensures (\\result == 1) <==> (x >= a.min.x && x <= a.max.x && y >= a.min.y && y <= a.max.y);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {}
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "d28b4750-54c3-4e2c-b95d-36dd9e243051",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_vec2f": {
+      "agent_id": "agent_zpl_vec2f",
+      "function_name": "zpl_vec2f",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_vec2f",
+        "preconditions": [],
+        "postconditions": [
+          "ensures \\result.x == x;",
+          "ensures \\result.y == y;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {}
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "330fa7d9-39a9-410c-8402-27985be25b98",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_aabb2f": {
+      "agent_id": "agent_zpl_aabb2f",
+      "function_name": "zpl_aabb2f",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_aabb2f",
+        "preconditions": [],
+        "postconditions": [
+          "ensures \\result.min.x == minx;",
+          "ensures \\result.min.y == miny;",
+          "ensures \\result.max.x == maxx;",
+          "ensures \\result.max.y == maxy;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {
+          "zpl_vec2f": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "zpl_vec2f": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result.x == x;",
+              "ensures \\result.y == y;"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 2,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 2,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "call_site_1": "verified",
+          "call_site_2": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "zpl_vec2f"
+      ],
+      "session_id": "ad33d135-0ca9-4763-9891-00c52e2dafba",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_cos": {
+      "agent_id": "agent_zpl_cos",
+      "function_name": "zpl_cos",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_cos",
+        "preconditions": [],
+        "postconditions": [
+          "ensures -1.0f <= \\result <= 1.0f;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {
+          "cosf": {
+            "postconditions": [
+              "ensures -1.0f <= \\result <= 1.0f;"
+            ],
+            "assigns": [
+              "assigns \\nothing;"
+            ]
+          }
+        },
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {}
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "6ef1e7f4-ab31-41c2-bfdc-ce1c1dd6bb2f",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_float22_m": {
+      "agent_id": "agent_zpl_float22_m",
+      "function_name": "zpl_float22_m",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_float22_m",
+        "preconditions": [
+          "requires \\valid(m);"
+        ],
+        "postconditions": [
+          "ensures \\result == (zpl_float2 *)m;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {}
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "9a203f81-1b39-4965-b9de-c6efd67ccf7b",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_float44_identity": {
+      "agent_id": "agent_zpl_float44_identity",
+      "function_name": "zpl_float44_identity",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_float44_identity",
+        "preconditions": [
+          "requires \\valid(m + (0 .. 3));"
+        ],
+        "postconditions": [
+          "ensures m[0][0] == 1.0f && m[0][1] == 0.0f && m[0][2] == 0.0f && m[0][3] == 0.0f;",
+          "ensures m[1][0] == 0.0f && m[1][1] == 1.0f && m[1][2] == 0.0f && m[1][3] == 0.0f;",
+          "ensures m[2][0] == 0.0f && m[2][1] == 0.0f && m[2][2] == 1.0f && m[2][3] == 0.0f;",
+          "ensures m[3][0] == 0.0f && m[3][1] == 0.0f && m[3][2] == 0.0f && m[3][3] == 1.0f;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns m[0 .. 3][0 .. 3];"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 16,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_1": "verified",
+          "rte_2": "verified",
+          "rte_3": "verified",
+          "rte_4": "verified",
+          "rte_5": "verified",
+          "rte_6": "verified",
+          "rte_7": "verified",
+          "rte_8": "verified",
+          "rte_9": "verified",
+          "rte_10": "verified",
+          "rte_11": "verified",
+          "rte_12": "verified",
+          "rte_13": "verified",
+          "rte_14": "verified",
+          "rte_15": "verified",
+          "rte_16": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "3e8d5222-5bbc-4c14-a713-7f95d456518a",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_float44_m": {
+      "agent_id": "agent_zpl_float44_m",
+      "function_name": "zpl_float44_m",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_float44_m",
+        "preconditions": [
+          "requires \\valid(m);"
+        ],
+        "postconditions": [
+          "ensures \\result == (zpl_float4 *)m;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {}
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "0e08145c-8b38-487f-bf3a-319a9098bf58",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_float44_mul_vec4": {
+      "agent_id": "agent_zpl_float44_mul_vec4",
+      "function_name": "zpl_float44_mul_vec4",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_float44_mul_vec4",
+        "preconditions": [
+          "requires \\valid(out);",
+          "requires \\valid_read(m+(0..3));",
+          "requires \\separated(out, (zpl_f32 *)m+(0..15));",
+          "requires \\is_finite(v.x);",
+          "requires \\is_finite(v.y);",
+          "requires \\is_finite(v.z);",
+          "requires \\is_finite(v.w);",
+          "requires \\forall int i, j; 0 <= i <= 3 && 0 <= j <= 3 ==> \\is_finite(m[i][j]);",
+          "requires \\forall int i, j; 0 <= i <= 3 && 0 <= j <= 3 ==> \\is_finite(\\mul_float(m[i][j], v.x));",
+          "requires \\forall int i, j; 0 <= i <= 3 && 0 <= j <= 3 ==> \\is_finite(\\mul_float(m[i][j], v.y));",
+          "requires \\forall int i, j; 0 <= i <= 3 && 0 <= j <= 3 ==> \\is_finite(\\mul_float(m[i][j], v.z));",
+          "requires \\forall int i, j; 0 <= i <= 3 && 0 <= j <= 3 ==> \\is_finite(\\mul_float(m[i][j], v.w));",
+          "requires \\is_finite(\\add_float(\\mul_float(m[0][0], v.x), \\mul_float(m[1][0], v.y)));",
+          "requires \\is_finite(\\add_float(\\add_float(\\mul_float(m[0][0], v.x), \\mul_float(m[1][0], v.y)), \\mul_float(m[2][0], v.z)));",
+          "requires \\is_finite(\\add_float(\\add_float(\\add_float(\\mul_float(m[0][0], v.x), \\mul_float(m[1][0], v.y)), \\mul_float(m[2][0], v.z)), \\mul_float(m[3][0], v.w)));",
+          "requires \\is_finite(\\add_float(\\mul_float(m[0][1], v.x), \\mul_float(m[1][1], v.y)));",
+          "requires \\is_finite(\\add_float(\\add_float(\\mul_float(m[0][1], v.x), \\mul_float(m[1][1], v.y)), \\mul_float(m[2][1], v.z)));",
+          "requires \\is_finite(\\add_float(\\add_float(\\add_float(\\mul_float(m[0][1], v.x), \\mul_float(m[1][1], v.y)), \\mul_float(m[2][1], v.z)), \\mul_float(m[3][1], v.w)));",
+          "requires \\is_finite(\\add_float(\\mul_float(m[0][2], v.x), \\mul_float(m[1][2], v.y)));",
+          "requires \\is_finite(\\add_float(\\add_float(\\mul_float(m[0][2], v.x), \\mul_float(m[1][2], v.y)), \\mul_float(m[2][2], v.z)));",
+          "requires \\is_finite(\\add_float(\\add_float(\\add_float(\\mul_float(m[0][2], v.x), \\mul_float(m[1][2], v.y)), \\mul_float(m[2][2], v.z)), \\mul_float(m[3][2], v.w)));",
+          "requires \\is_finite(\\add_float(\\mul_float(m[0][3], v.x), \\mul_float(m[1][3], v.y)));",
+          "requires \\is_finite(\\add_float(\\add_float(\\mul_float(m[0][3], v.x), \\mul_float(m[1][3], v.y)), \\mul_float(m[2][3], v.z)));",
+          "requires \\is_finite(\\add_float(\\add_float(\\add_float(\\mul_float(m[0][3], v.x), \\mul_float(m[1][3], v.y)), \\mul_float(m[2][3], v.z)), \\mul_float(m[3][3], v.w)));"
+        ],
+        "postconditions": [
+          "ensures \\valid(out);",
+          "ensures \\is_finite(out->x);",
+          "ensures \\is_finite(out->y);",
+          "ensures \\is_finite(out->z);",
+          "ensures \\is_finite(out->w);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns out->x, out->y, out->z, out->w;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 48,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_60": "verified",
+          "rte_61": "verified",
+          "rte_62": "verified",
+          "rte_63": "verified",
+          "rte_64": "verified",
+          "rte_65": "verified",
+          "rte_66": "verified",
+          "rte_67": "verified",
+          "rte_68": "verified",
+          "rte_69": "verified",
+          "rte_70": "verified",
+          "rte_71": "verified",
+          "rte_72": "verified",
+          "rte_73": "verified",
+          "rte_74": "verified",
+          "rte_75": "verified",
+          "rte_76": "verified",
+          "rte_77": "verified",
+          "rte_78": "verified",
+          "rte_79": "verified",
+          "rte_80": "verified",
+          "rte_81": "verified",
+          "rte_82": "verified",
+          "rte_83": "verified",
+          "rte_84": "verified",
+          "rte_85": "verified",
+          "rte_86": "verified",
+          "rte_87": "verified",
+          "rte_88": "verified",
+          "rte_89": "verified",
+          "rte_90": "verified",
+          "rte_91": "verified",
+          "rte_92": "verified",
+          "rte_93": "verified",
+          "rte_94": "verified",
+          "rte_95": "verified",
+          "rte_96": "verified",
+          "rte_97": "verified",
+          "rte_98": "verified",
+          "rte_99": "verified",
+          "rte_100": "verified",
+          "rte_101": "verified",
+          "rte_102": "verified",
+          "rte_103": "verified",
+          "rte_104": "verified",
+          "rte_105": "verified",
+          "rte_106": "verified",
+          "rte_107": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "68ab50da-c8bb-4dab-9f66-94798d6350ff",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_float44_transpose": {
+      "agent_id": "agent_zpl_float44_transpose",
+      "function_name": "zpl_float44_transpose",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_float44_transpose",
+        "preconditions": [
+          "requires \\valid(vec + (0..3));"
+        ],
+        "postconditions": [],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns (*(vec+(0..3)))[0..3];"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 24,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_137": "verified",
+          "rte_138": "verified",
+          "rte_139": "verified",
+          "rte_140": "verified",
+          "rte_141": "verified",
+          "rte_142": "verified",
+          "rte_143": "verified",
+          "rte_144": "verified",
+          "rte_145": "verified",
+          "rte_146": "verified",
+          "rte_147": "verified",
+          "rte_148": "verified",
+          "rte_149": "verified",
+          "rte_150": "verified",
+          "rte_151": "verified",
+          "rte_152": "verified",
+          "rte_153": "verified",
+          "rte_154": "verified",
+          "rte_155": "verified",
+          "rte_156": "verified",
+          "rte_157": "verified",
+          "rte_158": "verified",
+          "rte_159": "verified",
+          "rte_160": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "e7be4e17-af09-4121-b62e-c3a384de24b5",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_lerp": {
+      "agent_id": "agent_zpl_lerp",
+      "function_name": "zpl_lerp",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_lerp",
+        "preconditions": [
+          "requires \\is_finite(a);",
+          "requires \\is_finite(b);",
+          "requires \\is_finite(t);",
+          "requires \\is_finite(\\sub_float(1.0f, t));",
+          "requires \\is_finite(\\mul_float(a, \\sub_float(1.0f, t)));",
+          "requires \\is_finite(\\mul_float(b, t));",
+          "requires \\is_finite(\\add_float(\\mul_float(a, \\sub_float(1.0f, t)), \\mul_float(b, t)));"
+        ],
+        "postconditions": [
+          "ensures \\is_finite(\\result);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 4,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_17": "verified",
+          "rte_18": "verified",
+          "rte_19": "verified",
+          "rte_20": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "bfd013a5-450d-4c75-a56e-d4d0bcab06f0",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_mat2_copy": {
+      "agent_id": "agent_zpl_mat2_copy",
+      "function_name": "zpl_mat2_copy",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_mat2_copy",
+        "preconditions": [
+          "requires \\valid(out);",
+          "requires \\valid_read(m);",
+          "requires \\separated(out, m);"
+        ],
+        "postconditions": [
+          "ensures *out == \\old(*m);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns *out;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 2,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_21": "verified",
+          "rte_22": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "d427e038-d183-47cb-8ac1-d1b1ab697b33",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_mat2_identity": {
+      "agent_id": "agent_zpl_mat2_identity",
+      "function_name": "zpl_mat2_identity",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_mat2_identity",
+        "preconditions": [
+          "requires \\valid(m);"
+        ],
+        "postconditions": [
+          "ensures m->col[0].x == 1.0f;",
+          "ensures m->col[0].y == 0.0f;",
+          "ensures m->col[1].x == 0.0f;",
+          "ensures m->col[1].y == 1.0f;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns m->col[0], m->col[1];"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {
+          "zpl_vec2f": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "zpl_vec2f": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result.x == x;",
+              "ensures \\result.y == y;"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 2,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 2,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 2,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_23": "verified",
+          "rte_24": "verified",
+          "call_site_3": "verified",
+          "call_site_4": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "zpl_vec2f"
+      ],
+      "session_id": "bce297f4-89f9-4e47-b4d6-1f18a6450ef9",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_mat2_mul": {
+      "agent_id": "agent_zpl_mat2_mul",
+      "function_name": "zpl_mat2_mul",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_mat2_mul",
+        "preconditions": [
+          "requires \\valid(out);",
+          "requires \\valid_read(m1);",
+          "requires \\valid_read(m2);",
+          "requires \\is_finite((float)m1->col[0].x);",
+          "requires \\is_finite((float)m1->col[0].y);",
+          "requires \\is_finite((float)m1->col[1].x);",
+          "requires \\is_finite((float)m1->col[1].y);",
+          "requires \\is_finite((float)m2->col[0].x);",
+          "requires \\is_finite((float)m2->col[0].y);",
+          "requires \\is_finite((float)m2->col[1].x);",
+          "requires \\is_finite((float)m2->col[1].y);"
+        ],
+        "postconditions": [
+          "ensures \\valid(out);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns *out;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 29,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_25": "verified",
+          "rte_26": "verified",
+          "rte_27": "verified",
+          "rte_28": "verified",
+          "rte_29": "verified",
+          "rte_30": "verified",
+          "rte_31": "verified",
+          "rte_32": "verified",
+          "rte_33": "verified",
+          "rte_34": "verified",
+          "rte_35": "verified",
+          "rte_36": "verified",
+          "rte_37": "verified",
+          "rte_38": "verified",
+          "rte_39": "verified",
+          "rte_40": "verified",
+          "rte_41": "verified",
+          "rte_42": "verified",
+          "rte_43": "verified",
+          "rte_44": "verified",
+          "rte_45": "verified",
+          "rte_46": "verified",
+          "rte_47": "verified",
+          "rte_48": "verified",
+          "rte_49": "verified",
+          "rte_50": "verified",
+          "rte_51": "verified",
+          "rte_52": "verified",
+          "rte_53": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "0a66bcb0-78b3-4c15-9cf6-b0d45164d850",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_mat2_transpose": {
+      "agent_id": "agent_zpl_mat2_transpose",
+      "function_name": "zpl_mat2_transpose",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_mat2_transpose",
+        "preconditions": [
+          "requires \\valid(m);"
+        ],
+        "postconditions": [
+          "ensures m->col[0].y == \\old(m->col[1].x);",
+          "ensures m->col[1].x == \\old(m->col[0].y);",
+          "ensures m->col[0].x == \\old(m->col[0].x);",
+          "ensures m->col[1].y == \\old(m->col[1].y);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns m->col[0].y, m->col[1].x;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 4,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_54": "verified",
+          "rte_55": "verified",
+          "rte_56": "verified",
+          "rte_57": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "af7fe810-94e2-4a5f-a8ce-11880add214c",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_mat4_copy": {
+      "agent_id": "agent_zpl_mat4_copy",
+      "function_name": "zpl_mat4_copy",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_mat4_copy",
+        "preconditions": [
+          "requires \\valid(out);",
+          "requires \\valid_read(m);",
+          "requires \\separated(out, m);"
+        ],
+        "postconditions": [
+          "ensures *out == \\old(*m);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns *out;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 2,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_58": "verified",
+          "rte_59": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "b92b73fd-640c-46e6-a45a-8d573f97dcb6",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_vec4f": {
+      "agent_id": "agent_zpl_vec4f",
+      "function_name": "zpl_vec4f",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_vec4f",
+        "preconditions": [],
+        "postconditions": [
+          "ensures \\result.x == x;",
+          "ensures \\result.y == y;",
+          "ensures \\result.z == z;",
+          "ensures \\result.w == w;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {}
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "6747db62-6fd7-4119-90c4-dd349ae260c0",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_mat4_identity": {
+      "agent_id": "agent_zpl_mat4_identity",
+      "function_name": "zpl_mat4_identity",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_mat4_identity",
+        "preconditions": [
+          "requires \\valid(m);",
+          "requires \\valid(m->col + (0 .. 3));"
+        ],
+        "postconditions": [
+          "ensures m->col[0].x == 1.0f && m->col[0].y == 0.0f && m->col[0].z == 0.0f && m->col[0].w == 0.0f;",
+          "ensures m->col[1].x == 0.0f && m->col[1].y == 1.0f && m->col[1].z == 0.0f && m->col[1].w == 0.0f;",
+          "ensures m->col[2].x == 0.0f && m->col[2].y == 0.0f && m->col[2].z == 1.0f && m->col[2].w == 0.0f;",
+          "ensures m->col[3].x == 0.0f && m->col[3].y == 0.0f && m->col[3].z == 0.0f && m->col[3].w == 1.0f;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns m->col[0..3];"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {
+          "zpl_vec4f": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "zpl_vec4f": {
+            "depends": true,
+            "clauses": [
+              "ensures \\result.w == w;",
+              "ensures \\result.x == x;",
+              "ensures \\result.y == y;",
+              "ensures \\result.z == z;"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 2,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 4,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 4,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_108": "verified",
+          "rte_109": "verified",
+          "rte_110": "verified",
+          "rte_111": "verified",
+          "call_site_6": "verified",
+          "call_site_7": "verified",
+          "call_site_8": "verified",
+          "call_site_9": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "zpl_vec4f"
+      ],
+      "session_id": "f60a3335-4328-4c34-93b8-a0091d5e19ea",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_mat4_mul_vec4": {
+      "agent_id": "agent_zpl_mat4_mul_vec4",
+      "function_name": "zpl_mat4_mul_vec4",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_mat4_mul_vec4",
+        "preconditions": [
+          "requires \\valid(out);",
+          "requires \\valid_read((zpl_f32 (*)[4])m + (0..3));",
+          "requires \\separated(out, (zpl_f32 *)m + (0..15));",
+          "requires \\is_finite(in.x);",
+          "requires \\is_finite(in.y);",
+          "requires \\is_finite(in.z);",
+          "requires \\is_finite(in.w);",
+          "requires \\forall int i, j; 0 <= i <= 3 && 0 <= j <= 3 ==> \\is_finite(((zpl_f32 (*)[4])m)[i][j]);",
+          "requires \\forall int i, j; 0 <= i <= 3 && 0 <= j <= 3 ==> \\is_finite(\\mul_float(((zpl_f32 (*)[4])m)[i][j], in.x));",
+          "requires \\forall int i, j; 0 <= i <= 3 && 0 <= j <= 3 ==> \\is_finite(\\mul_float(((zpl_f32 (*)[4])m)[i][j], in.y));",
+          "requires \\forall int i, j; 0 <= i <= 3 && 0 <= j <= 3 ==> \\is_finite(\\mul_float(((zpl_f32 (*)[4])m)[i][j], in.z));",
+          "requires \\forall int i, j; 0 <= i <= 3 && 0 <= j <= 3 ==> \\is_finite(\\mul_float(((zpl_f32 (*)[4])m)[i][j], in.w));",
+          "requires \\is_finite(\\add_float(\\mul_float(((zpl_f32 (*)[4])m)[0][0], in.x), \\mul_float(((zpl_f32 (*)[4])m)[1][0], in.y)));",
+          "requires \\is_finite(\\add_float(\\add_float(\\mul_float(((zpl_f32 (*)[4])m)[0][0], in.x), \\mul_float(((zpl_f32 (*)[4])m)[1][0], in.y)), \\mul_float(((zpl_f32 (*)[4])m)[2][0], in.z)));",
+          "requires \\is_finite(\\add_float(\\add_float(\\add_float(\\mul_float(((zpl_f32 (*)[4])m)[0][0], in.x), \\mul_float(((zpl_f32 (*)[4])m)[1][0], in.y)), \\mul_float(((zpl_f32 (*)[4])m)[2][0], in.z)), \\mul_float(((zpl_f32 (*)[4])m)[3][0], in.w)));",
+          "requires \\is_finite(\\add_float(\\mul_float(((zpl_f32 (*)[4])m)[0][1], in.x), \\mul_float(((zpl_f32 (*)[4])m)[1][1], in.y)));",
+          "requires \\is_finite(\\add_float(\\add_float(\\mul_float(((zpl_f32 (*)[4])m)[0][1], in.x), \\mul_float(((zpl_f32 (*)[4])m)[1][1], in.y)), \\mul_float(((zpl_f32 (*)[4])m)[2][1], in.z)));",
+          "requires \\is_finite(\\add_float(\\add_float(\\add_float(\\mul_float(((zpl_f32 (*)[4])m)[0][1], in.x), \\mul_float(((zpl_f32 (*)[4])m)[1][1], in.y)), \\mul_float(((zpl_f32 (*)[4])m)[2][1], in.z)), \\mul_float(((zpl_f32 (*)[4])m)[3][1], in.w)));",
+          "requires \\is_finite(\\add_float(\\mul_float(((zpl_f32 (*)[4])m)[0][2], in.x), \\mul_float(((zpl_f32 (*)[4])m)[1][2], in.y)));",
+          "requires \\is_finite(\\add_float(\\add_float(\\mul_float(((zpl_f32 (*)[4])m)[0][2], in.x), \\mul_float(((zpl_f32 (*)[4])m)[1][2], in.y)), \\mul_float(((zpl_f32 (*)[4])m)[2][2], in.z)));",
+          "requires \\is_finite(\\add_float(\\add_float(\\add_float(\\mul_float(((zpl_f32 (*)[4])m)[0][2], in.x), \\mul_float(((zpl_f32 (*)[4])m)[1][2], in.y)), \\mul_float(((zpl_f32 (*)[4])m)[2][2], in.z)), \\mul_float(((zpl_f32 (*)[4])m)[3][2], in.w)));",
+          "requires \\is_finite(\\add_float(\\mul_float(((zpl_f32 (*)[4])m)[0][3], in.x), \\mul_float(((zpl_f32 (*)[4])m)[1][3], in.y)));",
+          "requires \\is_finite(\\add_float(\\add_float(\\mul_float(((zpl_f32 (*)[4])m)[0][3], in.x), \\mul_float(((zpl_f32 (*)[4])m)[1][3], in.y)), \\mul_float(((zpl_f32 (*)[4])m)[2][3], in.z)));",
+          "requires \\is_finite(\\add_float(\\add_float(\\add_float(\\mul_float(((zpl_f32 (*)[4])m)[0][3], in.x), \\mul_float(((zpl_f32 (*)[4])m)[1][3], in.y)), \\mul_float(((zpl_f32 (*)[4])m)[2][3], in.z)), \\mul_float(((zpl_f32 (*)[4])m)[3][3], in.w)));"
+        ],
+        "postconditions": [
+          "ensures \\valid(out);",
+          "ensures \\is_finite(out->x);",
+          "ensures \\is_finite(out->y);",
+          "ensures \\is_finite(out->z);",
+          "ensures \\is_finite(out->w);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns out->x, out->y, out->z, out->w;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {
+          "zpl_float44_mul_vec4": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "zpl_float44_mul_vec4": {
+            "depends": true,
+            "clauses": [
+              "ensures \\is_finite(out->w);",
+              "ensures \\is_finite(out->x);",
+              "ensures \\is_finite(out->y);",
+              "ensures \\is_finite(out->z);",
+              "ensures \\valid(out);"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "zpl_float44_mul_vec4": [
+            "requires \\forall int i, j; 0 <= i <= 3 && 0 <= j <= 3 ==> \\is_finite(\\mul_float(m[i][j], v.w));",
+            "requires \\forall int i, j; 0 <= i <= 3 && 0 <= j <= 3 ==> \\is_finite(\\mul_float(m[i][j], v.x));",
+            "requires \\forall int i, j; 0 <= i <= 3 && 0 <= j <= 3 ==> \\is_finite(\\mul_float(m[i][j], v.y));",
+            "requires \\forall int i, j; 0 <= i <= 3 && 0 <= j <= 3 ==> \\is_finite(\\mul_float(m[i][j], v.z));",
+            "requires \\forall int i, j; 0 <= i <= 3 && 0 <= j <= 3 ==> \\is_finite(m[i][j]);",
+            "requires \\is_finite(\\add_float(\\add_float(\\add_float(\\mul_float(m[0][0], v.x), \\mul_float(m[1][0], v.y)), \\mul_float(m[2][0], v.z)), \\mul_float(m[3][0], v.w)));",
+            "requires \\is_finite(\\add_float(\\add_float(\\add_float(\\mul_float(m[0][1], v.x), \\mul_float(m[1][1], v.y)), \\mul_float(m[2][1], v.z)), \\mul_float(m[3][1], v.w)));",
+            "requires \\is_finite(\\add_float(\\add_float(\\add_float(\\mul_float(m[0][2], v.x), \\mul_float(m[1][2], v.y)), \\mul_float(m[2][2], v.z)), \\mul_float(m[3][2], v.w)));",
+            "requires \\is_finite(\\add_float(\\add_float(\\add_float(\\mul_float(m[0][3], v.x), \\mul_float(m[1][3], v.y)), \\mul_float(m[2][3], v.z)), \\mul_float(m[3][3], v.w)));",
+            "requires \\is_finite(\\add_float(\\add_float(\\mul_float(m[0][0], v.x), \\mul_float(m[1][0], v.y)), \\mul_float(m[2][0], v.z)));",
+            "requires \\is_finite(\\add_float(\\add_float(\\mul_float(m[0][1], v.x), \\mul_float(m[1][1], v.y)), \\mul_float(m[2][1], v.z)));",
+            "requires \\is_finite(\\add_float(\\add_float(\\mul_float(m[0][2], v.x), \\mul_float(m[1][2], v.y)), \\mul_float(m[2][2], v.z)));",
+            "requires \\is_finite(\\add_float(\\add_float(\\mul_float(m[0][3], v.x), \\mul_float(m[1][3], v.y)), \\mul_float(m[2][3], v.z)));",
+            "requires \\is_finite(\\add_float(\\mul_float(m[0][0], v.x), \\mul_float(m[1][0], v.y)));",
+            "requires \\is_finite(\\add_float(\\mul_float(m[0][1], v.x), \\mul_float(m[1][1], v.y)));",
+            "requires \\is_finite(\\add_float(\\mul_float(m[0][2], v.x), \\mul_float(m[1][2], v.y)));",
+            "requires \\is_finite(\\add_float(\\mul_float(m[0][3], v.x), \\mul_float(m[1][3], v.y)));",
+            "requires \\is_finite(v.w);",
+            "requires \\is_finite(v.x);",
+            "requires \\is_finite(v.y);",
+            "requires \\is_finite(v.z);",
+            "requires \\separated(out, (zpl_f32 *)m+(0..15));",
+            "requires \\valid(out);",
+            "requires \\valid_read(m+(0..3));"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 2,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 24,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "call_site_5_0": "verified",
+          "call_site_5_1": "verified",
+          "call_site_5_2": "verified",
+          "call_site_5_3": "verified",
+          "call_site_5_4": "verified",
+          "call_site_5_5": "verified",
+          "call_site_5_6": "verified",
+          "call_site_5_7": "verified",
+          "call_site_5_8": "verified",
+          "call_site_5_9": "verified",
+          "call_site_5_10": "verified",
+          "call_site_5_11": "verified",
+          "call_site_5_12": "verified",
+          "call_site_5_13": "verified",
+          "call_site_5_14": "verified",
+          "call_site_5_15": "verified",
+          "call_site_5_16": "verified",
+          "call_site_5_17": "verified",
+          "call_site_5_18": "verified",
+          "call_site_5_19": "verified",
+          "call_site_5_20": "verified",
+          "call_site_5_21": "verified",
+          "call_site_5_22": "verified",
+          "call_site_5_23": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "zpl_float44_mul_vec4"
+      ],
+      "session_id": "3b4f7888-3980-4505-9a79-842b8e8914a0",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_mat4_ortho2d": {
+      "agent_id": "agent_zpl_mat4_ortho2d",
+      "function_name": "zpl_mat4_ortho2d",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_mat4_ortho2d",
+        "preconditions": [
+          "requires \\valid(out);",
+          "requires \\valid(out->col + (0 .. 3));",
+          "requires left != right;",
+          "requires top != bottom;",
+          "requires \\is_finite(\\sub_float(right, left));",
+          "requires \\is_finite(\\sub_float(top, bottom));",
+          "requires \\is_finite(\\add_float(right, left));",
+          "requires \\is_finite(\\add_float(top, bottom));",
+          "requires \\is_finite(\\div_float(2.0f, \\sub_float(right, left)));",
+          "requires \\is_finite(\\div_float(2.0f, \\sub_float(top, bottom)));",
+          "requires \\is_finite(\\div_float(\\neg_float(\\add_float(right, left)), \\sub_float(right, left)));",
+          "requires \\is_finite(\\div_float(\\neg_float(\\add_float(top, bottom)), \\sub_float(top, bottom)));"
+        ],
+        "postconditions": [
+          "ensures out->col[0].x == 2.0f / (right - left);",
+          "ensures out->col[1].y == 2.0f / (top - bottom);",
+          "ensures out->col[2].z == -1.0f;",
+          "ensures out->col[3].x == -(right + left) / (right - left);",
+          "ensures out->col[3].y == -(top + bottom) / (top - bottom);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns *out;"
+        ],
+        "version": 2,
+        "status": "published",
+        "based_on_versions": {
+          "zpl_mat4_identity": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "zpl_mat4_identity": {
+            "depends": true,
+            "clauses": [
+              "ensures m->col[0].x == 1.0f && m->col[0].y == 0.0f && m->col[0].z == 0.0f && m->col[0].w == 0.0f;",
+              "ensures m->col[1].x == 0.0f && m->col[1].y == 1.0f && m->col[1].z == 0.0f && m->col[1].w == 0.0f;",
+              "ensures m->col[2].x == 0.0f && m->col[2].y == 0.0f && m->col[2].z == 1.0f && m->col[2].w == 0.0f;",
+              "ensures m->col[3].x == 0.0f && m->col[3].y == 0.0f && m->col[3].z == 0.0f && m->col[3].w == 1.0f;"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "zpl_mat4_identity": [
+            "requires \\valid(m);",
+            "requires \\valid(m->col + (0 .. 3));"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 2,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 16,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 2,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_112": "verified",
+          "rte_113": "verified",
+          "rte_114": "verified",
+          "rte_115": "verified",
+          "rte_116": "verified",
+          "rte_117": "verified",
+          "rte_118": "verified",
+          "rte_119": "verified",
+          "rte_120": "verified",
+          "rte_121": "verified",
+          "rte_122": "verified",
+          "rte_123": "verified",
+          "rte_124": "verified",
+          "rte_125": "verified",
+          "rte_126": "verified",
+          "rte_127": "verified",
+          "call_site_10_0": "verified",
+          "call_site_10_1": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "zpl_mat4_identity"
+      ],
+      "session_id": "a5360077-1066-4652-838c-4084dc156acb",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_mat4_to_scale": {
+      "agent_id": "agent_zpl_mat4_to_scale",
+      "function_name": "zpl_mat4_to_scale",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_mat4_to_scale",
+        "preconditions": [
+          "requires \\valid(out);"
+        ],
+        "postconditions": [
+          "ensures out->col[0].x == v.x;",
+          "ensures out->col[1].y == v.y;",
+          "ensures out->col[2].z == v.z;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns *out;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {
+          "zpl_mat4_identity": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "zpl_mat4_identity": {
+            "depends": false,
+            "clauses": null
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "zpl_mat4_identity": [
+            "requires \\valid(m);",
+            "requires \\valid(m->col + (0 .. 3));"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 2,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 3,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 2,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_128": "verified",
+          "rte_129": "verified",
+          "rte_130": "verified",
+          "call_site_11_0": "verified",
+          "call_site_11_1": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "zpl_mat4_identity"
+      ],
+      "session_id": "ac4a51d2-4907-4818-aedd-4484e4b14c5f",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_mat4_to_scalef": {
+      "agent_id": "agent_zpl_mat4_to_scalef",
+      "function_name": "zpl_mat4_to_scalef",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_mat4_to_scalef",
+        "preconditions": [
+          "requires \\valid(out);",
+          "requires \\valid(out->col + (0 .. 3));"
+        ],
+        "postconditions": [
+          "ensures out->col[0].x == s;",
+          "ensures out->col[1].y == s;",
+          "ensures out->col[2].z == s;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns *out;"
+        ],
+        "version": 2,
+        "status": "published",
+        "based_on_versions": {
+          "zpl_mat4_identity": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "zpl_mat4_identity": {
+            "depends": false,
+            "clauses": null
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "zpl_mat4_identity": [
+            "requires \\valid(m);",
+            "requires \\valid(m->col + (0 .. 3));"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 2,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 3,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 2,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_131": "verified",
+          "rte_132": "verified",
+          "rte_133": "verified",
+          "call_site_12_0": "verified",
+          "call_site_12_1": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "zpl_mat4_identity"
+      ],
+      "session_id": "cf17fd90-6e04-4bcc-8656-788eea461f77",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_mat4_to_translate": {
+      "agent_id": "agent_zpl_mat4_to_translate",
+      "function_name": "zpl_mat4_to_translate",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_mat4_to_translate",
+        "preconditions": [
+          "requires \\valid(out);",
+          "requires \\valid(out->col + (0 .. 3));"
+        ],
+        "postconditions": [
+          "ensures out->col[0].x == 1.0f && out->col[0].y == 0.0f && out->col[0].z == 0.0f && out->col[0].w == 0.0f;",
+          "ensures out->col[1].x == 0.0f && out->col[1].y == 1.0f && out->col[1].z == 0.0f && out->col[1].w == 0.0f;",
+          "ensures out->col[2].x == 0.0f && out->col[2].y == 0.0f && out->col[2].z == 1.0f && out->col[2].w == 0.0f;",
+          "ensures out->col[3].x == v.x && out->col[3].y == v.y && out->col[3].z == v.z && out->col[3].w == 1.0f;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns out->col[0..3];"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {
+          "zpl_mat4_identity": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "zpl_mat4_identity": {
+            "depends": true,
+            "clauses": [
+              "ensures m->col[0].x == 1.0f && m->col[0].y == 0.0f && m->col[0].z == 0.0f && m->col[0].w == 0.0f;",
+              "ensures m->col[1].x == 0.0f && m->col[1].y == 1.0f && m->col[1].z == 0.0f && m->col[1].w == 0.0f;",
+              "ensures m->col[2].x == 0.0f && m->col[2].y == 0.0f && m->col[2].z == 1.0f && m->col[2].w == 0.0f;",
+              "ensures m->col[3].x == 0.0f && m->col[3].y == 0.0f && m->col[3].z == 0.0f && m->col[3].w == 1.0f;"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "zpl_mat4_identity": [
+            "requires \\valid(m);",
+            "requires \\valid(m->col + (0 .. 3));"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 2,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 3,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 2,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_134": "verified",
+          "rte_135": "verified",
+          "rte_136": "verified",
+          "call_site_13_0": "verified",
+          "call_site_13_1": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "zpl_mat4_identity"
+      ],
+      "session_id": "cb21098b-4b87-4ae2-b3d5-dc324f290207",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_mat4_transpose": {
+      "agent_id": "agent_zpl_mat4_transpose",
+      "function_name": "zpl_mat4_transpose",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_mat4_transpose",
+        "preconditions": [
+          "requires \\valid(m);"
+        ],
+        "postconditions": [],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns *m;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {
+          "zpl_float44_transpose": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "zpl_float44_transpose": {
+            "depends": false,
+            "clauses": null
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "zpl_float44_transpose": [
+            "requires \\valid(vec + (0..3));"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 2,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 1,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "call_site_14_0": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "zpl_float44_transpose"
+      ],
+      "session_id": "cc974975-8021-4dff-921c-bf1426bfda16",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_quat_identity": {
+      "agent_id": "agent_zpl_quat_identity",
+      "function_name": "zpl_quat_identity",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_quat_identity",
+        "preconditions": [],
+        "postconditions": [
+          "ensures \\result.x == (zpl_f32)0;",
+          "ensures \\result.y == (zpl_f32)0;",
+          "ensures \\result.z == (zpl_f32)0;",
+          "ensures \\result.w == (zpl_f32)1;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {}
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "697b7f03-350c-4cdd-bf15-331623aa5961",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_quat_mul": {
+      "agent_id": "agent_zpl_quat_mul",
+      "function_name": "zpl_quat_mul",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_quat_mul",
+        "preconditions": [
+          "requires \\valid(d);",
+          "requires \\is_finite(q0.x) && \\is_finite(q0.y) && \\is_finite(q0.z) && \\is_finite(q0.w);",
+          "requires \\is_finite(q1.x) && \\is_finite(q1.y) && \\is_finite(q1.z) && \\is_finite(q1.w);"
+        ],
+        "postconditions": [
+          "ensures \\valid(d);",
+          "ensures \\is_finite(d->x) ==> \\is_finite(d->x);",
+          "ensures \\is_finite(d->y) ==> \\is_finite(d->y);",
+          "ensures \\is_finite(d->z) ==> \\is_finite(d->z);",
+          "ensures \\is_finite(d->w) ==> \\is_finite(d->w);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns d->x, d->y, d->z, d->w;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 32,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_161": "verified",
+          "rte_162": "verified",
+          "rte_163": "verified",
+          "rte_164": "verified",
+          "rte_165": "verified",
+          "rte_166": "verified",
+          "rte_167": "verified",
+          "rte_168": "verified",
+          "rte_169": "verified",
+          "rte_170": "verified",
+          "rte_171": "verified",
+          "rte_172": "verified",
+          "rte_173": "verified",
+          "rte_174": "verified",
+          "rte_175": "verified",
+          "rte_176": "verified",
+          "rte_177": "verified",
+          "rte_178": "verified",
+          "rte_179": "verified",
+          "rte_180": "verified",
+          "rte_181": "verified",
+          "rte_182": "verified",
+          "rte_183": "verified",
+          "rte_184": "verified",
+          "rte_185": "verified",
+          "rte_186": "verified",
+          "rte_187": "verified",
+          "rte_188": "verified",
+          "rte_189": "verified",
+          "rte_190": "verified",
+          "rte_191": "verified",
+          "rte_192": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "1542c932-ff38-4cea-965f-4b32629378cb",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_rect2f": {
+      "agent_id": "agent_zpl_rect2f",
+      "function_name": "zpl_rect2f",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_rect2f",
+        "preconditions": [],
+        "postconditions": [
+          "ensures \\result.pos.x == pos.x && \\result.pos.y == pos.y;",
+          "ensures \\result.dim.x == dim.x && \\result.dim.y == dim.y;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {}
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "86e58aed-2612-44d1-85ec-829984bf28b3",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_round": {
+      "agent_id": "agent_zpl_round",
+      "function_name": "zpl_round",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_round",
+        "preconditions": [
+          "requires \\is_finite(x);"
+        ],
+        "postconditions": [
+          "ensures \\is_finite(\\result);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 1,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_193": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "50d05955-f367-41e5-9407-f2e1c29ca6d7",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_remainder": {
+      "agent_id": "agent_zpl_remainder",
+      "function_name": "zpl_remainder",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_remainder",
+        "preconditions": [
+          "requires \\is_finite(x);",
+          "requires \\is_finite(y);",
+          "requires y != 0.0f;",
+          "requires \\is_finite(\\div_float(x, y));"
+        ],
+        "postconditions": [
+          "ensures \\is_finite(\\result);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {
+          "zpl_round": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "zpl_round": {
+            "depends": true,
+            "clauses": [
+              "ensures \\is_finite(\\result);"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "zpl_round": [
+            "requires \\is_finite(x);"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 2,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 3,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 1,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_194": "verified",
+          "rte_195": "verified",
+          "rte_196": "verified",
+          "call_site_15_0": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "zpl_round"
+      ],
+      "session_id": "9f9dfaa0-133e-42ab-a58a-9ac640928220",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_rsqrt": {
+      "agent_id": "agent_zpl_rsqrt",
+      "function_name": "zpl_rsqrt",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_rsqrt",
+        "preconditions": [
+          "requires \\is_finite(x);",
+          "requires x > 0.0f;"
+        ],
+        "postconditions": [
+          "ensures \\is_finite(\\result);",
+          "ensures \\result > 0.0f;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 1,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_306": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "d33c8ff0-c082-49b8-8a68-a2086b1e1149",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_sin": {
+      "agent_id": "agent_zpl_sin",
+      "function_name": "zpl_sin",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_sin",
+        "preconditions": [],
+        "postconditions": [
+          "ensures \\result == \\old(x) || \\true;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {}
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "198946e5-e2d7-47b1-8254-d242bd08cd82",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_sqrt": {
+      "agent_id": "agent_zpl_sqrt",
+      "function_name": "zpl_sqrt",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_sqrt",
+        "preconditions": [
+          "requires x >= 0.0f;"
+        ],
+        "postconditions": [
+          "ensures \\result >= 0.0f;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {}
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "9f4e5169-efd2-45a1-ac36-321d6fa86ea7",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_to_degrees": {
+      "agent_id": "agent_zpl_to_degrees",
+      "function_name": "zpl_to_degrees",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_to_degrees",
+        "preconditions": [
+          "requires \\is_finite(radians);",
+          "requires -0x1.0p119f <= radians <= 0x1.0p119f;"
+        ],
+        "postconditions": [
+          "ensures \\is_finite(\\result);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 2,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_197": "verified",
+          "rte_198": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "93dbce19-5cab-4d7f-a3c0-b48ce02aadf6",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_to_radians": {
+      "agent_id": "agent_zpl_to_radians",
+      "function_name": "zpl_to_radians",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_to_radians",
+        "preconditions": [
+          "requires \\is_finite(degrees);",
+          "requires degrees >= -1.0e38f && degrees <= 1.0e38f;"
+        ],
+        "postconditions": [
+          "ensures \\is_finite(\\result);",
+          "ensures \\result == (degrees * 0x1.921fb6p1f) / 360.0f;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 2,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_199": "verified",
+          "rte_200": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "17c35b40-15c4-4057-b7fa-e422a257fdb6",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_vec2_add": {
+      "agent_id": "agent_zpl_vec2_add",
+      "function_name": "zpl_vec2_add",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_vec2_add",
+        "preconditions": [
+          "requires \\valid(d);",
+          "requires \\is_finite((float)v0.x);",
+          "requires \\is_finite((float)v0.y);",
+          "requires \\is_finite((float)v1.x);",
+          "requires \\is_finite((float)v1.y);",
+          "requires \\is_finite((float)(v0.x + v1.x));",
+          "requires \\is_finite((float)(v0.y + v1.y));"
+        ],
+        "postconditions": [
+          "ensures d->x == v0.x + v1.x;",
+          "ensures d->y == v0.y + v1.y;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns d->x, d->y;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 4,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_229": "verified",
+          "rte_230": "verified",
+          "rte_231": "verified",
+          "rte_232": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "3ee54de4-cc83-4bb8-aa36-b44032e71288",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_vec2_addeq": {
+      "agent_id": "agent_zpl_vec2_addeq",
+      "function_name": "zpl_vec2_addeq",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_vec2_addeq",
+        "preconditions": [
+          "requires \\valid(d);",
+          "requires \\is_finite(d->x);",
+          "requires \\is_finite(v.x);",
+          "requires \\is_finite(d->y);",
+          "requires \\is_finite(v.y);",
+          "requires \\is_finite(\\add_float(d->x, v.x));",
+          "requires \\is_finite(\\add_float(d->y, v.y));"
+        ],
+        "postconditions": [
+          "ensures d->x == \\old(d->x) + v.x;",
+          "ensures d->y == \\old(d->y) + v.y;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns d->x, d->y;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 6,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_201": "verified",
+          "rte_202": "verified",
+          "rte_203": "verified",
+          "rte_204": "verified",
+          "rte_205": "verified",
+          "rte_206": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "411e1ae3-5ede-46b4-b129-3abd07017488",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_vec2_cross": {
+      "agent_id": "agent_zpl_vec2_cross",
+      "function_name": "zpl_vec2_cross",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_vec2_cross",
+        "preconditions": [
+          "requires \\valid(d);",
+          "requires \\is_finite(\\mul_float(v0.x, v1.y));",
+          "requires \\is_finite(\\mul_float(v1.x, v0.y));",
+          "requires \\is_finite(\\sub_float(\\mul_float(v0.x, v1.y), \\mul_float(v1.x, v0.y)));"
+        ],
+        "postconditions": [
+          "ensures \\is_finite(*d);",
+          "ensures *d == \\sub_float(\\mul_float(v0.x, v1.y), \\mul_float(v1.x, v0.y));"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns *d;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 4,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_207": "verified",
+          "rte_208": "verified",
+          "rte_209": "verified",
+          "rte_210": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "7c8b93b7-4244-465a-a41e-505ebfc7ffb8",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_vec2_div": {
+      "agent_id": "agent_zpl_vec2_div",
+      "function_name": "zpl_vec2_div",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_vec2_div",
+        "preconditions": [
+          "requires \\valid(d);",
+          "requires \\is_finite(\\div_float(v.x, s));",
+          "requires \\is_finite(\\div_float(v.y, s));"
+        ],
+        "postconditions": [
+          "ensures d->x == \\div_float(v.x, s);",
+          "ensures d->y == \\div_float(v.y, s);",
+          "ensures \\is_finite(d->x);",
+          "ensures \\is_finite(d->y);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns d->x, d->y;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 4,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_211": "verified",
+          "rte_212": "verified",
+          "rte_213": "verified",
+          "rte_214": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "4e5c49d5-4fe5-4f4d-9f15-55740a8e1b3c",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_vec2_diveq": {
+      "agent_id": "agent_zpl_vec2_diveq",
+      "function_name": "zpl_vec2_diveq",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_vec2_diveq",
+        "preconditions": [
+          "requires \\valid(d);",
+          "requires \\is_finite(\\div_float(d->x, s));",
+          "requires \\is_finite(\\div_float(d->y, s));"
+        ],
+        "postconditions": [
+          "ensures \\is_finite(d->x);",
+          "ensures \\is_finite(d->y);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns d->x, d->y;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 6,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_215": "verified",
+          "rte_216": "verified",
+          "rte_217": "verified",
+          "rte_218": "verified",
+          "rte_219": "verified",
+          "rte_220": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "89582bde-d366-4ef4-b062-76018fb269f5",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_vec2_dot": {
+      "agent_id": "agent_zpl_vec2_dot",
+      "function_name": "zpl_vec2_dot",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_vec2_dot",
+        "preconditions": [
+          "requires \\is_finite(\\mul_float(v0.x, v1.x));",
+          "requires \\is_finite(\\mul_float(v0.y, v1.y));",
+          "requires \\is_finite(\\add_float(\\mul_float(v0.x, v1.x), \\mul_float(v0.y, v1.y)));"
+        ],
+        "postconditions": [
+          "ensures \\is_finite(\\result);",
+          "ensures \\result == v0.x * v1.x + v0.y * v1.y;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 3,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_233": "verified",
+          "rte_234": "verified",
+          "rte_235": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "9432753a-e4b0-4eb0-be6b-9fc640e39820",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_vec2_sub": {
+      "agent_id": "agent_zpl_vec2_sub",
+      "function_name": "zpl_vec2_sub",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_vec2_sub",
+        "preconditions": [
+          "requires \\valid(d);",
+          "requires \\is_finite(\\sub_float(v0.x, v1.x));",
+          "requires \\is_finite(\\sub_float(v0.y, v1.y));"
+        ],
+        "postconditions": [
+          "ensures d->x == v0.x - v1.x;",
+          "ensures d->y == v0.y - v1.y;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns d->x, d->y;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 4,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_221": "verified",
+          "rte_222": "verified",
+          "rte_223": "verified",
+          "rte_224": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "1bae33a8-d734-465a-bd30-d28d5d4a75d0",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_vec2_mul": {
+      "agent_id": "agent_zpl_vec2_mul",
+      "function_name": "zpl_vec2_mul",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_vec2_mul",
+        "preconditions": [
+          "requires \\valid(d);",
+          "requires \\is_finite(\\mul_float(v.x, s));",
+          "requires \\is_finite(\\mul_float(v.y, s));"
+        ],
+        "postconditions": [
+          "ensures d->x == v.x * s;",
+          "ensures d->y == v.y * s;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns d->x, d->y;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 4,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_225": "verified",
+          "rte_226": "verified",
+          "rte_227": "verified",
+          "rte_228": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "73962360-9313-4ecc-a10d-bf872f344410",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_vec2_lerp": {
+      "agent_id": "agent_zpl_vec2_lerp",
+      "function_name": "zpl_vec2_lerp",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_vec2_lerp",
+        "preconditions": [
+          "requires \\valid(d);",
+          "requires \\is_finite((float)a.x);",
+          "requires \\is_finite((float)a.y);",
+          "requires \\is_finite((float)b.x);",
+          "requires \\is_finite((float)b.y);",
+          "requires \\is_finite((float)t);",
+          "requires \\is_finite((float)(b.x - a.x));",
+          "requires \\is_finite((float)(b.y - a.y));",
+          "requires \\is_finite((float)((b.x - a.x) * t));",
+          "requires \\is_finite((float)((b.y - a.y) * t));",
+          "requires \\is_finite((float)(a.x + (b.x - a.x) * t));",
+          "requires \\is_finite((float)(a.y + (b.y - a.y) * t));"
+        ],
+        "postconditions": [
+          "ensures d->x == a.x + (b.x - a.x) * t;",
+          "ensures d->y == a.y + (b.y - a.y) * t;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns d->x, d->y;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {
+          "zpl_vec2_sub": 1,
+          "zpl_vec2_mul": 1,
+          "zpl_vec2_add": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "zpl_vec2_sub": {
+            "depends": true,
+            "clauses": [
+              "ensures d->x == v0.x - v1.x;",
+              "ensures d->y == v0.y - v1.y;"
+            ]
+          },
+          "zpl_vec2_mul": {
+            "depends": true,
+            "clauses": [
+              "ensures d->x == v.x * s;",
+              "ensures d->y == v.y * s;"
+            ]
+          },
+          "zpl_vec2_add": {
+            "depends": true,
+            "clauses": [
+              "ensures d->x == v0.x + v1.x;",
+              "ensures d->y == v0.y + v1.y;"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "zpl_vec2_sub": [
+            "requires \\is_finite(\\sub_float(v0.x, v1.x));",
+            "requires \\is_finite(\\sub_float(v0.y, v1.y));",
+            "requires \\valid(d);"
+          ],
+          "zpl_vec2_mul": [
+            "requires \\is_finite(\\mul_float(v.x, s));",
+            "requires \\is_finite(\\mul_float(v.y, s));",
+            "requires \\valid(d);"
+          ],
+          "zpl_vec2_add": [
+            "requires \\is_finite((float)(v0.x + v1.x));",
+            "requires \\is_finite((float)(v0.y + v1.y));",
+            "requires \\is_finite((float)v0.x);",
+            "requires \\is_finite((float)v0.y);",
+            "requires \\is_finite((float)v1.x);",
+            "requires \\is_finite((float)v1.y);",
+            "requires \\valid(d);"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 2,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 13,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "call_site_16_0": "verified",
+          "call_site_16_1": "verified",
+          "call_site_16_2": "verified",
+          "call_site_17_0": "verified",
+          "call_site_17_1": "verified",
+          "call_site_17_2": "verified",
+          "call_site_18_0": "verified",
+          "call_site_18_1": "verified",
+          "call_site_18_2": "verified",
+          "call_site_18_3": "verified",
+          "call_site_18_4": "verified",
+          "call_site_18_5": "verified",
+          "call_site_18_6": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "zpl_vec2_sub",
+        "zpl_vec2_mul",
+        "zpl_vec2_add"
+      ],
+      "session_id": "6bc63e94-76a4-496c-a35c-2c439b7ab91a",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_vec2_mag2": {
+      "agent_id": "agent_zpl_vec2_mag2",
+      "function_name": "zpl_vec2_mag2",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_vec2_mag2",
+        "preconditions": [
+          "requires \\is_finite(\\mul_float(v.x, v.x));",
+          "requires \\is_finite(\\mul_float(v.y, v.y));",
+          "requires \\is_finite(\\add_float(\\mul_float(v.x, v.x), \\mul_float(v.y, v.y)));"
+        ],
+        "postconditions": [
+          "ensures \\is_finite(\\result);",
+          "ensures \\result == v.x * v.x + v.y * v.y;",
+          "ensures \\result >= 0.0f;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {
+          "zpl_vec2_dot": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "zpl_vec2_dot": {
+            "depends": true,
+            "clauses": [
+              "ensures \\is_finite(\\result);",
+              "ensures \\result == v0.x * v1.x + v0.y * v1.y;"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "zpl_vec2_dot": [
+            "requires \\is_finite(\\add_float(\\mul_float(v0.x, v1.x), \\mul_float(v0.y, v1.y)));",
+            "requires \\is_finite(\\mul_float(v0.x, v1.x));",
+            "requires \\is_finite(\\mul_float(v0.y, v1.y));"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 2,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 3,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "call_site_19_0": "verified",
+          "call_site_19_1": "verified",
+          "call_site_19_2": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "zpl_vec2_dot"
+      ],
+      "session_id": "26716cc6-a9c3-4185-a2bf-5d12fb94ffc3",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_vec2_muleq": {
+      "agent_id": "agent_zpl_vec2_muleq",
+      "function_name": "zpl_vec2_muleq",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_vec2_muleq",
+        "preconditions": [
+          "requires \\valid(d);",
+          "requires \\is_finite(d->x);",
+          "requires \\is_finite(d->y);",
+          "requires \\is_finite(s);"
+        ],
+        "postconditions": [
+          "ensures \\is_finite(d->x);",
+          "ensures \\is_finite(d->y);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns d->x, d->y;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 6,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_236": "verified",
+          "rte_237": "verified",
+          "rte_238": "verified",
+          "rte_239": "verified",
+          "rte_240": "verified",
+          "rte_241": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "adac9045-18a3-4449-a430-58720dba7691",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_vec2_subeq": {
+      "agent_id": "agent_zpl_vec2_subeq",
+      "function_name": "zpl_vec2_subeq",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_vec2_subeq",
+        "preconditions": [
+          "requires \\valid(d);",
+          "requires \\is_finite(\\sub_float(d->x, v.x));",
+          "requires \\is_finite(\\sub_float(d->y, v.y));"
+        ],
+        "postconditions": [
+          "ensures d->x == \\sub_float(\\old(d->x), v.x);",
+          "ensures d->y == \\sub_float(\\old(d->y), v.y);",
+          "ensures \\is_finite(d->x);",
+          "ensures \\is_finite(d->y);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns d->x, d->y;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 6,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_242": "verified",
+          "rte_243": "verified",
+          "rte_244": "verified",
+          "rte_245": "verified",
+          "rte_246": "verified",
+          "rte_247": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "5bd893d8-aa2c-4eba-9e02-cb2c4f6b8c74",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_vec2f_zero": {
+      "agent_id": "agent_zpl_vec2f_zero",
+      "function_name": "zpl_vec2f_zero",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_vec2f_zero",
+        "preconditions": [],
+        "postconditions": [
+          "ensures \\result.x == 0.0f;",
+          "ensures \\result.y == 0.0f;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {}
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "538b9c43-11df-49b4-87cb-35a49d3ad50b",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_vec2fv": {
+      "agent_id": "agent_zpl_vec2fv",
+      "function_name": "zpl_vec2fv",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_vec2fv",
+        "preconditions": [
+          "requires \\valid_read(x + (0..1));"
+        ],
+        "postconditions": [
+          "ensures \\result.x == x[0];",
+          "ensures \\result.y == x[1];"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 2,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_248": "verified",
+          "rte_249": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "932e7bc9-bd10-4547-8f03-207f21e11cf8",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_vec3_add": {
+      "agent_id": "agent_zpl_vec3_add",
+      "function_name": "zpl_vec3_add",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_vec3_add",
+        "preconditions": [
+          "requires \\valid(d);",
+          "requires \\is_finite(\\add_float(v0.x, v1.x));",
+          "requires \\is_finite(\\add_float(v0.y, v1.y));",
+          "requires \\is_finite(\\add_float(v0.z, v1.z));"
+        ],
+        "postconditions": [
+          "ensures d->x == \\add_float(v0.x, v1.x);",
+          "ensures d->y == \\add_float(v0.y, v1.y);",
+          "ensures d->z == \\add_float(v0.z, v1.z);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns d->x, d->y, d->z;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 6,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_250": "verified",
+          "rte_251": "verified",
+          "rte_252": "verified",
+          "rte_253": "verified",
+          "rte_254": "verified",
+          "rte_255": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "8e49944b-847f-4bcc-84e6-26ddbdfc464c",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_vec3_addeq": {
+      "agent_id": "agent_zpl_vec3_addeq",
+      "function_name": "zpl_vec3_addeq",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_vec3_addeq",
+        "preconditions": [
+          "requires \\valid(d);",
+          "requires \\is_finite(\\add_float(d->x, v.x));",
+          "requires \\is_finite(\\add_float(d->y, v.y));",
+          "requires \\is_finite(\\add_float(d->z, v.z));"
+        ],
+        "postconditions": [
+          "ensures \\is_finite(d->x);",
+          "ensures \\is_finite(d->y);",
+          "ensures \\is_finite(d->z);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns d->x, d->y, d->z;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 9,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_256": "verified",
+          "rte_257": "verified",
+          "rte_258": "verified",
+          "rte_259": "verified",
+          "rte_260": "verified",
+          "rte_261": "verified",
+          "rte_262": "verified",
+          "rte_263": "verified",
+          "rte_264": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "12beff54-2df7-466f-ba29-26f3ae7ae7d9",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_vec3_cross": {
+      "agent_id": "agent_zpl_vec3_cross",
+      "function_name": "zpl_vec3_cross",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_vec3_cross",
+        "preconditions": [
+          "requires \\valid(d);",
+          "requires \\is_finite(\\mul_float(v0.y, v1.z));",
+          "requires \\is_finite(\\mul_float(v0.z, v1.y));",
+          "requires \\is_finite(\\sub_float(\\mul_float(v0.y, v1.z), \\mul_float(v0.z, v1.y)));",
+          "requires \\is_finite(\\mul_float(v0.z, v1.x));",
+          "requires \\is_finite(\\mul_float(v0.x, v1.z));",
+          "requires \\is_finite(\\sub_float(\\mul_float(v0.z, v1.x), \\mul_float(v0.x, v1.z)));",
+          "requires \\is_finite(\\mul_float(v0.x, v1.y));",
+          "requires \\is_finite(\\mul_float(v0.y, v1.x));",
+          "requires \\is_finite(\\sub_float(\\mul_float(v0.x, v1.y), \\mul_float(v0.y, v1.x)));"
+        ],
+        "postconditions": [
+          "ensures d->x == \\sub_float(\\mul_float(v0.y, v1.z), \\mul_float(v0.z, v1.y));",
+          "ensures d->y == \\sub_float(\\mul_float(v0.z, v1.x), \\mul_float(v0.x, v1.z));",
+          "ensures d->z == \\sub_float(\\mul_float(v0.x, v1.y), \\mul_float(v0.y, v1.x));",
+          "ensures \\is_finite(d->x);",
+          "ensures \\is_finite(d->y);",
+          "ensures \\is_finite(d->z);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns d->x, d->y, d->z;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 12,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_265": "verified",
+          "rte_266": "verified",
+          "rte_267": "verified",
+          "rte_268": "verified",
+          "rte_269": "verified",
+          "rte_270": "verified",
+          "rte_271": "verified",
+          "rte_272": "verified",
+          "rte_273": "verified",
+          "rte_274": "verified",
+          "rte_275": "verified",
+          "rte_276": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "02f3f868-5598-4d95-be8a-cfee5cb094d1",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_vec3_div": {
+      "agent_id": "agent_zpl_vec3_div",
+      "function_name": "zpl_vec3_div",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_vec3_div",
+        "preconditions": [
+          "requires \\valid(d);",
+          "requires \\is_finite(\\div_float(v.x, s));",
+          "requires \\is_finite(\\div_float(v.y, s));",
+          "requires \\is_finite(\\div_float(v.z, s));"
+        ],
+        "postconditions": [
+          "ensures d->x == \\div_float(v.x, s);",
+          "ensures d->y == \\div_float(v.y, s);",
+          "ensures d->z == \\div_float(v.z, s);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns d->x, d->y, d->z;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 6,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_277": "verified",
+          "rte_278": "verified",
+          "rte_279": "verified",
+          "rte_280": "verified",
+          "rte_281": "verified",
+          "rte_282": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "83cf0bb7-af9f-411b-a9de-35515ab71cdd",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_vec3_diveq": {
+      "agent_id": "agent_zpl_vec3_diveq",
+      "function_name": "zpl_vec3_diveq",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_vec3_diveq",
+        "preconditions": [
+          "requires \\valid(d);",
+          "requires \\is_finite((double)s);",
+          "requires s != 0.0f;",
+          "requires \\is_finite((double)d->x);",
+          "requires \\is_finite((double)d->y);",
+          "requires \\is_finite((double)d->z);"
+        ],
+        "postconditions": [
+          "ensures \\is_finite((double)d->x);",
+          "ensures \\is_finite((double)d->y);",
+          "ensures \\is_finite((double)d->z);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns d->x, d->y, d->z;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 9,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_283": "verified",
+          "rte_284": "verified",
+          "rte_285": "verified",
+          "rte_286": "verified",
+          "rte_287": "verified",
+          "rte_288": "verified",
+          "rte_289": "verified",
+          "rte_290": "verified",
+          "rte_291": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "c1bbc5d5-acf1-4b5f-a486-4c9a160fc082",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_vec3_dot": {
+      "agent_id": "agent_zpl_vec3_dot",
+      "function_name": "zpl_vec3_dot",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_vec3_dot",
+        "preconditions": [
+          "requires \\is_finite(v0.x) && \\is_finite(v0.y) && \\is_finite(v0.z);",
+          "requires \\is_finite(v1.x) && \\is_finite(v1.y) && \\is_finite(v1.z);",
+          "requires \\is_finite(\\mul_float(v0.x, v1.x));",
+          "requires \\is_finite(\\mul_float(v0.y, v1.y));",
+          "requires \\is_finite(\\mul_float(v0.z, v1.z));",
+          "requires \\is_finite(\\add_float(\\mul_float(v0.x, v1.x), \\mul_float(v0.y, v1.y)));",
+          "requires \\is_finite(\\add_float(\\add_float(\\mul_float(v0.x, v1.x), \\mul_float(v0.y, v1.y)), \\mul_float(v0.z, v1.z)));"
+        ],
+        "postconditions": [
+          "ensures \\is_finite(\\result);",
+          "ensures \\result == \\add_float(\\add_float(\\mul_float(v0.x, v1.x), \\mul_float(v0.y, v1.y)), \\mul_float(v0.z, v1.z));"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 5,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_292": "verified",
+          "rte_293": "verified",
+          "rte_294": "verified",
+          "rte_295": "verified",
+          "rte_296": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "6610cefe-ffcb-440c-8285-1cb92a8ac018",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_vec3_mag2": {
+      "agent_id": "agent_zpl_vec3_mag2",
+      "function_name": "zpl_vec3_mag2",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_vec3_mag2",
+        "preconditions": [
+          "requires \\is_finite(v.x);",
+          "requires \\is_finite(v.y);",
+          "requires \\is_finite(v.z);",
+          "requires \\is_finite(\\mul_float(v.x, v.x));",
+          "requires \\is_finite(\\mul_float(v.y, v.y));",
+          "requires \\is_finite(\\mul_float(v.z, v.z));",
+          "requires \\is_finite(\\add_float(\\mul_float(v.x, v.x), \\mul_float(v.y, v.y)));",
+          "requires \\is_finite(\\add_float(\\add_float(\\mul_float(v.x, v.x), \\mul_float(v.y, v.y)), \\mul_float(v.z, v.z)));"
+        ],
+        "postconditions": [
+          "ensures \\is_finite(\\result);",
+          "ensures \\result >= 0.0f;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {
+          "zpl_vec3_dot": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "zpl_vec3_dot": {
+            "depends": true,
+            "clauses": [
+              "ensures \\is_finite(\\result);",
+              "ensures \\result == \\add_float(\\add_float(\\mul_float(v0.x, v1.x), \\mul_float(v0.y, v1.y)), \\mul_float(v0.z, v1.z));"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "zpl_vec3_dot": [
+            "requires \\is_finite(\\add_float(\\add_float(\\mul_float(v0.x, v1.x), \\mul_float(v0.y, v1.y)), \\mul_float(v0.z, v1.z)));",
+            "requires \\is_finite(\\add_float(\\mul_float(v0.x, v1.x), \\mul_float(v0.y, v1.y)));",
+            "requires \\is_finite(\\mul_float(v0.x, v1.x));",
+            "requires \\is_finite(\\mul_float(v0.y, v1.y));",
+            "requires \\is_finite(\\mul_float(v0.z, v1.z));",
+            "requires \\is_finite(v0.x) && \\is_finite(v0.y) && \\is_finite(v0.z);",
+            "requires \\is_finite(v1.x) && \\is_finite(v1.y) && \\is_finite(v1.z);"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 2,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 7,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "call_site_20_0": "verified",
+          "call_site_20_1": "verified",
+          "call_site_20_2": "verified",
+          "call_site_20_3": "verified",
+          "call_site_20_4": "verified",
+          "call_site_20_5": "verified",
+          "call_site_20_6": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "zpl_vec3_dot"
+      ],
+      "session_id": "188704be-9903-4139-96e4-5a84d597d4d6",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_vec3_mul": {
+      "agent_id": "agent_zpl_vec3_mul",
+      "function_name": "zpl_vec3_mul",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_vec3_mul",
+        "preconditions": [
+          "requires \\valid(d);",
+          "requires \\is_finite(v.x) && \\is_finite(v.y) && \\is_finite(v.z) && \\is_finite(s);",
+          "requires \\is_finite(\\mul_float(v.x, s));",
+          "requires \\is_finite(\\mul_float(v.y, s));",
+          "requires \\is_finite(\\mul_float(v.z, s));"
+        ],
+        "postconditions": [
+          "ensures d->x == \\mul_float(v.x, s);",
+          "ensures d->y == \\mul_float(v.y, s);",
+          "ensures d->z == \\mul_float(v.z, s);",
+          "ensures \\is_finite(d->x) && \\is_finite(d->y) && \\is_finite(d->z);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns d->x, d->y, d->z;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 6,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_307": "verified",
+          "rte_308": "verified",
+          "rte_309": "verified",
+          "rte_310": "verified",
+          "rte_311": "verified",
+          "rte_312": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "eda3ea41-af7d-4ef6-a0c7-168aa2e7dec8",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_vec3_muleq": {
+      "agent_id": "agent_zpl_vec3_muleq",
+      "function_name": "zpl_vec3_muleq",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_vec3_muleq",
+        "preconditions": [
+          "requires \\valid(d);",
+          "requires \\is_finite(\\mul_float(d->x, s));",
+          "requires \\is_finite(\\mul_float(d->y, s));",
+          "requires \\is_finite(\\mul_float(d->z, s));"
+        ],
+        "postconditions": [
+          "ensures d->x == \\mul_float(\\old(d->x), s);",
+          "ensures d->y == \\mul_float(\\old(d->y), s);",
+          "ensures d->z == \\mul_float(\\old(d->z), s);",
+          "ensures \\is_finite(d->x);",
+          "ensures \\is_finite(d->y);",
+          "ensures \\is_finite(d->z);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns d->x, d->y, d->z;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 9,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_297": "verified",
+          "rte_298": "verified",
+          "rte_299": "verified",
+          "rte_300": "verified",
+          "rte_301": "verified",
+          "rte_302": "verified",
+          "rte_303": "verified",
+          "rte_304": "verified",
+          "rte_305": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "fce2eb26-1a58-4c54-a8ba-c9438c6dab3f",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_vec3_norm": {
+      "agent_id": "agent_zpl_vec3_norm",
+      "function_name": "zpl_vec3_norm",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_vec3_norm",
+        "preconditions": [
+          "requires \\valid(d);",
+          "requires \\is_finite(v.x) && \\is_finite(v.y) && \\is_finite(v.z);",
+          "requires \\is_finite(\\mul_float(v.x, v.x));",
+          "requires \\is_finite(\\mul_float(v.y, v.y));",
+          "requires \\is_finite(\\mul_float(v.z, v.z));",
+          "requires \\is_finite(\\add_float(\\mul_float(v.x, v.x), \\mul_float(v.y, v.y)));",
+          "requires \\is_finite(\\add_float(\\add_float(\\mul_float(v.x, v.x), \\mul_float(v.y, v.y)), \\mul_float(v.z, v.z)));",
+          "requires \\add_float(\\add_float(\\mul_float(v.x, v.x), \\mul_float(v.y, v.y)), \\mul_float(v.z, v.z)) > 0.0f;"
+        ],
+        "postconditions": [
+          "ensures \\valid(d);",
+          "ensures \\is_finite(d->x) && \\is_finite(d->y) && \\is_finite(d->z);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns d->x, d->y, d->z;"
+        ],
+        "version": 2,
+        "status": "published",
+        "based_on_versions": {
+          "zpl_vec3_dot": 1,
+          "zpl_rsqrt": 1,
+          "zpl_vec3_mul": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "zpl_vec3_dot": {
+            "depends": true,
+            "clauses": [
+              "ensures \\is_finite(\\result);",
+              "ensures \\result == \\add_float(\\add_float(\\mul_float(v0.x, v1.x), \\mul_float(v0.y, v1.y)), \\mul_float(v0.z, v1.z));"
+            ]
+          },
+          "zpl_rsqrt": {
+            "depends": true,
+            "clauses": [
+              "ensures \\is_finite(\\result);",
+              "ensures \\result > 0.0f;"
+            ]
+          },
+          "zpl_vec3_mul": {
+            "depends": true,
+            "clauses": [
+              "ensures \\is_finite(d->x) && \\is_finite(d->y) && \\is_finite(d->z);"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "zpl_vec3_dot": [
+            "requires \\is_finite(\\add_float(\\add_float(\\mul_float(v0.x, v1.x), \\mul_float(v0.y, v1.y)), \\mul_float(v0.z, v1.z)));",
+            "requires \\is_finite(\\add_float(\\mul_float(v0.x, v1.x), \\mul_float(v0.y, v1.y)));",
+            "requires \\is_finite(\\mul_float(v0.x, v1.x));",
+            "requires \\is_finite(\\mul_float(v0.y, v1.y));",
+            "requires \\is_finite(\\mul_float(v0.z, v1.z));",
+            "requires \\is_finite(v0.x) && \\is_finite(v0.y) && \\is_finite(v0.z);",
+            "requires \\is_finite(v1.x) && \\is_finite(v1.y) && \\is_finite(v1.z);"
+          ],
+          "zpl_rsqrt": [
+            "requires \\is_finite(x);",
+            "requires x > 0.0f;"
+          ],
+          "zpl_vec3_mul": [
+            "requires \\is_finite(\\mul_float(v.x, s));",
+            "requires \\is_finite(\\mul_float(v.y, s));",
+            "requires \\is_finite(\\mul_float(v.z, s));",
+            "requires \\is_finite(v.x) && \\is_finite(v.y) && \\is_finite(v.z) && \\is_finite(s);",
+            "requires \\valid(d);"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 2,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 14,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "call_site_21_0": "verified",
+          "call_site_21_1": "verified",
+          "call_site_21_2": "verified",
+          "call_site_21_3": "verified",
+          "call_site_21_4": "verified",
+          "call_site_21_5": "verified",
+          "call_site_21_6": "verified",
+          "call_site_22_0": "verified",
+          "call_site_22_1": "verified",
+          "call_site_23_0": "verified",
+          "call_site_23_1": "verified",
+          "call_site_23_2": "verified",
+          "call_site_23_3": "verified",
+          "call_site_23_4": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "zpl_vec3_dot",
+        "zpl_rsqrt",
+        "zpl_vec3_mul"
+      ],
+      "session_id": "a66320a6-3be3-4e99-ae88-b625c55e9a6d",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_vec3_sub": {
+      "agent_id": "agent_zpl_vec3_sub",
+      "function_name": "zpl_vec3_sub",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_vec3_sub",
+        "preconditions": [
+          "requires \\valid(d);",
+          "requires \\is_finite(\\sub_float(v0.x, v1.x));",
+          "requires \\is_finite(\\sub_float(v0.y, v1.y));",
+          "requires \\is_finite(\\sub_float(v0.z, v1.z));"
+        ],
+        "postconditions": [
+          "ensures d->x == \\sub_float(v0.x, v1.x);",
+          "ensures d->y == \\sub_float(v0.y, v1.y);",
+          "ensures d->z == \\sub_float(v0.z, v1.z);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns d->x, d->y, d->z;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 6,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_313": "verified",
+          "rte_314": "verified",
+          "rte_315": "verified",
+          "rte_316": "verified",
+          "rte_317": "verified",
+          "rte_318": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "91c8797e-fea1-40f2-9471-08c8b86af055",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_vec3_subeq": {
+      "agent_id": "agent_zpl_vec3_subeq",
+      "function_name": "zpl_vec3_subeq",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_vec3_subeq",
+        "preconditions": [
+          "requires \\valid(d);",
+          "requires \\is_finite((double)d->x);",
+          "requires \\is_finite((double)d->y);",
+          "requires \\is_finite((double)d->z);",
+          "requires \\is_finite((double)v.x);",
+          "requires \\is_finite((double)v.y);",
+          "requires \\is_finite((double)v.z);",
+          "requires \\is_finite(\\sub_float(d->x, v.x));",
+          "requires \\is_finite(\\sub_float(d->y, v.y));",
+          "requires \\is_finite(\\sub_float(d->z, v.z));"
+        ],
+        "postconditions": [
+          "ensures d->x == \\old(d->x) - v.x;",
+          "ensures d->y == \\old(d->y) - v.y;",
+          "ensures d->z == \\old(d->z) - v.z;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns d->x, d->y, d->z;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 9,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_319": "verified",
+          "rte_320": "verified",
+          "rte_321": "verified",
+          "rte_322": "verified",
+          "rte_323": "verified",
+          "rte_324": "verified",
+          "rte_325": "verified",
+          "rte_326": "verified",
+          "rte_327": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "7f9af57f-88c1-4aeb-ac31-0928eac6f81d",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_vec3f": {
+      "agent_id": "agent_zpl_vec3f",
+      "function_name": "zpl_vec3f",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_vec3f",
+        "preconditions": [],
+        "postconditions": [
+          "ensures \\result.x == x;",
+          "ensures \\result.y == y;",
+          "ensures \\result.z == z;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {}
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "1a256249-fa58-422f-9d97-8377e9d95d1f",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_vec3f_zero": {
+      "agent_id": "agent_zpl_vec3f_zero",
+      "function_name": "zpl_vec3f_zero",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_vec3f_zero",
+        "preconditions": [],
+        "postconditions": [
+          "ensures \\result.x == 0.0f;",
+          "ensures \\result.y == 0.0f;",
+          "ensures \\result.z == 0.0f;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {}
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "a4e31e1e-25b5-4825-b5b9-8e8e9edc48df",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_vec4_add": {
+      "agent_id": "agent_zpl_vec4_add",
+      "function_name": "zpl_vec4_add",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_vec4_add",
+        "preconditions": [
+          "requires \\valid(d);",
+          "requires \\is_finite(\\add_float(v0.x, v1.x));",
+          "requires \\is_finite(\\add_float(v0.y, v1.y));",
+          "requires \\is_finite(\\add_float(v0.z, v1.z));",
+          "requires \\is_finite(\\add_float(v0.w, v1.w));"
+        ],
+        "postconditions": [
+          "ensures \\valid(d);",
+          "ensures \\is_finite(d->x);",
+          "ensures \\is_finite(d->y);",
+          "ensures \\is_finite(d->z);",
+          "ensures \\is_finite(d->w);",
+          "ensures d->x == \\add_float(v0.x, v1.x);",
+          "ensures d->y == \\add_float(v0.y, v1.y);",
+          "ensures d->z == \\add_float(v0.z, v1.z);",
+          "ensures d->w == \\add_float(v0.w, v1.w);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns d->x, d->y, d->z, d->w;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 8,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_328": "verified",
+          "rte_329": "verified",
+          "rte_330": "verified",
+          "rte_331": "verified",
+          "rte_332": "verified",
+          "rte_333": "verified",
+          "rte_334": "verified",
+          "rte_335": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "fbffa834-a061-4b6e-ae59-16e7889028d2",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_vec4_addeq": {
+      "agent_id": "agent_zpl_vec4_addeq",
+      "function_name": "zpl_vec4_addeq",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_vec4_addeq",
+        "preconditions": [
+          "requires \\valid(d);",
+          "requires \\is_finite((double)d->x);",
+          "requires \\is_finite((double)d->y);",
+          "requires \\is_finite((double)d->z);",
+          "requires \\is_finite((double)d->w);",
+          "requires \\is_finite((double)v.x);",
+          "requires \\is_finite((double)v.y);",
+          "requires \\is_finite((double)v.z);",
+          "requires \\is_finite((double)v.w);",
+          "requires \\is_finite((double)(d->x + v.x));",
+          "requires \\is_finite((double)(d->y + v.y));",
+          "requires \\is_finite((double)(d->z + v.z));",
+          "requires \\is_finite((double)(d->w + v.w));"
+        ],
+        "postconditions": [
+          "ensures d->x == \\old(d->x) + v.x;",
+          "ensures d->y == \\old(d->y) + v.y;",
+          "ensures d->z == \\old(d->z) + v.z;",
+          "ensures d->w == \\old(d->w) + v.w;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns d->x, d->y, d->z, d->w;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 12,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_336": "verified",
+          "rte_337": "verified",
+          "rte_338": "verified",
+          "rte_339": "verified",
+          "rte_340": "verified",
+          "rte_341": "verified",
+          "rte_342": "verified",
+          "rte_343": "verified",
+          "rte_344": "verified",
+          "rte_345": "verified",
+          "rte_346": "verified",
+          "rte_347": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "57b5c16d-c85e-457f-9d72-e11d193323d2",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_vec4_div": {
+      "agent_id": "agent_zpl_vec4_div",
+      "function_name": "zpl_vec4_div",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_vec4_div",
+        "preconditions": [
+          "requires \\valid(d);",
+          "requires \\is_finite(\\div_float(v.x, s));",
+          "requires \\is_finite(\\div_float(v.y, s));",
+          "requires \\is_finite(\\div_float(v.z, s));",
+          "requires \\is_finite(\\div_float(v.w, s));"
+        ],
+        "postconditions": [
+          "ensures \\is_finite(d->x);",
+          "ensures \\is_finite(d->y);",
+          "ensures \\is_finite(d->z);",
+          "ensures \\is_finite(d->w);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns d->x, d->y, d->z, d->w;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 8,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_348": "verified",
+          "rte_349": "verified",
+          "rte_350": "verified",
+          "rte_351": "verified",
+          "rte_352": "verified",
+          "rte_353": "verified",
+          "rte_354": "verified",
+          "rte_355": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "384a1bc4-a608-4adb-ae69-8a21c7abd278",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_vec4_diveq": {
+      "agent_id": "agent_zpl_vec4_diveq",
+      "function_name": "zpl_vec4_diveq",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_vec4_diveq",
+        "preconditions": [
+          "requires \\valid(d);",
+          "requires \\is_finite(s);",
+          "requires s != 0.0f;",
+          "requires \\is_finite(\\div_float(d->x, s));",
+          "requires \\is_finite(\\div_float(d->y, s));",
+          "requires \\is_finite(\\div_float(d->z, s));",
+          "requires \\is_finite(\\div_float(d->w, s));"
+        ],
+        "postconditions": [
+          "ensures \\is_finite(d->x);",
+          "ensures \\is_finite(d->y);",
+          "ensures \\is_finite(d->z);",
+          "ensures \\is_finite(d->w);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns d->x, d->y, d->z, d->w;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 12,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_356": "verified",
+          "rte_357": "verified",
+          "rte_358": "verified",
+          "rte_359": "verified",
+          "rte_360": "verified",
+          "rte_361": "verified",
+          "rte_362": "verified",
+          "rte_363": "verified",
+          "rte_364": "verified",
+          "rte_365": "verified",
+          "rte_366": "verified",
+          "rte_367": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "579d6108-4396-4449-a5dc-f363fada3bc7",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_vec4_dot": {
+      "agent_id": "agent_zpl_vec4_dot",
+      "function_name": "zpl_vec4_dot",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_vec4_dot",
+        "preconditions": [
+          "requires \\is_finite(v0.x) && \\is_finite(v0.y) && \\is_finite(v0.z) && \\is_finite(v0.w);",
+          "requires \\is_finite(v1.x) && \\is_finite(v1.y) && \\is_finite(v1.z) && \\is_finite(v1.w);",
+          "requires \\is_finite(\\mul_float(v0.x, v1.x));",
+          "requires \\is_finite(\\mul_float(v0.y, v1.y));",
+          "requires \\is_finite(\\mul_float(v0.z, v1.z));",
+          "requires \\is_finite(\\mul_float(v0.w, v1.w));",
+          "requires \\is_finite(\\add_float(\\mul_float(v0.x, v1.x), \\mul_float(v0.y, v1.y)));",
+          "requires \\is_finite(\\add_float(\\add_float(\\mul_float(v0.x, v1.x), \\mul_float(v0.y, v1.y)), \\mul_float(v0.z, v1.z)));",
+          "requires \\is_finite(\\add_float(\\add_float(\\add_float(\\mul_float(v0.x, v1.x), \\mul_float(v0.y, v1.y)), \\mul_float(v0.z, v1.z)), \\mul_float(v0.w, v1.w)));"
+        ],
+        "postconditions": [
+          "ensures \\is_finite((float)\\result);",
+          "ensures \\result == \\add_float(\\add_float(\\add_float(\\mul_float(v0.x, v1.x), \\mul_float(v0.y, v1.y)), \\mul_float(v0.z, v1.z)), \\mul_float(v0.w, v1.w));"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 2,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 2,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 7,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_368": "verified",
+          "rte_369": "verified",
+          "rte_370": "verified",
+          "rte_371": "verified",
+          "rte_372": "verified",
+          "rte_373": "verified",
+          "rte_374": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "84465896-b380-4a7f-ba6d-070712d345d5",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_vec4_mag2": {
+      "agent_id": "agent_zpl_vec4_mag2",
+      "function_name": "zpl_vec4_mag2",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_vec4_mag2",
+        "preconditions": [
+          "requires \\is_finite((float)v.x) && \\is_finite((float)v.y) && \\is_finite((float)v.z) && \\is_finite((float)v.w);",
+          "requires \\is_finite(\\mul_float(v.x, v.x));",
+          "requires \\is_finite(\\mul_float(v.y, v.y));",
+          "requires \\is_finite(\\mul_float(v.z, v.z));",
+          "requires \\is_finite(\\mul_float(v.w, v.w));",
+          "requires \\is_finite(\\add_float(\\mul_float(v.x, v.x), \\mul_float(v.y, v.y)));",
+          "requires \\is_finite(\\add_float(\\add_float(\\mul_float(v.x, v.x), \\mul_float(v.y, v.y)), \\mul_float(v.z, v.z)));",
+          "requires \\is_finite(\\add_float(\\add_float(\\add_float(\\mul_float(v.x, v.x), \\mul_float(v.y, v.y)), \\mul_float(v.z, v.z)), \\mul_float(v.w, v.w)));"
+        ],
+        "postconditions": [
+          "ensures \\is_finite((float)\\result);",
+          "ensures \\result >= 0.0f;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 2,
+        "status": "published",
+        "based_on_versions": {
+          "zpl_vec4_dot": 2
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "zpl_vec4_dot": {
+            "depends": true,
+            "clauses": [
+              "ensures \\is_finite((float)\\result);",
+              "ensures \\result == \\add_float(\\add_float(\\add_float(\\mul_float(v0.x, v1.x), \\mul_float(v0.y, v1.y)), \\mul_float(v0.z, v1.z)), \\mul_float(v0.w, v1.w));"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "zpl_vec4_dot": [
+            "requires \\is_finite(\\add_float(\\add_float(\\add_float(\\mul_float(v0.x, v1.x), \\mul_float(v0.y, v1.y)), \\mul_float(v0.z, v1.z)), \\mul_float(v0.w, v1.w)));",
+            "requires \\is_finite(\\add_float(\\add_float(\\mul_float(v0.x, v1.x), \\mul_float(v0.y, v1.y)), \\mul_float(v0.z, v1.z)));",
+            "requires \\is_finite(\\add_float(\\mul_float(v0.x, v1.x), \\mul_float(v0.y, v1.y)));",
+            "requires \\is_finite(\\mul_float(v0.w, v1.w));",
+            "requires \\is_finite(\\mul_float(v0.x, v1.x));",
+            "requires \\is_finite(\\mul_float(v0.y, v1.y));",
+            "requires \\is_finite(\\mul_float(v0.z, v1.z));",
+            "requires \\is_finite(v0.x) && \\is_finite(v0.y) && \\is_finite(v0.z) && \\is_finite(v0.w);",
+            "requires \\is_finite(v1.x) && \\is_finite(v1.y) && \\is_finite(v1.z) && \\is_finite(v1.w);"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 2,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 9,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "call_site_24_0": "verified",
+          "call_site_24_1": "verified",
+          "call_site_24_2": "verified",
+          "call_site_24_3": "verified",
+          "call_site_24_4": "verified",
+          "call_site_24_5": "verified",
+          "call_site_24_6": "verified",
+          "call_site_24_7": "verified",
+          "call_site_24_8": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "zpl_vec4_dot"
+      ],
+      "session_id": "952673d4-bd69-4db0-b2c3-b335ae6aafcc",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_vec4_mul": {
+      "agent_id": "agent_zpl_vec4_mul",
+      "function_name": "zpl_vec4_mul",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_vec4_mul",
+        "preconditions": [
+          "requires \\valid(d);",
+          "requires \\is_finite(\\mul_float(v.x, s));",
+          "requires \\is_finite(\\mul_float(v.y, s));",
+          "requires \\is_finite(\\mul_float(v.z, s));",
+          "requires \\is_finite(\\mul_float(v.w, s));"
+        ],
+        "postconditions": [
+          "ensures d->x == \\mul_float(v.x, s);",
+          "ensures d->y == \\mul_float(v.y, s);",
+          "ensures d->z == \\mul_float(v.z, s);",
+          "ensures d->w == \\mul_float(v.w, s);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns d->x, d->y, d->z, d->w;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 8,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_387": "verified",
+          "rte_388": "verified",
+          "rte_389": "verified",
+          "rte_390": "verified",
+          "rte_391": "verified",
+          "rte_392": "verified",
+          "rte_393": "verified",
+          "rte_394": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "f2339d0d-d2ba-4960-9e92-b1f761ba9115",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_vec4_muleq": {
+      "agent_id": "agent_zpl_vec4_muleq",
+      "function_name": "zpl_vec4_muleq",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_vec4_muleq",
+        "preconditions": [
+          "requires \\valid(d);",
+          "requires \\is_finite(\\mul_float(d->x, s));",
+          "requires \\is_finite(\\mul_float(d->y, s));",
+          "requires \\is_finite(\\mul_float(d->z, s));",
+          "requires \\is_finite(\\mul_float(d->w, s));"
+        ],
+        "postconditions": [
+          "ensures \\is_finite(d->x);",
+          "ensures \\is_finite(d->y);",
+          "ensures \\is_finite(d->z);",
+          "ensures \\is_finite(d->w);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns d->x, d->y, d->z, d->w;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 12,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_375": "verified",
+          "rte_376": "verified",
+          "rte_377": "verified",
+          "rte_378": "verified",
+          "rte_379": "verified",
+          "rte_380": "verified",
+          "rte_381": "verified",
+          "rte_382": "verified",
+          "rte_383": "verified",
+          "rte_384": "verified",
+          "rte_385": "verified",
+          "rte_386": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "5ff328ad-be0c-4456-9445-009870fe1d82",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_vec4_norm": {
+      "agent_id": "agent_zpl_vec4_norm",
+      "function_name": "zpl_vec4_norm",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_vec4_norm",
+        "preconditions": [
+          "requires \\valid(d);",
+          "requires \\is_finite(v.x);",
+          "requires \\is_finite(v.y);",
+          "requires \\is_finite(v.z);",
+          "requires \\is_finite(v.w);",
+          "requires \\is_finite(\\add_float(\\add_float(\\add_float(\\mul_float(v.x, v.x), \\mul_float(v.y, v.y)), \\mul_float(v.z, v.z)), \\mul_float(v.w, v.w)));",
+          "requires \\add_float(\\add_float(\\add_float(\\mul_float(v.x, v.x), \\mul_float(v.y, v.y)), \\mul_float(v.z, v.z)), \\mul_float(v.w, v.w)) > 0.0f;"
+        ],
+        "postconditions": [
+          "ensures \\valid(d);",
+          "ensures \\is_finite(d->x);",
+          "ensures \\is_finite(d->y);",
+          "ensures \\is_finite(d->z);",
+          "ensures \\is_finite(d->w);"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns d->x, d->y, d->z, d->w;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {
+          "zpl_vec4_dot": 2,
+          "zpl_rsqrt": 1,
+          "zpl_vec4_mul": 1
+        },
+        "callee_contracts": {},
+        "spec_deps": {
+          "zpl_rsqrt": {
+            "depends": true,
+            "clauses": [
+              "ensures \\is_finite(\\result);",
+              "ensures \\result > 0.0f;"
+            ]
+          },
+          "zpl_vec4_dot": {
+            "depends": true,
+            "clauses": [
+              "ensures \\is_finite((float)\\result);",
+              "ensures \\result == \\add_float(\\add_float(\\add_float(\\mul_float(v0.x, v1.x), \\mul_float(v0.y, v1.y)), \\mul_float(v0.z, v1.z)), \\mul_float(v0.w, v1.w));"
+            ]
+          },
+          "zpl_vec4_mul": {
+            "depends": true,
+            "clauses": [
+              "ensures d->w == \\mul_float(v.w, s);",
+              "ensures d->x == \\mul_float(v.x, s);",
+              "ensures d->y == \\mul_float(v.y, s);",
+              "ensures d->z == \\mul_float(v.z, s);"
+            ]
+          }
+        },
+        "assumed_callees": [],
+        "callsite_pre_deps": {
+          "zpl_vec4_dot": [
+            "requires \\is_finite(\\add_float(\\add_float(\\add_float(\\mul_float(v0.x, v1.x), \\mul_float(v0.y, v1.y)), \\mul_float(v0.z, v1.z)), \\mul_float(v0.w, v1.w)));",
+            "requires \\is_finite(\\add_float(\\add_float(\\mul_float(v0.x, v1.x), \\mul_float(v0.y, v1.y)), \\mul_float(v0.z, v1.z)));",
+            "requires \\is_finite(\\add_float(\\mul_float(v0.x, v1.x), \\mul_float(v0.y, v1.y)));",
+            "requires \\is_finite(\\mul_float(v0.w, v1.w));",
+            "requires \\is_finite(\\mul_float(v0.x, v1.x));",
+            "requires \\is_finite(\\mul_float(v0.y, v1.y));",
+            "requires \\is_finite(\\mul_float(v0.z, v1.z));",
+            "requires \\is_finite(v0.x) && \\is_finite(v0.y) && \\is_finite(v0.z) && \\is_finite(v0.w);",
+            "requires \\is_finite(v1.x) && \\is_finite(v1.y) && \\is_finite(v1.z) && \\is_finite(v1.w);"
+          ],
+          "zpl_rsqrt": [
+            "requires \\is_finite(x);",
+            "requires x > 0.0f;"
+          ],
+          "zpl_vec4_mul": [
+            "requires \\is_finite(\\mul_float(v.w, s));",
+            "requires \\is_finite(\\mul_float(v.x, s));",
+            "requires \\is_finite(\\mul_float(v.y, s));",
+            "requires \\is_finite(\\mul_float(v.z, s));",
+            "requires \\valid(d);"
+          ]
+        }
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 2,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 16,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "call_site_25_0": "verified",
+          "call_site_25_1": "verified",
+          "call_site_25_2": "verified",
+          "call_site_25_3": "verified",
+          "call_site_25_4": "verified",
+          "call_site_25_5": "verified",
+          "call_site_25_6": "verified",
+          "call_site_25_7": "verified",
+          "call_site_25_8": "verified",
+          "call_site_26_0": "verified",
+          "call_site_26_1": "verified",
+          "call_site_27_0": "verified",
+          "call_site_27_1": "verified",
+          "call_site_27_2": "verified",
+          "call_site_27_3": "verified",
+          "call_site_27_4": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [
+        "zpl_vec4_dot",
+        "zpl_rsqrt",
+        "zpl_vec4_mul"
+      ],
+      "session_id": "0c3c04c3-f8f4-4709-81cf-4e85122cf905",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_vec4_sub": {
+      "agent_id": "agent_zpl_vec4_sub",
+      "function_name": "zpl_vec4_sub",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_vec4_sub",
+        "preconditions": [
+          "requires \\valid(d);",
+          "requires \\is_finite((double)\\sub_float(v0.x, v1.x));",
+          "requires \\is_finite((double)\\sub_float(v0.y, v1.y));",
+          "requires \\is_finite((double)\\sub_float(v0.z, v1.z));",
+          "requires \\is_finite((double)\\sub_float(v0.w, v1.w));"
+        ],
+        "postconditions": [
+          "ensures d->x == v0.x - v1.x;",
+          "ensures d->y == v0.y - v1.y;",
+          "ensures d->z == v0.z - v1.z;",
+          "ensures d->w == v0.w - v1.w;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns d->x, d->y, d->z, d->w;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 8,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_395": "verified",
+          "rte_396": "verified",
+          "rte_397": "verified",
+          "rte_398": "verified",
+          "rte_399": "verified",
+          "rte_400": "verified",
+          "rte_401": "verified",
+          "rte_402": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "f46bbdea-b3e0-4b1e-bf1e-327aa3ea4890",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_vec4_subeq": {
+      "agent_id": "agent_zpl_vec4_subeq",
+      "function_name": "zpl_vec4_subeq",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_vec4_subeq",
+        "preconditions": [
+          "requires \\valid(d);",
+          "requires \\is_finite(\\sub_float(d->x, v.x));",
+          "requires \\is_finite(\\sub_float(d->y, v.y));",
+          "requires \\is_finite(\\sub_float(d->z, v.z));",
+          "requires \\is_finite(\\sub_float(d->w, v.w));"
+        ],
+        "postconditions": [
+          "ensures d->x == \\old(d->x) - v.x;",
+          "ensures d->y == \\old(d->y) - v.y;",
+          "ensures d->z == \\old(d->z) - v.z;",
+          "ensures d->w == \\old(d->w) - v.w;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns d->x, d->y, d->z, d->w;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 12,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {
+          "rte_403": "verified",
+          "rte_404": "verified",
+          "rte_405": "verified",
+          "rte_406": "verified",
+          "rte_407": "verified",
+          "rte_408": "verified",
+          "rte_409": "verified",
+          "rte_410": "verified",
+          "rte_411": "verified",
+          "rte_412": "verified",
+          "rte_413": "verified",
+          "rte_414": "verified"
+        }
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "5a7be645-79fa-4687-ad0a-db1f51f20a62",
+      "settled_assumes": [],
+      "extern_axioms": []
+    },
+    "zpl_vec4f_zero": {
+      "agent_id": "agent_zpl_vec4f_zero",
+      "function_name": "zpl_vec4f_zero",
+      "proof_state": "global_ok",
+      "spec": {
+        "function_name": "zpl_vec4f_zero",
+        "preconditions": [],
+        "postconditions": [
+          "ensures \\result.x == 0.0f;",
+          "ensures \\result.y == 0.0f;",
+          "ensures \\result.z == 0.0f;",
+          "ensures \\result.w == 0.0f;"
+        ],
+        "loop_contracts": {},
+        "assigns": [
+          "assigns \\nothing;"
+        ],
+        "version": 1,
+        "status": "published",
+        "based_on_versions": {},
+        "callee_contracts": {},
+        "spec_deps": {},
+        "assumed_callees": [],
+        "callsite_pre_deps": {}
+      },
+      "wake_reasons": [],
+      "error": null,
+      "cycle_count": 1,
+      "cycle_limit_reached": false,
+      "vo_summary": {
+        "rte_verified": 0,
+        "rte_pending": 0,
+        "rte_failed": 0,
+        "rte_bug": 0,
+        "callsite_verified": 0,
+        "callsite_pending": 0,
+        "callsite_failed": 0,
+        "callsite_bug": 0,
+        "pending_ids": [],
+        "failed_ids": [],
+        "bugs": {},
+        "spec_status": "verified",
+        "vo_states": {}
+      },
+      "pending_wakes": 0,
+      "callees": [],
+      "session_id": "40c8ae34-3bb4-4132-817d-4d553dad524e",
+      "settled_assumes": [],
+      "extern_axioms": []
+    }
+  },
+  "summary": {
+    "total": 73,
+    "global_ok": 73,
+    "local_ok": 0,
+    "dirty": 0,
+    "failed": 0,
+    "cycle_limited": 0,
+    "conditional_ok": 0,
+    "bugs": 0
+  }
+}

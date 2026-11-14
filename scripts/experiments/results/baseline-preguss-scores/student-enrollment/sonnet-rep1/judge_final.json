@@ -1,0 +1,40 @@
+{
+  "rte_in_source": 40,
+  "rte_missing_from_report": [],
+  "rte_missing_counted": true,
+  "extern_contract_clauses": 213,
+  "rte": {
+    "total": 40,
+    "valid": 40,
+    "unproved": 0,
+    "ratio": 1.0
+  },
+  "callsite": {
+    "total": 49,
+    "valid": 40,
+    "unproved": 9,
+    "ratio": 0.8163
+  },
+  "spec": {
+    "total": 76,
+    "valid": 67,
+    "unproved": 9,
+    "ratio": 0.8816
+  },
+  "all": {
+    "total": 165,
+    "valid": 147,
+    "unproved": 18,
+    "ratio": 0.8909
+  },
+  "file": "scripts/experiments/results/baseline-preguss/student-enrollment/claude-sonnet-4-6/rep1/docker_workspace/output/student_enrollment_annotated_latest.c",
+  "preset": "final",
+  "wp_model": "Typed+var+int+real",
+  "wp_timeout": 30,
+  "wp_par": 8,
+  "prover": "alt-ergo,z3,cvc5",
+  "frama_c_rc": 0,
+  "elapsed_s": 110.3,
+  "axiomatic_blocks": 0,
+  "admit_clauses": 0
+}

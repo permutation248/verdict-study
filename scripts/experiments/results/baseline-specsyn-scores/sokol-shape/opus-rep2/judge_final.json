@@ -1,0 +1,40 @@
+{
+  "file": "/home/anon/VERDICT/scripts/experiments/results/baseline-specsyn/sokol-shape/claude-opus-4-5-20251101/rep2/output/restored.annotated.c",
+  "preset": "final",
+  "wp_model": "Typed+var+int+real",
+  "wp_timeout": 30,
+  "wp_par": 8,
+  "prover": "alt-ergo,z3,cvc5",
+  "frama_c_rc": 0,
+  "elapsed_s": 178.6,
+  "axiomatic_blocks": 0,
+  "admit_clauses": 0,
+  "extern_contract_clauses": 0,
+  "rte_in_source": 166,
+  "rte_missing_from_report": [],
+  "rte_missing_counted": true,
+  "rte": {
+    "total": 166,
+    "valid": 159,
+    "unproved": 7,
+    "ratio": 0.9578
+  },
+  "callsite": {
+    "total": 443,
+    "valid": 441,
+    "unproved": 2,
+    "ratio": 0.9955
+  },
+  "spec": {
+    "total": 205,
+    "valid": 201,
+    "unproved": 4,
+    "ratio": 0.9805
+  },
+  "all": {
+    "total": 814,
+    "valid": 801,
+    "unproved": 13,
+    "ratio": 0.984
+  }
+}

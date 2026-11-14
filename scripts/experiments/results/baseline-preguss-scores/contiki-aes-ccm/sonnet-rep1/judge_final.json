@@ -1,0 +1,40 @@
+{
+  "rte_in_source": 163,
+  "rte_missing_from_report": [],
+  "rte_missing_counted": true,
+  "extern_contract_clauses": 144,
+  "rte": {
+    "total": 163,
+    "valid": 89,
+    "unproved": 74,
+    "ratio": 0.546
+  },
+  "callsite": {
+    "total": 44,
+    "valid": 14,
+    "unproved": 30,
+    "ratio": 0.3182
+  },
+  "spec": {
+    "total": 76,
+    "valid": 22,
+    "unproved": 54,
+    "ratio": 0.2895
+  },
+  "all": {
+    "total": 283,
+    "valid": 125,
+    "unproved": 158,
+    "ratio": 0.4417
+  },
+  "file": "scripts/experiments/results/baseline-preguss/contiki-aes-ccm/claude-sonnet-4-6/rep1/docker_workspace/output/contiki_aes_ccm_annotated_latest.c",
+  "preset": "final",
+  "wp_model": "Typed+var+int+real",
+  "wp_timeout": 30,
+  "wp_par": 8,
+  "prover": "alt-ergo,z3,cvc5",
+  "frama_c_rc": 0,
+  "elapsed_s": 305.0,
+  "axiomatic_blocks": 0,
+  "admit_clauses": 0
+}

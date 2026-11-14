@@ -1,0 +1,573 @@
+function,category,property,status,valid,line
+zpl_sqrt,callsite,Instance of 'Pre-condition 'finite_arg'' at call 'sqrtf',Valid,True,122
+zpl_sqrt,callsite,Instance of 'Pre-condition 'arg_positive'' at call 'sqrtf',-,False,122
+zpl_rsqrt,spec,Post-condition,Valid,True,128
+zpl_rsqrt,spec,Post-condition,Valid,True,129
+zpl_rsqrt,rte,"Assertion 'rte_306,is_nan_or_infinite'",Valid,True,136
+zpl_rsqrt,callsite,Instance of 'Pre-condition 'finite_arg'' at call 'sqrtf',Valid,True,135
+zpl_rsqrt,callsite,Instance of 'Pre-condition 'arg_positive'' at call 'sqrtf',-,False,135
+zpl_sin,callsite,Instance of 'Pre-condition 'finite_arg'' at call 'sinf',Valid,True,144
+zpl_cos,callsite,Instance of 'Pre-condition 'finite_arg'' at call 'cosf',Valid,True,151
+zpl_to_radians,rte,"Assertion 'rte_199,is_nan_or_infinite'",Valid,True,159
+zpl_to_radians,rte,"Assertion 'rte_200,is_nan_or_infinite'",Valid,True,163
+zpl_to_degrees,rte,"Assertion 'rte_197,is_nan_or_infinite'",Valid,True,173
+zpl_to_degrees,rte,"Assertion 'rte_198,is_nan_or_infinite'",Valid,True,177
+zpl_round,rte,"Assertion 'rte_193,is_nan_or_infinite'",Valid,True,186
+zpl_round,callsite,Instance of 'Pre-condition 'finite_arg'' at call 'floorf',Valid,True,187
+zpl_remainder,rte,"Assertion 'rte_194,is_nan_or_infinite'",Valid,True,195
+zpl_remainder,rte,"Assertion 'rte_195,is_nan_or_infinite'",Valid,True,198
+zpl_remainder,rte,"Assertion 'rte_196,is_nan_or_infinite'",Valid,True,200
+zpl_vec2f,spec,Post-condition,Valid,True,214
+zpl_vec2f,spec,Post-condition,Valid,True,215
+zpl_vec2fv,rte,"Assertion 'rte_248,mem_access'",Valid,True,232
+zpl_vec2fv,rte,"Assertion 'rte_249,mem_access'",Valid,True,234
+zpl_vec4f,spec,Post-condition,Valid,True,263
+zpl_vec4f,spec,Post-condition,Valid,True,264
+zpl_vec4f,spec,Post-condition,Valid,True,265
+zpl_vec4f,spec,Post-condition,Valid,True,266
+zpl_vec2_dot,rte,"Assertion 'rte_233,is_nan_or_infinite'",Valid,True,281
+zpl_vec2_dot,rte,"Assertion 'rte_234,is_nan_or_infinite'",Valid,True,282
+zpl_vec2_dot,rte,"Assertion 'rte_235,is_nan_or_infinite'",Valid,True,285
+zpl_vec3_dot,spec,Post-condition,Valid,True,292
+zpl_vec3_dot,spec,Post-condition,Valid,True,293
+zpl_vec3_dot,rte,"Assertion 'rte_292,is_nan_or_infinite'",Valid,True,298
+zpl_vec3_dot,rte,"Assertion 'rte_293,is_nan_or_infinite'",Valid,True,299
+zpl_vec3_dot,rte,"Assertion 'rte_294,is_nan_or_infinite'",Valid,True,302
+zpl_vec3_dot,rte,"Assertion 'rte_295,is_nan_or_infinite'",Valid,True,304
+zpl_vec3_dot,rte,"Assertion 'rte_296,is_nan_or_infinite'",Valid,True,307
+zpl_vec4_dot,spec,Post-condition,Valid,True,317
+zpl_vec4_dot,spec,Post-condition,Valid,True,318
+zpl_vec4_dot,rte,"Assertion 'rte_368,is_nan_or_infinite'",Valid,True,323
+zpl_vec4_dot,rte,"Assertion 'rte_369,is_nan_or_infinite'",Valid,True,324
+zpl_vec4_dot,rte,"Assertion 'rte_370,is_nan_or_infinite'",Valid,True,327
+zpl_vec4_dot,rte,"Assertion 'rte_371,is_nan_or_infinite'",Valid,True,329
+zpl_vec4_dot,rte,"Assertion 'rte_372,is_nan_or_infinite'",Valid,True,332
+zpl_vec4_dot,rte,"Assertion 'rte_373,is_nan_or_infinite'",Valid,True,336
+zpl_vec4_dot,rte,"Assertion 'rte_374,is_nan_or_infinite'",Valid,True,339
+zpl_vec2_add,spec,Pre-condition,Valid,True,370
+zpl_vec2_add,spec,Pre-condition,Valid,True,371
+zpl_vec2_add,spec,Pre-condition,Valid,True,372
+zpl_vec2_add,spec,Post-condition,Valid,True,374
+zpl_vec2_add,spec,Post-condition,Valid,True,375
+zpl_vec2_add,spec,Post-condition,Valid,True,376
+zpl_vec2_add,spec,Post-condition,Valid,True,377
+zpl_vec2_add,spec,Assigns,Valid,True,373
+zpl_vec2_add,rte,"Assertion 'rte_229,mem_access'",Valid,True,381
+zpl_vec2_add,rte,"Assertion 'rte_230,is_nan_or_infinite'",Valid,True,382
+zpl_vec2_add,rte,"Assertion 'rte_231,mem_access'",Valid,True,384
+zpl_vec2_add,rte,"Assertion 'rte_232,is_nan_or_infinite'",Valid,True,385
+zpl_vec2_sub,spec,Pre-condition,Valid,True,391
+zpl_vec2_sub,spec,Pre-condition,Valid,True,392
+zpl_vec2_sub,spec,Pre-condition,Valid,True,393
+zpl_vec2_sub,spec,Pre-condition,Valid,True,394
+zpl_vec2_sub,spec,Pre-condition,Valid,True,395
+zpl_vec2_sub,spec,Pre-condition,Valid,True,396
+zpl_vec2_sub,spec,Pre-condition,Valid,True,397
+zpl_vec2_sub,spec,Post-condition,Valid,True,399
+zpl_vec2_sub,spec,Post-condition,Valid,True,400
+zpl_vec2_sub,spec,Post-condition,Valid,True,401
+zpl_vec2_sub,spec,Post-condition,Valid,True,402
+zpl_vec2_sub,spec,Assigns,Valid,True,398
+zpl_vec2_sub,rte,"Assertion 'rte_221,mem_access'",Valid,True,406
+zpl_vec2_sub,rte,"Assertion 'rte_222,is_nan_or_infinite'",Valid,True,407
+zpl_vec2_sub,rte,"Assertion 'rte_223,mem_access'",Valid,True,409
+zpl_vec2_sub,rte,"Assertion 'rte_224,is_nan_or_infinite'",Valid,True,410
+zpl_vec2_mul,spec,Pre-condition,Valid,True,416
+zpl_vec2_mul,spec,Pre-condition,Valid,True,417
+zpl_vec2_mul,spec,Pre-condition,Valid,True,418
+zpl_vec2_mul,spec,Post-condition,Valid,True,420
+zpl_vec2_mul,spec,Post-condition,Valid,True,421
+zpl_vec2_mul,spec,Post-condition,Valid,True,422
+zpl_vec2_mul,spec,Post-condition,Valid,True,423
+zpl_vec2_mul,spec,Assigns,Valid,True,419
+zpl_vec2_mul,rte,"Assertion 'rte_225,mem_access'",Valid,True,427
+zpl_vec2_mul,rte,"Assertion 'rte_226,is_nan_or_infinite'",Valid,True,428
+zpl_vec2_mul,rte,"Assertion 'rte_227,mem_access'",Valid,True,430
+zpl_vec2_mul,rte,"Assertion 'rte_228,is_nan_or_infinite'",Valid,True,431
+zpl_vec2_div,spec,Assigns,Valid,True,442
+zpl_vec2_div,rte,"Assertion 'rte_211,mem_access'",Valid,True,446
+zpl_vec2_div,rte,"Assertion 'rte_212,is_nan_or_infinite'",Valid,True,447
+zpl_vec2_div,rte,"Assertion 'rte_213,mem_access'",Valid,True,449
+zpl_vec2_div,rte,"Assertion 'rte_214,is_nan_or_infinite'",Valid,True,450
+zpl_vec3_add,spec,Assigns,Valid,True,460
+zpl_vec3_add,rte,"Assertion 'rte_250,mem_access'",Valid,True,464
+zpl_vec3_add,rte,"Assertion 'rte_251,is_nan_or_infinite'",Valid,True,465
+zpl_vec3_add,rte,"Assertion 'rte_252,mem_access'",Valid,True,467
+zpl_vec3_add,rte,"Assertion 'rte_253,is_nan_or_infinite'",Valid,True,468
+zpl_vec3_add,rte,"Assertion 'rte_254,mem_access'",Valid,True,470
+zpl_vec3_add,rte,"Assertion 'rte_255,is_nan_or_infinite'",Valid,True,471
+zpl_vec3_cross,spec,Assigns,Valid,True,483
+zpl_vec3_cross,rte,"Assertion 'rte_265,mem_access'",Valid,True,487
+zpl_vec3_cross,rte,"Assertion 'rte_266,is_nan_or_infinite'",Valid,True,488
+zpl_vec3_cross,rte,"Assertion 'rte_267,is_nan_or_infinite'",Valid,True,489
+zpl_vec3_cross,rte,"Assertion 'rte_268,is_nan_or_infinite'",Valid,True,492
+zpl_vec3_cross,rte,"Assertion 'rte_269,mem_access'",Valid,True,495
+zpl_vec3_cross,rte,"Assertion 'rte_270,is_nan_or_infinite'",Valid,True,496
+zpl_vec3_cross,rte,"Assertion 'rte_271,is_nan_or_infinite'",Valid,True,497
+zpl_vec3_cross,rte,"Assertion 'rte_272,is_nan_or_infinite'",Valid,True,500
+zpl_vec3_cross,rte,"Assertion 'rte_273,mem_access'",Valid,True,503
+zpl_vec3_cross,rte,"Assertion 'rte_274,is_nan_or_infinite'",Valid,True,504
+zpl_vec3_cross,rte,"Assertion 'rte_275,is_nan_or_infinite'",Valid,True,505
+zpl_vec3_cross,rte,"Assertion 'rte_276,is_nan_or_infinite'",Valid,True,508
+zpl_vec4_add,spec,Assigns,Valid,True,520
+zpl_vec4_add,rte,"Assertion 'rte_328,mem_access'",Valid,True,524
+zpl_vec4_add,rte,"Assertion 'rte_329,is_nan_or_infinite'",Valid,True,525
+zpl_vec4_add,rte,"Assertion 'rte_330,mem_access'",Valid,True,527
+zpl_vec4_add,rte,"Assertion 'rte_331,is_nan_or_infinite'",Valid,True,528
+zpl_vec4_add,rte,"Assertion 'rte_332,mem_access'",Valid,True,530
+zpl_vec4_add,rte,"Assertion 'rte_333,is_nan_or_infinite'",Valid,True,531
+zpl_vec4_add,rte,"Assertion 'rte_334,mem_access'",Valid,True,533
+zpl_vec4_add,rte,"Assertion 'rte_335,is_nan_or_infinite'",Valid,True,534
+zpl_vec4_mul,spec,Pre-condition,Valid,True,540
+zpl_vec4_mul,spec,Pre-condition,Valid,True,541
+zpl_vec4_mul,spec,Pre-condition,Valid,True,542
+zpl_vec4_mul,spec,Assigns,Valid,True,543
+zpl_vec4_mul,rte,"Assertion 'rte_387,mem_access'",Valid,True,547
+zpl_vec4_mul,rte,"Assertion 'rte_388,is_nan_or_infinite'",Valid,True,548
+zpl_vec4_mul,rte,"Assertion 'rte_389,mem_access'",Valid,True,550
+zpl_vec4_mul,rte,"Assertion 'rte_390,is_nan_or_infinite'",Valid,True,551
+zpl_vec4_mul,rte,"Assertion 'rte_391,mem_access'",Valid,True,553
+zpl_vec4_mul,rte,"Assertion 'rte_392,is_nan_or_infinite'",Valid,True,554
+zpl_vec4_mul,rte,"Assertion 'rte_393,mem_access'",Valid,True,556
+zpl_vec4_mul,rte,"Assertion 'rte_394,is_nan_or_infinite'",Valid,True,557
+zpl_mat2_identity,spec,Assigns,Valid,True,564
+zpl_mat2_identity,rte,"Assertion 'rte_23,mem_access'",Valid,True,568
+zpl_mat2_identity,rte,"Assertion 'rte_24,mem_access'",Valid,True,570
+zpl_mat2_mul,spec,Assigns,Valid,True,587
+zpl_mat2_mul,rte,"Assertion 'rte_25,mem_access'",Valid,True,592
+zpl_mat2_mul,rte,"Assertion 'rte_26,mem_access'",Valid,True,593
+zpl_mat2_mul,rte,"Assertion 'rte_27,is_nan_or_infinite'",Valid,True,596
+zpl_mat2_mul,rte,"Assertion 'rte_28,mem_access'",Valid,True,598
+zpl_mat2_mul,rte,"Assertion 'rte_29,mem_access'",Valid,True,599
+zpl_mat2_mul,rte,"Assertion 'rte_30,is_nan_or_infinite'",Valid,True,602
+zpl_mat2_mul,rte,"Assertion 'rte_31,is_nan_or_infinite'",Valid,True,606
+zpl_mat2_mul,rte,"Assertion 'rte_32,mem_access'",Valid,True,610
+zpl_mat2_mul,rte,"Assertion 'rte_33,mem_access'",Valid,True,611
+zpl_mat2_mul,rte,"Assertion 'rte_34,is_nan_or_infinite'",Valid,True,614
+zpl_mat2_mul,rte,"Assertion 'rte_35,mem_access'",Valid,True,616
+zpl_mat2_mul,rte,"Assertion 'rte_36,mem_access'",Valid,True,617
+zpl_mat2_mul,rte,"Assertion 'rte_37,is_nan_or_infinite'",Valid,True,620
+zpl_mat2_mul,rte,"Assertion 'rte_38,is_nan_or_infinite'",Valid,True,624
+zpl_mat2_mul,rte,"Assertion 'rte_39,mem_access'",Valid,True,628
+zpl_mat2_mul,rte,"Assertion 'rte_40,mem_access'",Valid,True,629
+zpl_mat2_mul,rte,"Assertion 'rte_41,is_nan_or_infinite'",Valid,True,632
+zpl_mat2_mul,rte,"Assertion 'rte_42,mem_access'",Valid,True,634
+zpl_mat2_mul,rte,"Assertion 'rte_43,mem_access'",Valid,True,635
+zpl_mat2_mul,rte,"Assertion 'rte_44,is_nan_or_infinite'",Valid,True,638
+zpl_mat2_mul,rte,"Assertion 'rte_45,is_nan_or_infinite'",Valid,True,642
+zpl_mat2_mul,rte,"Assertion 'rte_46,mem_access'",Valid,True,646
+zpl_mat2_mul,rte,"Assertion 'rte_47,mem_access'",Valid,True,647
+zpl_mat2_mul,rte,"Assertion 'rte_48,is_nan_or_infinite'",Valid,True,650
+zpl_mat2_mul,rte,"Assertion 'rte_49,mem_access'",Valid,True,652
+zpl_mat2_mul,rte,"Assertion 'rte_50,mem_access'",Valid,True,653
+zpl_mat2_mul,rte,"Assertion 'rte_51,is_nan_or_infinite'",Valid,True,656
+zpl_mat2_mul,rte,"Assertion 'rte_52,is_nan_or_infinite'",Valid,True,660
+zpl_mat2_mul,rte,"Assertion 'rte_53,mem_access'",Valid,True,664
+zpl_mat4_identity,spec,Pre-condition,Valid,True,670
+zpl_mat4_identity,spec,Post-condition,Valid,True,672
+zpl_mat4_identity,spec,Post-condition,Valid,True,673
+zpl_mat4_identity,spec,Post-condition,Valid,True,674
+zpl_mat4_identity,spec,Post-condition,Valid,True,675
+zpl_mat4_identity,spec,Post-condition,Valid,True,676
+zpl_mat4_identity,spec,Post-condition,Valid,True,677
+zpl_mat4_identity,spec,Post-condition,Valid,True,678
+zpl_mat4_identity,spec,Post-condition,Valid,True,679
+zpl_mat4_identity,spec,Post-condition,Valid,True,680
+zpl_mat4_identity,spec,Post-condition,Valid,True,681
+zpl_mat4_identity,spec,Post-condition,Valid,True,682
+zpl_mat4_identity,spec,Post-condition,Valid,True,683
+zpl_mat4_identity,spec,Post-condition,Valid,True,684
+zpl_mat4_identity,spec,Post-condition,Valid,True,685
+zpl_mat4_identity,spec,Post-condition,Valid,True,686
+zpl_mat4_identity,spec,Post-condition,Valid,True,687
+zpl_mat4_identity,spec,Post-condition,Valid,True,688
+zpl_mat4_identity,spec,Assigns,Valid,True,671
+zpl_mat4_identity,rte,"Assertion 'rte_108,mem_access'",Valid,True,692
+zpl_mat4_identity,rte,"Assertion 'rte_109,mem_access'",Valid,True,694
+zpl_mat4_identity,rte,"Assertion 'rte_110,mem_access'",Valid,True,696
+zpl_mat4_identity,rte,"Assertion 'rte_111,mem_access'",Valid,True,698
+zpl_float44_identity,spec,Assigns,Valid,True,706
+zpl_float44_identity,rte,"Assertion 'rte_1,mem_access'",Valid,True,710
+zpl_float44_identity,rte,"Assertion 'rte_2,mem_access'",Valid,True,712
+zpl_float44_identity,rte,"Assertion 'rte_3,mem_access'",Valid,True,714
+zpl_float44_identity,rte,"Assertion 'rte_4,mem_access'",Valid,True,716
+zpl_float44_identity,rte,"Assertion 'rte_5,mem_access'",Valid,True,718
+zpl_float44_identity,rte,"Assertion 'rte_6,mem_access'",Valid,True,720
+zpl_float44_identity,rte,"Assertion 'rte_7,mem_access'",Valid,True,722
+zpl_float44_identity,rte,"Assertion 'rte_8,mem_access'",Valid,True,724
+zpl_float44_identity,rte,"Assertion 'rte_9,mem_access'",Valid,True,726
+zpl_float44_identity,rte,"Assertion 'rte_10,mem_access'",Valid,True,728
+zpl_float44_identity,rte,"Assertion 'rte_11,mem_access'",Valid,True,730
+zpl_float44_identity,rte,"Assertion 'rte_12,mem_access'",Valid,True,732
+zpl_float44_identity,rte,"Assertion 'rte_13,mem_access'",Valid,True,734
+zpl_float44_identity,rte,"Assertion 'rte_14,mem_access'",Valid,True,736
+zpl_float44_identity,rte,"Assertion 'rte_15,mem_access'",Valid,True,738
+zpl_float44_identity,rte,"Assertion 'rte_16,mem_access'",Valid,True,740
+zpl_float44_transpose,spec,Pre-condition,Valid,True,746
+zpl_float44_transpose,spec,Pre-condition,Valid,True,747
+zpl_float44_transpose,spec,Post-condition,Valid,True,749
+zpl_float44_transpose,spec,Assigns,Valid,True,748
+zpl_float44_transpose,rte,"Assertion 'rte_137,mem_access'",Valid,True,754
+zpl_float44_transpose,rte,"Assertion 'rte_138,mem_access'",Valid,True,756
+zpl_float44_transpose,rte,"Assertion 'rte_139,mem_access'",Valid,True,757
+zpl_float44_transpose,rte,"Assertion 'rte_140,mem_access'",Valid,True,759
+zpl_float44_transpose,rte,"Assertion 'rte_141,mem_access'",Valid,True,761
+zpl_float44_transpose,rte,"Assertion 'rte_142,mem_access'",Valid,True,763
+zpl_float44_transpose,rte,"Assertion 'rte_143,mem_access'",Valid,True,764
+zpl_float44_transpose,rte,"Assertion 'rte_144,mem_access'",Valid,True,766
+zpl_float44_transpose,rte,"Assertion 'rte_145,mem_access'",Valid,True,768
+zpl_float44_transpose,rte,"Assertion 'rte_146,mem_access'",Valid,True,770
+zpl_float44_transpose,rte,"Assertion 'rte_147,mem_access'",Valid,True,771
+zpl_float44_transpose,rte,"Assertion 'rte_148,mem_access'",Valid,True,773
+zpl_float44_transpose,rte,"Assertion 'rte_149,mem_access'",Valid,True,775
+zpl_float44_transpose,rte,"Assertion 'rte_150,mem_access'",Valid,True,777
+zpl_float44_transpose,rte,"Assertion 'rte_151,mem_access'",Valid,True,778
+zpl_float44_transpose,rte,"Assertion 'rte_152,mem_access'",Valid,True,780
+zpl_float44_transpose,rte,"Assertion 'rte_153,mem_access'",Valid,True,782
+zpl_float44_transpose,rte,"Assertion 'rte_154,mem_access'",Valid,True,784
+zpl_float44_transpose,rte,"Assertion 'rte_155,mem_access'",Valid,True,785
+zpl_float44_transpose,rte,"Assertion 'rte_156,mem_access'",Valid,True,787
+zpl_float44_transpose,rte,"Assertion 'rte_157,mem_access'",Valid,True,789
+zpl_float44_transpose,rte,"Assertion 'rte_158,mem_access'",Valid,True,791
+zpl_float44_transpose,rte,"Assertion 'rte_159,mem_access'",Valid,True,792
+zpl_float44_transpose,rte,"Assertion 'rte_160,mem_access'",Valid,True,794
+zpl_float44_mul_vec4,spec,Pre-condition,Valid,True,800
+zpl_float44_mul_vec4,spec,Pre-condition,Valid,True,801
+zpl_float44_mul_vec4,spec,Pre-condition,Valid,True,802
+zpl_float44_mul_vec4,spec,Pre-condition,Valid,True,803
+zpl_float44_mul_vec4,spec,Pre-condition,Valid,True,804
+zpl_float44_mul_vec4,spec,Pre-condition,Valid,True,805
+zpl_float44_mul_vec4,spec,Pre-condition,Valid,True,806
+zpl_float44_mul_vec4,spec,Pre-condition,Valid,True,807
+zpl_float44_mul_vec4,spec,Pre-condition,Valid,True,808
+zpl_float44_mul_vec4,spec,Post-condition,Valid,True,810
+zpl_float44_mul_vec4,spec,Post-condition,Valid,True,811
+zpl_float44_mul_vec4,spec,Post-condition,Valid,True,812
+zpl_float44_mul_vec4,spec,Post-condition,Valid,True,813
+zpl_float44_mul_vec4,spec,Assigns,Valid,True,809
+zpl_float44_mul_vec4,rte,"Assertion 'rte_60,mem_access'",Valid,True,817
+zpl_float44_mul_vec4,rte,"Assertion 'rte_61,mem_access'",Valid,True,818
+zpl_float44_mul_vec4,rte,"Assertion 'rte_62,is_nan_or_infinite'",Valid,True,820
+zpl_float44_mul_vec4,rte,"Assertion 'rte_63,mem_access'",Valid,True,822
+zpl_float44_mul_vec4,rte,"Assertion 'rte_64,is_nan_or_infinite'",Valid,True,824
+zpl_float44_mul_vec4,rte,"Assertion 'rte_65,is_nan_or_infinite'",Valid,True,828
+zpl_float44_mul_vec4,rte,"Assertion 'rte_66,mem_access'",Valid,True,831
+zpl_float44_mul_vec4,rte,"Assertion 'rte_67,is_nan_or_infinite'",Valid,True,833
+zpl_float44_mul_vec4,rte,"Assertion 'rte_68,is_nan_or_infinite'",Valid,True,837
+zpl_float44_mul_vec4,rte,"Assertion 'rte_69,mem_access'",Valid,True,841
+zpl_float44_mul_vec4,rte,"Assertion 'rte_70,is_nan_or_infinite'",Valid,True,843
+zpl_float44_mul_vec4,rte,"Assertion 'rte_71,is_nan_or_infinite'",Valid,True,847
+zpl_float44_mul_vec4,rte,"Assertion 'rte_72,mem_access'",Valid,True,856
+zpl_float44_mul_vec4,rte,"Assertion 'rte_73,mem_access'",Valid,True,857
+zpl_float44_mul_vec4,rte,"Assertion 'rte_74,is_nan_or_infinite'",Valid,True,859
+zpl_float44_mul_vec4,rte,"Assertion 'rte_75,mem_access'",Valid,True,861
+zpl_float44_mul_vec4,rte,"Assertion 'rte_76,is_nan_or_infinite'",Valid,True,863
+zpl_float44_mul_vec4,rte,"Assertion 'rte_77,is_nan_or_infinite'",Valid,True,867
+zpl_float44_mul_vec4,rte,"Assertion 'rte_78,mem_access'",Valid,True,870
+zpl_float44_mul_vec4,rte,"Assertion 'rte_79,is_nan_or_infinite'",Valid,True,872
+zpl_float44_mul_vec4,rte,"Assertion 'rte_80,is_nan_or_infinite'",Valid,True,876
+zpl_float44_mul_vec4,rte,"Assertion 'rte_81,mem_access'",Valid,True,880
+zpl_float44_mul_vec4,rte,"Assertion 'rte_82,is_nan_or_infinite'",Valid,True,882
+zpl_float44_mul_vec4,rte,"Assertion 'rte_83,is_nan_or_infinite'",Valid,True,886
+zpl_float44_mul_vec4,rte,"Assertion 'rte_84,mem_access'",Valid,True,895
+zpl_float44_mul_vec4,rte,"Assertion 'rte_85,mem_access'",Valid,True,896
+zpl_float44_mul_vec4,rte,"Assertion 'rte_86,is_nan_or_infinite'",Valid,True,898
+zpl_float44_mul_vec4,rte,"Assertion 'rte_87,mem_access'",Valid,True,900
+zpl_float44_mul_vec4,rte,"Assertion 'rte_88,is_nan_or_infinite'",Valid,True,902
+zpl_float44_mul_vec4,rte,"Assertion 'rte_89,is_nan_or_infinite'",Valid,True,906
+zpl_float44_mul_vec4,rte,"Assertion 'rte_90,mem_access'",Valid,True,909
+zpl_float44_mul_vec4,rte,"Assertion 'rte_91,is_nan_or_infinite'",Valid,True,911
+zpl_float44_mul_vec4,rte,"Assertion 'rte_92,is_nan_or_infinite'",Valid,True,915
+zpl_float44_mul_vec4,rte,"Assertion 'rte_93,mem_access'",Valid,True,919
+zpl_float44_mul_vec4,rte,"Assertion 'rte_94,is_nan_or_infinite'",Valid,True,921
+zpl_float44_mul_vec4,rte,"Assertion 'rte_95,is_nan_or_infinite'",Valid,True,925
+zpl_float44_mul_vec4,rte,"Assertion 'rte_96,mem_access'",Valid,True,934
+zpl_float44_mul_vec4,rte,"Assertion 'rte_97,mem_access'",Valid,True,935
+zpl_float44_mul_vec4,rte,"Assertion 'rte_98,is_nan_or_infinite'",Valid,True,937
+zpl_float44_mul_vec4,rte,"Assertion 'rte_99,mem_access'",Valid,True,939
+zpl_float44_mul_vec4,rte,"Assertion 'rte_100,is_nan_or_infinite'",Valid,True,941
+zpl_float44_mul_vec4,rte,"Assertion 'rte_101,is_nan_or_infinite'",Valid,True,945
+zpl_float44_mul_vec4,rte,"Assertion 'rte_102,mem_access'",Valid,True,948
+zpl_float44_mul_vec4,rte,"Assertion 'rte_103,is_nan_or_infinite'",Valid,True,950
+zpl_float44_mul_vec4,rte,"Assertion 'rte_104,is_nan_or_infinite'",Valid,True,954
+zpl_float44_mul_vec4,rte,"Assertion 'rte_105,mem_access'",Valid,True,958
+zpl_float44_mul_vec4,rte,"Assertion 'rte_106,is_nan_or_infinite'",Valid,True,960
+zpl_float44_mul_vec4,rte,"Assertion 'rte_107,is_nan_or_infinite'",Valid,True,964
+zpl_mat4_to_translate,spec,Assigns,Valid,True,978
+zpl_mat4_to_translate,rte,"Assertion 'rte_134,mem_access'",Valid,True,983
+zpl_mat4_to_translate,rte,"Assertion 'rte_135,mem_access'",Valid,True,985
+zpl_mat4_to_translate,rte,"Assertion 'rte_136,mem_access'",Valid,True,987
+zpl_mat4_to_translate,callsite,Instance of 'Pre-condition,Valid,True,670
+zpl_mat4_to_scale,spec,Assigns,Valid,True,994
+zpl_mat4_to_scale,rte,"Assertion 'rte_128,mem_access'",Valid,True,999
+zpl_mat4_to_scale,rte,"Assertion 'rte_129,mem_access'",Valid,True,1001
+zpl_mat4_to_scale,rte,"Assertion 'rte_130,mem_access'",Valid,True,1003
+zpl_mat4_to_scale,callsite,Instance of 'Pre-condition,Valid,True,670
+zpl_mat4_to_scalef,rte,"Assertion 'rte_131,mem_access'",Valid,True,1014
+zpl_mat4_to_scalef,rte,"Assertion 'rte_132,mem_access'",Valid,True,1016
+zpl_mat4_to_scalef,rte,"Assertion 'rte_133,mem_access'",Valid,True,1018
+zpl_mat4_to_scalef,callsite,Instance of 'Pre-condition,Valid,True,670
+zpl_mat4_ortho2d,rte,"Assertion 'rte_112,mem_access'",Valid,True,1044
+zpl_mat4_ortho2d,rte,"Assertion 'rte_113,is_nan_or_infinite'",Valid,True,1045
+zpl_mat4_ortho2d,rte,"Assertion 'rte_114,is_nan_or_infinite'",Valid,True,1048
+zpl_mat4_ortho2d,rte,"Assertion 'rte_115,mem_access'",Valid,True,1051
+zpl_mat4_ortho2d,rte,"Assertion 'rte_116,is_nan_or_infinite'",Valid,True,1052
+zpl_mat4_ortho2d,rte,"Assertion 'rte_117,is_nan_or_infinite'",Valid,True,1055
+zpl_mat4_ortho2d,rte,"Assertion 'rte_118,mem_access'",Valid,True,1058
+zpl_mat4_ortho2d,rte,"Assertion 'rte_119,is_nan_or_infinite'",Valid,True,1059
+zpl_mat4_ortho2d,rte,"Assertion 'rte_120,mem_access'",Valid,True,1061
+zpl_mat4_ortho2d,rte,"Assertion 'rte_121,is_nan_or_infinite'",Valid,True,1062
+zpl_mat4_ortho2d,rte,"Assertion 'rte_122,is_nan_or_infinite'",Valid,True,1063
+zpl_mat4_ortho2d,rte,"Assertion 'rte_123,is_nan_or_infinite'",Valid,True,1066
+zpl_mat4_ortho2d,rte,"Assertion 'rte_124,mem_access'",Valid,True,1070
+zpl_mat4_ortho2d,rte,"Assertion 'rte_125,is_nan_or_infinite'",Valid,True,1071
+zpl_mat4_ortho2d,rte,"Assertion 'rte_126,is_nan_or_infinite'",Valid,True,1072
+zpl_mat4_ortho2d,rte,"Assertion 'rte_127,is_nan_or_infinite'",Valid,True,1075
+zpl_mat4_ortho2d,callsite,Instance of 'Pre-condition,Valid,True,670
+zpl_quat_mul,spec,Assigns,Valid,True,1093
+zpl_quat_mul,rte,"Assertion 'rte_161,mem_access'",Valid,True,1097
+zpl_quat_mul,rte,"Assertion 'rte_162,is_nan_or_infinite'",Valid,True,1098
+zpl_quat_mul,rte,"Assertion 'rte_163,is_nan_or_infinite'",Valid,True,1099
+zpl_quat_mul,rte,"Assertion 'rte_164,is_nan_or_infinite'",Valid,True,1102
+zpl_quat_mul,rte,"Assertion 'rte_165,is_nan_or_infinite'",Valid,True,1104
+zpl_quat_mul,rte,"Assertion 'rte_166,is_nan_or_infinite'",Valid,True,1107
+zpl_quat_mul,rte,"Assertion 'rte_167,is_nan_or_infinite'",Valid,True,1111
+zpl_quat_mul,rte,"Assertion 'rte_168,is_nan_or_infinite'",Valid,True,1114
+zpl_quat_mul,rte,"Assertion 'rte_169,mem_access'",Valid,True,1120
+zpl_quat_mul,rte,"Assertion 'rte_170,is_nan_or_infinite'",Valid,True,1121
+zpl_quat_mul,rte,"Assertion 'rte_171,is_nan_or_infinite'",Valid,True,1122
+zpl_quat_mul,rte,"Assertion 'rte_172,is_nan_or_infinite'",Valid,True,1125
+zpl_quat_mul,rte,"Assertion 'rte_173,is_nan_or_infinite'",Valid,True,1127
+zpl_quat_mul,rte,"Assertion 'rte_174,is_nan_or_infinite'",Valid,True,1130
+zpl_quat_mul,rte,"Assertion 'rte_175,is_nan_or_infinite'",Valid,True,1134
+zpl_quat_mul,rte,"Assertion 'rte_176,is_nan_or_infinite'",Valid,True,1137
+zpl_quat_mul,rte,"Assertion 'rte_177,mem_access'",Valid,True,1143
+zpl_quat_mul,rte,"Assertion 'rte_178,is_nan_or_infinite'",Valid,True,1144
+zpl_quat_mul,rte,"Assertion 'rte_179,is_nan_or_infinite'",Valid,True,1145
+zpl_quat_mul,rte,"Assertion 'rte_180,is_nan_or_infinite'",Valid,True,1148
+zpl_quat_mul,rte,"Assertion 'rte_181,is_nan_or_infinite'",Valid,True,1150
+zpl_quat_mul,rte,"Assertion 'rte_182,is_nan_or_infinite'",Valid,True,1153
+zpl_quat_mul,rte,"Assertion 'rte_183,is_nan_or_infinite'",Valid,True,1157
+zpl_quat_mul,rte,"Assertion 'rte_184,is_nan_or_infinite'",Valid,True,1160
+zpl_quat_mul,rte,"Assertion 'rte_185,mem_access'",Valid,True,1166
+zpl_quat_mul,rte,"Assertion 'rte_186,is_nan_or_infinite'",Valid,True,1167
+zpl_quat_mul,rte,"Assertion 'rte_187,is_nan_or_infinite'",Valid,True,1168
+zpl_quat_mul,rte,"Assertion 'rte_188,is_nan_or_infinite'",Valid,True,1171
+zpl_quat_mul,rte,"Assertion 'rte_189,is_nan_or_infinite'",Valid,True,1173
+zpl_quat_mul,rte,"Assertion 'rte_190,is_nan_or_infinite'",Valid,True,1176
+zpl_quat_mul,rte,"Assertion 'rte_191,is_nan_or_infinite'",Valid,True,1180
+zpl_quat_mul,rte,"Assertion 'rte_192,is_nan_or_infinite'",Valid,True,1183
+zpl_lerp,rte,"Assertion 'rte_17,is_nan_or_infinite'",Valid,True,1224
+zpl_lerp,rte,"Assertion 'rte_18,is_nan_or_infinite'",Valid,True,1226
+zpl_lerp,rte,"Assertion 'rte_19,is_nan_or_infinite'",Valid,True,1228
+zpl_lerp,rte,"Assertion 'rte_20,is_nan_or_infinite'",Valid,True,1231
+zpl_vec2_lerp,spec,Assigns,Valid,True,1249
+zpl_vec2_lerp,callsite,Instance of 'Pre-condition,Valid,True,391
+zpl_vec2_lerp,callsite,Instance of 'Pre-condition,Valid,True,392
+zpl_vec2_lerp,callsite,Instance of 'Pre-condition,Valid,True,393
+zpl_vec2_lerp,callsite,Instance of 'Pre-condition,Valid,True,394
+zpl_vec2_lerp,callsite,Instance of 'Pre-condition,Valid,True,395
+zpl_vec2_lerp,callsite,Instance of 'Pre-condition,Valid,True,396
+zpl_vec2_lerp,callsite,Instance of 'Pre-condition,Valid,True,397
+zpl_vec2_lerp,callsite,Instance of 'Pre-condition,Valid,True,416
+zpl_vec2_lerp,callsite,Instance of 'Pre-condition,Valid,True,417
+zpl_vec2_lerp,callsite,Instance of 'Pre-condition,Valid,True,418
+zpl_vec2_lerp,callsite,Instance of 'Pre-condition,Valid,True,370
+zpl_vec2_lerp,callsite,Instance of 'Pre-condition,Valid,True,371
+zpl_vec2_lerp,callsite,Instance of 'Pre-condition,Valid,True,372
+zpl_vec3_sub,spec,Assigns,Valid,True,1268
+zpl_vec3_sub,rte,"Assertion 'rte_313,mem_access'",Valid,True,1272
+zpl_vec3_sub,rte,"Assertion 'rte_314,is_nan_or_infinite'",Valid,True,1273
+zpl_vec3_sub,rte,"Assertion 'rte_315,mem_access'",Valid,True,1275
+zpl_vec3_sub,rte,"Assertion 'rte_316,is_nan_or_infinite'",Valid,True,1276
+zpl_vec3_sub,rte,"Assertion 'rte_317,mem_access'",Valid,True,1278
+zpl_vec3_sub,rte,"Assertion 'rte_318,is_nan_or_infinite'",Valid,True,1279
+zpl_vec3_mul,spec,Pre-condition,-,False,1285
+zpl_vec3_mul,spec,Pre-condition,Valid,True,1286
+zpl_vec3_mul,spec,Pre-condition,Valid,True,1287
+zpl_vec3_mul,spec,Assigns,Valid,True,1288
+zpl_vec3_mul,rte,"Assertion 'rte_307,mem_access'",Valid,True,1292
+zpl_vec3_mul,rte,"Assertion 'rte_308,is_nan_or_infinite'",Valid,True,1293
+zpl_vec3_mul,rte,"Assertion 'rte_309,mem_access'",Valid,True,1295
+zpl_vec3_mul,rte,"Assertion 'rte_310,is_nan_or_infinite'",Valid,True,1296
+zpl_vec3_mul,rte,"Assertion 'rte_311,mem_access'",Valid,True,1298
+zpl_vec3_mul,rte,"Assertion 'rte_312,is_nan_or_infinite'",Valid,True,1299
+zpl_vec3_div,spec,Assigns,Valid,True,1308
+zpl_vec3_div,rte,"Assertion 'rte_277,mem_access'",Valid,True,1312
+zpl_vec3_div,rte,"Assertion 'rte_278,is_nan_or_infinite'",Valid,True,1313
+zpl_vec3_div,rte,"Assertion 'rte_279,mem_access'",Valid,True,1315
+zpl_vec3_div,rte,"Assertion 'rte_280,is_nan_or_infinite'",Valid,True,1316
+zpl_vec3_div,rte,"Assertion 'rte_281,mem_access'",Valid,True,1318
+zpl_vec3_div,rte,"Assertion 'rte_282,is_nan_or_infinite'",Valid,True,1319
+zpl_vec4_sub,spec,Assigns,Valid,True,1334
+zpl_vec4_sub,rte,"Assertion 'rte_395,mem_access'",Valid,True,1338
+zpl_vec4_sub,rte,"Assertion 'rte_396,is_nan_or_infinite'",Valid,True,1339
+zpl_vec4_sub,rte,"Assertion 'rte_397,mem_access'",Valid,True,1341
+zpl_vec4_sub,rte,"Assertion 'rte_398,is_nan_or_infinite'",Valid,True,1342
+zpl_vec4_sub,rte,"Assertion 'rte_399,mem_access'",Valid,True,1344
+zpl_vec4_sub,rte,"Assertion 'rte_400,is_nan_or_infinite'",Valid,True,1345
+zpl_vec4_sub,rte,"Assertion 'rte_401,mem_access'",Valid,True,1347
+zpl_vec4_sub,rte,"Assertion 'rte_402,is_nan_or_infinite'",Valid,True,1348
+zpl_vec4_div,spec,Assigns,Valid,True,1357
+zpl_vec4_div,rte,"Assertion 'rte_348,mem_access'",Valid,True,1361
+zpl_vec4_div,rte,"Assertion 'rte_349,is_nan_or_infinite'",Valid,True,1362
+zpl_vec4_div,rte,"Assertion 'rte_350,mem_access'",Valid,True,1364
+zpl_vec4_div,rte,"Assertion 'rte_351,is_nan_or_infinite'",Valid,True,1365
+zpl_vec4_div,rte,"Assertion 'rte_352,mem_access'",Valid,True,1367
+zpl_vec4_div,rte,"Assertion 'rte_353,is_nan_or_infinite'",Valid,True,1368
+zpl_vec4_div,rte,"Assertion 'rte_354,mem_access'",Valid,True,1370
+zpl_vec4_div,rte,"Assertion 'rte_355,is_nan_or_infinite'",Valid,True,1371
+zpl_vec2_addeq,spec,Assigns,Valid,True,1380
+zpl_vec2_addeq,rte,"Assertion 'rte_201,mem_access'",Valid,True,1384
+zpl_vec2_addeq,rte,"Assertion 'rte_202,mem_access'",Valid,True,1385
+zpl_vec2_addeq,rte,"Assertion 'rte_203,is_nan_or_infinite'",Valid,True,1386
+zpl_vec2_addeq,rte,"Assertion 'rte_204,mem_access'",Valid,True,1388
+zpl_vec2_addeq,rte,"Assertion 'rte_205,mem_access'",Valid,True,1389
+zpl_vec2_addeq,rte,"Assertion 'rte_206,is_nan_or_infinite'",Valid,True,1390
+zpl_vec2_subeq,spec,Assigns,Valid,True,1401
+zpl_vec2_subeq,rte,"Assertion 'rte_242,mem_access'",Valid,True,1405
+zpl_vec2_subeq,rte,"Assertion 'rte_243,mem_access'",Valid,True,1406
+zpl_vec2_subeq,rte,"Assertion 'rte_244,is_nan_or_infinite'",Valid,True,1407
+zpl_vec2_subeq,rte,"Assertion 'rte_245,mem_access'",Valid,True,1409
+zpl_vec2_subeq,rte,"Assertion 'rte_246,mem_access'",Valid,True,1410
+zpl_vec2_subeq,rte,"Assertion 'rte_247,is_nan_or_infinite'",Valid,True,1411
+zpl_vec2_muleq,spec,Assigns,Valid,True,1421
+zpl_vec2_muleq,rte,"Assertion 'rte_236,mem_access'",Valid,True,1425
+zpl_vec2_muleq,rte,"Assertion 'rte_237,mem_access'",Valid,True,1426
+zpl_vec2_muleq,rte,"Assertion 'rte_238,is_nan_or_infinite'",Valid,True,1427
+zpl_vec2_muleq,rte,"Assertion 'rte_239,mem_access'",Valid,True,1429
+zpl_vec2_muleq,rte,"Assertion 'rte_240,mem_access'",Valid,True,1430
+zpl_vec2_muleq,rte,"Assertion 'rte_241,is_nan_or_infinite'",Valid,True,1431
+zpl_vec2_diveq,spec,Assigns,Valid,True,1442
+zpl_vec2_diveq,rte,"Assertion 'rte_215,mem_access'",Valid,True,1446
+zpl_vec2_diveq,rte,"Assertion 'rte_216,mem_access'",Valid,True,1447
+zpl_vec2_diveq,rte,"Assertion 'rte_217,is_nan_or_infinite'",Valid,True,1448
+zpl_vec2_diveq,rte,"Assertion 'rte_218,mem_access'",Valid,True,1450
+zpl_vec2_diveq,rte,"Assertion 'rte_219,mem_access'",Valid,True,1451
+zpl_vec2_diveq,rte,"Assertion 'rte_220,is_nan_or_infinite'",Valid,True,1452
+zpl_vec3_addeq,spec,Assigns,Valid,True,1468
+zpl_vec3_addeq,rte,"Assertion 'rte_256,mem_access'",Valid,True,1472
+zpl_vec3_addeq,rte,"Assertion 'rte_257,mem_access'",Valid,True,1473
+zpl_vec3_addeq,rte,"Assertion 'rte_258,is_nan_or_infinite'",Valid,True,1474
+zpl_vec3_addeq,rte,"Assertion 'rte_259,mem_access'",Valid,True,1476
+zpl_vec3_addeq,rte,"Assertion 'rte_260,mem_access'",Valid,True,1477
+zpl_vec3_addeq,rte,"Assertion 'rte_261,is_nan_or_infinite'",Valid,True,1478
+zpl_vec3_addeq,rte,"Assertion 'rte_262,mem_access'",Valid,True,1480
+zpl_vec3_addeq,rte,"Assertion 'rte_263,mem_access'",Valid,True,1481
+zpl_vec3_addeq,rte,"Assertion 'rte_264,is_nan_or_infinite'",Valid,True,1482
+zpl_vec3_subeq,spec,Assigns,Valid,True,1492
+zpl_vec3_subeq,rte,"Assertion 'rte_319,mem_access'",Valid,True,1496
+zpl_vec3_subeq,rte,"Assertion 'rte_320,mem_access'",Valid,True,1497
+zpl_vec3_subeq,rte,"Assertion 'rte_321,is_nan_or_infinite'",Valid,True,1498
+zpl_vec3_subeq,rte,"Assertion 'rte_322,mem_access'",Valid,True,1500
+zpl_vec3_subeq,rte,"Assertion 'rte_323,mem_access'",Valid,True,1501
+zpl_vec3_subeq,rte,"Assertion 'rte_324,is_nan_or_infinite'",Valid,True,1502
+zpl_vec3_subeq,rte,"Assertion 'rte_325,mem_access'",Valid,True,1504
+zpl_vec3_subeq,rte,"Assertion 'rte_326,mem_access'",Valid,True,1505
+zpl_vec3_subeq,rte,"Assertion 'rte_327,is_nan_or_infinite'",Valid,True,1506
+zpl_vec3_muleq,spec,Assigns,Valid,True,1515
+zpl_vec3_muleq,rte,"Assertion 'rte_297,mem_access'",Valid,True,1519
+zpl_vec3_muleq,rte,"Assertion 'rte_298,mem_access'",Valid,True,1520
+zpl_vec3_muleq,rte,"Assertion 'rte_299,is_nan_or_infinite'",Valid,True,1521
+zpl_vec3_muleq,rte,"Assertion 'rte_300,mem_access'",Valid,True,1523
+zpl_vec3_muleq,rte,"Assertion 'rte_301,mem_access'",Valid,True,1524
+zpl_vec3_muleq,rte,"Assertion 'rte_302,is_nan_or_infinite'",Valid,True,1525
+zpl_vec3_muleq,rte,"Assertion 'rte_303,mem_access'",Valid,True,1527
+zpl_vec3_muleq,rte,"Assertion 'rte_304,mem_access'",Valid,True,1528
+zpl_vec3_muleq,rte,"Assertion 'rte_305,is_nan_or_infinite'",Valid,True,1529
+zpl_vec3_diveq,spec,Assigns,Valid,True,1539
+zpl_vec3_diveq,rte,"Assertion 'rte_283,mem_access'",Valid,True,1543
+zpl_vec3_diveq,rte,"Assertion 'rte_284,mem_access'",Valid,True,1544
+zpl_vec3_diveq,rte,"Assertion 'rte_285,is_nan_or_infinite'",Valid,True,1545
+zpl_vec3_diveq,rte,"Assertion 'rte_286,mem_access'",Valid,True,1547
+zpl_vec3_diveq,rte,"Assertion 'rte_287,mem_access'",Valid,True,1548
+zpl_vec3_diveq,rte,"Assertion 'rte_288,is_nan_or_infinite'",Valid,True,1549
+zpl_vec3_diveq,rte,"Assertion 'rte_289,mem_access'",Valid,True,1551
+zpl_vec3_diveq,rte,"Assertion 'rte_290,mem_access'",Valid,True,1552
+zpl_vec3_diveq,rte,"Assertion 'rte_291,is_nan_or_infinite'",Valid,True,1553
+zpl_vec4_addeq,spec,Assigns,Valid,True,1562
+zpl_vec4_addeq,rte,"Assertion 'rte_336,mem_access'",Valid,True,1566
+zpl_vec4_addeq,rte,"Assertion 'rte_337,mem_access'",Valid,True,1567
+zpl_vec4_addeq,rte,"Assertion 'rte_338,is_nan_or_infinite'",Valid,True,1568
+zpl_vec4_addeq,rte,"Assertion 'rte_339,mem_access'",Valid,True,1570
+zpl_vec4_addeq,rte,"Assertion 'rte_340,mem_access'",Valid,True,1571
+zpl_vec4_addeq,rte,"Assertion 'rte_341,is_nan_or_infinite'",Valid,True,1572
+zpl_vec4_addeq,rte,"Assertion 'rte_342,mem_access'",Valid,True,1574
+zpl_vec4_addeq,rte,"Assertion 'rte_343,mem_access'",Valid,True,1575
+zpl_vec4_addeq,rte,"Assertion 'rte_344,is_nan_or_infinite'",Valid,True,1576
+zpl_vec4_addeq,rte,"Assertion 'rte_345,mem_access'",Valid,True,1578
+zpl_vec4_addeq,rte,"Assertion 'rte_346,mem_access'",Valid,True,1579
+zpl_vec4_addeq,rte,"Assertion 'rte_347,is_nan_or_infinite'",Valid,True,1580
+zpl_vec4_subeq,spec,Assigns,Valid,True,1590
+zpl_vec4_subeq,rte,"Assertion 'rte_403,mem_access'",Valid,True,1594
+zpl_vec4_subeq,rte,"Assertion 'rte_404,mem_access'",Valid,True,1595
+zpl_vec4_subeq,rte,"Assertion 'rte_405,is_nan_or_infinite'",Valid,True,1596
+zpl_vec4_subeq,rte,"Assertion 'rte_406,mem_access'",Valid,True,1598
+zpl_vec4_subeq,rte,"Assertion 'rte_407,mem_access'",Valid,True,1599
+zpl_vec4_subeq,rte,"Assertion 'rte_408,is_nan_or_infinite'",Valid,True,1600
+zpl_vec4_subeq,rte,"Assertion 'rte_409,mem_access'",Valid,True,1602
+zpl_vec4_subeq,rte,"Assertion 'rte_410,mem_access'",Valid,True,1603
+zpl_vec4_subeq,rte,"Assertion 'rte_411,is_nan_or_infinite'",Valid,True,1604
+zpl_vec4_subeq,rte,"Assertion 'rte_412,mem_access'",Valid,True,1606
+zpl_vec4_subeq,rte,"Assertion 'rte_413,mem_access'",Valid,True,1607
+zpl_vec4_subeq,rte,"Assertion 'rte_414,is_nan_or_infinite'",Valid,True,1608
+zpl_vec4_muleq,rte,"Assertion 'rte_375,mem_access'",Valid,True,1627
+zpl_vec4_muleq,rte,"Assertion 'rte_376,mem_access'",Valid,True,1628
+zpl_vec4_muleq,rte,"Assertion 'rte_377,is_nan_or_infinite'",Valid,True,1629
+zpl_vec4_muleq,rte,"Assertion 'rte_378,mem_access'",Valid,True,1631
+zpl_vec4_muleq,rte,"Assertion 'rte_379,mem_access'",Valid,True,1632
+zpl_vec4_muleq,rte,"Assertion 'rte_380,is_nan_or_infinite'",Valid,True,1633
+zpl_vec4_muleq,rte,"Assertion 'rte_381,mem_access'",Valid,True,1635
+zpl_vec4_muleq,rte,"Assertion 'rte_382,mem_access'",Valid,True,1636
+zpl_vec4_muleq,rte,"Assertion 'rte_383,is_nan_or_infinite'",Valid,True,1637
+zpl_vec4_muleq,rte,"Assertion 'rte_384,mem_access'",Valid,True,1639
+zpl_vec4_muleq,rte,"Assertion 'rte_385,mem_access'",Valid,True,1640
+zpl_vec4_muleq,rte,"Assertion 'rte_386,is_nan_or_infinite'",Valid,True,1641
+zpl_vec4_diveq,spec,Assigns,Valid,True,1650
+zpl_vec4_diveq,rte,"Assertion 'rte_356,mem_access'",Valid,True,1654
+zpl_vec4_diveq,rte,"Assertion 'rte_357,mem_access'",Valid,True,1655
+zpl_vec4_diveq,rte,"Assertion 'rte_358,is_nan_or_infinite'",Valid,True,1656
+zpl_vec4_diveq,rte,"Assertion 'rte_359,mem_access'",Valid,True,1658
+zpl_vec4_diveq,rte,"Assertion 'rte_360,mem_access'",Valid,True,1659
+zpl_vec4_diveq,rte,"Assertion 'rte_361,is_nan_or_infinite'",Valid,True,1660
+zpl_vec4_diveq,rte,"Assertion 'rte_362,mem_access'",Valid,True,1662
+zpl_vec4_diveq,rte,"Assertion 'rte_363,mem_access'",Valid,True,1663
+zpl_vec4_diveq,rte,"Assertion 'rte_364,is_nan_or_infinite'",Valid,True,1664
+zpl_vec4_diveq,rte,"Assertion 'rte_365,mem_access'",Valid,True,1666
+zpl_vec4_diveq,rte,"Assertion 'rte_366,mem_access'",Valid,True,1667
+zpl_vec4_diveq,rte,"Assertion 'rte_367,is_nan_or_infinite'",Valid,True,1668
+zpl_vec3_norm,callsite,Instance of 'Pre-condition,-,False,1285
+zpl_vec3_norm,callsite,Instance of 'Pre-condition,Valid,True,1286
+zpl_vec3_norm,callsite,Instance of 'Pre-condition,Valid,True,1287
+zpl_vec4_norm,spec,Assigns,Valid,True,1695
+zpl_vec4_norm,callsite,Instance of 'Pre-condition,Valid,True,540
+zpl_vec4_norm,callsite,Instance of 'Pre-condition,Valid,True,541
+zpl_vec4_norm,callsite,Instance of 'Pre-condition,Valid,True,542
+zpl_vec2_cross,spec,Assigns,Valid,True,1712
+zpl_vec2_cross,rte,"Assertion 'rte_207,mem_access'",Valid,True,1716
+zpl_vec2_cross,rte,"Assertion 'rte_208,is_nan_or_infinite'",Valid,True,1717
+zpl_vec2_cross,rte,"Assertion 'rte_209,is_nan_or_infinite'",Valid,True,1718
+zpl_vec2_cross,rte,"Assertion 'rte_210,is_nan_or_infinite'",Valid,True,1721
+zpl_mat2_transpose,spec,Assigns,Valid,True,1729
+zpl_mat2_transpose,rte,"Assertion 'rte_54,mem_access'",Valid,True,1733
+zpl_mat2_transpose,rte,"Assertion 'rte_55,mem_access'",Valid,True,1735
+zpl_mat2_transpose,rte,"Assertion 'rte_56,mem_access'",Valid,True,1736
+zpl_mat2_transpose,rte,"Assertion 'rte_57,mem_access'",Valid,True,1738
+zpl_mat4_transpose,callsite,Instance of 'Pre-condition,Valid,True,746
+zpl_mat4_transpose,callsite,Instance of 'Pre-condition,Valid,True,747
+zpl_mat2_copy,spec,Assigns,Valid,True,1757
+zpl_mat2_copy,rte,"Assertion 'rte_21,mem_access'",Valid,True,1761
+zpl_mat2_copy,rte,"Assertion 'rte_22,mem_access'",Valid,True,1762
+zpl_mat4_copy,spec,Assigns,Valid,True,1770
+zpl_mat4_copy,rte,"Assertion 'rte_58,mem_access'",Valid,True,1774
+zpl_mat4_copy,rte,"Assertion 'rte_59,mem_access'",Valid,True,1775
+zpl_mat4_mul_vec4,spec,Assigns,Valid,True,1791
+zpl_mat4_mul_vec4,callsite,Instance of 'Pre-condition,Valid,True,800
+zpl_mat4_mul_vec4,callsite,Instance of 'Pre-condition,Valid,True,801
+zpl_mat4_mul_vec4,callsite,Instance of 'Pre-condition,Valid,True,802
+zpl_mat4_mul_vec4,callsite,Instance of 'Pre-condition,Valid,True,803
+zpl_mat4_mul_vec4,callsite,Instance of 'Pre-condition,Valid,True,804
+zpl_mat4_mul_vec4,callsite,Instance of 'Pre-condition,Valid,True,805
+zpl_mat4_mul_vec4,callsite,Instance of 'Pre-condition,Valid,True,806
+zpl_mat4_mul_vec4,callsite,Instance of 'Pre-condition,Valid,True,807
+zpl_mat4_mul_vec4,callsite,Instance of 'Pre-condition,Valid,True,808
